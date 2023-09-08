@@ -73,7 +73,7 @@
           </category>
         </taxonomy>
         <!-- Bedeutung des @type Attributs in oRef -->
-        <taxonomy xml:id="oREf.type">
+        <taxonomy xml:id="oREF.type">
           <category xml:id="oRef.lem">
             <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
           </category>
