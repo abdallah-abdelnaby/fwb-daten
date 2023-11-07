@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          abbau
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="1989-07-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>0e972741-77c3-49bd-92a9-e0633281c5a5</idno>
+          <biblScope unit="volume">01</biblScope>
+          <biblScope unit="column">10</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Verweisziel im Orientierungsfeld</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Verweisziel ist synonym</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Verweisziel ist antonym</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oVar -->
+        <taxonomy xml:id="oVar.type">
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>bls</label>
+              <item>Belegstellenangaben</item>
+              <label>cit</label>
+              <item>Quellenzitate</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>phrase</label>
+              <item>Phraseme</item>
+              <label>ra</label>
+              <item>Redensarten</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>sv</label>
+              <item>sub-voce-Angaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweise</item>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+              <label>ipLiPkt</label>
+              <item>Punkt einer Informationsprogrammliste</item>
+              <label>BBlock</label>
+              <item>Abgrenzung eines Belegstellenblocks</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur: ok</change>
+      <change status="cnv" when-iso="2023-08-23">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="abbau.s.0m" sortKey="abbau.abbau.s.0m">
+        <form type="lemma">
+          <orth>abbau,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart"><hi rendition="it">der</hi></gram> (daneben noch undurchsichtig gewordenes <hi rendition="it">abau &lt; â-bû</hi>); <gram xml:space="preserve" type="flex"><hi rendition="it"><oRef/>(e)s/<oRef/>e.</hi></gram></dictScrap>
+        
+        <!-- Bedeutung  -->
+        <sense>
+          <!-- Definition -->
+          <def>›Verwahrlosung (von Wirtschaftsgütern), Mißwirtschaft und dadurch verursachte Ertragsminderung‹; </def>
+          <dictScrap rend="wbv">zu <ref type="mat" target="abbauen.s.3v">abbauen</ref> <ref type="mat" target="abbauen.s.3v#abbauen.s.3v_s1">1</ref>.</dictScrap>
+          <dictScrap rend="bdv"><hi rendition="hoch">1</hi><ref type="mat" target="mangel.h1.0m">mangel</ref> <ref type="mat" target="mangel.h1.0m#mangel.h1.0m_s4">4</ref>.</dictScrap>
+          <dictScrap rend="ggs"><ref type="mat" rend="ggs" target="bau.s.0m">bau</ref> <ref type="mat" rend="ggs" target="bau.s.0m#bau.s.0m_s3">3</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. beschauen / rügen; in a. liegen, zu a. kommen, a.</hi> (Subj.) <hi rendition="it">anstehen.</hi></dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="277" cert="high">Aubin</name>, Weist. Köln/Brühl <citedRange n="277" facs="41,40" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=rhw+ii+2&amp;seite=g041">41, 40</citedRange> (<region key="rib.">rib.</region>, <date from="1400" to="1499" confidence="0.01">15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">sal men [...] ouch wroigen alle <oVar type="oVar.lem" n="78" rend="jedit" norm="abbau">abouwe</oVar> des hoefs. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="300" cert="high">Winter</name>, Nöst. Weist. <citedRange n="300" facs="1,742,17" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=oew+vii&amp;seite=g0742">1, 742, 17</citedRange> (<region key="moobd.">moobd.</region>, <date from="1440" to="1460" confidence="0.0476">M. 15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">so mag man wol erkennen was <oVar type="oVar.lem" n="90" rend="jedit" norm="abbau">abpaw</oVar> denselbign [paw] anstet.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="300" cert="high">Ebd.</name> <citedRange n="300" facs="1,247,4" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=oew+vii&amp;seite=g0247">1, 247, 4</citedRange><region key="moobd."/><date from="1350" to="1650" confidence="0.0033"/>; <citedRange n="300" change="facs_expanded" facs="1,894,3" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=oew+vii&amp;seite=g0894">894, 3</citedRange><region key="moobd."/><date from="1350" to="1650" confidence="0.0033"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="751" cert="high">Uhlirz</name>, Qu. Wien <citedRange n="751" facs="2,3,244a,31" rend="export" target="https://archive.org/details/bub_gb_wYNJAAAAYAAJ/page/n9/mode/2up">2, 3, 244a, 31</citedRange><region key="moobd."/><date from="1458" to="1493" confidence="0.0278"/>; <citedRange n="751" change="facs_expanded" facs="2,3,365a,45" rend="export" target="https://archive.org/details/bub_gb_wYNJAAAAYAAJ/page/n9/mode/2up">365a</citedRange>, 45<region key="moobd."/><date from="1458" to="1493" confidence="0.0278"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d50" cert="high">Rwb</name> <citedRange n="d50" facs="1,7" rend="export" target="http://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=lemmata&amp;bd1_7=F">1, 7</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d235" cert="high">Wrede</name>, Aköln. Sprachsch. <citedRange n="d235" facs="5a">5a</citedRange><region key="rib."/><date from="1320" to="1680" confidence="0.0028"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d98" cert="high">Trübner</name>, Dt. Wb. <citedRange n="d98" facs="1,5">1, 5</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+abbau, der (daneben noch undurchsichtig gewordenes abau &lt; â-bû); -(e)s/-e. ›Verwahrlosung (von Wirtschaftsgütern), Mißwirtschaft und dadurch verursachte Ertragsminderung‹; zu abbauen 1. – Bdv.: 1mangel 4. Ggs.: bau 3. – Synt.: a. beschauen / rügen; in a. liegen, zu a. kommen, a. (Subj.) anstehen. Aubin, Weist. Köln/Brühl 41, 40 (rib., 15. Jh.): sal men [...] ouch wroigen alle abouwe des hoefs. Winter, Nöst. Weist. 1, 742, 17 (moobd., M. 15. Jh.): so mag man wol erkennen was abpaw denselbign [paw] anstet. – Ebd. 1, 247, 4; 894, 3; Uhlirz, Qu. Wien 2, 3, 244a, 31; 365a, 45; Rwb 1, 7; Wrede, Aköln. Sprachsch. 5a; Trübner, Dt. Wb. 1, 5.
+-->
+  <!--Texttest: Konvertiert
+abbau, der (daneben noch undurchsichtig gewordenes abau &lt; â-bû); -(e)s/-e. ›Verwahrlosung (von Wirtschaftsgütern), Mißwirtschaft und dadurch verursachte Ertragsminderung‹; zu abbauen 1. – Bdv.: 1mangel 4. – Ggs.: bau 3. – Synt.: a. beschauen / rügen; in a. liegen, zu a. kommen, a. (Subj.) anstehen. Aubin, Weist. Köln/Brühl 41, 40 (rib., 15. Jh.) sal men [...] ouch wroigen alle abouwe des hoefs. Winter, Nöst. Weist. 1, 742, 17 (moobd., M. 15. Jh.) so mag man wol erkennen was abpaw denselbign [paw] anstet. – Ebd. 1, 247, 4; 894, 3; Uhlirz, Qu. Wien 2, 3, 244a, 31; 365a, 45; Rwb 1, 7; Wrede, Aköln. Sprachsch. 5a; Trübner, Dt. Wb. 1, 5.
+-->
+  <!--Interpunktionsloser Text:
+abbauder(danebennochundurchsichtiggewordenesabau&ltâbû)(e)s/e›Verwahrlosung(vonWirtschaftsgütern)MißwirtschaftunddadurchverursachteErtragsminderung‹zuabbauen1Bdv1mangel4Ggsbau3Syntabeschauen/rügeninaliegenzuakommena(Subj)anstehenAubinWeistKöln/Brühl4140(rib15Jh)salmen[]ouchwroigenalleabouwedeshoefsWinterNöstWeist174217(moobdM15Jh)somagmanwolerkennenwasabpawdenselbign[paw]anstetEbd124748943UhlirzQuWien23244a31365a45Rwb17WredeAkölnSprachsch5aTrübnerDtWb15
+abbauder(danebennochundurchsichtiggewordenesabau&ltâbû)(e)s/e›Verwahrlosung(vonWirtschaftsgütern)MißwirtschaftunddadurchverursachteErtragsminderung‹zuabbauen1Bdv1mangel4Ggsbau3Syntabeschauen/rügeninaliegenzuakommena(Subj)anstehenAubinWeistKöln/Brühl4140(rib15Jh)salmen[]ouchwroigenalleabouwedeshoefsWinterNöstWeist174217(moobdM15Jh)somagmanwolerkennenwasabpawdenselbign[paw]anstetEbd124748943UhlirzQuWien23244a31365a45Rwb17WredeAkölnSprachsch5aTrübnerDtWb15
+-->
+  <!--Original:
+<p2 uuid="0e972741-77c3-49bd-92a9-e0633281c5a5"><b>abbau,</b> <i>der</i> (daneben noch undurchsichtig gewordenes <i>abau &lt; â-bû</i>); <i>-(e)s/-e.</i></p2>
+<p2 uuid="d03c75c2-d40d-4633-b347-6a40d456e344">›Verwahrlosung (von Wirtschaftsgütern), Mißwirtschaft und dadurch verursachte Ertragsminderung‹; zu <i>abbauen</i> 1. – Bdv.: <sup>1</sup><i>mangel</i> 4. Ggs.: <i>bau</i> 3. – Synt.: <i>a. beschauen / rügen; in a. liegen, zu a. kommen, a.</i> (Subj.) <i>anstehen.</i></p2>
+<p><sc>Aubin</sc>, Weist. Köln/Brühl 41, 40 (rib., 15. Jh.): <i>sal men [...] ouch wroigen alle <ol>abouwe</ol> des hoefs.</i> <sc>Winter</sc>, Nöst. Weist. 1, 742, 17 (moobd., M. 15. Jh.): <i>so mag man wol erkennen was <ol>abpaw</ol> denselbign [paw] anstet.</i> – <sc>Ebd</sc>. 1, 247, 4; 894, 3; <sc>Uhlirz</sc>, Qu. Wien 2, 3, 244a, 31; 365a, 45; <sc>Rwb</sc> 1, 7; <sc>Wrede</sc>, Aköln. Sprachsch. 5a; <sc>Trübner</sc>, Dt. Wb. 1, 5.</p>
+
+-->
+
+</TEI>
