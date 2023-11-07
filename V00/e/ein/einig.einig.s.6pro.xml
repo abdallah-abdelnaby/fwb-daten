@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <teiHeader>
     <fileDesc>
@@ -146,7 +145,7 @@
     </encodingDesc>
     <revisionDesc>
       <change status="cnvResult">Text blieb erhalten; XML-Struktur: ok</change>
-      <change status="cnv" when-iso="2023-08-24">converted from print</change>
+      <change status="cnv" when-iso="2023-08-23">converted from print</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -162,8 +161,8 @@
         <sense>
           <!-- Definition -->
           <def>›irgendein, -eine, -einer; ein, eine [...] von beliebiger, unbestimmter Art‹; ›ein, eine [...] von typischer, kategorialer Art; jemand‹; meist als Begleitpronomen, selten eigenständig; dient der Bezugnahme auf Größen, deren individuelle Merkmale nicht näher bestimmt sind, im Sinne exemplarischer Generalisierung der Bezugnahme auf Größen, die als Repräsentanten für eine Gruppe, Klasse fokussiert werden; häufig im Kontext negativer oder konditionaler Ausdrücke; </def>
-          <dictScrap rend="wbv">vgl. <ref type="mat" target="ein.s.4adj">ein</ref> (Zahladj.) <ref type="mat" target="ein.s.4adj#ein.s.4adj_s1">1</ref>.</dictScrap>
-          <dictScrap rend="bdv">vgl. <ref type="mat" target="ein.s.4adj">ein</ref> (Zahladj.) <ref type="mat" target="ein.s.4adj#ein.s.4adj_s1">1</ref>, <ref type="mat" target="einigerlei.s.6pro">einigerlei</ref>.</dictScrap>
+          <dictScrap rend="wbv">vgl. <ref type="mat" target="ein.s.4adj">ein</ref> (Zahladj.) <ref type="mat" target="ein.s.4adj#ein.s.4adj_s1">1</ref>.</dictScrap>
+          <dictScrap rend="bdv">vgl. <ref type="mat" target="ein.s.4adj">ein</ref> (Zahladj.) <ref type="mat" target="ein.s.4adj#ein.s.4adj_s1">1</ref>, <ref type="mat" target="einigerlei.s.6pro">einigerlei</ref>.</dictScrap>
           
           <!-- Quellen -->
           <dictScrap rend="cit">
@@ -300,7 +299,7 @@
           </dictScrap>
           
           <!-- sub voce -->
-          <dictScrap rend="sv">Vgl. ferner s. v. <ref type="mat" target="anderheit.s.1f">anderheit</ref> <ref type="mat" target="anderheit.s.1f#anderheit.s.1f_s1">1</ref>, <ref type="mat" target="anregung.s.1f">anregung</ref> <ref type="mat" target="anregung.s.1f#anregung.s.1f_s2">2</ref>, <ref type="mat" target="ausgiessen.s.3vu">ausgiessen</ref> <ref type="mat" target="ausgiessen.s.3vu#ausgiessen.s.3vu_s1">1</ref>, <ref type="mat" target="aushören.s.3v">aushören</ref>, <ref type="mat" target="bedeuten.s.3v">bedeuten</ref> <ref type="mat" target="bedeuten.s.3v#bedeuten.s.3v_s14">14</ref>.</dictScrap>
+          <dictScrap rend="sv">Vgl. ferner s. v. <ref type="mat" target="anderheit.s.1f">anderheit</ref> <ref type="mat" target="anderheit.s.1f#anderheit.s.1f_s1">1</ref>, <ref type="mat" target="anregung.s.1f">anregung</ref> <ref type="mat" target="anregung.s.1f#anregung.s.1f_s2">2</ref>, <ref type="mat" target="ausgiessen.s.3vu">ausgiessen</ref> <ref type="mat" target="ausgiessen.s.3vu#ausgiessen.s.3vu_s1">1</ref>, <ref type="mat" target="aushören.s.3v">aushören</ref>, <ref type="mat" target="bedeuten.s.3v">bedeuten</ref> <ref type="mat" target="bedeuten.s.3v#bedeuten.s.3v_s14">14</ref>.</dictScrap>
         </sense>
       </entry>
     </body>
@@ -328,4 +327,3 @@ einigIndefinitpron›irgendeineineeinereineine[]vonbeliebigerunbestimmterArt‹�
 -->
 
 </TEI>
-
