@@ -61,18 +61,21 @@
           <category xml:id="re.wbg">
             <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
           </category>
-          <category xml:id="re.ofe">
-            <catDesc>verbundener Eintrag: Verweisziel im Orientierungsfeld</catDesc>
-          </category>
           <category xml:id="re.bdv">
             <catDesc>verbundener Eintrag: Verweisziel ist synonym</catDesc>
           </category>
           <category xml:id="re.ggs">
             <catDesc>verbundener Eintrag: Verweisziel ist antonym</catDesc>
           </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Verweisziel im Orientierungsfeld</catDesc>
+          </category>
         </taxonomy>
-        <!-- Bedeutung des @type Attributs in oVar -->
-        <taxonomy xml:id="oVar.type">
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
           <category xml:id="oVar.lem">
             <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
           </category>
@@ -145,7 +148,7 @@
     </encodingDesc>
     <revisionDesc>
       <change status="cnvResult">Text blieb erhalten; XML-Struktur: ok</change>
-      <change status="cnv" when-iso="2023-08-23">converted from print</change>
+      <change status="cnv" when-iso="2023-11-08">converted from print</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -155,7 +158,7 @@
           <orth>abbau,</orth>
         </form>
         
-        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart"><hi rendition="it">der</hi></gram> (daneben noch undurchsichtig gewordenes <hi rendition="it">abau &lt; â-bû</hi>); <gram xml:space="preserve" type="flex"><hi rendition="it"><oRef/>(e)s/<oRef/>e.</hi></gram></dictScrap>
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart"><hi rendition="it">der</hi></gram> (daneben noch undurchsichtig gewordenes <hi rendition="it">abau &lt; â-bû</hi>); <gram xml:space="preserve" type="flex"><hi rendition="it"><oRef type="oRef.lem">-</oRef>(e)s/<oRef type="oRef.lem">-</oRef>e.</hi></gram></dictScrap>
         
         <!-- Bedeutung  -->
         <sense>
@@ -170,12 +173,12 @@
           <dictScrap rend="cit">
             <cit>
               <bibl xml:space="preserve"><name n="277" cert="high">Aubin</name>, Weist. Köln/Brühl <citedRange n="277" facs="41,40" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=rhw+ii+2&amp;seite=g041">41, 40</citedRange> (<region key="rib.">rib.</region>, <date from="1400" to="1499" confidence="0.01">15. Jh.</date>)</bibl>
-              <quote xml:space="preserve">sal men [...] ouch wroigen alle <oVar type="oVar.lem" n="78" rend="jedit" norm="abbau">abouwe</oVar> des hoefs. </quote>
+              <quote xml:space="preserve">sal men [...] ouch wroigen alle <oRef type="oVar.lem" n="78" rend="jedit" norm="abbau">abouwe</oRef> des hoefs. </quote>
             </cit>
             
             <cit>
               <bibl xml:space="preserve"><name n="300" cert="high">Winter</name>, Nöst. Weist. <citedRange n="300" facs="1,742,17" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=oew+vii&amp;seite=g0742">1, 742, 17</citedRange> (<region key="moobd.">moobd.</region>, <date from="1440" to="1460" confidence="0.0476">M. 15. Jh.</date>)</bibl>
-              <quote xml:space="preserve">so mag man wol erkennen was <oVar type="oVar.lem" n="90" rend="jedit" norm="abbau">abpaw</oVar> denselbign [paw] anstet.</quote>
+              <quote xml:space="preserve">so mag man wol erkennen was <oRef type="oVar.lem" n="90" rend="jedit" norm="abbau">abpaw</oRef> denselbign [paw] anstet.</quote>
             </cit>
             
           </dictScrap>
