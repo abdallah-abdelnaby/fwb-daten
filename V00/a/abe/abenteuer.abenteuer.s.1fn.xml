@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          abenteuer
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="1989-07-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>e9c9c722-e535-4d40-b608-8910e3e0491b</idno>
+          <biblScope unit="volume">01</biblScope>
+          <biblScope unit="column">61</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Verweisziel ist synonym</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Verweisziel ist antonym</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Verweisziel im Orientierungsfeld</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>bls</label>
+              <item>Belegstellenangaben</item>
+              <label>cit</label>
+              <item>Quellenzitate</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>phrase</label>
+              <item>Phraseme</item>
+              <label>ra</label>
+              <item>Redensarten</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>sv</label>
+              <item>sub-voce-Angaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweise</item>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+              <label>ipLiPkt</label>
+              <item>Punkt einer Informationsprogrammliste</item>
+              <label>BBlock</label>
+              <item>Abgrenzung eines Belegstellenblocks</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur: ok</change>
+      <change status="cnv" when-iso="2024-02-07">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="abenteuer.s.1fn" sortKey="abenteuer.abenteuer.s.1fn">
+        <form type="lemma">
+          <orth>abenteuer,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart"><hi rendition="it">die</hi>, seltener <hi rendition="it">das</hi>;</gram> <gram xml:space="preserve" type="flex"><hi rendition="it"><oRef type="oRef.lem">-</oRef>Ø</hi>, seltener: <hi rendition="it"><oRef type="oRef.lem">-</oRef>s/<oRef type="oRef.lem">-</oRef>Ø</hi>;</gram> md. auch 
+
+<!-- Nebenlemma -->
+<re type="re.neblem" subtype="mat" copyOf="ebenteuer.s.9ref">ebenteuer, </re>im älteren Frnhd. mit Spirans: 
+
+<!-- Nebenlemma -->
+<re type="re.neblem" subtype="mat" copyOf="aventüre.s.9ref">aventüre</re>; <etym xml:space="preserve">zum Wandel von <hi rendition="it">v &gt; b</hi> sowie zur Etymologie, insbesondere zu dem Unterschied zwischen Formen mit anlautendem <hi rendition="it">a, o, au</hi> und solchen mit anlautendem <hi rendition="it">e</hi> vgl. <bibl xml:space="preserve"><name n="d56" cert="high">Dwb</name>, Neub. <citedRange n="d56" facs="1,150">1, 150</citedRange></bibl>; </etym>dort auch umfängliches weiteres Belegmaterial mit anderer semantischer Klassifizierung. <usg rend="stw">– Zur vertiefenden Lektüre: <bibl xml:space="preserve"><name n="e266" cert="high">J. Grimm</name>, Kl. Schriften <citedRange n="e266" facs="1">1</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>, <hi rendition="hoch">2</hi>1879, 83-112; <bibl xml:space="preserve"><name n="d157" cert="high">Reallex. dt. Literaturgesch.</name>, <citedRange n="d157" facs="2">2</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>. Aufl. 1, 102; <bibl xml:space="preserve"><name n="b295" cert="high">Rosenqvist</name>, Frz. Einfluß. <citedRange n="b295" facs="1932,76">1932, 76-77</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="e138" cert="high">Frings/Linke</name> in: Neuphil. Mitteilungen <citedRange n="e138" facs="53,1952,29">53, 1952, 29-30</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="e70" cert="high">Miettinen</name>, Annales Acad. Scient. Fenn., Ser. B, <citedRange n="e70" facs="126,1962,20">126, 1962, 20-63</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="e242" cert="high">Müller</name> in</bibl>: <bibl xml:space="preserve"><name n="e109" cert="high">Kaiser</name>, Gesellschaftliche Sinnangebote in mittelalterlicher Literatur. <citedRange n="e109" facs="1980,11">1980, 11-59</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="e139" cert="high">Anderson/Goebel/Reichmann</name> in: Germanistische Linguistik <citedRange n="e139" facs="3">3-4, 1979, 11-53</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="d50" cert="high">Rwb</name> <citedRange n="d50" facs="1,40" rend="export" target="http://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=lemmata&amp;bd1_39=F">1, 40-43</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="d39" cert="high">Schweiz. Id.</name> <citedRange n="d39" facs="1,103" rend="export" target="https://digital.idiotikon.ch/idtkn/id1.htm#!page/10103/mode/1up">1, 103-104</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="d52" cert="high">Schmeller/F.</name> <citedRange n="d52" facs="1,11">1, 11-12</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="d22" cert="high">Öst. Wb.</name> <citedRange n="d22" facs="1,43">1, 43-44</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>; <bibl xml:space="preserve"><name n="d24" cert="high">Schwäb. Wb.</name> <citedRange n="d24" facs="1,14" rend="export" target="https://archive.org/details/schwbischeswrte00kellgoog/page/n35">1, 14-15</citedRange><region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/></bibl>.</usg></dictScrap>
+        
+        <!-- Bedeutung 1.  -->
+        <sense xml:id="abenteuer.s.1fn_s1" rend="1">
+          <!-- Definition -->
+          <def>›zum Beweis ritterlicher Tüchtigkeit, oft zugleich zur Heilung von Rechtsbrüchen unternommene ritterliche Bewährungsprobe, risikoreiches Unternehmen‹; auch ›Turnier‹; offen zu <ref type="mat" target="abenteuer.s.1fn_s2">2</ref>, mit der Nuance ›Turnier‹ offen zu <ref type="mat" target="abenteuer.s.1fn_s16">16</ref>.</def>
+          <dictScrap rend="stw">Vorw. obd., gehäuft wobd.; 14./15. Jh.; fiktionale, archaisierende und historisierende Texte.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="buhurt.s.0m">buhurt</ref>, <ref type="nex" target="freise.s.*">freise</ref>, <ref type="mat" target="kampf.s.0m">kampf</ref>, <ref type="mat" target="streit.rI.0m">streit</ref> I, <ref type="mat" target="streit.rI.0m#streit.rI.0m_s4">4</ref>, <ref type="mat" target="turnei.s.0m">turnei</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. suchen</hi> (oft) / <hi rendition="it">erledigen / erstreiten / erfechten / begehen / bekommen; a. gefallen jm.; nach a. reiten / kommen, auf / durch a. ausreiten, etw. wagen auf a., jn. auf a. bringen / aussenden, jn. auf a. bestehen; kampfes a.; auf a. wan; frau a.</hi></dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="460" cert="high">Henschel</name> u. a., Heidin <citedRange n="460" facs="171">171</citedRange> (<region key="nobd.">nobd.</region>, <date from="1295" to="1305" confidence="0.0909">um 1300</date>)</bibl>
+              <quote xml:space="preserve">Er sprach ich wil minen lip<lb/>Wagen vf <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="78">aventevre</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="16" cert="low">Adrian</name>, Saelden Hort <citedRange n="16" facs="6373">6373</citedRange> (<region key="alem.">alem.</region><add>, Hs. </add><date from="1380" to="1399" confidence="0.05">E. 14.</date>/<date from="1400" to="1420" confidence="0.0476">A. 15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">daz fúess, schenkel, achselbain<lb/>[...] ich [...]<lb/>wil wagen indem ellende<lb/>und <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="83">aventuͤre</oRef> sůchen. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="14" cert="low">Koppitz</name>, Trojanerkr. <citedRange n="14" facs="3091" rend="export" target="http://www.mhgta.uni-trier.de/frameset.php?ses_id=7cfc4fb0cf6c5d6bd3f80228c9d96726&amp;id=GTROJ&amp;pid=52">3091</citedRange> (<region key="halem.">halem.</region><add>, Hs. </add><date from="1380" to="1399" confidence="0.05">E. 14. Jh.</date>)</bibl>
+              <quote xml:space="preserve">Ich sich daz du bist ain held<lb/>Und dich din manhaitt usserweltt<lb/>Uff <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="78">auffentür</oRef> hautt ussgesantt. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="425" cert="high">Brandstetter</name>, Wigoleis <citedRange n="425" facs="197,17">197, 17</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1493" to="1493" confidence="1">1493</date>)</bibl>
+              <quote xml:space="preserve">wie ein junckfraw zuo Caridol kame vnd ein <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="84">abenteür</oRef> warb für Korotin. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve">˹Von Christus gesagt: <name n="64" cert="high">Päpke</name>, Marienl. Wernher <citedRange n="64" facs="6839" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/286625">6839</citedRange> (<region key="halem.">halem.</region>, <date from="1372" to="1382" confidence="0.0909">v. 1382</date>)</bibl>
+              <quote xml:space="preserve">Ihesus, uf die warte kan<lb/>Mit kampfes <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="91">aventúre</oRef>,<lb/>Ob der ungehuͤre<lb/>Gen im och des gerůchte<lb/>Das er stritt [...] sůchte<hi rendition="rect">˺. </hi></quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="455" cert="high">Munz</name>, Füetrer. Persibein <citedRange n="455" facs="22,2">22, 2</citedRange> (<region key="moobd.">moobd.</region>, <date from="1478" to="1478" confidence="1">1478</date>/<date from="1484" to="1484" confidence="1">84</date>)</bibl>
+              <quote xml:space="preserve">Darnach an ainem tage<lb/>rait aus durch <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="83">abentewr</oRef><lb/>[...]<lb/>Gaban.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="392" cert="high">Bernoulli</name>, Basler Chron. <citedRange n="392" facs="4,158,8" rend="export" target="https://archive.org/details/bub_gb_gbIBAAAAYAAJ/page/n169">4, 158, 8</citedRange><region key="alem."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="60" cert="high">Holtzmann</name>, Gr. Wolfdietrich <citedRange n="60" facs="977,2" rend="export" target="https://books.google.de/books?id=y9ZyfsFi8GoC&amp;pg=PA152">977, 2</citedRange><region key="nobd."/><date from="1400" to="1420" confidence="0.0476"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="16" cert="low">Adrian</name>, a. a. O. <citedRange n="16" facs="6268">6268</citedRange><region key="alem."/><date from="1380" to="1499" confidence="0.0083"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="129" cert="high">Thiele</name>, Minner. II, <citedRange n="129" facs="21,29">21, 29</citedRange><region key="nalem., sfrk."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="458" cert="high">Karnein</name>, Salm. u. Morolf <citedRange n="458" facs="350,2">350, 2</citedRange><region key="pfälz."/><date from="1486" to="1486" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="455" cert="high">Munz</name>, a. a. O. <citedRange n="455" facs="7,4">7, 4</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; <citedRange n="455" facs="9,1">9, 1</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; <citedRange n="455" facs="185,6">185, 6</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; <citedRange n="455" facs="385,5">385, 5</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="456" cert="medium">Weber</name>, Füetrer. Poytislier <citedRange n="456" facs="110,2">110, 2</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; <citedRange n="456" facs="151,2">151, 2</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 2.  -->
+        <sense xml:id="abenteuer.s.1fn_s2" rend="2">
+          <!-- Definition -->
+          <def>›die bei der ritterlichen Bewährungsprobe errungene Trophäe, Siegesbeweis, Preis für ritterliche Tüchtigkeit‹; Metonymie zu <ref type="mat" target="abenteuer.s.1fn_s1">1</ref>. Das semantische Verhältnis von 1 und 2 hat Parallelen im Verhältnis von 3 und 4 sowie 16 und 17.</def>
+          <dictScrap rend="stw">Fiktionale Texte.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="belonung.s.1f">belonung</ref> <ref type="mat" target="belonung.s.1f#belonung.s.1f_s1">1</ref>, <hi rendition="hoch">1</hi><ref type="mat" target="preis.h1.0m">preis</ref> <ref type="mat" target="preis.h1.0m#preis.h1.0m_s1">1</ref>.</dictScrap>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. (her)bringen / erholen / gewinnen / erwerben; jm. zur a. gach sein.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="129" cert="low">Thiele</name>, Minner. II, <citedRange n="129" facs="6,78">6, 78</citedRange> (<add>Hs. ˹</add><region key="nalem.">nalem.</region>/<region key="sfrk.">sfrk.</region>, <date from="1470" to="1470" confidence="1">1470</date>/<date from="1490" to="1490" confidence="1">90</date>˺)</bibl>
+              <quote xml:space="preserve">das er mir <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="86">abentur</oRef> bringt,<lb/>die er mit ritterlicher dat<lb/>in mynem dinst erworben hatt. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="425" cert="high">Brandstetter</name>, Wigoleis <citedRange n="425" facs="197,40">197, 40</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1493" to="1493" confidence="1">1493</date>)</bibl>
+              <quote xml:space="preserve">Welicher aber [...] meynet [...] die <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="84">abenteür</oRef> zuo korotin zuo erholen. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> <citedRange n="d4" facs="1v" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA1-IA1#v=onepage&amp;q&amp;f=false">1v</citedRange> (<region key="halem.">Zürich</region> <date from="1561" to="1561" confidence="1">1561</date>)</bibl>
+              <quote xml:space="preserve"><oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="83">Abentheür</oRef> (die) Belonung die man eim sighafften gibt.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="455" cert="high">Munz</name>, Füetrer. Persibein <citedRange n="455" facs="464,3">464, 3</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; <citedRange n="455" facs="465,5">465, 5</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="457" cert="high">Fichtner</name>, Füetrer. Trojanerkr. <citedRange n="457" facs="80,5">80, 5</citedRange><region key="moobd."/><date from="1486" to="1495" confidence="0.1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="5" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=19">5</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 3.  -->
+        <sense xml:id="abenteuer.s.1fn_s3" rend="3">
+          <!-- Definition -->
+          <def>›militärische Auseinandersetzung, Kampf, Krieg‹.</def>
+          <dictScrap rend="stw">Vorw. md./nobd.; 15. Jh.; Chroniken, Fachliteratur zum Kriegswesen.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="arbeit.s.1f">arbeit</ref> <ref type="mat" target="arbeit.s.1f#arbeit.s.1f_s2">2</ref>, <ref type="mat" target="abschach_t_.s.0mn">abschach(t)</ref>, <hi rendition="hoch">1</hi><ref type="mat" target="krieg.h1.0m">krieg</ref> <ref type="mat" target="krieg.h1.0m#krieg.h1.0m_s2">2</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. bestehen</hi> (häufig) / <hi rendition="it">stehen / überstehen; a.</hi> (Subj.) <hi rendition="it">jm. wiederfaren; der a. gedenken; auf a. ausziehen, etw. in a. setzen.</hi></dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="179" cert="high">Toeppen</name>, Ständetage Preußen <citedRange n="179" facs="2,79,14">2, 79, 14</citedRange> (<region key="preuß.">preuß.</region>, <date from="1438" to="1438" confidence="1">1438</date>)</bibl>
+              <quote xml:space="preserve">Dorumme ist deser orth [...] in sulche sorgliche abeschacht und swere <oRef norm="ebenteuer" type="oVar.lem" rend="automatic" n="90">ebentuͤre</oRef> czu setczen. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="219" cert="low">Altmann</name>, Wind. Denkw. <citedRange n="219" facs="328,3" rend="export" target="https://archive.org/details/altmanneberhartwindecke/page/n380">328, 3</citedRange> (<region key="md.">md.</region>, <date from="1435" to="1445" confidence="0.0909">um 1440</date>)</bibl>
+              <quote xml:space="preserve">in der selben zit was konig Sigemont [...] zu Pesentz und zog do gon Luca und bestunt do groß <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="61">ofentúre</oRef> gein den Florenzern. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="114" cert="high">Neubauer</name>, Kriegsb. Seldeneck <citedRange n="114" facs="116,26">116, 26</citedRange> (<region key="nobd.">nobd.</region>, <date from="1450" to="1499" confidence="0.02">2. H. 15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">dan sie [schuczenn] bestonn die grosten <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="84">obentewer</oRef>.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="49" cert="high">Strehlke</name>, Nic. Jerosch. Chron. <citedRange n="49" facs="22,991" rend="export" target="https://archive.org/details/bub_gb_YX8OAAAAYAAJ/page/n316">22, 991</citedRange><region key="preuß."/><date from="1325" to="1345" confidence="0.0476"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="163" cert="high">Thiele</name>, Chron. Stolle <citedRange n="163" facs="146,27" rend="export" target="https://commons.wikimedia.org/wiki/File:Memoriale_thueringisch-erfurtische_Chronik_146.jpg">146, 27</citedRange><region key="thür."/><date from="1466" to="1499" confidence="0.0294"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="b144" cert="low">Dietz</name>, Wb. Luther <citedRange n="b144" facs="1,9b" rend="export" target="https://archive.org/details/bub_gb_jLMrAAAAYAAJ/page/n102/mode/2up">1, 9b</citedRange><region key="omd."/><date from="1500" to="1524" confidence="0.04"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d28" cert="high">Preuss. Wb.</name> (Z) <citedRange n="d28" facs="1,22">1, 22</citedRange><region key="preuß."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 4.  -->
+        <sense xml:id="abenteuer.s.1fn_s4" rend="4">
+          <!-- Definition -->
+          <def>›Beute aus militärischer Auseinandersetzung‹; Metonymie zu <ref type="mat" target="abenteuer.s.1fn_s3">3</ref>.</def>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="357" cert="high">Röhrich</name> u. a., Cod. Dipl. Warm. <citedRange n="357" facs="4,417,24">4, 417, 24</citedRange> (<region key="omd.">omd.</region>, <date from="1431" to="1431" confidence="1">1431</date>)</bibl>
+              <quote xml:space="preserve">Wil ouch ymant als von em selbist uff (<oRef norm="ebenteuer" type="oVar.lem" rend="automatic" n="76">ebenteuw) er</oRef> usczihen und von den fynden edwas irwerben, das sal her em behalden.</quote>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 5.  -->
+        <sense xml:id="abenteuer.s.1fn_s5" rend="5">
+          <!-- Definition -->
+          <def>›merkwürdige, unheimliche, wunderbare oder wunderliche, staunenswerte, gefahrvolle Begebenheit oder Tat‹; oft allgemeiner: ›Ereignis, Begebenheit schlechthin‹; offen zu <ref type="mat" target="abenteuer.s.1fn_s6">6</ref>.</def>
+          <dictScrap rend="stw">Gesamtzeit und -gebiet; vorw. erzählende Texte.</dictScrap>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. sehen / erfaren / verstehen; a. geschehen / begegnen jm.; von a. reden / sagen; jm. bei der a. geheuer sein; gute / götliche / künftige a.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="129" cert="low">Thiele</name>, Minner. II, <citedRange n="129" facs="16,21">16, 21</citedRange> (<add>Hs. ˹</add><region key="wobd.">wobd.</region>, <date from="1400" to="1499" confidence="0.01">15. Jh.</date>˺)</bibl>
+              <quote xml:space="preserve">Do ward mir ains [crut] in min hant<lb/>do von mir groß <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="62">aubentúr</oRef> geschach. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="4,243,41" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1882-4/0246?sid=19cb8208930a6d753292fbdd64ddf24f">4, 243, 41</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1540" to="1560" confidence="0.0476">M. 16. Jh.</date>)</bibl>
+              <quote xml:space="preserve">Zu tisch zu aubendts niemands las;<lb/>Iederman redt von <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">aubenteur</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="19" cert="high">Bihlmeyer</name>, Seuse <citedRange n="19" facs="48,26" rend="export" target="https://archive.org/details/deutscheschrift01seusgoog/page/n235">48, 26</citedRange> (<region key="alem.">alem.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+              <quote xml:space="preserve">ein goͤtlich kuͤnftig <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="90">aventúre</oRef>, dú im kúrzeklich von got werden soͤlte.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="14" cert="high">Koppitz</name>, Trojanerkr. <citedRange n="14" facs="2903" rend="export" target="http://www.mhgta.uni-trier.de/frameset.php?ses_id=7cfc4fb0cf6c5d6bd3f80228c9d96726&amp;id=GTROJ&amp;pid=49">2903</citedRange><region key="önalem."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="60" cert="high">Holtzmann</name>, Gr. Wolfdietrich <citedRange n="60" facs="1063,3" rend="export" target="https://books.google.de/books?id=y9ZyfsFi8GoC&amp;pg=PA164">1063, 3</citedRange><region key="nobd."/><date from="1400" to="1420" confidence="0.0476"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="106" cert="high">Gille</name> u. a., M. Beheim <citedRange n="106" facs="331,12">331, 12</citedRange><region key="nobd."/><date from="1450" to="1499" confidence="0.02"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="329" cert="high">Meisen</name>, Wierstr. Hist. Nuys <citedRange n="329" facs="743">743</citedRange><region key="rib."/><date from="1476" to="1476" confidence="1"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 6.  -->
+        <sense xml:id="abenteuer.s.1fn_s6" rend="6">
+          <!-- Definition -->
+          <def>›Erzählung, Geschichte, Bericht von einer merkwürdigen Begebenheit oder Tat; phantastische Erzählung; geschlossene Erzähleinheit innerhalb einer solchen Geschichte; Quelle, Vorlage der Erzählung‹.</def>
+          <dictScrap rend="stw">Gesamtgebiet und -zeit; poetische Texte, Chroniken.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="buch.s.2n">buch</ref> <ref type="mat" target="buch.s.2n#buch.s.2n_s1">1</ref>, <ref type="mat" target="gesang.s.0mn">gesang</ref> <ref type="mat" target="gesang.s.0mn#gesang.s.0mn_s2">2</ref>, <hi rendition="hoch">1</hi><ref type="mat" target="geschichte.h1.1f">geschichte</ref> <ref type="mat" target="geschichte.h1.1f#geschichte.h1.1f_s7">7</ref>, <ref type="mat" target="gespräch.s.2n">gespräch</ref> <ref type="mat" target="gespräch.s.2n#gespräch.s.2n_s1">1</ref>, <hi rendition="hoch">2</hi><ref type="mat" target="lied.h2.2n">lied</ref> <ref type="mat" target="lied.h2.2n#lied.h2.2n_s1">1</ref>, <hi rendition="hoch">1</hi><ref type="mat" target="märe.h1.1f">märe</ref> <ref type="mat" target="märe.h1.1f#märe.h1.1f_s4">4</ref>, <ref type="mat" target="rede.s.1f">rede</ref> <ref type="mat" target="rede.s.1f#rede.s.1f_s6">6</ref>c, <hi rendition="hoch">1</hi><ref type="mat" target="reim.h1.0m">reim</ref> <ref type="mat" target="reim.h1.0m#reim.h1.0m_s2">2</ref>, <ref type="nex" target="spiel.s.*">spiel</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. hören</hi> (häufig) / <hi rendition="it">sagen</hi> (häufig) / <hi rendition="it">verjehen / durchlesen / abschreiben; a.</hi> (Subj.) <hi rendition="it">beweisen / heben (sich) an / sagen; guter a. sein; sich der a. befleissen; etw. in a. verkeren; der minne a., der a. strasse</hi> ›Erzählfaden‹; <hi rendition="it">zärtliche / säuberliche a.</hi></dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="41" cert="high">Bömer</name>, Pilgerf. träum. Mönch <citedRange n="41" facs="9099" rend="export" target="https://archive.org/details/DiePilgerfahrtDesTrumendenMnchs/page/n112">9099</citedRange> (<region key="rhfrk.">rhfrk.</region>, <date from="1400" to="1410" confidence="0.0909">um 1405</date>)</bibl>
+              <quote xml:space="preserve">Nu horent, myn lieben lude<lb/>Myn <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="83">abentuͤren</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="1524" cert="high">Turmair</name> <citedRange n="1524" facs="4,7,1" rend="export" target="http://daten.digitale-sammlungen.de/~db/0001/bsb00016721/images/index.html?id=00016721&amp;nativeno=7">4, 7, 1</citedRange> (<region key="moobd.">moobd.</region>, <date from="1522" to="1522" confidence="1">1522</date>/<date from="1533" to="1533" confidence="1">33</date>)</bibl>
+              <quote xml:space="preserve">hab ich [...] briefe, chronica, rüef, reimen, sprüch, lieder, <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="92">abenteuer</oRef>, gesang [...] abgeschrieben. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="1524" cert="high">Ebd.</name> <citedRange n="1524" change="facs_expanded" facs="4,1135,6" rend="export" target="http://daten.digitale-sammlungen.de/~db/0001/bsb00016723/images/index.html?id=00016723&amp;nativeno=1135">1135, 6</citedRange><date from="1522" to="1522" confidence="1"/><date from="1533" to="1533" confidence="1"/><region key="moobd."/></bibl>
+              <quote xml:space="preserve">Dise krieg [...] sind aber nach poëtischer art in <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="89">abenteur</oRef> verkert worden. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="177" cert="high">Spiller</name>, Füetrer. Bay. Chron. <citedRange n="177" facs="133,10" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/content/pageview/1034289">133, 10</citedRange> (<region key="moobd.">moobd.</region>, <date from="1478" to="1478" confidence="1">1478</date>/<date from="1481" to="1481" confidence="1">81</date>)</bibl>
+              <quote xml:space="preserve">Er was gar gueter und frembder <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="71">awentewr</oRef> und gesprächs. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="60" cert="low">Holtzmann</name>, Gr. Wolfdietrich <citedRange n="60" facs="1025,2" rend="export" target="https://books.google.de/books?id=y9ZyfsFi8GoC&amp;pg=PA158">1025, 2</citedRange> (<region key="obd.">obd.</region><add>, Hs. </add><date from="1400" to="1420" confidence="0.0476">A. 15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">also uns die avonture und ouch daz buch noch seit.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="460" cert="high">Henschel</name> u. a., Heidin <citedRange n="460" facs="162">162</citedRange><region key="nobd."/><date from="1290" to="1310" confidence="0.0476"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="77" cert="high">Frantzen</name> u. a., Kölner Schwankb. I, Ü.; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="47" cert="high">Niewöhner</name>, Teichner <citedRange n="47" facs="352,3">352, 3</citedRange><region key="obd."/><date from="1360" to="1472" confidence="0.0088"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="106" cert="high">Gille</name> u. a., M. Beheim <citedRange n="106" facs="22,84">22, 84</citedRange><region key="nobd."/><date from="1450" to="1499" confidence="0.02"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="17,520,6" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_181_Hans_Sachs_Band_17.pdf&amp;page=518">17, 520, 6</citedRange><region key="ofrk."/><date from="1523" to="1574" confidence="0.0192"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="115b" cert="high">Mayer</name>, Folz. Meisterl. <citedRange n="115b" facs="95,1" rend="export" target="https://archive.org/details/diemeisterliede00folzgoog/page/n386">95, 1</citedRange><region key="nobd."/><date from="1470" to="1490" confidence="0.0476"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="1,315,11" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1881-1/0323?sid=19cb8208930a6d753292fbdd64ddf24f">1, 315, 11</citedRange><region key="schwäb."/><date from="1540" to="1560" confidence="0.0476"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="425" cert="high">Brandstetter</name>, Wigoleis <citedRange n="425" facs="192,5">192, 5</citedRange><region key="schwäb."/><date from="1493" to="1493" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="14" cert="high">Koppitz</name>, Trojanerkr. <citedRange n="14" facs="1496" rend="export" target="http://www.mhgta.uni-trier.de/frameset.php?ses_id=7cfc4fb0cf6c5d6bd3f80228c9d96726&amp;id=GTROJ&amp;pid=26">1496</citedRange><region key="önalem."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="456" cert="medium">Weber</name>, Füetrer. Poytislier <citedRange n="456" facs="24">24</citedRange>, Ü<region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>.; <citedRange n="456" facs="172,5">172, 5</citedRange><region key="moobd."/><date from="1478" to="1484" confidence="0.1429"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="457" cert="high">Fichtner</name>, Füetrer. Trojanerkr. <citedRange n="457" facs="19">19</citedRange>,Ü<region key="moobd."/><date from="1486" to="1495" confidence="0.1"/>.; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="78" cert="high">Grossmann</name>, Unrest. Öst. Chron. <citedRange n="78" facs="34,15" rend="export" target="http://daten.digitale-sammlungen.de/bsb00000691/images/index.html?id=00000691&amp;groesser=&amp;fip=eayaewqsdasxsfsdreayaqrsxdsydeayaewqsdas&amp;no=&amp;seite=84">34, 15</citedRange><region key="oobd."/><date from="1466" to="1499" confidence="0.0294"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="25" cert="high">Kummer</name>, Erlauer Sp. <citedRange n="25" facs="2,43" rend="export" target="https://archive.org/details/erlauerspielese00kummgoog/page/n84">2, 43</citedRange><region key="m/soobd."/><date from="1400" to="1440" confidence="0.0244"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 7.  -->
+        <sense xml:id="abenteuer.s.1fn_s7" rend="7">
+          <!-- Definition -->
+          <def>›Lügengeschichte, Ammenmärchen‹; offen zu <ref type="mat" target="abenteuer.s.1fn_s6">6</ref>.</def>
+          <dictScrap rend="stw">Mittleres und späteres Frnhd.; vor allem agitatorische Texte.</dictScrap>
+          <dictScrap rend="bdv"><hi rendition="hoch">1</hi><ref type="mat" target="märe.h1.1f">märe</ref> <ref type="mat" target="märe.h1.1f#märe.h1.1f_s3">3</ref>, <ref type="mat" target="tanderei.s.1f">tanderei</ref>.</dictScrap>
+          <dictScrap rend="ggs"><hi rendition="hoch">2</hi><ref type="mat" rend="ggs" target="bewerde.h2.1f">bewerde</ref> (s. v. <hi rendition="hoch">1</hi><ref type="mat" rend="ggs" target="beweren.h1.3v">beweren</ref> <ref type="mat" rend="ggs" target="beweren.h1.3v#beweren.h1.3v_s1">1</ref>), <ref type="mat" rend="ggs" target="geschrift.s.1fn">geschrift</ref> <ref type="mat" rend="ggs" target="geschrift.s.1fn#geschrift.s.1fn_s9">9</ref>.</dictScrap>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. hören; etw. auf a. stiften; vergebene a.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="113a" cert="high">Schlosser</name>, H. v. Sachsenh. Mörin <citedRange n="113a" facs="2691">2691</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1453" to="1453" confidence="1">1453</date>)</bibl>
+              <quote xml:space="preserve">Ich sag es nit durch <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="75">aubentür</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="1524" cert="high">Turmair</name> <citedRange n="1524" facs="4,1027,10" rend="export" target="http://daten.digitale-sammlungen.de/~db/0001/bsb00016723/images/index.html?id=00016723&amp;nativeno=1027">4, 1027, 10</citedRange> (<region key="moobd.">moobd.</region>, <date from="1522" to="1522" confidence="1">1522</date>/<date from="1533" to="1533" confidence="1">33</date>)</bibl>
+              <quote xml:space="preserve">so es auch der allerheiligest vatter [...] als alter weiber und rockenspinnerin und vergeben <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="92">abenteuer</oRef> verspot. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="89" cert="high">Schade</name>, Sat. u. Pasqu. <citedRange n="89" facs="2,160,32" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n433">2, 160, 32</citedRange> (<region key="halem.">thurg.</region> <date from="1520" to="1520" confidence="1">1520</date>/<date from="1521" to="1521" confidence="1">1</date>)</bibl>
+              <quote xml:space="preserve">Des Luthers dicht<lb/>Ist ganz gericht<lb/>Auf bwerte gschrift<lb/>Und nit gestift<lb/>auf <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="89">abenteur</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="89" cert="high">Ebd.</name> <citedRange n="89" facs="2,222,969" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n495">2, 222, 969</citedRange> (<region key="nobd.">nobd.</region> <date from="1524" to="1524" confidence="1">1524</date>)</bibl>
+              <quote xml:space="preserve">Des gleich wer gelt in dkisten bringt<lb/>[...]<lb/>Der sol ein sel (hört obenteur!)<lb/>Erlösen uß dem fegefeur.</quote>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 8.  -->
+        <sense xml:id="abenteuer.s.1fn_s8" rend="8">
+          <!-- Definition -->
+          <def>›Unrechtmäßigkeit jeder Art, Ungebührlichkeit, Unsittlichkeit, Betrug, Gaunerei, übles Treiben, Machenschaften‹.</def>
+          <dictScrap rend="stw">Gesamtgebiet; mittleres und späteres Frnhd.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="anschlag.s.0m">anschlag</ref> <ref type="mat" target="anschlag.s.0m#anschlag.s.0m_s5">5</ref>, <ref type="mat" target="büberei.s.1f">büberei</ref> <ref type="mat" target="büberei.s.1f#büberei.s.1f_s1">1</ref>, <ref type="mat" target="laster.s.2n">laster</ref> <ref type="mat" target="laster.s.2n#laster.s.2n_s1">1</ref>; <ref type="mat" target="laster.s.2n#laster.s.2n_s2">2</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. vertragen / treiben / sehen / brauchen; a.</hi> (Subj.) <hi rendition="it">geschehen; sich der a. berümen;</hi> Idiom: <hi rendition="it">sein a. stehen</hi> ›für die Folgen seines Verhaltens gerade stehen‹.</dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="279a" cert="high">Mon. Boica</name>, NF. <citedRange n="279a" facs="2,1,299,6">2, 1, 299, 6</citedRange> (<region key="nobd.">nobd.</region>, <date from="1464" to="1464" confidence="1">1464</date>)</bibl>
+              <quote xml:space="preserve">wie der herrschaft die awͤgen verclawbt sint worden und <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="85">abenthewer</oRef> geschehen. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="96" cert="high">Enders</name>, Eberlin <citedRange n="96" facs="3,37,25" rend="export" target="https://gallica.bnf.fr/ark:/12148/bpt6k101963f.image.f75.langDE">3, 37, 25</citedRange> (<region key="thür.">Erfurt</region> <date from="1523" to="1523" confidence="1">1523</date>)</bibl>
+              <quote xml:space="preserve">darumb hab ich muͤssen [...] furtragen yr [munch] <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="85">abentewr</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="89" cert="high">Schade</name>, Sat. u. Pasqu. <citedRange n="89" facs="2,210,494" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n483">2, 210, 494</citedRange> (<region key="nobd.">nobd.</region> <date from="1524" to="1524" confidence="1">1524</date>)</bibl>
+              <quote xml:space="preserve">Der ban, der ablaß unds fegfeur,<lb/>Darneben sonst vil <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="84">obenteur</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="124" cert="high">Lemmer</name>, Brant. Narrensch. <citedRange n="124" facs="110a,167">110a, 167</citedRange> (<region key="halem.">Basel</region> <date from="1494" to="1494" confidence="1">1494</date>)</bibl>
+              <quote xml:space="preserve">Die blat er vff dem disch vmb schibt<lb/>[...]<lb/>Das mancher treib soͤlch <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="78">ofentür</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="3,67,38" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1881-3/0071?sid=19cb8208930a6d753292fbdd64ddf24f">3, 67, 38</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1540" to="1560" confidence="0.0476">M. 16. Jh.</date>)</bibl>
+              <quote xml:space="preserve">Die zwo frawen haben sich übel geschempt [...] und nit vil sich dieser <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="77">abentür</oRef> [...] berüempt. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="150" cert="high">Dinklage</name>, Frk. Bauernweist. <citedRange n="150" facs="53,19">53, 19</citedRange> (<region key="nobd.">nobd.</region>, <date from="1500" to="1520" confidence="0.0476">A. 16. Jh.</date>)</bibl>
+              <quote xml:space="preserve">sucht <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="67">aber einer</oRef> awßflucht, so sten einer seyn <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="79">abethewer</oRef>.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="41,398,13" rend="export" target="https://archive.org/details/werkekritischege41luthuoft/page/398">41, 398, 13</citedRange><region key="omd."/><date from="1512" to="1546" confidence="0.0286"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="183" cert="high">Chron. Augsb.</name> <citedRange n="183" facs="9,364,25" rend="export" target="https://digibus.ub.uni-stuttgart.de/viewer/object/1545034070410_34/378/">9, 364, 25</citedRange><region key="schwäb."/><date from="1536" to="1545" confidence="0.1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="224" cert="high">Müller</name>, Nördl. Stadtr. <citedRange n="224" facs="124,36" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=noerdlingenstr&amp;seite=g124">124, 36</citedRange><region key="schwäb."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="279b" cert="high">Mon. Boica</name>, NF. <citedRange n="279b" facs="2,1,300,1">2, 1, 300, 1</citedRange><region key="nobd."/><date from="1418" to="1438" confidence="0.0476"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 9.  -->
+        <sense xml:id="abenteuer.s.1fn_s9" rend="9">
+          <!-- Definition -->
+          <def>›Posse, Gaukelspiel, Narretei, Zaubertrick, Kunststück, Mätzchen‹.</def>
+          <dictScrap rend="stw">Spätes Frnhd.; agitatorische und erzählende Texte, Fastnachtspiele.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="affenspiel.s.2n">affenspiel</ref> <ref type="mat" target="affenspiel.s.2n#affenspiel.s.2n_s2">2</ref>, <ref type="gen" target="blauerdunst.s.9ref">blauer dunst</ref> (s. v. <ref type="mat" target="dunst.s.0m">dunst</ref> <ref type="mat" target="dunst.s.0m#dunst.s.0m_s5">5</ref>), <ref type="gen" target="gaukelsache.s.9ref">gaukelsache</ref>, <ref type="mat" target="gugelfur.s.1f">gugelfur</ref>, <ref type="mat" target="kunst.s.1f">kunst</ref> <ref type="mat" target="kunst.s.1f#kunst.s.1f_s2">2</ref>, <ref type="mat" target="poss_e_.s.0m">poss(e)</ref> <ref type="mat" target="poss_e_.s.0m#poss_e_.s.0m_s2">2</ref> (mehrmals), <ref type="nex" target="schlotterlein.s.*">schlotterlein</ref>, <ref type="nex" target="schwank.s.*">schwank</ref>, <ref type="nex" target="unfure.s.*">unfure</ref>, <ref type="nex" target="wunderzeichen.s.*">wunderzeichen</ref>, <ref type="nex" target="zauberei.s.*">zauberei</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. treiben</hi> (mehrmals) / <hi rendition="it">können; der a. lachen; etw. mit a. richten, jn. mit a. überwinden, jn. um a. verklagen; schimpfliche a.; anfang zu der a.; a. sein lächerlich.</hi></dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="15,514,33" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_173_Hans_Sachs._Band_15.pdf&amp;page=518">15, 514, 33</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1562" to="1562" confidence="1">1562</date>)</bibl>
+              <quote xml:space="preserve">Wer ihm opffert und rüfft ihn an,<lb/>Zeigt wunderzeichn ein grosse zal,<lb/>Der offt keins warhafft war zumal,<lb/>Sonder gricht mit <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="85">abenthewr</oRef> und kunst,<lb/>Dem volck gemacht ein blober dunst. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="3601" cert="high">Bolte</name>, Pauli. Schimpf u. Ernst <citedRange n="3601" facs="1,340,29" rend="export" target="https://archive.org/details/schimpfundernst01pauluoft/page/n379/mode/2up">1, 340, 29</citedRange> (<region key="els.">Straßb.</region> <date from="1522" to="1522" confidence="1">1522</date>)</bibl>
+              <quote xml:space="preserve">das ein Priester von Sinnen kam und treib vil <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="84">Abenthuͤer</oRef> und kunt jederman ein Schlotterlin schlagen. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="4,168,11" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1882-4/0171?sid=19cb8208930a6d753292fbdd64ddf24f">4, 168, 11</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1540" to="1560" confidence="0.0476">M. 16. Jh.</date>)</bibl>
+              <quote xml:space="preserve">Was solcher gaist weiter für seltzam <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="77">abentür</oRef> und affenspill getriben.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="97f" cert="high">Bobertag</name>, Faust <citedRange n="97f" facs="251,1" rend="export" target="https://archive.org/details/volksbcherdes100bobeuoft/page/251">251, 1</citedRange><region key="hess."/><date from="1587" to="1587" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="88" cert="high">Kurz</name>, Waldis. Esopus <citedRange n="88" facs="4,66,70" rend="export" target="https://archive.org/details/esopus00waldgoog/page/n170">4, 66, 70</citedRange><region key="hess."/><date from="1557" to="1557" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="14,242,3" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_159_Hans_Sachs_Band_14.pdf&amp;page=246">14, 242, 3</citedRange><region key="ofrk."/><date from="1523" to="1574" confidence="0.0192"/>; <citedRange n="140" facs="15,513,18" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_173_Hans_Sachs._Band_15.pdf&amp;page=517">15, 513, 18</citedRange><region key="ofrk."/><date from="1523" to="1574" confidence="0.0192"/>; <citedRange n="140" facs="17,247,24" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_181_Hans_Sachs_Band_17.pdf&amp;page=247">17, 247, 24</citedRange><region key="ofrk."/><date from="1523" to="1574" confidence="0.0192"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="89" cert="high">Schade</name>, Sat. u. Pasqu. <citedRange n="89" facs="1,37,373" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n56">1, 37, 373</citedRange><region key="unknown"/><date from="1520" to="1587" confidence="0.0147"/>; <citedRange n="89" facs="3,102,32" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n759">3, 102, 32</citedRange><region key="unknown"/><date from="1520" to="1587" confidence="0.0147"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="2,601,1" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1881-2/0604?sid=19cb8208930a6d753292fbdd64ddf24f">2, 601, 1</citedRange><region key="schwäb."/><date from="1540" to="1560" confidence="0.0476"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 10.  -->
+        <sense xml:id="abenteuer.s.1fn_s10" rend="10">
+          <!-- Definition -->
+          <def>›Mittel zur Posse‹; Metonymie zu <ref type="mat" target="abenteuer.s.1fn_s9">9</ref>.</def>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="99" cert="low">Fuchs</name>, Murner. 4 Ketzer <citedRange n="99" facs="74,2042">74, 2042</citedRange> (<add>wohl </add><region key="els.">Straßb.</region> <date from="1509" to="1509" confidence="1">1509</date>)</bibl>
+              <quote xml:space="preserve">So wil ich jm dann giessen drjn [wunde]<lb/>Etzwasser / vnd ein <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="69">obenthür</oRef>,<lb/>Die ich dann weisß / ist gůt dorfür. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="15,513,39" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_173_Hans_Sachs._Band_15.pdf&amp;page=517">15, 513, 39</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1562" to="1562" confidence="1">1562</date>)</bibl>
+              <quote xml:space="preserve">So richt er zu die <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="84">abenthewer</oRef>.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="b241" cert="high">Eckel</name>, Fremdw. Murners. <citedRange n="b241" facs="1978,25">1978, 25</citedRange><region key="els."/><date from="1500" to="1549" confidence="0.02"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 11.  -->
+        <sense xml:id="abenteuer.s.1fn_s11" rend="11">
+          <!-- Definition -->
+          <def>›Risiko, Wagnis, meist geschäftlicher Art‹; offen zu <ref type="mat" target="abenteuer.s.1fn_s12">12</ref>, nicht immer von <hi rendition="it">ebenteuer</hi> ›Gegenwert, Pfand‹ abgrenzbar.</def>
+          <dictScrap rend="stw">Md.; vorw. rechts- und wirtschaftsgeschichtliche Texte.</dictScrap>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. stehen / wagen; auf a. segeln, etw. auf a. erarbeiten.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="178" cert="high">Toeppen</name>, Ständetage Preußen <citedRange n="178" facs="1,512,31">1, 512, 31</citedRange> (<region key="preuß.">preuß.</region>, <date from="1428" to="1428" confidence="1">1428</date>)</bibl>
+              <quote xml:space="preserve">das eyn iczlich schiffher und kouffman zegeln mag uff seyn <oRef norm="ebenteuer" type="oVar.lem" rend="automatic" n="88">ebentur</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="215" cert="high">Kisch</name>, Leipz. Schöffenspr. <citedRange n="215" facs="507,12" rend="export" target="https://archive.org/details/leipzigerschffe00mgoog/page/n517">507, 12</citedRange> (<region key="osächs.">osächs.</region>, <date from="1523" to="1523" confidence="1">1523</date>/<date from="1524" to="1524" confidence="1">4</date>)</bibl>
+              <quote xml:space="preserve">der jungste bruder hat gelt erarbeit [...] auf sein eigene <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">obenteuer</oRef>.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="3352" cert="high">Chron. Köln</name> <citedRange n="3352" facs="2,573,8" rend="export" target="https://archive.org/details/diechronikender02birlgoog/page/n588">2, 573, 8</citedRange><region key="rib."/><date from="1350" to="1499" confidence="0.0067"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="179" cert="high">Toeppen</name>, a. a. O. <citedRange n="179" facs="2,296,13">2, 296, 13</citedRange><region key="preuß."/><date from="1436" to="1446" confidence="0.0909"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="357" cert="high">Röhrich</name> u. a., Cod. Dipl. Warm. <citedRange n="357" facs="4,283,36">4, 283, 36</citedRange><region key="omd."/><date from="1424" to="1435" confidence="0.0833"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="191" cert="high">Grosch</name> u. a., Schöffenspr. Pössneck <citedRange n="191" facs="330,8">330, 8</citedRange><region key="thür."/><date from="1474" to="1474" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="163" cert="high">Thiele</name>, Chron. Stolle <citedRange n="163" facs="516,22" rend="export" target="https://commons.wikimedia.org/wiki/File:Memoriale_thueringisch-erfurtische_Chronik_516.jpg">516, 22</citedRange><region key="thür."/><date from="1466" to="1499" confidence="0.0294"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="463" cert="high">Grothausmann</name>, Stadtb. Karpfen <citedRange n="463" facs="13,15">13, 15</citedRange><region key="böhm.-mähr. inseldt."/><date from="1500" to="1624" confidence="0.008"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="b144" cert="low">Dietz</name>, Wb. Luther <citedRange n="b144" facs="1,9b" rend="export" target="https://archive.org/details/bub_gb_jLMrAAAAYAAJ/page/n102/mode/2up">1, 9b</citedRange><region key="omd."/><date from="1500" to="1524" confidence="0.04"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="5" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=19">5</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 12.  -->
+        <sense xml:id="abenteuer.s.1fn_s12" rend="12">
+          <!-- Definition -->
+          <def>›Geschäft, Handelsabschluß‹.</def>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="136" cert="high">Bastian</name>, Runtingerb. <citedRange n="136" facs="2,175,28">2, 175, 28</citedRange> (<region key="oobd.">oobd.</region>, <date from="1395" to="1395" confidence="1">1395</date>)</bibl>
+              <quote xml:space="preserve">sullen si mir guͤt gwant [...] chauffen oder [...] waz sy dann guͤt <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">abentewer</oRef> dunkcht. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="252" cert="high">Mollwo</name>, Rotes Buch Ulm <citedRange n="252" facs="186,28" rend="export" target="https://archive.org/details/DasRoteBuchDerStadtUlm/page/n198">186, 28</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1425" to="1425" confidence="1">1425</date>)</bibl>
+              <quote xml:space="preserve">Ouch muͥgen die juden [...] wechsel mit Rinischem [...] golde triben, wan das alles <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="58">afentuͥr</oRef> haisset.</quote>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 13.  -->
+        <sense xml:id="abenteuer.s.1fn_s13" rend="13">
+          <!-- Definition -->
+          <def>›minderwertige, verdächtige Handelsware‹, mit vereinzeltem Übergang zu ›Handelsware überhaupt‹, auch zu ›Kostbarkeit‹ sowie zu Spezialisierungen wie ›minderwertiger Barchent‹; offen zu <ref type="mat" target="abenteuer.s.1fn_s17">17</ref>.</def>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. feil halten; etw. für a. hingeben / verkaufen, etw. von a. machen; a. von gold.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="252" cert="high">Mollwo</name>, Rotes Buch Ulm <citedRange n="252" facs="257,37" rend="export" target="https://archive.org/details/DasRoteBuchDerStadtUlm/page/n269">257, 37</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1394" to="1394" confidence="1">1394</date>)</bibl>
+              <quote xml:space="preserve">wo fuͥrbas <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">aubenteur</oRef> herkumen mit ir <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">aubenteur</oRef>, die fail hetten, und sollichs nit fuͥr <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">aubenteur</oRef> sondern fuͥr recht kaufmanschaft hingeben. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="151" cert="high">Hoffmann</name>, Würzb. Polizeisätze <citedRange n="151" facs="175,11">175, 11</citedRange> (<region key="nobd.">nobd.</region>, <date from="1475" to="1475" confidence="1">1475</date>)</bibl>
+              <quote xml:space="preserve">das die frembden in [...] wirtshewser geen mit iren <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="73">obentewern</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="213a" cert="high">Klein</name>, Oswald <citedRange n="213a" facs="34,27">34, 27</citedRange> (<region key="oobd.">oobd.</region>, <date from="1400" to="1449" confidence="0.02">1. H. 15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">All <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="90">aubenteuer</oRef>, die man vindt,<lb/>gleicht nicht der maget raine.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="252" cert="high">Mollwo</name>, a. a. O. <citedRange n="252" facs="186,19" rend="export" target="https://archive.org/details/DasRoteBuchDerStadtUlm/page/n198">186, 19</citedRange><region key="schwäb."/><date from="1375" to="1425" confidence="0.0196"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="151" cert="high">Hoffmann</name>, a. a. O. <citedRange n="151" facs="172,42">172, 42</citedRange><region key="nobd."/><date from="1320" to="1495" confidence="0.0057"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="3705" cert="high">Chron. Nürnb.</name> <citedRange n="3705" facs="5,571,14" rend="export" target="https://books.google.de/books?jtp=571&amp;id=v2VoAAAAcAAJ&amp;hl=de#v=onepage&amp;q&amp;f=false">5, 571, 14</citedRange><region key="nobd."/><date from="1480" to="1520" confidence="0.0244"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d24" cert="high">Schwäb. Wb.</name> <citedRange n="d24" facs="1,15" rend="export" target="https://archive.org/details/schwbischeswrte00kellgoog/page/n36">1, 15</citedRange><region key="schwäb."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 14.  -->
+        <sense xml:id="abenteuer.s.1fn_s14" rend="14">
+          <!-- Definition -->
+          <def>›Zufall, Glück‹, in festen präp. Verbindungen ›zufällig‹, ›von ungefähr‹, ›vielleicht‹, ›auf gut Glück‹, ›aufs Geratewohl‹.</def>
+          <dictScrap rend="stw">Md., vor allem rib.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="glük.s.2n">glük</ref> <ref type="mat" target="glük.s.2n#glük.s.2n_s6">6</ref>, <ref type="mat" target="glüksfal.s.0m">glüksfal</ref>, <ref type="nex" target="zufal.s.*">zufal</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">jm. a. geben; jm. der a. gönnen; etw. auf a. vornemen; auf a.</hi> ›auf gut Glück‹, ›von ungefähr‹, <hi rendition="it">bei a.</hi> ›vielleicht‹, ›zufällig‹.</dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="77" cert="high">Frantzen</name> u. a., Kölner Schwankb. II, <citedRange n="77" facs="24" rend="export" target="https://archive.org/details/DreiKoelnerSchwankbuecherAusDemXVtenJahrhundert/page/n115/mode/2up/search/K%C3%B6lner+Schwankb%C3%BCcher?q=K%C3%B6lner+Schwankb%C3%Bccher">24</citedRange> (<region key="rib.">Köln</region> <date from="1485" to="1495" confidence="0.0909">um 1490</date>)</bibl>
+              <quote xml:space="preserve">Sent Magog gaff eme <oRef norm="aventüre" type="oVar.lem" rend="automatic" n="90">aventure</oRef>,<lb/>Dat hey eyn here und eyn abt is worden. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d1" cert="high">Alberus</name> <citedRange n="d1" facs="Tt iijv" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN670024066&amp;PHYSID=PHYS_0532&amp;DMDID=DMDLOG_0080">Tt iijv</citedRange> (<region key="hess.">Frankf.</region> <date from="1540" to="1540" confidence="1">1540</date>)</bibl>
+              <quote xml:space="preserve">Impij dubitant de orationis eventu, bitten vff <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="88">abenthewer</oRef>. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="295" cert="high">Wutke</name>, Schles. Bergb., Cod. Sil. <citedRange n="295" facs="21,118,23" rend="export" target="http://daten.digitale-sammlungen.de/0007/bsb00071400/images/index.html?fip=193.174.98.30&amp;id=00071400&amp;seite=126">21, 118, 23</citedRange> (<region key="schles.">schles.</region>, <date from="1559" to="1559" confidence="1">1559</date>)</bibl>
+              <quote xml:space="preserve">auf dass nicht alles [...] nach dem wahn auf <oRef norm="ebenteuer" type="oVar.lem" rend="automatic" n="92">ebenteuer</oRef> furgenommen wurde, sunder sich nach der prob [...] zu richten.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="329" cert="high">Meisen</name>, Wierstr. Hist. Nuys <citedRange n="329" facs="741">741</citedRange><region key="rib."/><date from="1476" to="1476" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="3352" cert="high">Chron. Köln</name> <citedRange n="3352" facs="2,291,25" rend="export" target="https://archive.org/details/diechronikender02birlgoog/page/n308">2, 291, 25</citedRange><region key="rib."/><date from="1350" to="1499" confidence="0.0067"/>; <citedRange n="3352" change="facs_expanded" facs="2,301,3" rend="export" target="https://archive.org/details/diechronikender02birlgoog/page/n318">301, 3</citedRange><region key="rib."/><date from="1350" to="1499" confidence="0.0067"/>; <citedRange n="3352" change="facs_expanded" facs="2,392,18" rend="export" target="https://archive.org/details/diechronikender02birlgoog/page/n409">392, 18</citedRange><region key="rib."/><date from="1350" to="1499" confidence="0.0067"/>; <citedRange n="3352" facs="3,657,18" rend="export" target="https://archive.org/details/diechronikender00birlgoog/page/n304">3, 657, 18</citedRange><region key="rib."/><date from="1350" to="1499" confidence="0.0067"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="32,329,22" rend="export" target="https://archive.org/details/werkekritischege32luthuoft/page/329">32, 329, 22</citedRange><region key="omd."/><date from="1512" to="1546" confidence="0.0286"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="b144" cert="low">Dietz</name>, Wb. Luther <citedRange n="b144" facs="1,9b" rend="export" target="https://archive.org/details/bub_gb_jLMrAAAAYAAJ/page/n102/mode/2up">1, 9b</citedRange><region key="omd."/><date from="1500" to="1524" confidence="0.04"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d8" cert="high">Voc. Teut.-Lat.</name> <citedRange n="d8" facs="a iijr" target="https://www.digitale-sammlungen.de/de/view/bsb00038907?page=8,9">a iijr</citedRange><region key="ofrk."/><date from="1482" to="1482" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="d9" cert="high">Apherdianus</name> <citedRange n="d9" facs="168" rend="export" target="https://reader.digitale-sammlungen.de/de/fs1/object/display/bsb10185068_00170.html">168</citedRange><region key="rib."/><date from="1575" to="1575" confidence="1"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="5" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=19">5</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 15.  -->
+        <sense xml:id="abenteuer.s.1fn_s15" rend="15">
+          <!-- Definition -->
+          <def>›Bergschatz‹.</def>
+          <dictScrap rend="stw">Schles.; bergbaugeschichtliche Texte.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="gestein.s.2n">gestein</ref> <ref type="mat" target="gestein.s.2n#gestein.s.2n_s1">1</ref>, <ref type="nex" target="seife.s.*">seife</ref>.</dictScrap>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. finden; jm. von a. melden.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="296" cert="high">Wutke</name>, Schles. Bergb., Cod. Sil. <citedRange n="296" facs="20,85,20" rend="export" target="http://daten.digitale-sammlungen.de/0007/bsb00071399/images/index.html?fip=193.174.98.30&amp;id=00071399&amp;seite=97">20, 85, 20</citedRange> (<region key="schles.">schles.</region>, <date from="1445" to="1455" confidence="0.0909">um 1450</date>)</bibl>
+              <quote xml:space="preserve">yn der obir Slesia zage ich dir, do vindistu gesten und <oRef norm="ebenteuer" type="oVar.lem" rend="automatic" n="71">ebintewr</oRef> vil.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="296" cert="high">Ebd.</name> <citedRange n="296" facs="20,86,22" rend="export" target="http://daten.digitale-sammlungen.de/0007/bsb00071399/images/index.html?fip=193.174.98.30&amp;id=00071399&amp;seite=98">20, 86, 22</citedRange><region key="schles."/><date from="1136" to="1528" confidence="0.0028"/>; <citedRange n="295" facs="21,83,6" rend="export" target="http://daten.digitale-sammlungen.de/0007/bsb00071400/images/index.html?fip=193.174.98.30&amp;id=00071400&amp;seite=91">21, 83, 6</citedRange><region key="schles."/><date from="1136" to="1528" confidence="0.0028"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 16.  -->
+        <sense xml:id="abenteuer.s.1fn_s16" rend="16">
+          <!-- Definition -->
+          <def>›Preis-, Wettschießen‹.</def>
+          <dictScrap rend="stw">Wohl obd.; 15./16. Jh.; vor allem Chroniken.</dictScrap>
+          <dictScrap rend="synt">
+            <hi rendition="it">a. haben; etw. gewinnen in der a.</hi>
+          </dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="262" cert="high">Chron. Augsb.</name> <citedRange n="262" facs="3,135,3" rend="export" target="https://archive.org/details/diechronikender01rothgoog/page/n198">3, 135, 3</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1480" to="1499" confidence="0.05">E. 15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">auf Bartholomei haben die von Costnitz ain <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="88">abenteur</oRef> mit schiessen gehabt.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="148" cert="low">Ebd.</name> <citedRange n="148" facs="2,102,20" rend="export" target="https://books.google.de/books?id=58gFAAAAQAAJ&amp;pg=PA102&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">2, 102, 20</citedRange><region key="schwäb."/><date from="1500" to="1599" confidence="0.01"/>; <citedRange n="149" facs="4,124,22" rend="export" target="https://archive.org/details/DieChronikenDerSchwaebischenStaedteAugsburg/page/n186">4, 124, 22</citedRange><region key="schwäb."/><date from="1500" to="1599" confidence="0.01"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+        
+        <!-- Bedeutung 17.  -->
+        <sense xml:id="abenteuer.s.1fn_s17" rend="17">
+          <!-- Definition -->
+          <def>›der beim Preisschießen zu gewinnende Preis‹.</def>
+          <dictScrap rend="stw">Wohl obd.; 15./16. Jh.; vor allem Chroniken; Metonymie zu <ref type="mat" target="abenteuer.s.1fn_s16">16</ref>.</dictScrap>
+          <dictScrap rend="bdv"><ref type="mat" target="kleinod_e_.s.2n">kleinod(e)</ref> <ref type="mat" target="kleinod_e_.s.2n#kleinod_e_.s.2n_s5">5</ref>, <ref type="mat" target="toppel.s.0m">toppel</ref> <ref type="mat" target="toppel.s.0m#toppel.s.0m_s2">2</ref>.</dictScrap>
+          <dictScrap rend="synt"><hi rendition="it">a. ausschiessen / aufwerfen / ausgeben / gewinnen; a.</hi> (Subj.) <hi rendition="it">kosten; um a. schiessen; etw. in die a. einteilen.</hi></dictScrap>
+          
+          <!-- Quellen -->
+          <dictScrap rend="cit">
+            <cit>
+              <bibl xml:space="preserve"><name n="262" cert="low">Chron. Augsb.</name> <citedRange n="262" facs="3,480,1" rend="export" target="https://archive.org/details/diechronikender01rothgoog/page/n561">3, 480, 1</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1490" to="1490" confidence="1">1490</date>/<date from="1500" to="1500" confidence="1">1500</date>)</bibl>
+              <quote xml:space="preserve">da schoß man umb ain <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="86">abentuir</oRef> hie zů Augspurg, die was ain ochs, ain schaul, zwei armprost, ain bar hosen und ain ring. </quote>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="3704" cert="high">Chron. Nürnb.</name> <citedRange n="3704" facs="4,231,7" rend="export" target="https://books.google.de/books?id=v4XTAAAAMAAJ&amp;pg=PA231&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">4, 231, 7</citedRange> (<region key="nobd.">nobd.</region>, <date from="1400" to="1499" confidence="0.01">15. Jh.</date>)</bibl>
+              <quote xml:space="preserve">das die [...] heren [...] die nachgeschriben cleinet und <oRef norm="abenteuer" type="oVar.lem" rend="automatic" n="64">obenteẅer</oRef> außgeben und darumb schiessen lassen wöllen.</quote>
+            </cit>
+            
+          </dictScrap>
+          
+          <!-- Belegstellen -->
+          <dictScrap rend="bls">
+            <cit>
+              <bibl xml:space="preserve"><name n="260" cert="high">Chron. Augsb.</name> <citedRange n="260" facs="1,239,7" rend="export" target="https://archive.org/details/diechronikender11kommgoog/page/n302">1, 239, 7</citedRange><region key="schwäb."/><date from="1400" to="1499" confidence="0.01"/>; <citedRange n="184" facs="8,45,2" rend="export" target="https://digibus.ub.uni-stuttgart.de/viewer/object/1545034070410_33/61/">8, 45, 2</citedRange><region key="schwäb."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="3704" cert="high">Chron. Nürnb.</name> <citedRange n="3704" facs="4,232,14" rend="export" target="https://books.google.de/books?id=v4XTAAAAMAAJ&amp;pg=PA232&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">4, 232, 14</citedRange><region key="nobd."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="392" cert="high">Bernoulli</name>, Basler Chron. <citedRange n="392" facs="4,96,26" rend="export" target="https://archive.org/details/bub_gb_gbIBAAAAYAAJ/page/n107">4, 96, 26</citedRange><region key="alem."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+            </cit>
+            
+            <cit>
+              <bibl xml:space="preserve"><name n="790" cert="high">Gagliardi</name>, Dok. Waldmann <citedRange n="790" facs="1,8,4">1, 8, 4</citedRange><region key="halem."/><date from="1350" to="1489" confidence="0.0071"/>.</bibl>
+            </cit>
+            
+          </dictScrap>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+abenteuer, die, seltener das; -Ø, seltener: -s/-Ø; md. auch ebenteuer, im älteren Frnhd. mit Spirans: aventüre; zum Wandel von v > b sowie zur Etymologie, insbesondere zu dem Unterschied zwischen Formen mit anlautendem a, o, au und solchen mit anlautendem e vgl. Dwb, Neub. 1, 150; dort auch umfängliches weiteres Belegmaterial mit anderer semantischer Klassifizierung. – Zur vertiefenden Lektüre: J. Grimm, Kl. Schriften 1, 21879, 83-112; Reallex. dt. Literaturgesch., 2. Aufl. 1, 102; Rosenqvist, Frz. Einfluß. 1932, 76-77; Frings/Linke in: Neuphil. Mitteilungen 53, 1952, 29-30; Miettinen, Annales Acad. Scient. Fenn., Ser. B, 126, 1962, 20-63; Müller in: Kaiser, Gesellschaftliche Sinnangebote in mittelalterlicher Literatur. 1980, 11-59; Anderson/Goebel/Reichmann in: Germanistische Linguistik 3-4, 1979, 11-53; Rwb 1, 40-43; Schweiz. Id. 1, 103-104; Schmeller/F., 1, 11-12; Öst. Wb. 1, 43-44; Schwäb. Wb. 1, 14-15. 1. ›zum Beweis ritterlicher Tüchtigkeit, oft zugleich zur Heilung von Rechtsbrüchen unternommene ritterliche Bewährungsprobe, risikoreiches Unternehmen‹; auch ›Turnier‹; offen zu 2, mit der Nuance ›Turnier‹ offen zu 16. – Vorw. obd., gehäuft wobd.; 14./15. Jh.; fiktionale, archaisierende und historisierende Texte. – Bdv.: buhurt, freise, kampf, streit I, 4, turnei. – Synt.: a. suchen (oft) / erledigen / erstreiten / erfechten / begehen / bekommen; a. gefallen jm.; nach a. reiten / kommen, auf / durch a. ausreiten, etw. wagen auf a., jn. auf a. bringen / aussenden, jn. auf a. bestehen; kampfes a.; auf a. wan; frau a. Henschel u. a., Heidin 171 (nobd., um 1300): Er sprach ich wil minen lip | Wagen vf aventevre. Adrian, Saelden Hort 6373 (alem., Hs. E. 14./A. 15. Jh.): daz fúess, schenkel, achselbain | [...] ich [...] | wil wagen indem ellende | und aventuͤre sůchen. Koppitz, Trojanerkr. 3091 (halem., Hs. E. 14. Jh.): Ich sich daz du bist ain held | Und dich din manhaitt usserweltt | Uff auffentür hautt ussgesantt. Brandstetter, Wigoleis 197, 17 (Augsb. 1493): wie ein junckfraw zuo Caridol kame vnd ein abenteür warb für Korotin. ˹Von Christus gesagt: Päpke, Marienl. Wernher 6839 (halem., v. 1382): Ihesus, uf die warte kan | Mit kampfes aventúre, | Ob der ungehuͤre | Gen im och des gerůchte | Das er stritt [...] sůchte˺. Munz, Füetrer. Persibein 22, 2 (moobd., 1478/84): Darnach an ainem tage | rait aus durch abentewr | [...] | Gaban. – Bernoulli, Basler Chron. 4, 158, 8; Holtzmann, Gr. Wolfdietrich 977, 2; Adrian, a. a. O. 6268; Thiele, Minner. II, 21, 29; Karnein, Salm. u. Morolf 350, 2; Munz, a. a. O. 7, 4; 9, 1; 185, 6; 385, 5; Weber, Füetrer. Poytislier 110, 2; 151, 2. 2. ›die bei der ritterlichen Bewährungsprobe errungene Trophäe, Siegesbeweis, Preis für ritterliche Tüchtigkeit‹; Metonymie zu 1. Das semantische Verhältnis von 1 und 2 hat Parallelen im Verhältnis von 3 und 4 sowie 16 und 17. – Fiktionale Texte. – Bdv.: belonung 1, 1preis 1. – Synt.: a. (her)bringen / erholen / gewinnen / erwerben; jm. zur a. gach sein. Thiele, Minner. II, 6, 78 (Hs. ˹nalem./sfrk., 1470/90˺): das er mir abentur bringt, | die er mit ritterlicher dat | in mynem dinst erworben hatt. Brandstetter, Wigoleis 197, 40 (Augsb. 1493): Welicher aber [...] meynet [...] die abenteür zuo korotin zuo erholen. Maaler 1v (Zürich 1561): Abentheür (die) Belonung die man eim sighafften gibt. – Munz, Füetrer. Persibein 464, 3; 465, 5; Fichtner, Füetrer. Trojanerkr. 80, 5; Henisch 5. 3. ›militärische Auseinandersetzung, Kampf, Krieg‹. – Vorw. md./nobd.; 15. Jh.; Chroniken, Fachliteratur zum Kriegswesen. – Bdv.: arbeit 2, abschach(t), 1krieg 2. – Synt.: a. bestehen (häufig) / stehen / überstehen; a. (Subj.) jm. wiederfaren; der a. gedenken; auf a. ausziehen, etw. in a. setzen. Toeppen, Ständetage Preußen 2, 79, 14 (preuß., 1438): Dorumme ist deser orth [...] in sulche sorgliche abeschacht und swere ebentuͤre czu setczen. Altmann, Wind. Denkw. 328, 3 (md., um 1440): in der selben zit was konig Sigemont [...] zu Pesentz und zog do gon Luca und bestunt do groß ofentúre gein den Florenzern. Neubauer, Kriegsb. Seldeneck 116, 26 (nobd., 2. H. 15. Jh.): dan sie [schuczenn] bestonn die grosten obentewer. – Strehlke, Nic. Jerosch. Chron. 22, 991; Thiele, Chron. Stolle 146, 27; Dietz, Wb. Luther 1, 9b; Preuss. Wb. (Z) 1, 22. 4. ›Beute aus militärischer Auseinandersetzung‹; Metonymie zu 3. Röhrich u. a., Cod. Dipl. Warm. 4, 417, 24 (omd., 1431): Wil ouch ymant als von em selbist uff (ebenteuw) er usczihen und von den fynden edwas irwerben, das sal her em behalden. 5. ›merkwürdige, unheimliche, wunderbare oder wunderliche, staunenswerte, gefahrvolle Begebenheit oder Tat‹; oft allgemeiner: ›Ereignis, Begebenheit schlechthin‹; offen zu 6. – Gesamtzeit und -gebiet; vorw. erzählende Texte. – Synt.: a. sehen / erfaren / verstehen; a. geschehen / begegnen jm.; von a. reden / sagen; jm. bei der a. geheuer sein; gute / götliche / künftige a. Thiele, Minner. II, 16, 21 (Hs. ˹wobd., 15. Jh.˺): Do ward mir ains [crut] in min hant | do von mir groß aubentúr geschach. Barack, Zim. Chron. 4, 243, 41 (schwäb., M. 16. Jh.): Zu tisch zu aubendts niemands las; | Iederman redt von aubenteur. Bihlmeyer, Seuse 48, 26 (alem., 14. Jh.): ein goͤtlich kuͤnftig aventúre, dú im kúrzeklich von got werden soͤlte. – Koppitz, Trojanerkr. 2903; Holtzmann, Gr. Wolfdietrich 1063, 3; Gille u. a., M. Beheim 331, 12; Meisen, Wierstr. Hist. Nuys 743. 6. ›Erzählung, Geschichte, Bericht von einer merkwürdigen Begebenheit oder Tat; phantastische Erzählung; geschlossene Erzähleinheit innerhalb einer solchen Geschichte; Quelle, Vorlage der Erzählung‹. – Gesamtgebiet und -zeit; poetische Texte, Chroniken. – Bdv.: buch 1, gesang 2, 1geschichte 7, gespräch 1, 2lied 1, 1märe 4, rede 6c, 1reim 2, spiel. – Synt.: a. hören (häufig) / sagen (häufig) / verjehen / durchlesen / abschreiben; a. (Subj.) beweisen / heben (sich) an / sagen; guter a. sein; sich der a. befleissen; etw. in a. verkeren; der minne a., der a. strasse ›Erzählfaden‹; zärtliche / säuberliche a. Bömer, Pilgerf. träum. Mönch 9099 (rhfrk., um 1405): Nu horent, myn lieben lude | Myn abentuͤren. Turmair 4, 7, 1 (moobd., 1522/33): hab ich [...] briefe, chronica, rüef, reimen, sprüch, lieder, abenteuer, gesang [...] abgeschrieben. Ebd. 1135, 6: Dise krieg [...] sind aber nach poëtischer art in abenteur verkert worden. Spiller, Füetrer. Bay. Chron. 133, 10 (moobd., 1478/81): Er was gar gueter und frembder awentewr und gesprächs. Holtzmann, Gr. Wolfdietrich 1025, 2 (obd., Hs. A. 15. Jh.): also uns die avonture und ouch daz buch noch seit. – Henschel u. a., Heidin 162; Frantzen u. a., Kölner Schwankb. I, Ü.; Niewöhner, Teichner 352, 3; Gille u. a., M. Beheim 22, 84; Sachs 17, 520, 6; Mayer, Folz. Meisterl. 95, 1; Barack, Zim. Chron. 1, 315, 11; Brandstetter, Wigoleis 192, 5; Koppitz, Trojanerkr. 1496; Weber, Füetrer. Poytislier 24, Ü.; 172, 5; Fichtner, Füetrer. Trojanerkr. 19,Ü.; Grossmann, Unrest. Öst. Chron. 34, 15; Kummer, Erlauer Sp. 2, 43. 7. ›Lügengeschichte, Ammenmärchen‹; offen zu 6. – Mittleres und späteres Frnhd.; vor allem agitatorische Texte. – Bdv.: 1märe 3, tanderei. Ggs.: 2bewerde (s. v. 1beweren 1), geschrift 9. – Synt.: a. hören; etw. auf a. stiften; vergebene a. Schlosser, H. v. Sachsenh. Mörin 2691 (schwäb., 1453): Ich sag es nit durch aubentür. Turmair 4, 1027, 10 (moobd., 1522/33): so es auch der allerheiligest vatter [...] als alter weiber und rockenspinnerin und vergeben abenteuer verspot. Schade, Sat. u. Pasqu. 2, 160, 32 (thurg. 1520/1): Des Luthers dicht | Ist ganz gericht | Auf bwerte gschrift | Und nit gestift | auf abenteur. Ebd. 2, 222, 969 (nobd. 1524): Des gleich wer gelt in dkisten bringt | [...] | Der sol ein sel (hört obenteur!) | Erlösen uß dem fegefeur. 8. ›Unrechtmäßigkeit jeder Art, Ungebührlichkeit, Unsittlichkeit, Betrug, Gaunerei, übles Treiben, Machenschaften‹. – Gesamtgebiet; mittleres und späteres Frnhd. – Bdv.: anschlag 5, büberei 1, laster 1; 2. – Synt.: a. vertragen / treiben / sehen / brauchen; a. (Subj.) geschehen; sich der a. berümen; Idiom: sein a. stehen ›für die Folgen seines Verhaltens gerade stehen‹. Mon. Boica, NF. 2, 1, 299, 6 (nobd., 1464): wie der herrschaft die awͤgen verclawbt sint worden und abenthewer geschehen. Enders, Eberlin 3, 37, 25 (Erfurt 1523): darumb hab ich muͤssen [...] furtragen yr [munch] abentewr. Schade, Sat. u. Pasqu. 2, 210, 494 (nobd. 1524): Der ban, der ablaß unds fegfeur, | Darneben sonst vil obenteur. Lemmer, Brant. Narrensch. 110a, 167 (Basel 1494): Die blat er vff dem disch vmb schibt | [...] | Das mancher treib soͤlch ofentür. Barack, Zim. Chron. 3, 67, 38 (schwäb., M. 16. Jh.): Die zwo frawen haben sich übel geschempt [...] und nit vil sich dieser abentür [...] berüempt. Dinklage, Frk. Bauernweist. 53, 19 (nobd., A. 16. Jh.): sucht aber einer awßflucht, so sten einer seyn abethewer. – Luther, WA 41, 398, 13; Chron. Augsb. 9, 364, 25; Müller, Nördl. Stadtr. 124, 36; Mon. Boica, NF. 2, 1, 300, 1. 9. ›Posse, Gaukelspiel, Narretei, Zaubertrick, Kunststück, Mätzchen‹. – Spätes Frnhd.; agitatorische und erzählende Texte, Fastnachtspiele. – Bdv.: affenspiel 2, blauer dunst (s. v. dunst 5), gaukelsache, gugelfur, kunst 2, poss(e) 2 (mehrmals), schlotterlein, schwank, unfure, wunderzeichen, zauberei. – Synt.: a. treiben (mehrmals) / können; der a. lachen; etw. mit a. richten, jn. mit a. überwinden, jn. um a. verklagen; schimpfliche a.; anfang zu der a.; a. sein lächerlich. Sachs 15, 514, 33 (Nürnb. 1562): Wer ihm opffert und rüfft ihn an, | Zeigt wunderzeichn ein grosse zal, | Der offt keins warhafft war zumal, | Sonder gricht mit abenthewr und kunst, | Dem volck gemacht ein blober dunst. Bolte, Pauli. Schimpf u. Ernst 1, 340, 29 (Straßb. 1522): das ein Priester von Sinnen kam und treib vil Abenthuͤer und kunt jederman ein Schlotterlin schlagen. Barack, Zim. Chron. 4, 168, 11 (schwäb., M. 16. Jh.): Was solcher gaist weiter für seltzam abentür und affenspill getriben. – Bobertag, Faust 251, 1; Kurz, Waldis. Esopus 4, 66, 70; Sachs 14, 242, 3; 15, 513, 18; 17, 247, 24; Schade, Sat. u. Pasqu. 1, 37, 373; 3, 102, 32; Barack, Zim. Chron. 2, 601, 1. 10. ›Mittel zur Posse‹; Metonymie zu 9. Fuchs, Murner. 4 Ketzer 74, 2042 (wohl Straßb. 1509): So wil ich jm dann giessen drjn [wunde] | Etzwasser / vnd ein obenthür, | Die ich dann weisß / ist gůt dorfür. Sachs 15, 513, 39 (Nürnb. 1562): So richt er zu die abenthewer. – Eckel, Fremdw. Murners. 1978, 25. 11. ›Risiko, Wagnis, meist geschäftlicher Art‹; offen zu 12, nicht immer von ebenteuer ›Gegenwert, Pfand‹ abgrenzbar. – Md.; vorw. rechts- und wirtschaftsgeschichtliche Texte. – Synt.: a. stehen / wagen; auf a. segeln, etw. auf a. erarbeiten. Toeppen, Ständetage Preußen 1, 512, 31 (preuß., 1428): das eyn iczlich schiffher und kouffman zegeln mag uff seyn ebentur. Kisch, Leipz. Schöffenspr. 507, 12 (osächs., 1523/4): der jungste bruder hat gelt erarbeit [...] auf sein eigene obenteuer. – Chron. Köln 2, 573, 8; Toeppen, a. a. O. 2, 296, 13; Röhrich u. a., Cod. Dipl. Warm. 4, 283, 36; Grosch u. a., Schöffenspr. Pössneck 330, 8; Thiele, Chron. Stolle 516, 22; Grothausmann, Stadtb. Karpfen 13, 15; Dietz, Wb. Luther 1, 9b; Henisch 5. 12. ›Geschäft, Handelsabschluß‹. Bastian, Runtingerb. 2, 175, 28 (oobd., 1395): sullen si mir guͤt gwant [...] chauffen oder [...] waz sy dann guͤt abentewer dunkcht. Mollwo, Rotes Buch Ulm 186, 28 (schwäb., 1425): Ouch muͥgen die juden [...] wechsel mit Rinischem [...] golde triben, wan das alles afentuͥr haisset. 13. ›minderwertige, verdächtige Handelsware‹, mit vereinzeltem Übergang zu ›Handelsware überhaupt‹, auch zu ›Kostbarkeit‹ sowie zu Spezialisierungen wie ›minderwertiger Barchent‹; offen zu 17. – Synt.: a. feil halten; etw. für a. hingeben / verkaufen, etw. von a. machen; a. von gold. Mollwo, Rotes Buch Ulm 257, 37 (schwäb., 1394): wo fuͥrbas aubenteur herkumen mit ir aubenteur, die fail hetten, und sollichs nit fuͥr aubenteur sondern fuͥr recht kaufmanschaft hingeben. Hoffmann, Würzb. Polizeisätze 175, 11 (nobd., 1475): das die frembden in [...] wirtshewser geen mit iren obentewern. Klein, Oswald 34, 27 (oobd., 1. H. 15. Jh.): All aubenteuer, die man vindt, | gleicht nicht der maget raine. – Mollwo, a. a. O. 186, 19; Hoffmann, a. a. O. 172, 42; Chron. Nürnb. 5, 571, 14; Schwäb. Wb. 1, 15. 14. ›Zufall, Glück‹, in festen präp. Verbindungen ›zufällig‹, ›von ungefähr‹, ›vielleicht‹, ›auf gut Glück‹, ›aufs Geratewohl‹. – Md., vor allem rib. – Bdv.: glük 6, glüksfal, zufal. – Synt.: jm. a. geben; jm. der a. gönnen; etw. auf a. vornemen; auf a. ›auf gut Glück‹, ›von ungefähr‹, bei a. ›vielleicht‹, ›zufällig‹. Frantzen u. a., Kölner Schwankb. II, 24 (Köln um 1490): Sent Magog gaff eme aventure, | Dat hey eyn here und eyn abt is worden. Alberus Tt iijv (Frankf. 1540): Impij dubitant de orationis eventu, bitten vff abenthewer. Wutke, Schles. Bergb., Cod. Sil. 21, 118, 23 (schles., 1559): auf dass nicht alles [...] nach dem wahn auf ebenteuer furgenommen wurde, sunder sich nach der prob [...] zu richten. – Meisen, Wierstr. Hist. Nuys 741; Chron. Köln 2, 291, 25; 301, 3; 392, 18; 3, 657, 18; Luther, WA 32, 329, 22; Dietz, Wb. Luther 1, 9b; Voc. Teut.-Lat. a iijr; Apherdianus 168; Henisch 5. 15. ›Bergschatz‹. – Schles.; bergbaugeschichtliche Texte. – Bdv.: gestein 1, seife. – Synt.: a. finden; jm. von a. melden. Wutke, Schles. Bergb., Cod. Sil. 20, 85, 20 (schles., um 1450): yn der obir Slesia zage ich dir, do vindistu gesten und ebintewr vil. – Ebd. 20, 86, 22; 21, 83, 6. 16. ›Preis-, Wettschießen‹. – Wohl obd.; 15./16. Jh.; vor allem Chroniken. – Synt.: a. haben; etw. gewinnen in der a. Chron. Augsb. 3, 135, 3 (schwäb., E. 15. Jh.): auf Bartholomei haben die von Costnitz ain abenteur mit schiessen gehabt. – Ebd. 2, 102, 20; 4, 124, 22. 17. ›der beim Preisschießen zu gewinnende Preis‹. – Wohl obd.; 15./16. Jh.; vor allem Chroniken; Metonymie zu 16. – Bdv.: kleinod(e) 5, toppel 2. – Synt.: a. ausschiessen / aufwerfen / ausgeben / gewinnen; a. (Subj.) kosten; um a. schiessen; etw. in die a. einteilen. Chron. Augsb. 3, 480, 1 (schwäb., 1490/1500): da schoß man umb ain abentuir hie zů Augspurg, die was ain ochs, ain schaul, zwei armprost, ain bar hosen und ain ring. Chron. Nürnb. 4, 231, 7 (nobd., 15. Jh.): das die [...] heren [...] die nachgeschriben cleinet und obenteẅer außgeben und darumb schiessen lassen wöllen. – Chron. Augsb. 1, 239, 7; 8, 45, 2; Chron. Nürnb. 4, 232, 14; Bernoulli, Basler Chron. 4, 96, 26; Gagliardi, Dok. Waldmann 1, 8, 4.
+-->
+  <!--Texttest: Konvertiert
+abenteuer, die, seltener das; -Ø, seltener: -s/-Ø; md. auch ebenteuer, im älteren Frnhd. mit Spirans: aventüre; zum Wandel von v > b sowie zur Etymologie, insbesondere zu dem Unterschied zwischen Formen mit anlautendem a, o, au und solchen mit anlautendem e vgl. Dwb, Neub. 1, 150; dort auch umfängliches weiteres Belegmaterial mit anderer semantischer Klassifizierung. – Zur vertiefenden Lektüre: J. Grimm, Kl. Schriften 1, 21879, 83-112; Reallex. dt. Literaturgesch., 2. Aufl. 1, 102; Rosenqvist, Frz. Einfluß. 1932, 76-77; Frings/Linke in: Neuphil. Mitteilungen 53, 1952, 29-30; Miettinen, Annales Acad. Scient. Fenn., Ser. B, 126, 1962, 20-63; Müller in: Kaiser, Gesellschaftliche Sinnangebote in mittelalterlicher Literatur. 1980, 11-59; Anderson/Goebel/Reichmann in: Germanistische Linguistik 3-4, 1979, 11-53; Rwb 1, 40-43; Schweiz. Id. 1, 103-104; Schmeller/F. 1, 11-12; Öst. Wb. 1, 43-44; Schwäb. Wb. 1, 14-15. 1. ›zum Beweis ritterlicher Tüchtigkeit, oft zugleich zur Heilung von Rechtsbrüchen unternommene ritterliche Bewährungsprobe, risikoreiches Unternehmen‹; auch ›Turnier‹; offen zu 2, mit der Nuance ›Turnier‹ offen zu 16. – Vorw. obd., gehäuft wobd.; 14./15. Jh.; fiktionale, archaisierende und historisierende Texte. – Bdv.: buhurt, freise, kampf, streit I, 4, turnei. – Synt.: a. suchen (oft) / erledigen / erstreiten / erfechten / begehen / bekommen; a. gefallen jm.; nach a. reiten / kommen, auf / durch a. ausreiten, etw. wagen auf a., jn. auf a. bringen / aussenden, jn. auf a. bestehen; kampfes a.; auf a. wan; frau a. Henschel u. a., Heidin 171 (nobd., um 1300) Er sprach ich wil minen lip | Wagen vf aventevre. Adrian, Saelden Hort 6373 (alem., Hs. E. 14./A. 15. Jh.) daz fúess, schenkel, achselbain | [...] ich [...] | wil wagen indem ellende | und aventuͤre sůchen. Koppitz, Trojanerkr. 3091 (halem., Hs. E. 14. Jh.) Ich sich daz du bist ain held | Und dich din manhaitt usserweltt | Uff auffentür hautt ussgesantt. Brandstetter, Wigoleis 197, 17 (Augsb. 1493) wie ein junckfraw zuo Caridol kame vnd ein abenteür warb für Korotin. ˹Von Christus gesagt: Päpke, Marienl. Wernher 6839 (halem., v. 1382) Ihesus, uf die warte kan | Mit kampfes aventúre, | Ob der ungehuͤre | Gen im och des gerůchte | Das er stritt [...] sůchte˺. Munz, Füetrer. Persibein 22, 2 (moobd., 1478/84) Darnach an ainem tage | rait aus durch abentewr | [...] | Gaban. – Bernoulli, Basler Chron. 4, 158, 8; Holtzmann, Gr. Wolfdietrich 977, 2; Adrian, a. a. O. 6268; Thiele, Minner. II, 21, 29; Karnein, Salm. u. Morolf 350, 2; Munz, a. a. O. 7, 4; 9, 1; 185, 6; 385, 5; Weber, Füetrer. Poytislier 110, 2; 151, 2. 2. ›die bei der ritterlichen Bewährungsprobe errungene Trophäe, Siegesbeweis, Preis für ritterliche Tüchtigkeit‹; Metonymie zu 1. Das semantische Verhältnis von 1 und 2 hat Parallelen im Verhältnis von 3 und 4 sowie 16 und 17. – Fiktionale Texte. – Bdv.: belonung 1, 1preis 1. – Synt.: a. (her)bringen / erholen / gewinnen / erwerben; jm. zur a. gach sein. Thiele, Minner. II, 6, 78 (Hs. ˹nalem./sfrk., 1470/90˺) das er mir abentur bringt, | die er mit ritterlicher dat | in mynem dinst erworben hatt. Brandstetter, Wigoleis 197, 40 (Augsb. 1493) Welicher aber [...] meynet [...] die abenteür zuo korotin zuo erholen. Maaler 1v (Zürich 1561) Abentheür (die) Belonung die man eim sighafften gibt. – Munz, Füetrer. Persibein 464, 3; 465, 5; Fichtner, Füetrer. Trojanerkr. 80, 5; Henisch 5. 3. ›militärische Auseinandersetzung, Kampf, Krieg‹. – Vorw. md./nobd.; 15. Jh.; Chroniken, Fachliteratur zum Kriegswesen. – Bdv.: arbeit 2, abschach(t), 1krieg 2. – Synt.: a. bestehen (häufig) / stehen / überstehen; a. (Subj.) jm. wiederfaren; der a. gedenken; auf a. ausziehen, etw. in a. setzen. Toeppen, Ständetage Preußen 2, 79, 14 (preuß., 1438) Dorumme ist deser orth [...] in sulche sorgliche abeschacht und swere ebentuͤre czu setczen. Altmann, Wind. Denkw. 328, 3 (md., um 1440) in der selben zit was konig Sigemont [...] zu Pesentz und zog do gon Luca und bestunt do groß ofentúre gein den Florenzern. Neubauer, Kriegsb. Seldeneck 116, 26 (nobd., 2. H. 15. Jh.) dan sie [schuczenn] bestonn die grosten obentewer. – Strehlke, Nic. Jerosch. Chron. 22, 991; Thiele, Chron. Stolle 146, 27; Dietz, Wb. Luther 1, 9b; Preuss. Wb. (Z) 1, 22. 4. ›Beute aus militärischer Auseinandersetzung‹; Metonymie zu 3. Röhrich u. a., Cod. Dipl. Warm. 4, 417, 24 (omd., 1431) Wil ouch ymant als von em selbist uff (ebenteuw) er usczihen und von den fynden edwas irwerben, das sal her em behalden. 5. ›merkwürdige, unheimliche, wunderbare oder wunderliche, staunenswerte, gefahrvolle Begebenheit oder Tat‹; oft allgemeiner: ›Ereignis, Begebenheit schlechthin‹; offen zu 6. – Gesamtzeit und -gebiet; vorw. erzählende Texte. – Synt.: a. sehen / erfaren / verstehen; a. geschehen / begegnen jm.; von a. reden / sagen; jm. bei der a. geheuer sein; gute / götliche / künftige a. Thiele, Minner. II, 16, 21 (Hs. ˹wobd., 15. Jh.˺) Do ward mir ains [crut] in min hant | do von mir groß aubentúr geschach. Barack, Zim. Chron. 4, 243, 41 (schwäb., M. 16. Jh.) Zu tisch zu aubendts niemands las; | Iederman redt von aubenteur. Bihlmeyer, Seuse 48, 26 (alem., 14. Jh.) ein goͤtlich kuͤnftig aventúre, dú im kúrzeklich von got werden soͤlte. – Koppitz, Trojanerkr. 2903; Holtzmann, Gr. Wolfdietrich 1063, 3; Gille u. a., M. Beheim 331, 12; Meisen, Wierstr. Hist. Nuys 743. 6. ›Erzählung, Geschichte, Bericht von einer merkwürdigen Begebenheit oder Tat; phantastische Erzählung; geschlossene Erzähleinheit innerhalb einer solchen Geschichte; Quelle, Vorlage der Erzählung‹. – Gesamtgebiet und -zeit; poetische Texte, Chroniken. – Bdv.: buch 1, gesang 2, 1geschichte 7, gespräch 1, 2lied 1, 1märe 4, rede 6c, 1reim 2, spiel. – Synt.: a. hören (häufig) / sagen (häufig) / verjehen / durchlesen / abschreiben; a. (Subj.) beweisen / heben (sich) an / sagen; guter a. sein; sich der a. befleissen; etw. in a. verkeren; der minne a., der a. strasse ›Erzählfaden‹; zärtliche / säuberliche a. Bömer, Pilgerf. träum. Mönch 9099 (rhfrk., um 1405) Nu horent, myn lieben lude | Myn abentuͤren. Turmair 4, 7, 1 (moobd., 1522/33) hab ich [...] briefe, chronica, rüef, reimen, sprüch, lieder, abenteuer, gesang [...] abgeschrieben. Ebd. 1135, 6 Dise krieg [...] sind aber nach poëtischer art in abenteur verkert worden. Spiller, Füetrer. Bay. Chron. 133, 10 (moobd., 1478/81) Er was gar gueter und frembder awentewr und gesprächs. Holtzmann, Gr. Wolfdietrich 1025, 2 (obd., Hs. A. 15. Jh.) also uns die avonture und ouch daz buch noch seit. – Henschel u. a., Heidin 162; Frantzen u. a., Kölner Schwankb. I, Ü.; Niewöhner, Teichner 352, 3; Gille u. a., M. Beheim 22, 84; Sachs 17, 520, 6; Mayer, Folz. Meisterl. 95, 1; Barack, Zim. Chron. 1, 315, 11; Brandstetter, Wigoleis 192, 5; Koppitz, Trojanerkr. 1496; Weber, Füetrer. Poytislier 24, Ü.; 172, 5; Fichtner, Füetrer. Trojanerkr. 19,Ü.; Grossmann, Unrest. Öst. Chron. 34, 15; Kummer, Erlauer Sp. 2, 43. 7. ›Lügengeschichte, Ammenmärchen‹; offen zu 6. – Mittleres und späteres Frnhd.; vor allem agitatorische Texte. – Bdv.: 1märe 3, tanderei. – Ggs.: 2bewerde (s. v. 1beweren 1), geschrift 9. – Synt.: a. hören; etw. auf a. stiften; vergebene a. Schlosser, H. v. Sachsenh. Mörin 2691 (schwäb., 1453) Ich sag es nit durch aubentür. Turmair 4, 1027, 10 (moobd., 1522/33) so es auch der allerheiligest vatter [...] als alter weiber und rockenspinnerin und vergeben abenteuer verspot. Schade, Sat. u. Pasqu. 2, 160, 32 (thurg. 1520/1) Des Luthers dicht | Ist ganz gericht | Auf bwerte gschrift | Und nit gestift | auf abenteur. Ebd. 2, 222, 969 (nobd. 1524) Des gleich wer gelt in dkisten bringt | [...] | Der sol ein sel (hört obenteur!) | Erlösen uß dem fegefeur. 8. ›Unrechtmäßigkeit jeder Art, Ungebührlichkeit, Unsittlichkeit, Betrug, Gaunerei, übles Treiben, Machenschaften‹. – Gesamtgebiet; mittleres und späteres Frnhd. – Bdv.: anschlag 5, büberei 1, laster 1; 2. – Synt.: a. vertragen / treiben / sehen / brauchen; a. (Subj.) geschehen; sich der a. berümen; Idiom: sein a. stehen ›für die Folgen seines Verhaltens gerade stehen‹. Mon. Boica, NF. 2, 1, 299, 6 (nobd., 1464) wie der herrschaft die awͤgen verclawbt sint worden und abenthewer geschehen. Enders, Eberlin 3, 37, 25 (Erfurt 1523) darumb hab ich muͤssen [...] furtragen yr [munch] abentewr. Schade, Sat. u. Pasqu. 2, 210, 494 (nobd. 1524) Der ban, der ablaß unds fegfeur, | Darneben sonst vil obenteur. Lemmer, Brant. Narrensch. 110a, 167 (Basel 1494) Die blat er vff dem disch vmb schibt | [...] | Das mancher treib soͤlch ofentür. Barack, Zim. Chron. 3, 67, 38 (schwäb., M. 16. Jh.) Die zwo frawen haben sich übel geschempt [...] und nit vil sich dieser abentür [...] berüempt. Dinklage, Frk. Bauernweist. 53, 19 (nobd., A. 16. Jh.) sucht aber einer awßflucht, so sten einer seyn abethewer. – Luther, WA 41, 398, 13; Chron. Augsb. 9, 364, 25; Müller, Nördl. Stadtr. 124, 36; Mon. Boica, NF. 2, 1, 300, 1. 9. ›Posse, Gaukelspiel, Narretei, Zaubertrick, Kunststück, Mätzchen‹. – Spätes Frnhd.; agitatorische und erzählende Texte, Fastnachtspiele. – Bdv.: affenspiel 2, blauer dunst (s. v. dunst 5), gaukelsache, gugelfur, kunst 2, poss(e) 2 (mehrmals), schlotterlein, schwank, unfure, wunderzeichen, zauberei. – Synt.: a. treiben (mehrmals) / können; der a. lachen; etw. mit a. richten, jn. mit a. überwinden, jn. um a. verklagen; schimpfliche a.; anfang zu der a.; a. sein lächerlich. Sachs 15, 514, 33 (Nürnb. 1562) Wer ihm opffert und rüfft ihn an, | Zeigt wunderzeichn ein grosse zal, | Der offt keins warhafft war zumal, | Sonder gricht mit abenthewr und kunst, | Dem volck gemacht ein blober dunst. Bolte, Pauli. Schimpf u. Ernst 1, 340, 29 (Straßb. 1522) das ein Priester von Sinnen kam und treib vil Abenthuͤer und kunt jederman ein Schlotterlin schlagen. Barack, Zim. Chron. 4, 168, 11 (schwäb., M. 16. Jh.) Was solcher gaist weiter für seltzam abentür und affenspill getriben. – Bobertag, Faust 251, 1; Kurz, Waldis. Esopus 4, 66, 70; Sachs 14, 242, 3; 15, 513, 18; 17, 247, 24; Schade, Sat. u. Pasqu. 1, 37, 373; 3, 102, 32; Barack, Zim. Chron. 2, 601, 1. 10. ›Mittel zur Posse‹; Metonymie zu 9. Fuchs, Murner. 4 Ketzer 74, 2042 (wohl Straßb. 1509) So wil ich jm dann giessen drjn [wunde] | Etzwasser / vnd ein obenthür, | Die ich dann weisß / ist gůt dorfür. Sachs 15, 513, 39 (Nürnb. 1562) So richt er zu die abenthewer. – Eckel, Fremdw. Murners. 1978, 25. 11. ›Risiko, Wagnis, meist geschäftlicher Art‹; offen zu 12, nicht immer von ebenteuer ›Gegenwert, Pfand‹ abgrenzbar. – Md.; vorw. rechts- und wirtschaftsgeschichtliche Texte. – Synt.: a. stehen / wagen; auf a. segeln, etw. auf a. erarbeiten. Toeppen, Ständetage Preußen 1, 512, 31 (preuß., 1428) das eyn iczlich schiffher und kouffman zegeln mag uff seyn ebentur. Kisch, Leipz. Schöffenspr. 507, 12 (osächs., 1523/4) der jungste bruder hat gelt erarbeit [...] auf sein eigene obenteuer. – Chron. Köln 2, 573, 8; Toeppen, a. a. O. 2, 296, 13; Röhrich u. a., Cod. Dipl. Warm. 4, 283, 36; Grosch u. a., Schöffenspr. Pössneck 330, 8; Thiele, Chron. Stolle 516, 22; Grothausmann, Stadtb. Karpfen 13, 15; Dietz, Wb. Luther 1, 9b; Henisch 5. 12. ›Geschäft, Handelsabschluß‹. Bastian, Runtingerb. 2, 175, 28 (oobd., 1395) sullen si mir guͤt gwant [...] chauffen oder [...] waz sy dann guͤt abentewer dunkcht. Mollwo, Rotes Buch Ulm 186, 28 (schwäb., 1425) Ouch muͥgen die juden [...] wechsel mit Rinischem [...] golde triben, wan das alles afentuͥr haisset. 13. ›minderwertige, verdächtige Handelsware‹, mit vereinzeltem Übergang zu ›Handelsware überhaupt‹, auch zu ›Kostbarkeit‹ sowie zu Spezialisierungen wie ›minderwertiger Barchent‹; offen zu 17. – Synt.: a. feil halten; etw. für a. hingeben / verkaufen, etw. von a. machen; a. von gold. Mollwo, Rotes Buch Ulm 257, 37 (schwäb., 1394) wo fuͥrbas aubenteur herkumen mit ir aubenteur, die fail hetten, und sollichs nit fuͥr aubenteur sondern fuͥr recht kaufmanschaft hingeben. Hoffmann, Würzb. Polizeisätze 175, 11 (nobd., 1475) das die frembden in [...] wirtshewser geen mit iren obentewern. Klein, Oswald 34, 27 (oobd., 1. H. 15. Jh.) All aubenteuer, die man vindt, | gleicht nicht der maget raine. – Mollwo, a. a. O. 186, 19; Hoffmann, a. a. O. 172, 42; Chron. Nürnb. 5, 571, 14; Schwäb. Wb. 1, 15. 14. ›Zufall, Glück‹, in festen präp. Verbindungen ›zufällig‹, ›von ungefähr‹, ›vielleicht‹, ›auf gut Glück‹, ›aufs Geratewohl‹. – Md., vor allem rib. – Bdv.: glük 6, glüksfal, zufal. – Synt.: jm. a. geben; jm. der a. gönnen; etw. auf a. vornemen; auf a. ›auf gut Glück‹, ›von ungefähr‹, bei a. ›vielleicht‹, ›zufällig‹. Frantzen u. a., Kölner Schwankb. II, 24 (Köln um 1490) Sent Magog gaff eme aventure, | Dat hey eyn here und eyn abt is worden. Alberus Tt iijv (Frankf. 1540) Impij dubitant de orationis eventu, bitten vff abenthewer. Wutke, Schles. Bergb., Cod. Sil. 21, 118, 23 (schles., 1559) auf dass nicht alles [...] nach dem wahn auf ebenteuer furgenommen wurde, sunder sich nach der prob [...] zu richten. – Meisen, Wierstr. Hist. Nuys 741; Chron. Köln 2, 291, 25; 301, 3; 392, 18; 3, 657, 18; Luther, WA 32, 329, 22; Dietz, Wb. Luther 1, 9b; Voc. Teut.-Lat. a iijr; Apherdianus 168; Henisch 5. 15. ›Bergschatz‹. – Schles.; bergbaugeschichtliche Texte. – Bdv.: gestein 1, seife. – Synt.: a. finden; jm. von a. melden. Wutke, Schles. Bergb., Cod. Sil. 20, 85, 20 (schles., um 1450) yn der obir Slesia zage ich dir, do vindistu gesten und ebintewr vil. – Ebd. 20, 86, 22; 21, 83, 6. 16. ›Preis-, Wettschießen‹. – Wohl obd.; 15./16. Jh.; vor allem Chroniken. – Synt.: a. haben; etw. gewinnen in der a. Chron. Augsb. 3, 135, 3 (schwäb., E. 15. Jh.) auf Bartholomei haben die von Costnitz ain abenteur mit schiessen gehabt. – Ebd. 2, 102, 20; 4, 124, 22. 17. ›der beim Preisschießen zu gewinnende Preis‹. – Wohl obd.; 15./16. Jh.; vor allem Chroniken; Metonymie zu 16. – Bdv.: kleinod(e) 5, toppel 2. – Synt.: a. ausschiessen / aufwerfen / ausgeben / gewinnen; a. (Subj.) kosten; um a. schiessen; etw. in die a. einteilen. Chron. Augsb. 3, 480, 1 (schwäb., 1490/1500) da schoß man umb ain abentuir hie zů Augspurg, die was ain ochs, ain schaul, zwei armprost, ain bar hosen und ain ring. Chron. Nürnb. 4, 231, 7 (nobd., 15. Jh.) das die [...] heren [...] die nachgeschriben cleinet und obenteẅer außgeben und darumb schiessen lassen wöllen. – Chron. Augsb. 1, 239, 7; 8, 45, 2; Chron. Nürnb. 4, 232, 14; Bernoulli, Basler Chron. 4, 96, 26; Gagliardi, Dok. Waldmann 1, 8, 4.
+-->
+  <!--Interpunktionsloser Text:
+abenteuerdieseltenerdasØselteners/ØmdauchebenteuerimälterenFrnhdmitSpiransaventürezumWandelvonv>bsowiezurEtymologieinsbesonderezudemUnterschiedzwischenFormenmitanlautendemaoauundsolchenmitanlautendemevglDwbNeub1150dortauchumfänglichesweiteresBelegmaterialmitanderersemantischerKlassifizierungZurvertiefendenLektüreJGrimmKlSchriften12187983112ReallexdtLiteraturgesch2Aufl1102RosenqvistFrzEinfluß19327677Frings/LinkeinNeuphilMitteilungen5319522930MiettinenAnnalesAcadScientFennSerB12619622063MüllerinKaiserGesellschaftlicheSinnangeboteinmittelalterlicherLiteratur19801159Anderson/Goebel/ReichmanninGermanistischeLinguistik3419791153Rwb14043SchweizId1103104Schmeller/F11112ÖstWb14344SchwäbWb114151›zumBeweisritterlicherTüchtigkeitoftzugleichzurHeilungvonRechtsbrüchenunternommeneritterlicheBewährungsproberisikoreichesUnternehmen‹auch›Turnier‹offenzu2mitderNuance›Turnier‹offenzu16Vorwobdgehäuftwobd14/15JhfiktionalearchaisierendeundhistorisierendeTexteBdvbuhurtfreisekampfstreitI4turneiSyntasuchen(oft)/erledigen/erstreiten/erfechten/begehen/bekommenagefallenjmnachareiten/kommenauf/durchaausreitenetwwagenaufajnaufabringen/aussendenjnaufabestehenkampfesaaufawanfrauaHenscheluaHeidin171(nobdum1300)Ersprachichwilminenlip|WagenvfaventevreAdrianSaeldenHort6373(alemHsE14/A15Jh)dazfúessschenkelachselbain|[]ich[]|wilwagenindemellende|undaventuͤresůchenKoppitzTrojanerkr3091(halemHsE14Jh)Ichsichdazdubistainheld|Unddichdinmanhaittusserweltt|UffauffentürhauttussgesanttBrandstetterWigoleis19717(Augsb1493)wieeinjunckfrawzuoCaridolkamevndeinabenteürwarbfürKorotin˹VonChristusgesagtPäpkeMarienlWernher6839(halemv1382)Ihesusufdiewartekan|Mitkampfesaventúre|Obderungehuͤre|Genimochdesgerůchte|Daserstritt[]sůchte˺MunzFüetrerPersibein222(moobd1478/84)Darnachanainemtage|raitausdurchabentewr|[]|GabanBernoulliBaslerChron41588HoltzmannGrWolfdietrich9772AdrianaaO6268ThieleMinnerII2129KarneinSalmuMorolf3502MunzaaO749118563855WeberFüetrerPoytislier110215122›diebeiderritterlichenBewährungsprobeerrungeneTrophäeSiegesbeweisPreisfürritterlicheTüchtigkeit‹Metonymiezu1DassemantischeVerhältnisvon1und2hatParallelenimVerhältnisvon3und4sowie16und17FiktionaleTexteBdvbelonung11preis1Synta(her)bringen/erholen/gewinnen/erwerbenjmzuragachseinThieleMinnerII678(Hs˹nalem/sfrk1470/90˺)dasermirabenturbringt|dieermitritterlicherdat|inmynemdinsterworbenhattBrandstetterWigoleis19740(Augsb1493)Welicheraber[]meynet[]dieabenteürzuokorotinzuoerholenMaaler1v(Zürich1561)Abentheür(die)BelonungdiemaneimsighafftengibtMunzFüetrerPersibein46434655FichtnerFüetrerTrojanerkr805Henisch53›militärischeAuseinandersetzungKampfKrieg‹Vorwmd/nobd15JhChronikenFachliteraturzumKriegswesenBdvarbeit2abschach(t)1krieg2Syntabestehen(häufig)/stehen/überstehena(Subj)jmwiederfarenderagedenkenaufaausziehenetwinasetzenToeppenStändetagePreußen27914(preuß1438)Dorummeistdeserorth[]insulchesorglicheabeschachtundswereebentuͤreczusetczenAltmannWindDenkw3283(mdum1440)inderselbenzitwaskonigSigemont[]zuPesentzundzogdogonLucaundbestuntdogroßofentúregeindenFlorenzernNeubauerKriegsbSeldeneck11626(nobd2H15Jh)dansie[schuczenn]bestonndiegrostenobentewerStrehlkeNicJeroschChron22991ThieleChronStolle14627DietzWbLuther19bPreussWb(Z)1224›BeuteausmilitärischerAuseinandersetzung‹Metonymiezu3RöhrichuaCodDiplWarm441724(omd1431)Wilouchymantalsvonemselbistuff(ebenteuw)erusczihenundvondenfyndenedwasirwerbendassalherembehalden5›merkwürdigeunheimlichewunderbareoderwunderlichestaunenswertegefahrvolleBegebenheitoderTat‹oftallgemeiner›EreignisBegebenheitschlechthin‹offenzu6GesamtzeitundgebietvorwerzählendeTexteSyntasehen/erfaren/verstehenageschehen/begegnenjmvonareden/sagenjmbeiderageheuerseingute/götliche/künftigeaThieleMinnerII1621(Hs˹wobd15Jh˺)Dowardmirains[crut]inminhant|dovonmirgroßaubentúrgeschachBarackZimChron424341(schwäbM16Jh)Zutischzuaubendtsniemandslas|IedermanredtvonaubenteurBihlmeyerSeuse4826(alem14Jh)eingoͤtlichkuͤnftigaventúredúimkúrzeklichvongotwerdensoͤlteKoppitzTrojanerkr2903HoltzmannGrWolfdietrich10633GilleuaMBeheim33112MeisenWierstrHistNuys7436›ErzählungGeschichteBerichtvoneinermerkwürdigenBegebenheitoderTatphantastischeErzählunggeschlosseneErzähleinheitinnerhalbeinersolchenGeschichteQuelleVorlagederErzählung‹GesamtgebietundzeitpoetischeTexteChronikenBdvbuch1gesang21geschichte7gespräch12lied11märe4rede6c1reim2spielSyntahören(häufig)/sagen(häufig)/verjehen/durchlesen/abschreibena(Subj)beweisen/heben(sich)an/sagenguteraseinsichderabefleissenetwinaverkerenderminneaderastrasse›Erzählfaden‹zärtliche/säuberlicheaBömerPilgerfträumMönch9099(rhfrkum1405)Nuhorentmynliebenlude|MynabentuͤrenTurmair471(moobd1522/33)habich[]briefechronicarüefreimensprüchliederabenteuergesang[]abgeschriebenEbd11356Disekrieg[]sindabernachpoëtischerartinabenteurverkertwordenSpillerFüetrerBayChron13310(moobd1478/81)ErwasgargueterundfrembderawentewrundgesprächsHoltzmannGrWolfdietrich10252(obdHsA15Jh)alsounsdieavontureundouchdazbuchnochseitHenscheluaHeidin162FrantzenuaKölnerSchwankbIÜNiewöhnerTeichner3523GilleuaMBeheim2284Sachs175206MayerFolzMeisterl951BarackZimChron131511BrandstetterWigoleis1925KoppitzTrojanerkr1496WeberFüetrerPoytislier24Ü1725FichtnerFüetrerTrojanerkr19ÜGrossmannUnrestÖstChron3415KummerErlauerSp2437›LügengeschichteAmmenmärchen‹offenzu6MittleresundspäteresFrnhdvorallemagitatorischeTexteBdv1märe3tandereiGgs2bewerde(sv1beweren1)geschrift9SyntahörenetwaufastiftenvergebeneaSchlosserHvSachsenhMörin2691(schwäb1453)IchsagesnitdurchaubentürTurmair4102710(moobd1522/33)soesauchderallerheiligestvatter[]alsalterweiberundrockenspinnerinundvergebenabenteuerverspotSchadeSatuPasqu216032(thurg1520/1)DesLuthersdicht|Istganzgericht|Aufbwertegschrift|Undnitgestift|aufabenteurEbd2222969(nobd1524)Desgleichwergeltindkistenbringt|[]|Dersoleinsel(hörtobenteur)|Erlösenußdemfegefeur8›UnrechtmäßigkeitjederArtUngebührlichkeitUnsittlichkeitBetrugGaunereiüblesTreibenMachenschaften‹GesamtgebietmittleresundspäteresFrnhdBdvanschlag5büberei1laster12Syntavertragen/treiben/sehen/brauchena(Subj)geschehensichderaberümenIdiomseinastehen›fürdieFolgenseinesVerhaltensgeradestehen‹MonBoicaNF212996(nobd1464)wiederherrschaftdieawͤgenverclawbtsintwordenundabenthewergeschehenEndersEberlin33725(Erfurt1523)darumbhabichmuͤssen[]furtragenyr[munch]abentewrSchadeSatuPasqu2210494(nobd1524)Derbanderablaßundsfegfeur|DarnebensonstvilobenteurLemmerBrantNarrensch110a167(Basel1494)Dieblatervffdemdischvmbschibt|[]|DasmanchertreibsoͤlchofentürBarackZimChron36738(schwäbM16Jh)Diezwofrawenhabensichübelgeschempt[]undnitvilsichdieserabentür[]berüemptDinklageFrkBauernweist5319(nobdA16Jh)suchtabereinerawßfluchtsosteneinerseynabethewerLutherWA4139813ChronAugsb936425MüllerNördlStadtr12436MonBoicaNF2130019›PosseGaukelspielNarreteiZaubertrickKunststückMätzchen‹SpätesFrnhdagitatorischeunderzählendeTexteFastnachtspieleBdvaffenspiel2blauerdunst(svdunst5)gaukelsachegugelfurkunst2poss(e)2(mehrmals)schlotterleinschwankunfurewunderzeichenzaubereiSyntatreiben(mehrmals)/könnenderalachenetwmitarichtenjnmitaüberwindenjnumaverklagenschimpflicheaanfangzuderaaseinlächerlichSachs1551433(Nürnb1562)Werihmopffertundrüfftihnan|Zeigtwunderzeichneingrossezal|Derofftkeinswarhafftwarzumal|Sondergrichtmitabenthewrundkunst|DemvolckgemachteinbloberdunstBoltePauliSchimpfuErnst134029(Straßb1522)daseinPriestervonSinnenkamundtreibvilAbenthuͤerundkuntjedermaneinSchlotterlinschlagenBarackZimChron416811(schwäbM16Jh)WassolchergaistweiterfürseltzamabentürundaffenspillgetribenBobertagFaust2511KurzWaldisEsopus46670Sachs14242315513181724724SchadeSatuPasqu137373310232BarackZimChron2601110›MittelzurPosse‹Metonymiezu9FuchsMurner4Ketzer742042(wohlStraßb1509)Sowilichjmdanngiessendrjn[wunde]|Etzwasser/vndeinobenthür|Dieichdannweisß/istgůtdorfürSachs1551339(Nürnb1562)SorichterzudieabenthewerEckelFremdwMurners19782511›RisikoWagnismeistgeschäftlicherArt‹offenzu12nichtimmervonebenteuer›GegenwertPfand‹abgrenzbarMdvorwrechtsundwirtschaftsgeschichtlicheTexteSyntastehen/wagenaufasegelnetwaufaerarbeitenToeppenStändetagePreußen151231(preuß1428)daseyniczlichschiffherundkouffmanzegelnmaguffseynebenturKischLeipzSchöffenspr50712(osächs1523/4)derjungstebruderhatgelterarbeit[]aufseineigeneobenteuerChronKöln25738ToeppenaaO229613RöhrichuaCodDiplWarm428336GroschuaSchöffensprPössneck3308ThieleChronStolle51622GrothausmannStadtbKarpfen1315DietzWbLuther19bHenisch512›GeschäftHandelsabschluß‹BastianRuntingerb217528(oobd1395)sullensimirguͤtgwant[]chauffenoder[]wazsydannguͤtabentewerdunkchtMollwoRotesBuchUlm18628(schwäb1425)Ouchmuͥgendiejuden[]wechselmitRinischem[]goldetribenwandasallesafentuͥrhaisset13›minderwertigeverdächtigeHandelsware‹mitvereinzeltemÜbergangzu›Handelswareüberhaupt‹auchzu›Kostbarkeit‹sowiezuSpezialisierungenwie›minderwertigerBarchent‹offenzu17Syntafeilhaltenetwfürahingeben/verkaufenetwvonamachenavongoldMollwoRotesBuchUlm25737(schwäb1394)wofuͥrbasaubenteurherkumenmitiraubenteurdiefailhettenundsollichsnitfuͥraubenteursondernfuͥrrechtkaufmanschafthingebenHoffmannWürzbPolizeisätze17511(nobd1475)dasdiefrembdenin[]wirtshewsergeenmitirenobentewernKleinOswald3427(oobd1H15Jh)Allaubenteuerdiemanvindt|gleichtnichtdermagetraineMollwoaaO18619HoffmannaaO17242ChronNürnb557114SchwäbWb11514›ZufallGlück‹infestenpräpVerbindungen›zufällig‹›vonungefähr‹›vielleicht‹›aufgutGlück‹›aufsGeratewohl‹MdvorallemribBdvglük6glüksfalzufalSyntjmagebenjmderagönnenetwaufavornemenaufa›aufgutGlück‹›vonungefähr‹beia›vielleicht‹›zufällig‹FrantzenuaKölnerSchwankbII24(Kölnum1490)SentMagoggaffemeaventure|DatheyeynhereundeynabtiswordenAlberusTtiijv(Frankf1540)ImpijdubitantdeorationiseventubittenvffabenthewerWutkeSchlesBergbCodSil2111823(schles1559)aufdassnichtalles[]nachdemwahnaufebenteuerfurgenommenwurdesundersichnachderprob[]zurichtenMeisenWierstrHistNuys741ChronKöln229125301339218365718LutherWA3232922DietzWbLuther19bVocTeutLataiijrApherdianus168Henisch515›Bergschatz‹SchlesbergbaugeschichtlicheTexteBdvgestein1seifeSyntafindenjmvonameldenWutkeSchlesBergbCodSil208520(schlesum1450)ynderobirSlesiazageichdirdovindistugestenundebintewrvilEbd2086222183616›PreisWettschießen‹Wohlobd15/16JhvorallemChronikenSyntahabenetwgewinneninderaChronAugsb31353(schwäbE15Jh)aufBartholomeihabendievonCostnitzainabenteurmitschiessengehabtEbd21022041242217›derbeimPreisschießenzugewinnendePreis‹Wohlobd15/16JhvorallemChronikenMetonymiezu16Bdvkleinod(e)5toppel2Syntaausschiessen/aufwerfen/ausgeben/gewinnena(Subj)kostenumaschiessenetwindieaeinteilenChronAugsb34801(schwäb1490/1500)daschoßmanumbainabentuirhiezůAugspurgdiewasainochsainschaulzweiarmprostainbarhosenundainringChronNürnb42317(nobd15Jh)dasdie[]heren[]dienachgeschribencleinetundobenteẅeraußgebenunddarumbschiessenlassenwöllenChronAugsb123978452ChronNürnb423214BernoulliBaslerChron49626GagliardiDokWaldmann184
+abenteuerdieseltenerdasØselteners/ØmdauchebenteuerimälterenFrnhdmitSpiransaventürezumWandelvonv>bsowiezurEtymologieinsbesonderezudemUnterschiedzwischenFormenmitanlautendemaoauundsolchenmitanlautendemevglDwbNeub1150dortauchumfänglichesweiteresBelegmaterialmitanderersemantischerKlassifizierungZurvertiefendenLektüreJGrimmKlSchriften12187983112ReallexdtLiteraturgesch2Aufl1102RosenqvistFrzEinfluß19327677Frings/LinkeinNeuphilMitteilungen5319522930MiettinenAnnalesAcadScientFennSerB12619622063MüllerinKaiserGesellschaftlicheSinnangeboteinmittelalterlicherLiteratur19801159Anderson/Goebel/ReichmanninGermanistischeLinguistik3419791153Rwb14043SchweizId1103104Schmeller/F11112ÖstWb14344SchwäbWb114151›zumBeweisritterlicherTüchtigkeitoftzugleichzurHeilungvonRechtsbrüchenunternommeneritterlicheBewährungsproberisikoreichesUnternehmen‹auch›Turnier‹offenzu2mitderNuance›Turnier‹offenzu16Vorwobdgehäuftwobd14/15JhfiktionalearchaisierendeundhistorisierendeTexteBdvbuhurtfreisekampfstreitI4turneiSyntasuchen(oft)/erledigen/erstreiten/erfechten/begehen/bekommenagefallenjmnachareiten/kommenauf/durchaausreitenetwwagenaufajnaufabringen/aussendenjnaufabestehenkampfesaaufawanfrauaHenscheluaHeidin171(nobdum1300)Ersprachichwilminenlip|WagenvfaventevreAdrianSaeldenHort6373(alemHsE14/A15Jh)dazfúessschenkelachselbain|[]ich[]|wilwagenindemellende|undaventuͤresůchenKoppitzTrojanerkr3091(halemHsE14Jh)Ichsichdazdubistainheld|Unddichdinmanhaittusserweltt|UffauffentürhauttussgesanttBrandstetterWigoleis19717(Augsb1493)wieeinjunckfrawzuoCaridolkamevndeinabenteürwarbfürKorotin˹VonChristusgesagtPäpkeMarienlWernher6839(halemv1382)Ihesusufdiewartekan|Mitkampfesaventúre|Obderungehuͤre|Genimochdesgerůchte|Daserstritt[]sůchte˺MunzFüetrerPersibein222(moobd1478/84)Darnachanainemtage|raitausdurchabentewr|[]|GabanBernoulliBaslerChron41588HoltzmannGrWolfdietrich9772AdrianaaO6268ThieleMinnerII2129KarneinSalmuMorolf3502MunzaaO749118563855WeberFüetrerPoytislier110215122›diebeiderritterlichenBewährungsprobeerrungeneTrophäeSiegesbeweisPreisfürritterlicheTüchtigkeit‹Metonymiezu1DassemantischeVerhältnisvon1und2hatParallelenimVerhältnisvon3und4sowie16und17FiktionaleTexteBdvbelonung11preis1Synta(her)bringen/erholen/gewinnen/erwerbenjmzuragachseinThieleMinnerII678(Hs˹nalem/sfrk1470/90˺)dasermirabenturbringt|dieermitritterlicherdat|inmynemdinsterworbenhattBrandstetterWigoleis19740(Augsb1493)Welicheraber[]meynet[]dieabenteürzuokorotinzuoerholenMaaler1v(Zürich1561)Abentheür(die)BelonungdiemaneimsighafftengibtMunzFüetrerPersibein46434655FichtnerFüetrerTrojanerkr805Henisch53›militärischeAuseinandersetzungKampfKrieg‹Vorwmd/nobd15JhChronikenFachliteraturzumKriegswesenBdvarbeit2abschach(t)1krieg2Syntabestehen(häufig)/stehen/überstehena(Subj)jmwiederfarenderagedenkenaufaausziehenetwinasetzenToeppenStändetagePreußen27914(preuß1438)Dorummeistdeserorth[]insulchesorglicheabeschachtundswereebentuͤreczusetczenAltmannWindDenkw3283(mdum1440)inderselbenzitwaskonigSigemont[]zuPesentzundzogdogonLucaundbestuntdogroßofentúregeindenFlorenzernNeubauerKriegsbSeldeneck11626(nobd2H15Jh)dansie[schuczenn]bestonndiegrostenobentewerStrehlkeNicJeroschChron22991ThieleChronStolle14627DietzWbLuther19bPreussWb(Z)1224›BeuteausmilitärischerAuseinandersetzung‹Metonymiezu3RöhrichuaCodDiplWarm441724(omd1431)Wilouchymantalsvonemselbistuff(ebenteuw)erusczihenundvondenfyndenedwasirwerbendassalherembehalden5›merkwürdigeunheimlichewunderbareoderwunderlichestaunenswertegefahrvolleBegebenheitoderTat‹oftallgemeiner›EreignisBegebenheitschlechthin‹offenzu6GesamtzeitundgebietvorwerzählendeTexteSyntasehen/erfaren/verstehenageschehen/begegnenjmvonareden/sagenjmbeiderageheuerseingute/götliche/künftigeaThieleMinnerII1621(Hs˹wobd15Jh˺)Dowardmirains[crut]inminhant|dovonmirgroßaubentúrgeschachBarackZimChron424341(schwäbM16Jh)Zutischzuaubendtsniemandslas|IedermanredtvonaubenteurBihlmeyerSeuse4826(alem14Jh)eingoͤtlichkuͤnftigaventúredúimkúrzeklichvongotwerdensoͤlteKoppitzTrojanerkr2903HoltzmannGrWolfdietrich10633GilleuaMBeheim33112MeisenWierstrHistNuys7436›ErzählungGeschichteBerichtvoneinermerkwürdigenBegebenheitoderTatphantastischeErzählunggeschlosseneErzähleinheitinnerhalbeinersolchenGeschichteQuelleVorlagederErzählung‹GesamtgebietundzeitpoetischeTexteChronikenBdvbuch1gesang21geschichte7gespräch12lied11märe4rede6c1reim2spielSyntahören(häufig)/sagen(häufig)/verjehen/durchlesen/abschreibena(Subj)beweisen/heben(sich)an/sagenguteraseinsichderabefleissenetwinaverkerenderminneaderastrasse›Erzählfaden‹zärtliche/säuberlicheaBömerPilgerfträumMönch9099(rhfrkum1405)Nuhorentmynliebenlude|MynabentuͤrenTurmair471(moobd1522/33)habich[]briefechronicarüefreimensprüchliederabenteuergesang[]abgeschriebenEbd11356Disekrieg[]sindabernachpoëtischerartinabenteurverkertwordenSpillerFüetrerBayChron13310(moobd1478/81)ErwasgargueterundfrembderawentewrundgesprächsHoltzmannGrWolfdietrich10252(obdHsA15Jh)alsounsdieavontureundouchdazbuchnochseitHenscheluaHeidin162FrantzenuaKölnerSchwankbIÜNiewöhnerTeichner3523GilleuaMBeheim2284Sachs175206MayerFolzMeisterl951BarackZimChron131511BrandstetterWigoleis1925KoppitzTrojanerkr1496WeberFüetrerPoytislier24Ü1725FichtnerFüetrerTrojanerkr19ÜGrossmannUnrestÖstChron3415KummerErlauerSp2437›LügengeschichteAmmenmärchen‹offenzu6MittleresundspäteresFrnhdvorallemagitatorischeTexteBdv1märe3tandereiGgs2bewerde(sv1beweren1)geschrift9SyntahörenetwaufastiftenvergebeneaSchlosserHvSachsenhMörin2691(schwäb1453)IchsagesnitdurchaubentürTurmair4102710(moobd1522/33)soesauchderallerheiligestvatter[]alsalterweiberundrockenspinnerinundvergebenabenteuerverspotSchadeSatuPasqu216032(thurg1520/1)DesLuthersdicht|Istganzgericht|Aufbwertegschrift|Undnitgestift|aufabenteurEbd2222969(nobd1524)Desgleichwergeltindkistenbringt|[]|Dersoleinsel(hörtobenteur)|Erlösenußdemfegefeur8›UnrechtmäßigkeitjederArtUngebührlichkeitUnsittlichkeitBetrugGaunereiüblesTreibenMachenschaften‹GesamtgebietmittleresundspäteresFrnhdBdvanschlag5büberei1laster12Syntavertragen/treiben/sehen/brauchena(Subj)geschehensichderaberümenIdiomseinastehen›fürdieFolgenseinesVerhaltensgeradestehen‹MonBoicaNF212996(nobd1464)wiederherrschaftdieawͤgenverclawbtsintwordenundabenthewergeschehenEndersEberlin33725(Erfurt1523)darumbhabichmuͤssen[]furtragenyr[munch]abentewrSchadeSatuPasqu2210494(nobd1524)Derbanderablaßundsfegfeur|DarnebensonstvilobenteurLemmerBrantNarrensch110a167(Basel1494)Dieblatervffdemdischvmbschibt|[]|DasmanchertreibsoͤlchofentürBarackZimChron36738(schwäbM16Jh)Diezwofrawenhabensichübelgeschempt[]undnitvilsichdieserabentür[]berüemptDinklageFrkBauernweist5319(nobdA16Jh)suchtabereinerawßfluchtsosteneinerseynabethewerLutherWA4139813ChronAugsb936425MüllerNördlStadtr12436MonBoicaNF2130019›PosseGaukelspielNarreteiZaubertrickKunststückMätzchen‹SpätesFrnhdagitatorischeunderzählendeTexteFastnachtspieleBdvaffenspiel2blauerdunst(svdunst5)gaukelsachegugelfurkunst2poss(e)2(mehrmals)schlotterleinschwankunfurewunderzeichenzaubereiSyntatreiben(mehrmals)/könnenderalachenetwmitarichtenjnmitaüberwindenjnumaverklagenschimpflicheaanfangzuderaaseinlächerlichSachs1551433(Nürnb1562)Werihmopffertundrüfftihnan|Zeigtwunderzeichneingrossezal|Derofftkeinswarhafftwarzumal|Sondergrichtmitabenthewrundkunst|DemvolckgemachteinbloberdunstBoltePauliSchimpfuErnst134029(Straßb1522)daseinPriestervonSinnenkamundtreibvilAbenthuͤerundkuntjedermaneinSchlotterlinschlagenBarackZimChron416811(schwäbM16Jh)WassolchergaistweiterfürseltzamabentürundaffenspillgetribenBobertagFaust2511KurzWaldisEsopus46670Sachs14242315513181724724SchadeSatuPasqu137373310232BarackZimChron2601110›MittelzurPosse‹Metonymiezu9FuchsMurner4Ketzer742042(wohlStraßb1509)Sowilichjmdanngiessendrjn[wunde]|Etzwasser/vndeinobenthür|Dieichdannweisß/istgůtdorfürSachs1551339(Nürnb1562)SorichterzudieabenthewerEckelFremdwMurners19782511›RisikoWagnismeistgeschäftlicherArt‹offenzu12nichtimmervonebenteuer›GegenwertPfand‹abgrenzbarMdvorwrechtsundwirtschaftsgeschichtlicheTexteSyntastehen/wagenaufasegelnetwaufaerarbeitenToeppenStändetagePreußen151231(preuß1428)daseyniczlichschiffherundkouffmanzegelnmaguffseynebenturKischLeipzSchöffenspr50712(osächs1523/4)derjungstebruderhatgelterarbeit[]aufseineigeneobenteuerChronKöln25738ToeppenaaO229613RöhrichuaCodDiplWarm428336GroschuaSchöffensprPössneck3308ThieleChronStolle51622GrothausmannStadtbKarpfen1315DietzWbLuther19bHenisch512›GeschäftHandelsabschluß‹BastianRuntingerb217528(oobd1395)sullensimirguͤtgwant[]chauffenoder[]wazsydannguͤtabentewerdunkchtMollwoRotesBuchUlm18628(schwäb1425)Ouchmuͥgendiejuden[]wechselmitRinischem[]goldetribenwandasallesafentuͥrhaisset13›minderwertigeverdächtigeHandelsware‹mitvereinzeltemÜbergangzu›Handelswareüberhaupt‹auchzu›Kostbarkeit‹sowiezuSpezialisierungenwie›minderwertigerBarchent‹offenzu17Syntafeilhaltenetwfürahingeben/verkaufenetwvonamachenavongoldMollwoRotesBuchUlm25737(schwäb1394)wofuͥrbasaubenteurherkumenmitiraubenteurdiefailhettenundsollichsnitfuͥraubenteursondernfuͥrrechtkaufmanschafthingebenHoffmannWürzbPolizeisätze17511(nobd1475)dasdiefrembdenin[]wirtshewsergeenmitirenobentewernKleinOswald3427(oobd1H15Jh)Allaubenteuerdiemanvindt|gleichtnichtdermagetraineMollwoaaO18619HoffmannaaO17242ChronNürnb557114SchwäbWb11514›ZufallGlück‹infestenpräpVerbindungen›zufällig‹›vonungefähr‹›vielleicht‹›aufgutGlück‹›aufsGeratewohl‹MdvorallemribBdvglük6glüksfalzufalSyntjmagebenjmderagönnenetwaufavornemenaufa›aufgutGlück‹›vonungefähr‹beia›vielleicht‹›zufällig‹FrantzenuaKölnerSchwankbII24(Kölnum1490)SentMagoggaffemeaventure|DatheyeynhereundeynabtiswordenAlberusTtiijv(Frankf1540)ImpijdubitantdeorationiseventubittenvffabenthewerWutkeSchlesBergbCodSil2111823(schles1559)aufdassnichtalles[]nachdemwahnaufebenteuerfurgenommenwurdesundersichnachderprob[]zurichtenMeisenWierstrHistNuys741ChronKöln229125301339218365718LutherWA3232922DietzWbLuther19bVocTeutLataiijrApherdianus168Henisch515›Bergschatz‹SchlesbergbaugeschichtlicheTexteBdvgestein1seifeSyntafindenjmvonameldenWutkeSchlesBergbCodSil208520(schlesum1450)ynderobirSlesiazageichdirdovindistugestenundebintewrvilEbd2086222183616›PreisWettschießen‹Wohlobd15/16JhvorallemChronikenSyntahabenetwgewinneninderaChronAugsb31353(schwäbE15Jh)aufBartholomeihabendievonCostnitzainabenteurmitschiessengehabtEbd21022041242217›derbeimPreisschießenzugewinnendePreis‹Wohlobd15/16JhvorallemChronikenMetonymiezu16Bdvkleinod(e)5toppel2Syntaausschiessen/aufwerfen/ausgeben/gewinnena(Subj)kostenumaschiessenetwindieaeinteilenChronAugsb34801(schwäb1490/1500)daschoßmanumbainabentuirhiezůAugspurgdiewasainochsainschaulzweiarmprostainbarhosenundainringChronNürnb42317(nobd15Jh)dasdie[]heren[]dienachgeschribencleinetundobenteẅeraußgebenunddarumbschiessenlassenwöllenChronAugsb123978452ChronNürnb423214BernoulliBaslerChron49626GagliardiDokWaldmann184
+-->
+  <!--Original:
+<p2 uuid="e9c9c722-e535-4d40-b608-8910e3e0491b"><b>abenteuer,</b> <i>die</i>, seltener <i>das</i>; <i>-Ø</i>, seltener: <i>-s/-Ø</i>; md. auch <b>ebenteuer,</b> im älteren Frnhd. mit Spirans: <b>aventüre</b>; zum Wandel von <i>v &gt; b</i> sowie zur Etymologie, insbesondere zu dem Unterschied zwischen Formen mit anlautendem <i>a, o, au</i> und solchen mit anlautendem <i>e</i> vgl. <sc>Dwb</sc>, Neub. 1, 150; dort auch umfängliches weiteres Belegmaterial mit anderer semantischer Klassifizierung. – Zur vertiefenden Lektüre: <sc>J. Grimm</sc>, Kl. Schriften 1, <sup>2</sup>1879, 83-112; <sc>Reallex. dt. Literaturgesch</sc>., 2. Aufl. 1, 102; <sc>Rosenqvist</sc>, Frz. Einfluß. 1932, 76-77; <sc>Frings/Linke</sc> in: Neuphil. Mitteilungen 53, 1952, 29-30; <sc>Miettinen</sc>, Annales Acad. Scient. Fenn., Ser. B, 126, 1962, 20-63; <sc>Müller</sc> in: <sc>Kaiser</sc>, Gesellschaftliche Sinnangebote in mittelalterlicher Literatur. 1980, 11-59; <sc>Anderson/Goebel/Reichmann</sc> in: Germanistische Linguistik 3-4, 1979, 11-53; <sc>Rwb</sc> 1, 40-43; <sc>Schweiz. Id</sc>. 1, 103-104; <sc>Schmeller/F</sc>., 1, 11-12; <sc>Öst. Wb</sc>. 1, 43-44; <sc>Schwäb. Wb</sc>. 1, 14-15.</p2>
+<p2 uuid="ee3e01d4-cd15-43f5-afd8-17577e94f186">1. ›zum Beweis ritterlicher Tüchtigkeit, oft zugleich zur Heilung von Rechtsbrüchen unternommene ritterliche Bewährungsprobe, risikoreiches Unternehmen‹; auch ›Turnier‹; offen zu 2, mit der Nuance ›Turnier‹ offen zu 16. – Vorw. obd., gehäuft wobd.; 14./15. Jh.; fiktionale, archaisierende und historisierende Texte. – Bdv.: <i>buhurt, freise, kampf, streit</i> I, 4, <i>turnei</i>. – Synt.: <i>a. suchen</i> (oft) / <i>erledigen / erstreiten / erfechten / begehen / bekommen; a. gefallen jm.; nach a. reiten / kommen, auf / durch a. ausreiten, etw. wagen auf a., jn. auf a. bringen / aussenden, jn. auf a. bestehen; kampfes a.; auf a. wan; frau a.</i></p2>
+<p><sc>Henschel</sc> u. a., Heidin 171 (nobd., um 1300): <i>Er sprach ich wil minen lip | Wagen vf aventevre.</i> <sc>Adrian</sc>, Saelden Hort 6373 (alem., Hs. E. 14./A. 15. Jh.): <i>daz fúess, schenkel, achselbain | [...] ich [...] | wil wagen indem ellende | und aventuͤre sůchen.</i> <sc>Koppitz</sc>, Trojanerkr. 3091 (halem., Hs. E. 14. Jh.): <i>Ich sich daz du bist ain held | Und dich din manhaitt usserweltt | Uff auffentür hautt ussgesantt.</i> <sc>Brandstetter</sc>, Wigoleis 197, 17 (Augsb. 1493): <i>wie ein junckfraw zuo Caridol kame vnd ein abenteür warb für Korotin.</i> ˹Von Christus gesagt: <sc>Päpke</sc>, Marienl. Wernher 6839 (halem., v. 1382): <i>Ihesus, uf die warte kan | Mit kampfes aventúre, | Ob der ungehuͤre | Gen im och des gerůchte | Das er stritt [...] sůchte</i>˺. <sc>Munz</sc>, Füetrer. Persibein 22, 2 (moobd., 1478/84): <i>Darnach an ainem tage | rait aus durch abentewr | [...] | Gaban.</i> – <sc>Bernoulli</sc>, Basler Chron. 4, 158, 8; <sc>Holtzmann</sc>, Gr. Wolfdietrich 977, 2; <sc>Adrian</sc>, a. a. O. 6268; <sc>Thiele</sc>, Minner. II, 21, 29; <sc>Karnein</sc>, Salm. u. Morolf 350, 2; <sc>Munz</sc>, a. a. O. 7, 4; 9, 1; 185, 6; 385, 5; <sc>Weber</sc>, Füetrer. Poytislier 110, 2; 151, 2.</p>
+<p2 uuid="bce5e0d5-9d24-4ffd-8f03-76df98458d21">2. ›die bei der ritterlichen Bewährungsprobe errungene Trophäe, Siegesbeweis, Preis für ritterliche Tüchtigkeit‹; Metonymie zu 1. Das semantische Verhältnis von 1 und 2 hat Parallelen im Verhältnis von 3 und 4 sowie 16 und 17. – Fiktionale Texte. – Bdv.: <i>belonung</i> 1, <sup>1</sup><i>preis</i> 1. – Synt.: <i>a. (her)bringen / erholen / gewinnen / erwerben; jm. zur a. gach sein.</i></p2>
+<p><sc>Thiele</sc>, Minner. II, 6, 78 (Hs. ˹nalem./sfrk., 1470/90˺): <i>das er mir abentur bringt, | die er mit ritterlicher dat | in mynem dinst erworben hatt.</i> <sc>Brandstetter</sc>, Wigoleis 197, 40 (Augsb. 1493): <i>Welicher aber [...] meynet [...] die abenteür zuo korotin zuo erholen.</i> <sc>Maaler</sc> 1v (Zürich 1561): <i>Abentheür (die) Belonung die man eim sighafften gibt.</i> – <sc>Munz</sc>, Füetrer. Persibein 464, 3; 465, 5; <sc>Fichtner</sc>, Füetrer. Trojanerkr. 80, 5; <sc>Henisch</sc> 5.</p>
+<p2 uuid="2754ad8e-80b0-476c-8d01-b93344bae014">3. ›militärische Auseinandersetzung, Kampf, Krieg‹. – Vorw. md./nobd.; 15. Jh.; Chroniken, Fachliteratur zum Kriegswesen. – Bdv.: <i>arbeit</i> 2, <i>abschach(t)</i>, <sup>1</sup><i>krieg</i> 2. – Synt.: <i>a. bestehen</i> (häufig) / <i>stehen / überstehen; a.</i> (Subj.) <i>jm. wiederfaren; der a. gedenken; auf a. ausziehen, etw. in a. setzen.</i></p2>
+<p><sc>Toeppen</sc>, Ständetage Preußen 2, 79, 14 (preuß., 1438): <i>Dorumme ist deser orth [...] in sulche sorgliche abeschacht und swere ebentuͤre czu setczen.</i> <sc>Altmann</sc>, Wind. Denkw. 328, 3 (md., um 1440): <i>in der selben zit was konig Sigemont [...] zu Pesentz und zog do gon Luca und bestunt do groß ofentúre gein den Florenzern.</i> <sc>Neubauer</sc>, Kriegsb. Seldeneck 116, 26 (nobd., 2. H. 15. Jh.): <i>dan sie [schuczenn] bestonn die grosten obentewer.</i> – <sc>Strehlke</sc>, Nic. Jerosch. Chron. 22, 991; <sc>Thiele</sc>, Chron. Stolle 146, 27; <sc>Dietz</sc>, Wb. Luther 1, 9b; <sc>Preuss. Wb</sc>. (Z) 1, 22.</p>
+<p2 uuid="7d6b1b80-230b-4c89-b22c-9339f71996b0">4. ›Beute aus militärischer Auseinandersetzung‹; Metonymie zu 3.</p2>
+<p><sc>Röhrich</sc> u. a., Cod. Dipl. Warm. 4, 417, 24 (omd., 1431): <i>Wil ouch ymant als von em selbist uff (ebenteuw) er usczihen und von den fynden edwas irwerben, das sal her em behalden.</i></p>
+<p2 uuid="476ab7e7-fe32-4ab8-8c99-ce3542be740f">5. ›merkwürdige, unheimliche, wunderbare oder wunderliche, staunenswerte, gefahrvolle Begebenheit oder Tat‹; oft allgemeiner: ›Ereignis, Begebenheit schlechthin‹; offen zu 6. – Gesamtzeit und -gebiet; vorw. erzählende Texte. – Synt.: <i>a. sehen / erfaren / verstehen; a. geschehen / begegnen jm.; von a. reden / sagen; jm. bei der a. geheuer sein; gute / götliche / künftige a.</i></p2>
+<p><sc>Thiele</sc>, Minner. II, 16, 21 (Hs. ˹wobd., 15. Jh.˺): <i>Do ward mir ains [crut] in min hant | do von mir groß aubentúr geschach.</i> <sc>Barack</sc>, Zim. Chron. 4, 243, 41 (schwäb., M. 16. Jh.): <i>Zu tisch zu aubendts niemands las; | Iederman redt von aubenteur.</i> <sc>Bihlmeyer</sc>, Seuse 48, 26 (alem., 14. Jh.): <i>ein goͤtlich kuͤnftig aventúre, dú im kúrzeklich von got werden soͤlte.</i> – <sc>Koppitz</sc>, Trojanerkr. 2903; <sc>Holtzmann</sc>, Gr. Wolfdietrich 1063, 3; <sc>Gille</sc> u. a., M. Beheim 331, 12; <sc>Meisen</sc>, Wierstr. Hist. Nuys 743.</p>
+<p2 uuid="3e426b72-1cf7-416d-9360-3db386163b71">6. ›Erzählung, Geschichte, Bericht von einer merkwürdigen Begebenheit oder Tat; phantastische Erzählung; geschlossene Erzähleinheit innerhalb einer solchen Geschichte; Quelle, Vorlage der Erzählung‹. – Gesamtgebiet und -zeit; poetische Texte, Chroniken. – Bdv.: <i>buch</i> 1, <i>gesang</i> 2, <sup>1</sup><i>geschichte</i> 7, <i>gespräch</i> 1, <sup>2</sup><i>lied</i> 1, <sup>1</sup><i>märe</i> 4, <i>rede</i> 6c, <sup>1</sup><i>reim</i> 2, <i>spiel</i>. – Synt.: <i>a. hören</i> (häufig) / <i>sagen</i> (häufig) / <i>verjehen / durchlesen / abschreiben; a.</i> (Subj.) <i>beweisen / heben (sich) an / sagen; guter a. sein; sich der a. befleissen; etw. in a. verkeren; der minne a., der a. strasse</i> ›Erzählfaden‹; <i>zärtliche / säuberliche a.</i></p2>
+<p><sc>Bömer</sc>, Pilgerf. träum. Mönch 9099 (rhfrk., um 1405): <i>Nu horent, myn lieben lude | Myn abentuͤren.</i> <sc>Turmair</sc> 4, 7, 1 (moobd., 1522/33): <i>hab ich [...] briefe, chronica, rüef, reimen, sprüch, lieder, abenteuer, gesang [...] abgeschrieben.</i> <sc>Ebd</sc>. 1135, 6: <i>Dise krieg [...] sind aber nach poëtischer art in abenteur verkert worden.</i> <sc>Spiller</sc>, Füetrer. Bay. Chron. 133, 10 (moobd., 1478/81): <i>Er was gar gueter und frembder awentewr und gesprächs.</i> <sc>Holtzmann</sc>, Gr. Wolfdietrich 1025, 2 (obd., Hs. A. 15. Jh.): <i>also uns die avonture und ouch daz buch noch seit.</i> – <sc>Henschel</sc> u. a., Heidin 162; <sc>Frantzen</sc> u. a., Kölner Schwankb. I, Ü.; <sc>Niewöhner</sc>, Teichner 352, 3; <sc>Gille</sc> u. a., M. Beheim 22, 84; <sc>Sachs</sc> 17, 520, 6; <sc>Mayer</sc>, Folz. Meisterl. 95, 1; <sc>Barack</sc>, Zim. Chron. 1, 315, 11; <sc>Brandstetter</sc>, Wigoleis 192, 5; <sc>Koppitz</sc>, Trojanerkr. 1496; <sc>Weber</sc>, Füetrer. Poytislier 24, Ü.; 172, 5; <sc>Fichtner</sc>, Füetrer. Trojanerkr. 19,Ü.; <sc>Grossmann</sc>, Unrest. Öst. Chron. 34, 15; <sc>Kummer</sc>, Erlauer Sp. 2, 43.</p>
+<p2 uuid="5070c447-99b2-4162-807d-9992bd24cc3d">7. ›Lügengeschichte, Ammenmärchen‹; offen zu 6. – Mittleres und späteres Frnhd.; vor allem agitatorische Texte. – Bdv.: <sup>1</sup><i>märe</i> 3, <i>tanderei</i>. Ggs.: <sup>2</sup><i>bewerde</i> (s. v. <sup>1</sup><i>beweren</i> 1), <i>geschrift</i> 9. – Synt.: <i>a. hören; etw. auf a. stiften; vergebene a.</i></p2>
+<p><sc>Schlosser</sc>, H. v. Sachsenh. Mörin 2691 (schwäb., 1453): <i>Ich sag es nit durch aubentür.</i> <sc>Turmair</sc> 4, 1027, 10 (moobd., 1522/33): <i>so es auch der allerheiligest vatter [...] als alter weiber und rockenspinnerin und vergeben abenteuer verspot.</i> <sc>Schade</sc>, Sat. u. Pasqu. 2, 160, 32 (thurg. 1520/1): <i>Des Luthers dicht | Ist ganz gericht | Auf bwerte gschrift | Und nit gestift | auf abenteur.</i> <sc>Ebd</sc>. 2, 222, 969 (nobd. 1524): <i>Des gleich wer gelt in dkisten bringt | [...] | Der sol ein sel (hört obenteur!) | Erlösen uß dem fegefeur.</i></p>
+<p2 uuid="c812bfe0-8c7a-4576-b7eb-2bbe95924bad">8. ›Unrechtmäßigkeit jeder Art, Ungebührlichkeit, Unsittlichkeit, Betrug, Gaunerei, übles Treiben, Machenschaften‹. – Gesamtgebiet; mittleres und späteres Frnhd. – Bdv.: <i>anschlag</i> 5, <i>büberei</i> 1, <i>laster</i> 1; 2. – Synt.: <i>a. vertragen / treiben / sehen / brauchen; a.</i> (Subj.) <i>geschehen; sich der a. berümen;</i> Idiom: <i>sein a. stehen</i> ›für die Folgen seines Verhaltens gerade stehen‹.</p2>
+<p><sc>Mon. Boica</sc>, NF. 2, 1, 299, 6 (nobd., 1464): <i>wie der herrschaft die awͤgen verclawbt sint worden und abenthewer geschehen.</i> <sc>Enders</sc>, Eberlin 3, 37, 25 (Erfurt 1523): <i>darumb hab ich muͤssen [...] furtragen yr [munch] abentewr.</i> <sc>Schade</sc>, Sat. u. Pasqu. 2, 210, 494 (nobd. 1524): <i>Der ban, der ablaß unds fegfeur, | Darneben sonst vil obenteur.</i> <sc>Lemmer</sc>, Brant. Narrensch. 110a, 167 (Basel 1494): <i>Die blat er vff dem disch vmb schibt | [...] | Das mancher treib soͤlch ofentür.</i> <sc>Barack</sc>, Zim. Chron. 3, 67, 38 (schwäb., M. 16. Jh.): <i>Die zwo frawen haben sich übel geschempt [...] und nit vil sich dieser abentür [...] berüempt.</i> <sc>Dinklage</sc>, Frk. Bauernweist. 53, 19 (nobd., A. 16. Jh.): <i>sucht aber einer awßflucht, so sten einer seyn abethewer.</i> – <sc>Luther</sc>, WA 41, 398, 13; <sc>Chron. Augsb</sc>. 9, 364, 25; <sc>Müller</sc>, Nördl. Stadtr. 124, 36; <sc>Mon. Boica</sc>, NF. 2, 1, 300, 1.</p>
+<p2 uuid="08e91e46-b9f6-4589-91e9-c7b7709fef4a">9. ›Posse, Gaukelspiel, Narretei, Zaubertrick, Kunststück, Mätzchen‹. – Spätes Frnhd.; agitatorische und erzählende Texte, Fastnachtspiele. – Bdv.: <i>affenspiel</i> 2, <i>blauer dunst</i> (s. v. <i>dunst</i> 5), <i>gaukelsache, gugelfur, kunst</i> 2, <i>poss(e)</i> 2 (mehrmals), <i>schlotterlein, schwank, unfure, wunderzeichen, zauberei.</i> – Synt.: <i>a. treiben</i> (mehrmals) / <i>können; der a. lachen; etw. mit a. richten, jn. mit a. überwinden, jn. um a. verklagen; schimpfliche a.; anfang zu der a.; a. sein lächerlich.</i></p2>
+<p><sc>Sachs</sc> 15, 514, 33 (Nürnb. 1562): <i>Wer ihm opffert und rüfft ihn an, | Zeigt wunderzeichn ein grosse zal, | Der offt keins warhafft war zumal, | Sonder gricht mit abenthewr und kunst, | Dem volck gemacht ein blober dunst.</i> <sc>Bolte</sc>, Pauli. Schimpf u. Ernst 1, 340, 29 (Straßb. 1522): <i>das ein Priester von Sinnen kam und treib vil Abenthuͤer und kunt jederman ein Schlotterlin schlagen.</i> <sc>Barack</sc>, Zim. Chron. 4, 168, 11 (schwäb., M. 16. Jh.): <i>Was solcher gaist weiter für seltzam abentür und affenspill getriben.</i> – <sc>Bobertag</sc>, Faust 251, 1; <sc>Kurz</sc>, Waldis. Esopus 4, 66, 70; <sc>Sachs</sc> 14, 242, 3; 15, 513, 18; 17, 247, 24; <sc>Schade</sc>, Sat. u. Pasqu. 1, 37, 373; 3, 102, 32; <sc>Barack</sc>, Zim. Chron. 2, 601, 1.</p>
+<p2 uuid="af677c7b-9230-41d4-bc76-4953308c67a5">10. ›Mittel zur Posse‹; Metonymie zu 9.</p2>
+<p><sc>Fuchs</sc>, Murner. 4 Ketzer 74, 2042 (wohl Straßb. 1509): <i>So wil ich jm dann giessen drjn [wunde] | Etzwasser / vnd ein obenthür, | Die ich dann weisß / ist gůt dorfür.</i> <sc>Sachs</sc> 15, 513, 39 (Nürnb. 1562): <i>So richt er zu die abenthewer.</i> – <sc>Eckel</sc>, Fremdw. Murners. 1978, 25.</p>
+<p2 uuid="bf617855-d10a-431c-beda-02e8c7de5a7a">11. ›Risiko, Wagnis, meist geschäftlicher Art‹; offen zu 12, nicht immer von <i>ebenteuer</i> ›Gegenwert, Pfand‹ abgrenzbar. – Md.; vorw. rechts- und wirtschaftsgeschichtliche Texte. – Synt.: <i>a. stehen / wagen; auf a. segeln, etw. auf a. erarbeiten.</i></p2>
+<p><sc>Toeppen</sc>, Ständetage Preußen 1, 512, 31 (preuß., 1428): <i>das eyn iczlich schiffher und kouffman zegeln mag uff seyn ebentur.</i> <sc>Kisch</sc>, Leipz. Schöffenspr. 507, 12 (osächs., 1523/4): <i>der jungste bruder hat gelt erarbeit [...] auf sein eigene obenteuer.</i> – <sc>Chron. Köln</sc> 2, 573, 8; <sc>Toeppen</sc>, a. a. O. 2, 296, 13; <sc>Röhrich</sc> u. a., Cod. Dipl. Warm. 4, 283, 36; <sc>Grosch</sc> u. a., Schöffenspr. Pössneck 330, 8; <sc>Thiele</sc>, Chron. Stolle 516, 22; <sc>Grothausmann</sc>, Stadtb. Karpfen 13, 15; <sc>Dietz</sc>, Wb. Luther 1, 9b; <sc>Henisch</sc> 5.</p>
+<p2 uuid="6274a565-e005-4b32-aaef-7c051c302c9a">12. ›Geschäft, Handelsabschluß‹.</p2>
+<p><sc>Bastian</sc>, Runtingerb. 2, 175, 28 (oobd., 1395): <i>sullen si mir guͤt gwant [...] chauffen oder [...] waz sy dann guͤt abentewer dunkcht.</i> <sc>Mollwo</sc>, Rotes Buch Ulm 186, 28 (schwäb., 1425): <i>Ouch muͥgen die juden [...] wechsel mit Rinischem [...] golde triben, wan das alles afentuͥr haisset.</i></p>
+<p2 uuid="260c0326-149d-4339-a5fb-518c17962e76">13. ›minderwertige, verdächtige Handelsware‹, mit vereinzeltem Übergang zu ›Handelsware überhaupt‹, auch zu ›Kostbarkeit‹ sowie zu Spezialisierungen wie ›minderwertiger Barchent‹; offen zu 17. – Synt.: <i>a. feil halten; etw. für a. hingeben / verkaufen, etw. von a. machen; a. von gold.</i></p2>
+<p><sc>Mollwo</sc>, Rotes Buch Ulm 257, 37 (schwäb., 1394): <i>wo fuͥrbas aubenteur herkumen mit ir aubenteur, die fail hetten, und sollichs nit fuͥr aubenteur sondern fuͥr recht kaufmanschaft hingeben.</i> <sc>Hoffmann</sc>, Würzb. Polizeisätze 175, 11 (nobd., 1475): <i>das die frembden in [...] wirtshewser geen mit iren obentewern.</i> <sc>Klein</sc>, Oswald 34, 27 (oobd., 1. H. 15. Jh.): <i>All aubenteuer, die man vindt, | gleicht nicht der maget raine.</i> – <sc>Mollwo</sc>, a. a. O. 186, 19; <sc>Hoffmann</sc>, a. a. O. 172, 42; <sc>Chron. Nürnb</sc>. 5, 571, 14; <sc>Schwäb. Wb</sc>. 1, 15.</p>
+<p2 uuid="6305a18c-05dd-4477-bc2c-b5e74c2511f4">14. ›Zufall, Glück‹, in festen präp. Verbindungen ›zufällig‹, ›von ungefähr‹, ›vielleicht‹, ›auf gut Glück‹, ›aufs Geratewohl‹. – Md., vor allem rib. – Bdv.: <i>glük</i> 6, <i>glüksfal, zufal</i>. – Synt.: <i>jm. a. geben; jm. der a. gönnen; etw. auf a. vornemen; auf a.</i> ›auf gut Glück‹, ›von ungefähr‹, <i>bei a.</i> ›vielleicht‹, ›zufällig‹.</p2>
+<p><sc>Frantzen</sc> u. a., Kölner Schwankb. II, 24 (Köln um 1490): <i>Sent Magog gaff eme aventure, | Dat hey eyn here und eyn abt is worden.</i> <sc>Alberus</sc> Tt iijv (Frankf. 1540): <i>Impij dubitant de orationis eventu, bitten vff abenthewer.</i> <sc>Wutke</sc>, Schles. Bergb., Cod. Sil. 21, 118, 23 (schles., 1559): <i>auf dass nicht alles [...] nach dem wahn auf ebenteuer furgenommen wurde, sunder sich nach der prob [...] zu richten.</i> – <sc>Meisen</sc>, Wierstr. Hist. Nuys 741; <sc>Chron. Köln</sc> 2, 291, 25; 301, 3; 392, 18; 3, 657, 18; <sc>Luther</sc>, WA 32, 329, 22; <sc>Dietz</sc>, Wb. Luther 1, 9b; <sc>Voc. Teut.-Lat</sc>. a iijr; <sc>Apherdianus</sc> 168; <sc>Henisch</sc> 5.</p>
+<p2 uuid="475314dc-b0fd-4771-b136-1cdfc513141a">15. ›Bergschatz‹. – Schles.; bergbaugeschichtliche Texte. – Bdv.: <i>gestein</i> 1, <i>seife.</i> – Synt.: <i>a. finden; jm. von a. melden.</i></p2>
+<p><sc>Wutke</sc>, Schles. Bergb., Cod. Sil. 20, 85, 20 (schles., um 1450): <i>yn der obir Slesia zage ich dir, do vindistu gesten und ebintewr vil.</i> – <sc>Ebd</sc>. 20, 86, 22; 21, 83, 6.</p>
+<p2 uuid="8de2d297-d332-481f-b732-1309a44dcb17">16. ›Preis-, Wettschießen‹. – Wohl obd.; 15./16. Jh.; vor allem Chroniken. – Synt.: <i>a. haben; etw. gewinnen in der a.</i></p2>
+<p><sc>Chron. Augsb</sc>. 3, 135, 3 (schwäb., E. 15. Jh.): <i>auf Bartholomei haben die von Costnitz ain abenteur mit schiessen gehabt.</i> – <sc>Ebd</sc>. 2, 102, 20; 4, 124, 22.</p>
+<p2 uuid="8191301e-e1fa-44cb-9040-7f940db71b48">17. ›der beim Preisschießen zu gewinnende Preis‹. – Wohl obd.; 15./16. Jh.; vor allem Chroniken; Metonymie zu 16. – Bdv.: <i>kleinod(e)</i> 5, <i>toppel</i> 2. – Synt.: <i>a. ausschiessen / aufwerfen / ausgeben / gewinnen; a.</i> (Subj.) <i>kosten; um a. schiessen; etw. in die a. einteilen.</i></p2>
+<p><sc>Chron. Augsb</sc>. 3, 480, 1 (schwäb., 1490/1500): <i>da schoß man umb ain abentuir hie zů Augspurg, die was ain ochs, ain schaul, zwei armprost, ain bar hosen und ain ring.</i> <sc>Chron. Nürnb</sc>. 4, 231, 7 (nobd., 15. Jh.): <i>das die [...] heren [...] die nachgeschriben cleinet und obenteẅer außgeben und darumb schiessen lassen wöllen.</i> – <sc>Chron. Augsb</sc>. 1, 239, 7; 8, 45, 2; <sc>Chron. Nürnb</sc>. 4, 232, 14; <sc>Bernoulli</sc>, Basler Chron. 4, 96, 26; <sc>Gagliardi</sc>, Dok. Waldmann 1, 8, 4.</p>
+
+-->
+
+</TEI>
