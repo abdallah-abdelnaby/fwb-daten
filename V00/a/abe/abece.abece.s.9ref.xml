@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          abece
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="1989-07-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>a3894627-9530-421d-b18e-5f1e9bce1538</idno>
+          <biblScope unit="volume">01</biblScope>
+          <biblScope unit="column">46</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="abece.s.9ref" sortKey="abece.abece.s.9ref">
+        <form type="lemma">
+          <orth>abece,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> </dictScrap>
+        
+        <!-- Bedeutung  -->
+        <sense xml:id="abece.s.9ref_s0" level="1">
+          <def xml:space="preserve">s. <ref type="mat" target="abc.s.2n">abc</ref>.</def>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+abece, s. abc.
+-->
+  <!--Texttest: Konvertiert
+abece, s. abc.
+-->
+  <!--Interpunktionsloser Text:
+abece,s.abc.
+abece,s.abc.
+-->
+  <!--Original:
+<p2 uuid="a3894627-9530-421d-b18e-5f1e9bce1538"><b>abece,</b> </p2>
+<p2>s. <i>abc.</i></p2>
+-->
+
+</TEI>

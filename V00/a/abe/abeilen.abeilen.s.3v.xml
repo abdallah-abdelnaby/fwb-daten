@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          abeilen
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="1989-07-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>df1c9fbb-ae85-4734-b352-ed0ffaf8f0f8</idno>
+          <biblScope unit="volume">01</biblScope>
+          <biblScope unit="column">47</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="abeilen.s.3v" sortKey="abeilen.abeilen.s.3v">
+        <form type="lemma">
+          <orth>abeilen,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart">V.</gram></dictScrap>
+        
+        <!-- Bedeutung  -->
+        <sense xml:id="abeilen.s.3v_s0" level="1">
+          <def xml:space="preserve"><dictScrap rend="def">›jm. etw. (z. B. Beute, Land) oder jn. abjagen, entreißen‹</dictScrap>; vgl. <ref type="mat" target="eilen.s.3v">eilen</ref> <ref type="mat" target="eilen.s.3v#eilen.s.3v_s4">4</ref>.</def>
+          <entry rend="synt">
+            <dictScrap rend="synt">mit Dat. d. P. und Akk. d. S./P.: <hi rendition="it">jm. den raub, das tor / vieh / mos / volk a.</hi></dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="abeilen.s.3v_s0">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="149" cert="low">Chron. Augsb.</name> <citedRange n="149" facs="4,426,21" rend="export" target="https://archive.org/details/DieChronikenDerSchwaebischenStaedteAugsburg/page/n488">4, 426, 21</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1499" to="1499" confidence="1">1499</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">da kam die welsch kard [...], di <oRef norm="abeilen" type="oVar.lem" rend="automatic" n="86">abeilten</oRef> den aidgenossen den raub. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1524" cert="high">Turmair</name> <citedRange n="1524" facs="4,1174,4" rend="export" target="http://daten.digitale-sammlungen.de/~db/0001/bsb00016723/images/index.html?id=00016723&amp;nativeno=1174">4, 1174, 4</citedRange> (<region key="moobd.">moobd.</region>, <date from="1522" to="1522" confidence="1">1522</date>/<date from="1533" to="1533" confidence="1">33</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">der brach unversehen auf, übereilt die wachter, eilt in die tör ab. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="78" cert="high">Grossmann</name>, Unrest. Öst. Chron. <citedRange n="78" facs="150,21" rend="export" target="http://daten.digitale-sammlungen.de/bsb00000691/images/index.html?id=00000691&amp;groesser=&amp;fip=eayaewqsdasxsfsdreayaqrsxdsydeayaewqsdas&amp;no=&amp;seite=200">150, 21</citedRange> (<region key="oobd.">oobd.</region>, <date from="1466" to="1499" confidence="0.0294">3. Dr. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Etlich [...] warn nicht bey dem <oRef norm="abeilen" type="oVar.lem" rend="automatic" n="91">abeylen</oRef> des pergs gewessen.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="3704" cert="high">Chron. Nürnb.</name> <citedRange n="3704" facs="4,207,5" rend="export" target="https://books.google.de/books?id=v4XTAAAAMAAJ&amp;pg=PA207&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">4, 207, 5</citedRange><region key="nobd."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="221" cert="low">Müller</name>, Grafsch. Hohenb. <citedRange n="221" facs="146,39">146, 39</citedRange><region key="schwäb."/><date from="1381" to="1454" confidence="0.0135"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="259" cert="medium">Baumann</name>, Bauernkr. Oberschwaben <citedRange n="259" facs="92,5" rend="export" target="https://archive.org/details/quellenzurgesch00baumgoog/page/n103">92, 5</citedRange><region key="schwäb."/><date from="1532" to="1541" confidence="0.1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="788" cert="high">Luginbühl</name>, Brennwalds Schweizer Chron. <citedRange n="788" facs="1,288,5">1, 288, 5</citedRange><region key="halem."/><date from="1508" to="1516" confidence="0.1111"/>; <citedRange n="788" facs="2,135,16">2, 135, 16</citedRange><region key="halem."/><date from="1508" to="1516" confidence="0.1111"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+abeilen, V. ›jm. etw. (z. B. Beute, Land) oder jn. abjagen, entreißen‹; vgl. eilen 4. – Synt.: mit Dat. d. P. und Akk. d. S./P.: jm. den raub, das tor / vieh / mos / volk a. Chron. Augsb. 4, 426, 21 (schwäb., zu 1499): da kam die welsch kard [...], di abeilten den aidgenossen den raub. Turmair 4, 1174, 4 (moobd., 1522/33): der brach unversehen auf, übereilt die wachter, eilt in die tör ab. Grossmann, Unrest. Öst. Chron. 150, 21 (oobd., 3. Dr. 15. Jh.): Etlich [...] warn nicht bey dem abeylen des pergs gewessen. – Chron. Nürnb. 4, 207, 5; Müller, Grafsch. Hohenb. 146, 39; Baumann, Bauernkr. Oberschwaben 92, 5; Luginbühl, Brennwalds Schweizer Chron. 1, 288, 5; 2, 135, 16.
+-->
+  <!--Texttest: Konvertiert
+abeilen, V. ›jm. etw. (z. B. Beute, Land) oder jn. abjagen, entreißen‹; vgl. eilen 4. – Synt.: mit Dat. d. P. und Akk. d. S./P.: jm. den raub, das tor / vieh / mos / volk a. Chron. Augsb. 4, 426, 21 (schwäb., zu 1499) da kam die welsch kard [...], di abeilten den aidgenossen den raub. Turmair 4, 1174, 4 (moobd., 1522/33) der brach unversehen auf, übereilt die wachter, eilt in die tör ab. Grossmann, Unrest. Öst. Chron. 150, 21 (oobd., 3. Dr. 15. Jh.) Etlich [...] warn nicht bey dem abeylen des pergs gewessen. – Chron. Nürnb. 4, 207, 5; Müller, Grafsch. Hohenb. 146, 39; Baumann, Bauernkr. Oberschwaben 92, 5; Luginbühl, Brennwalds Schweizer Chron. 1, 288, 5; 2, 135, 16.
+-->
+  <!--Interpunktionsloser Text:
+abeilenV›jmetw(zBBeuteLand)oderjnabjagenentreißen‹vgleilen4SyntmitDatdPundAkkdS/Pjmdenraubdastor/vieh/mos/volkaChronAugsb442621(schwäbzu1499)dakamdiewelschkard[]diabeiltendenaidgenossendenraubTurmair411744(moobd1522/33)derbrachunversehenaufübereiltdiewachtereiltindietörabGrossmannUnrestÖstChron15021(oobd3Dr15Jh)Etlich[]warnnichtbeydemabeylendespergsgewessenChronNürnb42075MüllerGrafschHohenb14639BaumannBauernkrOberschwaben925LuginbühlBrennwaldsSchweizerChron12885213516
+abeilenV›jmetw(zBBeuteLand)oderjnabjagenentreißen‹vgleilen4SyntmitDatdPundAkkdS/Pjmdenraubdastor/vieh/mos/volkaChronAugsb442621(schwäbzu1499)dakamdiewelschkard[]diabeiltendenaidgenossendenraubTurmair411744(moobd1522/33)derbrachunversehenaufübereiltdiewachtereiltindietörabGrossmannUnrestÖstChron15021(oobd3Dr15Jh)Etlich[]warnnichtbeydemabeylendespergsgewessenChronNürnb42075MüllerGrafschHohenb14639BaumannBauernkrOberschwaben925LuginbühlBrennwaldsSchweizerChron12885213516
+-->
+  <!--Original:
+<p2 uuid="df1c9fbb-ae85-4734-b352-ed0ffaf8f0f8"><b>abeilen,</b> V.</p2>
+<p2 uuid="99a0c619-dc59-476d-8d31-9df10d5f3cbd">›jm. etw. (z. B. Beute, Land) oder jn. abjagen, entreißen‹; vgl. <i>eilen</i> 4. – Synt.: mit Dat. d. P. und Akk. d. S./P.: <i>jm. den raub, das tor / vieh / mos / volk a.</i></p2>
+<p><sc>Chron. Augsb</sc>. 4, 426, 21 (schwäb., zu 1499): <i>da kam die welsch kard [...], di abeilten den aidgenossen den raub.</i> <sc>Turmair</sc> 4, 1174, 4 (moobd., 1522/33): <i>der brach unversehen auf, übereilt die wachter, eilt in die tör ab.</i> <sc>Grossmann</sc>, Unrest. Öst. Chron. 150, 21 (oobd., 3. Dr. 15. Jh.): <i>Etlich [...] warn nicht bey dem abeylen des pergs gewessen.</i> – <sc>Chron. Nürnb</sc>. 4, 207, 5; <sc>Müller</sc>, Grafsch. Hohenb. 146, 39; <sc>Baumann</sc>, Bauernkr. Oberschwaben 92, 5; <sc>Luginbühl</sc>, Brennwalds Schweizer Chron. 1, 288, 5; 2, 135, 16.</p>
+
+-->
+
+</TEI>

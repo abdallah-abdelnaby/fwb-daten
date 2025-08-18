@@ -102,6 +102,7 @@
                     <region name="Jülich" separate="no"/>
                     <region name="Kaster" separate="no"/>
                     <region name="Köln" separate="no"/>
+                    <region name="Königshoven" separate="no"/>
                     <region name="Lützenkirchen" separate="no"/>
                     <region name="Mondorf" separate="no"/>
                     <region name="Neukirchen" separate="no"/>
@@ -141,7 +142,10 @@
                     <region name="Hanau" separate="no"/>
                     <region name="Herborn" separate="no"/>
                     <region name="Hessen-Nassauisch" abbr="hess.-nass." separate="no"/>
+                    <region name="Krotzenburg" separate="no"/>
                     <region name="Marburg" separate="no"/>
+                    <region name="Mühlberg" separate="no"/>
+                    <region name="Nauheim" separate="no"/>
                     <region name="Offenbach" separate="no"/>
                     <region name="Wetzlar" separate="no"/>
                     <region name="Mittelhessisch" abbr="mhess." separate="no"/>
@@ -201,16 +205,17 @@
             
              <region name="Alemannisch" abbr="alem.">
                 <region name="Oberrheinisch" abbr="orhein." separate="no"/>
+                 
                 
                 <region name="Niederalemannisch" abbr="nalem.">
-                  
+                    
                     <region name="Elsässisch" abbr="els." separate="col">
                         <region name="Edimburg" separate="no"/>
                         <region name="Hagenau" separate="no"/>
                         <region name="Mühlhausen/Elsass" abbr="Mühlh./E." separate="no"/>
                         <region name="Straßburg" abbr="Straßb." separate="no"/>
                     </region>
-                
+                  
                     <region name="Östliches Niederalemannisch" abbr="önalem." separate="col">
                         <region name="Arbon" separate="no"/>
                         <region name="Bodenseegebiet" abbr="Bodenseegeb." separate="no"/>
@@ -248,6 +253,7 @@
                     <region name="Steckborn" separate="no"/>
                     <region name="Tänikon" separate="no"/>
                     <region name="Unterschlatt" separate="no"/>
+                    <region name="Unterstammheim" separate="no"/>
                     <region name="Wil" separate="no"/>
                     <region name="Winterthur" separate="no"/>
                     <region name="Zürich" separate="no"/>
@@ -324,6 +330,7 @@
                             <region name="München" separate="no"/>
                             <region name="Pressburg" separate="no"/>
                             <region name="Tegernsee" separate="no"/>
+                            <region name="Wessobrunn" separate="no"/>
                             <region name="Wien" separate="no"/>
                             <region name="Mittelbairisch" abbr="mbair." separate="no"/>
                             <region name="Niederbairisch" abbr="nbair." separate="no"/>

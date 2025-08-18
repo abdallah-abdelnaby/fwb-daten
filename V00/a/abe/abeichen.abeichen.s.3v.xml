@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          abeichen
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="1989-07-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>4e6b523b-cb81-4c5b-80e1-8f6f8e79d6d1</idno>
+          <biblScope unit="volume">01</biblScope>
+          <biblScope unit="column">46</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="abeichen.s.3v" sortKey="abeichen.abeichen.s.3v">
+        <form type="lemma">
+          <orth>abeichen,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart">V.</gram></dictScrap>
+        
+        <!-- Bedeutung  -->
+        <sense xml:id="abeichen.s.3v_s0" level="1">
+          <def xml:space="preserve"><dictScrap rend="def">›(ein Maß) eichen‹</dictScrap>; vgl. <ref type="mat" target="eichen.s.3v">eichen</ref> (V.).</def>
+          <entry rend="bdv">
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="bdv"><ref type="mat" target="abgiessen.s.3vu">abgiessen</ref> <ref type="mat" target="abgiessen.s.3vu#abgiessen.s.3vu_s3">3</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="abhämen.s.3v">abhämen</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="abmessen.s.3vu">abmessen</ref> <ref type="mat" target="abmessen.s.3vu#abmessen.s.3vu_s2">2</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="abpfächten.s.3v">abpfächten</ref> <ref type="mat" target="abpfächten.s.3v#abpfächten.s.3v_s1">1</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="abreichen.s.3v">abreichen</ref> <ref type="mat" target="abreichen.s.3v#abreichen.s.3v_s4">4</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="abrichten.s.3v">abrichten</ref> <ref type="mat" target="abrichten.s.3v#abrichten.s.3v_s3">3</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="abstreichen.s.3vu">abstreichen</ref> <ref type="mat" target="abstreichen.s.3vu#abstreichen.s.3vu_s9">9</ref>, </dictScrap>
+            <dictScrap rend="bdv"><hi rendition="hoch">1</hi><ref type="mat" target="abwägen.h1.3vu">abwägen</ref> <ref type="mat" target="abwägen.h1.3vu#abwägen.h1.3vu_s2">2</ref>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="abeichen.s.3v_s0">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="279a" cert="high">Mon. Boica</name>, NF. <citedRange n="279a" facs="2,1,292,2">2, 1, 292, 2</citedRange> (<region key="nobd.">nobd.</region>, <date from="1464" to="1464" confidence="1">1464</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">so wer es <oRef type="oVar.lem" n="85" rend="jedit" norm="abeichen">abgeeychet</oRef>: so man das kornmasz einmal hawft und einmal strych, so wer es gleich und als viel als zwen meczen habern. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="16,238,29" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_179_Hans_Sachs_Band_16.pdf&amp;page=242">16, 238, 29</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1562" to="1562" confidence="1">1562</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Daß sich der arm neben dem reichen<lb/>Ernehren, thu all ding <oRef norm="abeichen" type="oVar.lem" rend="automatic" n="92">abeichen</oRef><lb/>Daß man die armen nit thu vertrücken.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+abeichen, V. ›(ein Maß) eichen‹; vgl. eichen (V.). – Bdv.: vgl. abgiessen 3, abhämen, abmessen 2, abpfächten 1, abreichen 4, abrichten 3, abstreichen 9, 1abwägen 2. Mon. Boica, NF. 2, 1, 292, 2 (nobd., 1464): so wer es abgeeychet: so man das kornmasz einmal hawft und einmal strych, so wer es gleich und als viel als zwen meczen habern. Sachs 16, 238, 29 (Nürnb. 1562): Daß sich der arm neben dem reichen | Ernehren, thu all ding abeichen | Daß man die armen nit thu vertrücken.
+-->
+  <!--Texttest: Konvertiert
+abeichen, V. ›(ein Maß) eichen‹; vgl. eichen (V.). – Bdv.: vgl. abgiessen 3, abhämen, abmessen 2, abpfächten 1, abreichen 4, abrichten 3, abstreichen 9, 1abwägen 2. Mon. Boica, NF. 2, 1, 292, 2 (nobd., 1464) so wer es abgeeychet: so man das kornmasz einmal hawft und einmal strych, so wer es gleich und als viel als zwen meczen habern. Sachs 16, 238, 29 (Nürnb. 1562) Daß sich der arm neben dem reichen | Ernehren, thu all ding abeichen | Daß man die armen nit thu vertrücken.
+-->
+  <!--Interpunktionsloser Text:
+abeichenV›(einMaß)eichen‹vgleichen(V)Bdvvglabgiessen3abhämenabmessen2abpfächten1abreichen4abrichten3abstreichen91abwägen2MonBoicaNF212922(nobd1464)soweresabgeeychetsomandaskornmaszeinmalhawftundeinmalstrychsoweresgleichundalsvielalszwenmeczenhabernSachs1623829(Nürnb1562)Daßsichderarmnebendemreichen|Ernehrenthualldingabeichen|Daßmandiearmennitthuvertrücken
+abeichenV›(einMaß)eichen‹vgleichen(V)Bdvvglabgiessen3abhämenabmessen2abpfächten1abreichen4abrichten3abstreichen91abwägen2MonBoicaNF212922(nobd1464)soweresabgeeychetsomandaskornmaszeinmalhawftundeinmalstrychsoweresgleichundalsvielalszwenmeczenhabernSachs1623829(Nürnb1562)Daßsichderarmnebendemreichen|Ernehrenthualldingabeichen|Daßmandiearmennitthuvertrücken
+-->
+  <!--Original:
+<p2 uuid="4e6b523b-cb81-4c5b-80e1-8f6f8e79d6d1"><b>abeichen,</b> V.</p2>
+<p2 uuid="efc66e9a-1ea2-418c-89f8-02654296a29e">›(ein Maß) eichen‹; vgl. <i>eichen</i> (V.). – Bdv.: vgl. <i>abgiessen</i> 3, <i>abhämen, abmessen</i> 2, <i>abpfächten</i> 1, <i>abreichen</i> 4, <i>abrichten</i> 3, <i>abstreichen</i> 9, <sup>1</sup><i>abwägen</i> 2.</p2>
+<p><sc>Mon. Boica</sc>, NF. 2, 1, 292, 2 (nobd., 1464): <i>so wer es <ol>abgeeychet</ol>: so man das kornmasz einmal hawft und einmal strych, so wer es gleich und als viel als zwen meczen habern.</i> <sc>Sachs</sc> 16, 238, 29 (Nürnb. 1562): <i>Daß sich der arm neben dem reichen | Ernehren, thu all ding abeichen | Daß man die armen nit thu vertrücken.</i></p>
+
+-->
+
+</TEI>
