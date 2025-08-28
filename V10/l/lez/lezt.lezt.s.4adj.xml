@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          lezt
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="2021-11-01"/>
+        </availability>
+      </publicationStmt>
+      <notesStmt>
+        <note type="orth.de_DE">letzt</note>
+      </notesStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>62f1f433-8901-40fb-9424-7b983ed4b8aa</idno>
+          <biblScope unit="volume">09</biblScope>
+          <biblScope unit="column">1103</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="lezt.s.4adj" sortKey="lezt.lezt.s.4adj">
+        <form type="lemma">
+          <orth>lezt,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve">
+
+<!-- Nebenlemma -->
+<re type="re.neblem" subtype="mat" copyOf="lest.s.9ref">lest </re>(etwas seltener als erstere Form), <gram xml:space="preserve" type="wortart">Adj.,</gram> in 3 nur adv. Gebrauch.</dictScrap>
+        
+        <!-- Bedeutung 1 -->
+        <sense xml:id="lezt.s.4adj_s1" level="1" rend="1">
+          <def xml:space="preserve"><dictScrap rend="def">›letzt, zeitlich gesehen nach allem anderen (z. B. <hi rendition="it">nach dem ersten</hi>); schließlich‹</dictScrap>; in adv. Gebrauch: <dictScrap rend="def">›zuletzt‹</dictScrap>.</def>
+          <entry rend="phras">
+            <dictScrap rend="phras">(gehäuft; teils mit Substantivierung, dann von <hi rendition="it">lezte</hi> keine klare Trennung möglich): <hi rendition="it">am lezten</hi> o. ä., <hi rendition="it">auf das lezte, fürs lezte, in dem lezten, zum lezten</hi> o. ä., <hi rendition="it">zu lezt</hi>, jeweils ›zuletzt, schließlich‹; <hi rendition="it">das lezte mal</hi>.</dictScrap>
+          </entry>
+          <entry rend="wbg">
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="leztlebend.s.9ref" expand="leztlebend.s.9ref·lezt.s.4adj_s1">leztlebend</re> ›jn. überlebend‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="leztlich.s.9ref" expand="leztlich.s.9ref·lezt.s.4adj_s1">leztlich</re>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s1">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="416" cert="high">Quint</name>, Eckharts Pred. <citedRange n="416" facs="1,389,3" rend="export" target="https://books.google.de/books?id=aP3BxgEACAAJ&amp;pg=PA389">1, 389, 3</citedRange> (<region key="wmd."/><date from="1280" to="1299" confidence="0.05">E. 13.</date>/<date from="1300" to="1320" confidence="0.0476">A. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">der êrste begin ist durch des <oRef norm="lest" type="oVar.lem" rend="automatic" n="82">lesten</oRef> endes willen. Jâ, got der rouwet selbe niht dâ, dâ er ist der êrste begin; er rouwet dâ, dâ er ist ein ende und ein raste alles wesens. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="604" cert="high">Peil</name>, Rollenhagen. Froschm. <citedRange n="604" facs="521,448">521, 448</citedRange> (<region key="brandenb.">Magdeb.</region> <date from="1608" to="1608" confidence="1">1608</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Weib halt ein /<lb/>Odr es sol dein letzter trunck sein. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="612" cert="high">Beckers</name>, Bauernpr. <citedRange n="612" facs="55,14">55, 14</citedRange> (<region key="rib.">Köln</region> <date from="1515" to="1515" confidence="1">1515</date>/<date from="1518" to="1518" confidence="1">18</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">in den <oRef norm="lest" type="oVar.lem" rend="automatic" n="72">lesten</oRef> tzweyen frydagen in dem mertzen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="998" cert="high">Köbler</name>, Ref. Franckenfort <citedRange n="998" facs="54,7">54, 7</citedRange> (<region key="pfälz.">Mainz</region> <date from="1509" to="1509" confidence="1">1509</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">dann darnach das <oRef norm="leztlebend" type="oVar.wbg" rend="automatic" n="88">letstlebende</oRef> sich widderumb in die zweyte ehe verandert. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="318" cert="high">Opel</name>, Spittendorf <citedRange n="318" facs="128,41" rend="export" target="https://archive.org/details/denkwrdigkeiten00sachgoog/page/n179">128, 41</citedRange> (<region key="osächs.">osächs.</region>, <date from="1475" to="1485" confidence="0.0909">um 1480</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Derhalben were yn <oRef norm="lezt" type="oVar.lem" rend="automatic" n="65">letzst</oRef> zu santh Mauritz vorhalt gesehen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="191" cert="high">Grosch</name> u. a., Schöffenspr. Pössneck <citedRange n="191" facs="235,36">235, 36</citedRange> (<region key="thür.">thür.</region>, <date from="1474" to="1474" confidence="1">1474</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Zcu deme letcztin uffgebote ist Jhaen von Thumpelingen vor gerichte [komen]. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="956" cert="high">Sermon Thauleri</name> <citedRange n="956" facs="3ra,10">3ra, 10</citedRange> (<region key="osächs.">Leipzig</region> <date from="1498" to="1498" confidence="1">1498</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Nun haben wir gesprochen von der erstenn vnd letzsten geburt, wie wir yn der letzsten an der ersten sollen lere neme͂. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="327" cert="high">Bächtold</name>, N. Manuel. <citedRange n="327" facs="277,537">277, 537</citedRange> (<region key="halem.">Basel</region> <date from="1530" to="1530" confidence="1">1530</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Sie ist weder die erst noch <oRef norm="lest" type="oVar.lem" rend="automatic" n="75">letst</oRef>,<lb/>Die mit dem fuͦss in bach ist treten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="229" cert="high">Wyss</name>, Luz. Ostersp. <citedRange n="229" facs="3,48,47">3, 48, 47</citedRange> (<region key="halem.">Luzern</region> <date from="1616" to="1616" confidence="1">1616</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Das ist deß Herren <oRef norm="lest" type="oVar.lem" rend="automatic" n="68">letste</oRef> wunder,<lb/>so er mit andacht thatt besunder<lb/>Vor sinem todt. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="261" cert="high">Chron. Augsb.</name> <citedRange n="261" facs="5,104,24" rend="export" target="https://archive.org/details/diechronikender00rothgoog/page/n133">5, 104, 24</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1523" to="1523" confidence="1">1523</date>/<date from="1527" to="1527" confidence="1">7</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">das schlos zuͦ Hochenaschperg, das was das lötzst, das der pundt eingenomen hat. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="184" cert="high">Chron. Augsb.</name> <citedRange n="184" facs="8,405,11" rend="export" target="https://digibus.ub.uni-stuttgart.de/viewer/object/1545034070410_33/421/">8, 405, 11</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1552" to="1552" confidence="1">1552</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">auf den <oRef norm="lest" type="oVar.lem" rend="automatic" n="77">lesten</oRef> tag des monats augusti. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="300" cert="high">Winter</name>, Nöst. Weist. <citedRange n="300" facs="3,729,4" rend="export" target="https://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=buecher&amp;term=oew+ix&amp;seite=g729">3, 729, 4</citedRange> (<region key="moobd.">moobd.</region>, <date from="1500" to="1520" confidence="0.0476">A. 16. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">welicher pawman der löst ist umb die fruemößzeit dem erstn ain metzn habern geben. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="302" cert="high">Piirainen</name>, Stadtr. Sillein <citedRange n="302" facs="96a,34">96a, 34</citedRange> (<region key="böhm.-mähr. inseldt.">sslow. inseldt.</region>, <date from="1378" to="1378" confidence="1">1378</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der svntag waz der erste tag der ye wart vnd der auch wirt der <oRef norm="lezt" type="oVar.lem" rend="automatic" n="58">leczte</oRef>. </quote>
+              </cit>
+              <note rend="meta">– Zu den Phrasemen: </note>
+              <cit>
+                <bibl xml:space="preserve"><name n="461" cert="high">Schöpper</name> <citedRange n="461" facs="47b" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN671869167&amp;PHYSID=PHYS_0061&amp;DMDID=">47b</citedRange> (<region key="westf.">Dortm.</region> <date from="1550" to="1550" confidence="1">1550</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Postremo. Lǎst / <oRef norm="leztlich" type="oVar.wbg" rend="automatic" n="67">letztlich zum</oRef> letzsten endtlich. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="36" cert="high">Meijboom</name>, Pilgerf. träum. Mönch <citedRange n="36" facs="6289">6289</citedRange> (<region key="rib.">rib.</region>, <date from="1444" to="1444" confidence="1">1444</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Du en kans up dat <oRef norm="lest" type="oVar.lem" rend="automatic" n="77">leste</oRef> geyn guyt gehain,<lb/>He en wille deilachtich syn da an. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="710" cert="high">Loesch</name>, Kölner Zunfturk. <citedRange n="710" facs="2,396,3" rend="export" target="https://archive.org/details/bub_gb_qXRKAAAAYAAJ/page/n402">2, 396, 3</citedRange> (<region key="rib.">rib.</region>, <date from="1489" to="1489" confidence="1">1489</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ind u. g. die beide ampte int <oRef norm="lest" type="oVar.lem" rend="automatic" n="80">lest</oRef> vereiniget haven. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="3352" cert="low">Chron. Köln</name> <citedRange n="3352" facs="2,11v,6" rend="export" target="https://archive.org/details/diechronikender02birlgoog/page/n28">2, 11v, 6</citedRange> (<region key="rib.">Köln</region> <date from="1499" to="1499" confidence="1">1499</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">zo dem <oRef norm="lest" type="oVar.lem" rend="automatic" n="72">lesten</oRef> so sullen sy verkriegen die krone der merteler. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="110" cert="high">v. d. Lee</name>, M. v. Weida. Spigell <citedRange n="110" facs="77,18">77, 18</citedRange> (<region key="omd.">omd.</region>, <date from="1487" to="1487" confidence="1">1487</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Am letzsten er vor dem babst vorclaget [worden]. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="626" cert="high">Roloff</name>, Naogeorg/Tyrolff. Pamm. <citedRange n="626" facs="105,878">105, 878</citedRange> (<region key="osächs.">Zwickau</region> <date from="1535" to="1545" confidence="0.0909">um 1540</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Noch eins fuͤrs <oRef norm="lezt" type="oVar.lem" rend="automatic" n="72">letzt</oRef>. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="90" cert="high">v. Keller</name>, Ayrer. Dramen <citedRange n="90" facs="2204,6" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_079_Jakob_Ayrer_Ayrers_Dramen_4.pdf&amp;page=32">2204, 6</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1610" to="1610" confidence="1">1610</date>/<date from="1618" to="1618" confidence="1">8</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wenn er mich hie finden thet.<lb/>Ich euch das <oRef norm="lezt" type="oVar.lem" rend="automatic" n="74">letzt</oRef> mal gsehen hett. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="345" cert="high">Vetter</name>, Pred. Taulers <citedRange n="345" facs="66,28" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/273052">66, 28</citedRange> (<region key="els.">els.</region>, <date from="1380" to="1399" confidence="0.05">E. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wie sint sú in daz urteil Gottes in dem <oRef norm="lest" type="oVar.lem" rend="automatic" n="80">lesten</oRef> gevallen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="486" cert="high">Wiessner</name>, Wittenw. Ring <citedRange n="486" facs="4607">4607</citedRange> (<region key="halem.">ohalem.</region>, <date from="1400" to="1400" confidence="1">1400</date>/<date from="1408" to="1408" confidence="1">08</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ker dich auf das best<lb/>Und auf daz gnädigost ze <oRef norm="lest" type="oVar.lem" rend="automatic" n="87">lest</oRef>! </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="148" cert="high">Chron. Augsb.</name> <citedRange n="148" facs="2,68,26" rend="export" target="https://books.google.de/books?id=58gFAAAAQAAJ&amp;pg=PA68&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">2, 68, 26</citedRange> (<region key="schwäb.">schwäb.</region><add>, Hs. </add><date from="1500" to="1599" confidence="0.01">16. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">daß er gottes leichnam begert hett an dem letsten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="813" cert="high">Piirainen</name>, Stadtr. Kremnitz <citedRange n="813" facs="84">84</citedRange> (<region key="böhm.-mähr. inseldt.">mslow. inseldt.</region>, <date from="1537" to="1537" confidence="1">1537</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Zum Letzten, Wollen wier Iederman treulich gewarnet haben.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="247b" cert="high">Baumann</name>, Bauernkr. Rotenb. <citedRange n="247b" facs="104,21" rend="export" target="https://archive.org/details/quellenzurgesch00zweigoog/page/n115">104, 21</citedRange><region key="nobd."/><date from="1515" to="1535" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="339" cert="high">Wyss</name>, Limb. Chron. <citedRange n="339" facs="68,26" rend="export" target="http://daten.digitale-sammlungen.de/bsb00000777/images/index.html?id=00000777&amp;groesser=&amp;fip=eayaewqsdasxsfsdreayaqrsxdsydeayaewqsdas&amp;no=1&amp;seite=71">68, 26</citedRange><region key="mfrk."/><date from="1350" to="1599" confidence="0.004"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="998" cert="high">Köbler</name>, Ref. Franckenfort <citedRange n="998" facs="39,10">39, 10</citedRange><region key="pfälz."/><date from="1509" to="1509" confidence="1"/>; <citedRange n="998" facs="43,17">43, 17</citedRange><region key="pfälz."/><date from="1509" to="1509" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="184" cert="high">Chron. Augsb.</name> <citedRange n="184" facs="8,157,2" rend="export" target="https://digibus.ub.uni-stuttgart.de/viewer/object/1545034070410_33/173/">8, 157, 2</citedRange><region key="schwäb."/><date from="1547" to="1565" confidence="0.0526"/>. – Zu den Phrasemen: </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="88" cert="high">Kurz</name>, Waldis. Esopus <citedRange n="88" facs="3,26,3" rend="export" target="https://archive.org/details/esopus00unkngoog/page/n367">3, 26, 3</citedRange><region key="hess."/><date from="1557" to="1557" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="220" cert="high">v. Liliencron</name>, Dür. Chron. Rothe <citedRange n="220" facs="689,17" rend="export" target="https://archive.org/details/bub_gb_eMpWAAAAMAAJ/page/n625">689, 17</citedRange><region key="thür."/><date from="1421" to="1421" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1008" cert="high">Williams</name> u. a., Els. Leg. Aurea <citedRange n="1008" facs="346,7">346, 7</citedRange><region key="els."/><date from="1362" to="1362" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="260" cert="high">Chron. Augsb.</name> <citedRange n="260" facs="1,99,9" rend="export" target="https://archive.org/details/diechronikender11kommgoog/page/n162">1, 99, 9</citedRange><region key="schwäb."/><date from="1400" to="1499" confidence="0.01"/>; <citedRange n="260" change="facs_expanded" facs="1,303,25" rend="export" target="https://archive.org/details/diechronikender11kommgoog/page/n366">303, 25</citedRange><region key="schwäb."/><date from="1400" to="1499" confidence="0.01"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="190" cert="high">Roth</name>, E. v. Wildenberg <citedRange n="190" facs="124,20" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/content/pageview/1033960">124, 20</citedRange><region key="moobd."/><date from="1483" to="1492" confidence="0.1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="25" cert="high">Kummer</name>, Erlauer Sp. <citedRange n="25" facs="6,56" rend="export" target="https://archive.org/details/erlauerspielese00kummgoog/page/n220">6, 56</citedRange><region key="m/soobd."/><date from="1400" to="1440" confidence="0.0244"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d50" cert="high">Rwb</name> <citedRange n="d50" facs="8,1244" rend="export" target="http://drw-www.adw.uni-heidelberg.de/drw-cgi/zeige?index=lemmata&amp;bd8_1243=F">8, 1244</citedRange>f<region key="unknown"/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+              </cit>
+            </dictScrap>
+            <!--  sub voce  -->
+            <dictScrap rend="sv">Vgl. ferner s. v. <ref type="mat" target="absenz.s.1f">absenz</ref> (<hi rendition="it">die</hi>) <ref type="mat" target="absenz.s.1f#absenz.s.1f_s2">2</ref>, <ref type="mat" target="ausrecken.s.3v">ausrecken</ref> <ref type="mat" target="ausrecken.s.3v#ausrecken.s.3v_s5">5</ref>, <hi rendition="hoch">3</hi><ref type="mat" target="auf.h3.7pr">auf</ref> <ref type="mat" target="auf.h3.7pr#auf.h3.7pr_s9">9</ref>, <hi rendition="hoch">1</hi><ref type="mat" target="base.h1.1f">base</ref> <ref type="mat" target="base.h1.1f#base.h1.1f_s4">4</ref>.</dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 2 -->
+        <sense xml:id="lezt.s.4adj_s2" level="1" rend="2">
+          <def xml:space="preserve">an 1 anschließbar eine Fülle von Phrasemen um den Tod des Menschen, das Jüngste Gericht; teilweise elliptischer Gebrauch (Auslassung des Subst.).</def>
+          <entry rend="phras">
+            <dictScrap rend="phras">(Ordnung so weit wie möglich und sinnvoll nach dem Alphabet): <hi rendition="it">das lezte (abend)essen</hi> ›letztes, sakramentstiftendes Abendessen Jesu mit seinen Jüngern‹; <hi rendition="it">der lezte abschied, das lezte abscheid / scheiden</hi> (o. ä.) jeweils euphemistisch für das Sterben, den Tod, die Todesnot; <hi rendition="it">der lezte atem</hi>; <hi rendition="it">die lezte auferstende</hi> ›Auferstehung des Menschen‹; <hi rendition="it">das lezte ende</hi> ›letzte Zeit eines Lebens; Todeszeit, Tod‹; <hi rendition="it">die lezte fart / hinfart</hi>; <hi rendition="it">der lezte gang</hi>; <hi rendition="it">das lezte gericht</hi> ›das jüngste Gericht‹; <hi rendition="it">das lezte keichen</hi>; <hi rendition="it">die lezte lässe</hi> ›letzter Stich beim Kartenspiel‹ (vgl. <bibl xml:space="preserve"><name n="d55" cert="high">Dwb</name> <citedRange n="d55" facs="6,213" rend="export" target="http://www.woerterbuchnetz.de/DWB?bookref=12,213,1">6, 213</citedRange>; <citedRange n="d55" change="facs_expanded" facs="6,772" rend="export" target="http://www.woerterbuchnetz.de/DWB?bookref=12,772,1">772</citedRange><region key="hess."/><date from="1501" to="1506" confidence="0.1667"/></bibl>); <hi rendition="it">der lezte lon</hi>; <hi rendition="it">das lezte nachtmal</hi> wie <hi rendition="it">das lezte (abend)essen</hi>; <hi rendition="it">die lezte reitung</hi> ›die letzte Abrechnung‹; <hi rendition="it">die lezte not</hi> ›Todesnot‹; <hi rendition="it">die lezte stunde</hi> ›die Todesstunde‹; <hi rendition="it">das lezte urteil</hi> ›Jüngstes Gericht‹; <hi rendition="it">der lezte wille</hi> ›Testament‹; <hi rendition="it">der lezte tag, die lezten tage</hi> ›Tag(e) vor dem Tod, Todestag‹; <hi rendition="it">das lezte testament</hi>; <hi rendition="it">die lezten zeichen</hi>; <hi rendition="it">die lezte(n) zeit(en)</hi> oft in präp. Verbindung <hi rendition="it">an / zu den lezten zeiten</hi> (o. ä.) für den Tod des einzelnen Menschen, für die Endzeit und die Zeit des jüngsten Gerichts (im einzelnen kaum trennbar); <hi rendition="it">der lezte zorn</hi>; <hi rendition="it">die lezten züge</hi>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s2">
+            <note rend="meta">Belege in der Reihenfolge der Nennungen (mit semantisch bedingten Abweichungen): </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="343" cert="low">Froning</name>, Alsf. Passionssp. <citedRange n="343" facs="3069" rend="export" target="https://babel.hathitrust.org/cgi/pt?id=coo.31924082672787&amp;view=2up&amp;seq=13">3069</citedRange> (<region key="hess.">ohess.</region>, <date from="1501" to="1506" confidence="0.1667">1501ff.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">dijt sal das <oRef norm="lest" type="oVar.lem" rend="automatic" n="81">leste</oRef> essen synn,<lb/>das ich mit uch essen sail! </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="198" cert="high">Reichert</name>, Gesamtausl. Messe <citedRange n="198" facs="11,10">11, 10</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1475" to="1485" confidence="0.0909">um 1480</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">da er sprach an dem letsten abentessen nach dem als er den jungernn het das heylig sacrament gegeben. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1001" cert="high">Bauer</name>, Haller. Hieronymus-Br. <citedRange n="1001" facs="21,7">21, 7</citedRange> (<region key="soobd.">tir.</region>, <date from="1464" to="1464" confidence="1">1464</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Das ewenpild hat v̈ns lassen Christus an dem lësten abent ëssen, da er wüsch die füesse seiner junger. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="461" cert="high">Schöpper</name> <citedRange n="461" facs="113a" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN671869167&amp;PHYSID=PHYS_0127&amp;DMDID=">113a</citedRange> (<region key="westf.">Dortm.</region> <date from="1550" to="1550" confidence="1">1550</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Mors. Todt sterben ¶ abgang letzstes abscheid. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="505" cert="high">Kehrein</name>, Kath. Gesangb. <citedRange n="505" facs="1,269,2" rend="export" target="https://archive.org/details/MN41370ucmf_0/page/n557/mode/2up">1, 269, 2</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1631" to="1631" confidence="1">1631</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Glorwuͤrdig Er zum Oelberg kam,<lb/>Da Er den letzten abschiedt nam. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="213a" cert="low">Klein</name>, Oswald <citedRange n="213a" facs="35,36">35, 36</citedRange> (<region key="oobd.">oobd.</region>, <date from="1409" to="1409" confidence="1">1409</date>/<date from="1410" to="1410" confidence="1">10</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">göttlich geburd durch magt mensch rain,<lb/>hilf an dem <oRef norm="lezt" type="oVar.lem" rend="automatic" n="59">letzten</oRef> schaiden! </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="393" cert="high">V. Anshelm.</name> Berner Chron. <citedRange n="393" facs="2,134,6" rend="export" target="https://biblio.unibe.ch/digibern/chronik_anshelm_02.pdf#page=136">2, 134, 6</citedRange> (<region key="halem.">halem.</region>, <date from="1529" to="1539" confidence="0.0909">n. 1529</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">dass si biss an letsten aten wie die kaͤlber blaͤreten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="15,342,9" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_173_Hans_Sachs._Band_15.pdf&amp;page=346">15, 342, 9</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1562" to="1562" confidence="1">1562</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Und hat sein unart gar ein end<lb/>Biß zu der letzten aufferstehnd. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="957" cert="high">Schönbach</name>, Adt. Pred. <citedRange n="957" facs="14,14" rend="export" target="https://archive.org/details/altdeutschepred00schgoog/page/n41">14, 14</citedRange> (<region key="osächs.">osächs.</region>, <date from="1300" to="1349" confidence="0.02">1. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">min lip muͦze sterben als die gerechten und min <oRef norm="lest" type="oVar.lem" rend="automatic" n="83">leste</oRef> ende muze sich gelichen den selben. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="620" cert="high">Böhme</name>, Morg.R. <citedRange n="620" facs="13,7">13, 7</citedRange> (<add>Hs. ˹</add><region key="schles.">schles.</region>, <date from="1612" to="1612" confidence="1">1612</date>˺)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Mensch [...] der du an diesem letzten ende der zeit in so grosser sicherheit <oRef norm="lest" type="oVar.lem" rend="automatic" n="64">lebest</oRef>. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="960" cert="high">Langen</name>, Myst. Leben <citedRange n="960" facs="156,6">156, 6</citedRange> (<region key="nobd.">nobd.</region>, <date from="1463" to="1463" confidence="1">1463</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">da mit er [poser geist] / anficht dy krancken an dem <oRef norm="lezt" type="oVar.lem" rend="automatic" n="68">leczten</oRef> ende. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="229" cert="high">Wyss</name>, Luz. Ostersp. <citedRange n="229" facs="3179">3179</citedRange> (<region key="halem.">Luzern</region> <date from="1571" to="1571" confidence="1">1571</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">So sich thuͦt scheiden die seele min<lb/>Am lettsten end von minem lyb. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="475" cert="high">Opitz.</name> Poeterey <citedRange n="475" facs="23,23">23, 23</citedRange> (<region key="schles.">Breslau</region> <date from="1624" to="1624" confidence="1">1624</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Worzue dienet das studieren /<lb/>[...] ?| Vnter dessen laufft die Bach<lb/>Vnsers lebens [...]<lb/>[...]<lb/>Auff jhr letztes ende hin. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="50" cert="high">Primisser</name>, Suchenwirt <citedRange n="50" facs="32,33" rend="export" target="https://archive.org/details/bub_gb_B5wFAQAAIAAJ/page/n164">32, 33</citedRange> (<region key="oobd.">oobd.</region>, <date from="1350" to="1399" confidence="0.02">2. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Nu <oRef norm="lezt" type="oVar.lem" rend="automatic" n="61">let</oRef> er auf der <oRef norm="lest" type="oVar.lem" rend="automatic" n="82">lesten</oRef> vart<lb/>Sein grozzes guet auf erden. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="957" cert="high">Schönbach</name>, Adt. Pred. <citedRange n="957" facs="7,16" rend="export" target="https://archive.org/details/altdeutschepred00schgoog/page/n34">7, 16</citedRange> (<region key="osächs.">osächs.</region>, <date from="1300" to="1349" confidence="0.02">1. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">uͦ ffe daz du behalden werdes an diner <oRef norm="lest" type="oVar.lem" rend="automatic" n="83">leste</oRef> hinevart. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="804" cert="high">Fastnachtsp.</name> <citedRange n="804" facs="1451,20" rend="export" target="https://books.google.de/books?id=peJLAAAAcAAJ&amp;pg=PA1451&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">1451, 20</citedRange> (<region key="nobd.">nobd.</region>, <date from="1400" to="1499" confidence="0.01">15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Das <oRef norm="lest" type="oVar.lem" rend="automatic" n="87">lest</oRef> oder gemein gericht wirt sein an dem end der wellt. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="34,2,282,25" rend="export" target="https://archive.org/details/pt2werkekritisch34luthuoft/page/282">34, 2, 282, 25</citedRange> (<region key="omd."/><date from="1531" to="1531" confidence="1">1531</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Also [...] gewiß soll ich auch sein, wenn ich den letzten gang gehe unter die Erden. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="190" cert="high">Roth</name>, E. v. Wildenberg <citedRange n="190" facs="4,29" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/content/pageview/1033840">4, 29</citedRange> (<region key="moobd.">moobd.</region>, <date from="1483" to="1493" confidence="0.0909">v. 1493</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ir müst warlich darumb antwort geben vor dem letzten gericht. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="213a" cert="low">Klein</name>, Oswald <citedRange n="213a" facs="29,24">29, 24</citedRange> (<region key="oobd.">oobd.</region>, <date from="1409" to="1409" confidence="1">1409</date>, <date from="1426" to="1426" confidence="1">1426</date>?)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Maria, hab, hilf an dem <oRef norm="lezt" type="oVar.lem" rend="automatic" n="59">letzten</oRef> keichen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="140" cert="high">Sachs</name> <citedRange n="140" facs="20,77,34" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_193_Hans_Sachs_Band_20.pdf&amp;page=79">20, 77, 34</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1559" to="1559" confidence="1">1559</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Treib auch das spil der letzten leß,<hi rendition="rect"> [möglicherweise Umdeutung von </hi>lässe<hi rendition="rect"> auf </hi><oRef norm="lest" type="oVar.lem" rend="automatic" n="75">les</oRef><hi rendition="rect"> ›lectio‹] </hi>| Das mir offt war gar herb und reß. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="106" cert="high">Gille</name> u. a., M. Beheim <citedRange n="106" facs="81,33">81, 33</citedRange> (<region key="nobd.">nobd.</region>, <date from="1450" to="1499" confidence="0.02">2. H. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">das ist ein gross czaichen vermelt,<lb/>das in solch czeitlich glike<lb/>Czu einem <oRef norm="lest" type="oVar.lem" rend="automatic" n="78">lesten</oRef> lon sey gebm,<lb/>als den grechten ir ewigs lebm<lb/>auch ist ir <oRef norm="lest" type="oVar.lem" rend="automatic" n="78">lester</oRef> lone. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="229" cert="high">Wyss</name>, Luz. Ostersp. <citedRange n="229" facs="6677">6677</citedRange> (<region key="halem.">Luzern</region> <date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wuͦsch in ir fuͦs, irs werden gsen,<lb/>[...]<lb/>nam ouch mit in sin <oRef norm="lest" type="oVar.lem" rend="automatic" n="75">letst</oRef> nachtmal<lb/>zuͦ Hierusalem in einem saal. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="70" cert="high">Spechtler</name>, Mönch v. Salzb. <citedRange n="70" facs="33,47">33, 47</citedRange> (<region key="oobd.">oobd.</region>, <date from="1366" to="1399" confidence="0.0294">3. Dr. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">die <oRef norm="lezt" type="oVar.lem" rend="automatic" n="59">letzten</oRef> raitung für uns gilt,<lb/>wann wir hie müssen sterben. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="50" cert="high">Primisser</name>, Suchenwirt <citedRange n="50" facs="41,700" rend="export" target="https://archive.org/details/bub_gb_B5wFAQAAIAAJ/page/n193">41, 700</citedRange> (<region key="oobd.">oobd.</region>, <date from="1350" to="1399" confidence="0.02">2. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">daz uns in der <oRef norm="lest" type="oVar.lem" rend="automatic" n="82">lesten</oRef> not<lb/>Chains poͤsen geistes aug anschilh. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="53,276,2" rend="export" target="https://archive.org/details/werkekritischege53luthuoft/page/276">53, 276, 2</citedRange> (<region key="omd."/><date from="1542" to="1542" confidence="1">1542</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Das sind die rechten letzten schrecklichen [...] plagen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Ebd.</name> <citedRange n="346" facs="46,62,18" rend="export" target="https://archive.org/details/werkekritischege46luthuoft/page/62">46, 62, 18</citedRange> (<region key="omd."/><date from="1537" to="1537" confidence="1">1537</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">von dem letzten Regiment des Endchrists, nemlich des Bapstumbs. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="229" cert="high">Wyss</name>, Luz. Ostersp. <citedRange n="229" facs="9284">9284</citedRange> (<region key="halem.">Luzern</region> <date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">verlass in nit in der letsten stund! </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="957" cert="high">Schönbach</name>, Adt. Pred. <citedRange n="957" facs="32,41" rend="export" target="https://archive.org/details/altdeutschepred00schgoog/page/n59">32, 41</citedRange> (<region key="osächs.">osächs.</region>, <date from="1300" to="1349" confidence="0.02">1. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">erlose mich von dem ewigen tote an dem vorchsamen tage des <oRef norm="lest" type="oVar.lem" rend="automatic" n="76">lesten</oRef> urteiles. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="461" cert="high">Schöpper</name> <citedRange n="461" facs="106a" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN671869167&amp;PHYSID=PHYS_0120&amp;DMDID=">106a</citedRange> (<region key="westf.">Dortm.</region> <date from="1550" to="1550" confidence="1">1550</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Testamentvm Testament erb gemächt seel gerecht letzter will. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="110" cert="high">v. d. Lee</name>, M. v. Weida. Spigell <citedRange n="110" facs="83,2">83, 2</citedRange> (<region key="omd.">omd.</region>, <date from="1487" to="1487" confidence="1">1487</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der <oRef norm="lezt" type="oVar.lem" rend="automatic" n="68">letzte</oRef> wille des vorstorben menschen sall Jn allen dingen [gehaldenn werden]. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="939" cert="high">Moscherosch.</name> Ges. Phil. v. Sittew. <citedRange n="939" facs="47,37" rend="export" target="https://archive.org/details/gesichtephilande00moscuoft/page/47">47, 37</citedRange> (<region key="els.">Straßb.</region> <date from="1650" to="1650" confidence="1">1650</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Anstatt daß sie sich [...] der Sterblichkeit vnnd ihres Endes erinnern [...], so fangen sie an von der verstorbenen Letztem Willen oder Testament vnd der verlassenschaft zu erzehlen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="463" cert="high">Grothausmann</name>, Stadtb. Karpfen <citedRange n="463" facs="70,22">70, 22</citedRange> (<region key="böhm.-mähr. inseldt.">mslow. inseldt.</region>, <date from="1602" to="1602" confidence="1">1602</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">1602, Ortnet die Tugendtśame fraw Catharina [...] bej guter vernunfft mit vornemlicher teutlicher rete, ihren letzten willen wie volget. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="460" cert="high">Henschel</name> u. a., Heidin <citedRange n="460" facs="952">952</citedRange> (<region key="nobd.">nobd.</region>, <date from="1295" to="1305" confidence="0.0909">um 1300</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Din ich niht vergezze<lb/>[...]<lb/>Biz an minen letsten tak. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="345" cert="high">Vetter</name>, Pred. Taulers <citedRange n="345" facs="34,32" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/273020">34, 32</citedRange> (<region key="els.">els.</region>, <date from="1380" to="1399" confidence="0.05">E. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">in disen <oRef norm="lest" type="oVar.lem" rend="automatic" n="80">lesten</oRef> tagen, das do sint die tage des heiles, so enmag enkein mensche niemerme genesen [...] dan úbermitz daz minnekliche wasser des tiches, daz ist daz bluͦt unsers herren. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1001" cert="high">Bauer</name>, Haller. Hieronymus-Br. <citedRange n="1001" facs="12,30">12, 30</citedRange> (<region key="soobd.">tir.</region>, <date from="1464" to="1464" confidence="1">1464</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">er ist pesammen sein schaff in sein schoff an den <oRef norm="lest" type="oVar.lem" rend="automatic" n="66">lesten</oRef> tägen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="463" cert="high">Grothausmann</name>, Stadtb. Karpfen <citedRange n="463" facs="68,2">68, 2</citedRange> (<region key="böhm.-mähr. inseldt.">mslow. inseldt.</region>, <date from="1586" to="1586" confidence="1">1586</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">haben wir vns dem <oRef norm="lezt" type="oVar.lem" rend="automatic" n="60">lezten</oRef> teśtament nach gehalten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="29,619,5" rend="export" target="https://archive.org/details/werkekritischege29luthuoft/page/619">29, 619, 5</citedRange> (<region key="omd."/><date from="1529" to="1529" confidence="1">1529</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">es sollen die letzten zeichen nicht ferne sein. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Ebd.</name> <citedRange n="346" facs="54,472,13" rend="export" target="https://archive.org/details/werkekritischege54luth/page/472">54, 472, 13</citedRange> (<region key="omd."/><date from="1548" to="1548" confidence="1">1548</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Was wunder ists, das auch wir, so jtzt, in dieser letzten schrecklichen zeit, Christum predigen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="76" cert="high">Dubizmay</name>, kurß zu Teutze <citedRange n="76" facs="16,13">16, 13</citedRange> (<region key="hess.">hess.</region>, <date from="1463" to="1463" confidence="1">1463</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">küm mir zu hilff an<lb/>meynnem letzten zeytten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="198" cert="high">Reichert</name>, Gesamtausl. Messe <citedRange n="198" facs="92,33">92, 33</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1475" to="1485" confidence="0.0909">um 1480</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">das Got der herre [...] richten und urteylen wirt eyn yegklichen menschen an seynen letzten zeyten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="229" cert="high">Wyss</name>, Luz. Ostersp. <citedRange n="229" facs="10083">10083</citedRange> (<region key="halem.">Luzern</region> <date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">es würt zuͦ den letsten zytten kon<lb/>sim glouben ein widerspeniger trutz. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1001" cert="high">Bauer</name>, Haller. Hieronymus-Br. <citedRange n="1001" facs="13,3">13, 3</citedRange> (<region key="soobd.">tir.</region>, <date from="1464" to="1464" confidence="1">1464</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Da in nu sein <oRef norm="lest" type="oVar.lem" rend="automatic" n="71">leste</oRef> zeit wart nöten auz zugen von dem leib. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="19,193,15" rend="export" target="https://archive.org/details/werkekritischege19luthuoft/page/193">19, 193, 15</citedRange> (<region key="omd."/><date from="1526" to="1526" confidence="1">1526</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Also hat er auch Christum [...] ynn die welt gesand, ehe denn der <oRef norm="lezt" type="oVar.lem" rend="automatic" n="68">letzte</oRef> zorn des jungsten gerichtes kompt. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Ebd.</name> <citedRange n="346" facs="28,670,23" rend="export" target="https://archive.org/details/werkekritischege28luthuoft/page/670">28, 670, 23</citedRange> (<region key="omd."/><date from="1529" to="1529" confidence="1">1529</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Guͤter koͤnnen nicht helffen in den letzten zuͤgen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="488a" cert="high">Sappler</name>, H. Kaufringer <citedRange n="488a" facs="16,555">16, 555</citedRange> (<region key="schwäb.">schwäb.</region><add>, Hs. </add><date from="1464" to="1464" confidence="1">1464</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wie gern ir [tiefel] den menschen beraubt<lb/>an den letzsten zügen sein<lb/>der tugent rain. </quote>
+              </cit>
+              <note rend="meta">– Elliptisch: </note>
+              <cit>
+                <bibl xml:space="preserve"><name n="287" cert="high">Lohmeyer</name>, K. v. Nostitz <citedRange n="287" facs="159,26" rend="export" target="https://archive.org/details/kasparsvonnosti00kngoog/page/n245">159, 26</citedRange> (<region key="preuß.">preuß.</region>, <date from="1578" to="1578" confidence="1">1578</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wil ich alles, das ich weiß, auff meine letzte hinder mir verlassen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="710" cert="high">Loesch</name>, Kölner Zunfturk. <citedRange n="710" facs="4,387,9">4, 387, 9</citedRange> (<region key="rib.">rib.</region>, <date from="1397" to="1409" confidence="0.0769">1397-1409</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">sal man in ermanen, wat he deme heilgencruiz wil geven [...] ind an sime <oRef norm="lest" type="oVar.lem" rend="automatic" n="72">lesten</oRef>, dat he sin gunst ouch deme heilgencruiz bewise. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="248a" cert="high">Buch Weinsb.</name> <citedRange n="248a" facs="1,262,6" rend="export" target="https://digital.ub.uni-koeln.de/view/retro_991017489869706476_021514?p=282">1, 262, 6</citedRange> (<region key="rib.">rib.</region>, <date from="1555" to="1565" confidence="0.0909">um 1560</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">in sinem <oRef norm="lest" type="oVar.lem" rend="automatic" n="72">lesten</oRef> hat er sinen einigen son Eduardum zum koning ingesatzt. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="968" cert="high">Moscouia</name> <citedRange n="968" facs="C 1v,40">C 1v, 40</citedRange> (<region key="nmoobd.">Wien</region> <date from="1557" to="1557" confidence="1">1557</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">So aber der Großfuͦrst Hans an seinem letzten gelegen / vnd die Geistliche jne der gewissen vermant / hat [...].</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="809" cert="high">Bauer</name>, Imitatio Haller <citedRange n="809" facs="97,16">97, 16</citedRange><region key="soobd."/><date from="1466" to="1466" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d7" cert="high">Golius</name> <citedRange n="d7" facs="116" rend="export" target="https://books.google.de/books?id=ivA7AAAAcAAJ&amp;dq=%22Theophilus%20Golius%22&amp;hl=de&amp;pg=PA115#v=onepage&amp;q&amp;f=false ">116</citedRange><region key="els."/><date from="1579" to="1579" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+            <!--  sub voce  -->
+            <dictScrap rend="sv">Vgl. ferner s. v. <ref type="mat" target="abschied.s.0m">abschied</ref> <ref type="mat" target="abschied.s.0m#abschied.s.0m_s2">2</ref>, <ref type="mat" target="augenede.s.1f">augenede</ref>, <ref type="mat" target="ausbleiben.s.3vu">ausbleiben</ref> <ref type="mat" target="ausbleiben.s.3vu#ausbleiben.s.3vu_s3">3</ref>, <ref type="mat" target="auslassen.s.3v">auslassen</ref> <ref type="mat" target="auslassen.s.3v#auslassen.s.3v_s12">12</ref>, <ref type="mat" target="ausrichtung.s.1f">ausrichtung</ref> <ref type="mat" target="ausrichtung.s.1f#ausrichtung.s.1f_s6">6</ref>.</dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 3 -->
+        <sense xml:id="lezt.s.4adj_s3" level="1" rend="3">
+          <def xml:space="preserve">von einem später als das Bezugsgeschehen liegenden Zeitpunkt aus gesehen auf den zuletzt stattgefundenen oder einen kürzlich abgelaufenen Vorgang bezogen: <dictScrap rend="def">›neulich, letzthin, vor kurzem‹</dictScrap>.</def>
+          <entry rend="bdv">
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="bdv"><ref type="mat" target="kürzlich.s.4adv">kürzlich</ref> <ref type="mat" target="kürzlich.s.4adv#kürzlich.s.4adv_s4">4</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="neulich.s.4adv">neulich</ref> <ref type="mat" target="neulich.s.4adv#neulich.s.4adv_s1">1</ref>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s3">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="710" cert="high">Loesch</name>, Kölner Zunfturk. <citedRange n="710" facs="11,548,14">11, 548, 14</citedRange> (<region key="rib.">rib.</region>, <date from="1454" to="1454" confidence="1">1454</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">darup begeren ich guetlich uire eirsamheit ind wissheit zo wissen, dat ich <oRef norm="lest" type="oVar.lem" rend="automatic" n="80">lest</oRef> uiren frunden, die bij mir wairen, der gelegenheit en deil gesacht hain. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="88" cert="high">Kurz</name>, Waldis. Esopus <citedRange n="88" facs="4,65,1" rend="export" target="https://archive.org/details/esopus00waldgoog/page/n168">4, 65, 1</citedRange> (<region key="hess.">Frankf.</region> <date from="1557" to="1557" confidence="1">1557</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ZV Maintz am Rhein ich <oRef norm="lest" type="oVar.lem" rend="automatic" n="76">lesten</oRef> war. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="318" cert="high">Opel</name>, Spittendorf <citedRange n="318" facs="135,2" rend="export" target="https://archive.org/details/denkwrdigkeiten00sachgoog/page/n186">135, 2</citedRange> (<region key="osächs.">osächs.</region>, <date from="1475" to="1485" confidence="0.0909">um 1480</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">seyne gnade und der rath hetten <oRef norm="lezt" type="oVar.lem" rend="automatic" n="65">letzst</oRef> zu sant Mauritz yre antwort gehort.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 4 -->
+        <sense xml:id="lezt.s.4adj_s4" level="1" rend="4">
+          <def xml:space="preserve"><dictScrap rend="def">›letzt, hinterst, entlegenst, nach allem anderen (unter dominant räumlichem Aspekt, teils auf die Linearität von Texten bezogen)‹</dictScrap>.</def>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s4">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="400" cert="high">Große</name>, Schwabensp. <citedRange n="400" facs="47a,37" rend="export" target="https://daten.digitale-sammlungen.de/~db/bsb00000678/images/index.html?id=00000678&amp;nativeno=47">47a, 37</citedRange> (<add>Hs. ˹</add><region key="nrddt.">nd.</region>/<region key="md.">md.</region>, <date from="1405" to="1415" confidence="0.0909">um 1410</date>˺)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">de vuͦnfte sibbe stet an dem ersten lede des vengers. [...] de sebede an dem <oRef norm="lest" type="oVar.lem" rend="automatic" n="81">lesten</oRef> lede vor deme nagele. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="49" cert="high">Strehlke</name>, Nic. Jerosch. Chron. <citedRange n="49" facs="27734" rend="export" target="https://archive.org/details/bub_gb_YX8OAAAAYAAJ/page/n637">27734</citedRange> (<region key="preuß.">preuß.</region>, <date from="1325" to="1335" confidence="0.0909">um 1330</date>/<date from="1335" to="1345" confidence="0.0909">40</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">dî êrsten und dî <oRef norm="lest" type="oVar.lem" rend="automatic" n="70">lesten</oRef> [dorfir]<lb/>dî branten sî gar abe. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d15" cert="high">Rot</name> <citedRange n="d15" facs="303">303</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1571" to="1571" confidence="1">1571</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Declinirn, [...] die <oRef norm="lezt" type="oVar.lem" rend="automatic" n="73">letzt</oRef> silben eines worts in ein andre lencken. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="149" cert="low">Chron. Augsb.</name> <citedRange n="149" facs="4,410,1" rend="export" target="https://archive.org/details/DieChronikenDerSchwaebischenStaedteAugsburg/page/n472">4, 410, 1</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1490" to="1490" confidence="1">1490</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">da die ersten nachet bei Jnningen wassend, da wassend die <oRef norm="lest" type="oVar.lem" rend="automatic" n="77">lesten</oRef> noch bei Gegingertor. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="417q" cert="high">Hohmann</name>, H. v. Langenstein. Quästio <citedRange n="417q" facs="203,52">203, 52</citedRange> (<region key="moobd.">moobd.</region>, <date from="1400" to="1449" confidence="0.02">1. H. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">als sand Paul spricht ad Ephesios am <oRef norm="lest" type="oVar.lem" rend="automatic" n="78">lesten</oRef>.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="2" cert="high">Gerhard</name>, Hist. alde e <citedRange n="2" facs="2869">2869</citedRange><region key="omd."/><date from="1330" to="1350" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="817" cert="high">Rohland</name>, Schäden <citedRange n="817" facs="465">465</citedRange><region key="nalem., schwäb."/><date from="1400" to="1433" confidence="0.0294"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="38" cert="high">Brévart</name>, K. v. Megenberg. Sphaera <citedRange n="38" facs="47,14">47, 14</citedRange><region key="noobd."/><date from="1347" to="1350" confidence="0.25"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 5 -->
+        <sense xml:id="lezt.s.4adj_s5" level="1" rend="5">
+          <def xml:space="preserve"><dictScrap rend="def">›zuletzt genannt‹</dictScrap>; in einer Reihe von Bezugsgrößen mit Absetzung von <hi rendition="it">erst, ehe gesprochen</hi>, dann den Zeitverlauf des Textinhalts betonend.</def>
+          <entry rend="wbg">
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="leztgenant.s.9ref" expand="leztgenant.s.9ref·lezt.s.4adj_s5">leztgenant</re>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s5">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="416" cert="high">Quint</name>, Eckharts Pred. <citedRange n="416" facs="2,433,5" rend="export" target="https://books.google.de/books?id=dUBDAQAAIAAJ&amp;pg=PA433">2, 433, 5</citedRange> (<region key="wmd."/><date from="1280" to="1299" confidence="0.05">E. 13.</date>/<date from="1300" to="1320" confidence="0.0476">A. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Nû lâze ich die <oRef norm="lest" type="oVar.lem" rend="automatic" n="82">lesten</oRef> zwei und rede von dem êrsten stücke. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="260" cert="high">Chron. Augsb.</name> <citedRange n="260" facs="1,62,17" rend="export" target="https://archive.org/details/diechronikender11kommgoog/page/n125">1, 62, 17</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1378" to="1378" confidence="1">1378</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">uff dem egesprochen <oRef norm="leztgenant" type="oVar.wbg" rend="automatic" n="58">letzsten</oRef> ros rait ain ersamer ritter. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1524" cert="high">Turmair</name> <citedRange n="1524" facs="4,345,1" rend="export" target="http://daten.digitale-sammlungen.de/~db/0001/bsb00016721/images/index.html?id=00016721&amp;nativeno=345">4, 345, 1</citedRange> (<region key="moobd.">moobd.</region>, <date from="1522" to="1522" confidence="1">1522</date>/<date from="1533" to="1533" confidence="1">33</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef norm="leztgenant" type="oVar.wbg" rend="automatic" n="87">lezgenanter</oRef> künig Schirm verfertiget herwider sein rät ab zue dem grossen Alexander.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="608" cert="high">Oorschot</name>, Spee/Schmidt. Caut. Crim. <citedRange n="608" facs="335,21">335, 21</citedRange><region key="hess."/><date from="1649" to="1649" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 6 -->
+        <sense xml:id="lezt.s.4adj_s6" level="1" rend="6">
+          <def xml:space="preserve">dient der Charakterisierung des Endgliedes einer eher logisch reihend als zeitlich oder räumlich gedachten Reihe.</def>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s6">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="957" cert="high">Schönbach</name>, Adt. Pred. <citedRange n="957" facs="24,31" rend="export" target="https://archive.org/details/altdeutschepred00schgoog/page/n51">24, 31</citedRange> (<region key="osächs.">osächs.</region>, <date from="1300" to="1349" confidence="0.02">1. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">daz [vuͦr] sol der priester vuͦten und sol drier hande holz dar uf werfen tegiliches [...]. daz erste holz ist daz gotes wort der heiligen lere, daz ander ist gut bilde heiliges lebenes, daz <oRef norm="lest" type="oVar.lem" rend="automatic" n="83">leste</oRef> ist daz ammacht des heiligen gotes dinest. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1524" cert="high">Turmair</name> <citedRange n="1524" facs="4,426,7" rend="export" target="http://daten.digitale-sammlungen.de/~db/0001/bsb00016721/images/index.html?id=00016721&amp;nativeno=426">4, 426, 7</citedRange> (<region key="moobd.">moobd.</region>, <date from="1522" to="1522" confidence="1">1522</date>/<date from="1533" to="1533" confidence="1">33</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">’Dialectica‘ ist die dritt und <oRef norm="lest" type="oVar.lem" rend="automatic" n="87">lest</oRef> kunst, so auch wort und red antrift. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="264r" cert="low">Chron. baier. Städte.</name> Regensb. <citedRange n="264r" facs="98,12" rend="export" target="https://archive.org/details/diechronikender02kommgoog/page/98/mode/2up">98, 12</citedRange> (<region key="noobd.">noobd.</region>, <date from="1529" to="1529" confidence="1">1529</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Sambstag Bricci hab ich den <oRef norm="lest" type="oVar.lem" rend="automatic" n="64">lesten</oRef> zehet von Tegerheim außtailt.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 7 -->
+        <sense xml:id="lezt.s.4adj_s7" level="1" rend="7">
+          <def xml:space="preserve">dient der Kennzeichnung der äußersten Seinsmöglichkeit einer Bezugsgröße, darunter endzeitlicher Projektionen: <dictScrap rend="def">›äußerst, höchst; definitiv‹</dictScrap>, zum Teil auch zu <ref type="mat" target="lezt.s.4adj#lezt.s.4adj_s2">2</ref> stellbar.</def>
+          <entry rend="stw">
+            <dictScrap rend="stw">Texte der Sinnwelt ,Religion‘.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="lezt.s.4adj_s7">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="15" cert="high">Helm</name>, H. v. Hesler. Apok. <citedRange n="15" facs="19007" rend="export" target="https://archive.org/details/dieapokalypsehe00heslgoog/page/n312">19007</citedRange> (<region key="nrddt.">nrddt.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Die [Degen] zeigent dan ir <oRef norm="lest" type="oVar.lem" rend="automatic" n="86">leste</oRef> tugent<lb/>Mit degentlicher heldes mugent. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="15" cert="high">Ebd.</name> <citedRange n="15" facs="22913" rend="export" target="https://archive.org/details/dieapokalypsehe00heslgoog/page/n370">22913</citedRange> (<region key="nrddt.">nrddt.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Alpha und O ich bin,<lb/>Erst und <oRef norm="lezt" type="oVar.lem" rend="automatic" n="77">letzt</oRef>, ende und begin. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="46,453,8" rend="export" target="https://archive.org/details/werkekritischege46luthuoft/page/453">46, 453, 8</citedRange> (<region key="omd."/><date from="1538" to="1538" confidence="1">1538</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Johannes ist der <oRef norm="lezt" type="oVar.lem" rend="automatic" n="68">letzte</oRef> und gibt den <oRef norm="lezt" type="oVar.lem" rend="automatic" n="69">letze</oRef> trunck. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Ebd.</name> <citedRange n="346" facs="49,741,14" rend="export" target="https://archive.org/details/werkekritischege49luthuoft/page/741">49, 741, 14</citedRange> (<region key="omd."/><date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Die Donnerschlege [...] sind ein [...] vortraber des letzten donnerschlags. [...]. das wird die <oRef norm="lezt" type="oVar.lem" rend="automatic" n="68">letzte</oRef> Posaune. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="122" cert="high">Strauch</name>, Par. anime int. <citedRange n="122" facs="71,11">71, 11</citedRange> (<region key="thür.">thür.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wan alse liplich frucht das <oRef norm="lest" type="oVar.lem" rend="automatic" n="71">leiste</oRef> unde daz suziste daz da ist in dem menschin. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="955" cert="high">Mathesius</name>, Passionale <citedRange n="955" facs="50v,7" rend="export" target="https://books.google.de/books?id=_TdbAAAAcAAJ&amp;pg=PA51">50v, 7</citedRange> (<region key="osächs.">Leipzig</region> <date from="1587" to="1587" confidence="1">1587</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der seine besten Tage gelebet hat / das ist / der aller <oRef norm="lezt" type="oVar.lem" rend="automatic" n="65">letzte</oRef> / geringste / vnterste vnnd außwuͤrfling / vnter vnnd von allen Menschen Kindern. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="111" cert="high">Kurrelmeyer</name>, Dt. Bibel <citedRange n="111" facs="3,89,12" rend="export" target="https://archive.org/details/dieerstedeutsch02kurrgoog/page/n107">3, 89, 12</citedRange> (<region key="els.">Straßb.</region> <date from="1466" to="1466" confidence="1">1466</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">on zwifel hie hab ich gesehen die letzsten ding dez sehenden mich. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="185" cert="high">Chron. Augsb.</name> <citedRange n="185" facs="7,78,8" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/periodical/pageview/406941">7, 78, 8</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1548" to="1548" confidence="1">1548</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">so möcht daraus anders nichts dann diser stat endtlicher, letster undergang und eusserist verderben zuͤ gewarten.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+lezt, lest (etwas seltener als erstere Form), Adj., in 3 nur adv. Gebrauch. 1. ›letzt, zeitlich gesehen nach allem anderen (z. B. nach dem ersten); schließlich‹; in adv. Gebrauch: ›zuletzt‹. – Phras. (gehäuft; teils mit Substantivierung, dann von lezte keine klare Trennung möglich): am lezten o. ä., auf das lezte, fürs lezte, in dem lezten, zum lezten o. ä., zu lezt, jeweils ›zuletzt, schließlich‹; das lezte mal. – Wbg.: leztlebend ›jn. überlebend‹, leztlich. Quint, Eckharts Pred. 1, 389, 3 (E. 13./A. 14. Jh.): der êrste begin ist durch des lesten endes willen. Jâ, got der rouwet selbe niht dâ, dâ er ist der êrste begin; er rouwet dâ, dâ er ist ein ende und ein raste alles wesens. Peil, Rollenhagen. Froschm. 521, 448 (Magdeb. 1608): Weib halt ein / | Odr es sol dein letzter trunck sein. Beckers, Bauernpr. 55, 14 (Köln 1515/18): in den lesten tzweyen frydagen in dem mertzen. Köbler, Ref. Franckenfort 54, 7 (Mainz 1509): dann darnach das letstlebende sich widderumb in die zweyte ehe verandert. Opel, Spittendorf 128, 41 (osächs., um 1480): Derhalben were yn letzst zu santh Mauritz vorhalt gesehen. Grosch u. a., Schöffenspr. Pössneck 235, 36 (thür., 1474): Zcu deme letcztin uffgebote ist Jhaen von Thumpelingen vor gerichte [komen]. Sermon Thauleri 3ra, 10 (Leipzig 1498): Nun haben wir gesprochen von der erstenn vnd letzsten geburt, wie wir yn der letzsten an der ersten sollen lere neme͂. Bächtold, N. Manuel. 277, 537 (Basel 1530): Sie ist weder die erst noch letst, | Die mit dem fuͦss in bach ist treten. Wyss, Luz. Ostersp. 3, 48, 47 (Luzern 1616): Das ist deß Herren letste wunder, | so er mit andacht thatt besunder | Vor sinem todt. Chron. Augsb. 5, 104, 24 (schwäb., 1523/7): das schlos zuͦ Hochenaschperg, das was das lötzst, das der pundt eingenomen hat. Chron. Augsb. 8, 405, 11 (schwäb., zu 1552): auf den lesten tag des monats augusti. Winter, Nöst. Weist. 3, 729, 4 (moobd., A. 16. Jh.): welicher pawman der löst ist umb die fruemößzeit dem erstn ain metzn habern geben. Piirainen, Stadtr. Sillein 96a, 34 (sslow. inseldt., 1378): Der svntag waz der erste tag der ye wart vnd der auch wirt der leczte. – Zu den Phrasemen: Schöpper 47b (Dortm. 1550): Postremo. Lǎst / letztlich zum letzsten endtlich. Meijboom, Pilgerf. träum. Mönch 6289 (rib., 1444): Du en kans up dat leste geyn guyt gehain, | He en wille deilachtich syn da an. Loesch, Kölner Zunfturk. 2, 396, 3 (rib., 1489): ind u. g. die beide ampte int lest vereiniget haven. Chron. Köln 2, 11v, 6 (Köln 1499): zo dem lesten so sullen sy verkriegen die krone der merteler. v. d. Lee, M. v. Weida. Spigell 77, 18 (omd., 1487): Am letzsten er vor dem babst vorclaget [worden]. Roloff, Naogeorg/Tyrolff. Pamm. 105, 878 (Zwickau um 1540): Noch eins fuͤrs letzt. v. Keller, Ayrer. Dramen 2204, 6 (Nürnb. 1610/8): wenn er mich hie finden thet. | Ich euch das letzt mal gsehen hett. Vetter, Pred. Taulers 66, 28 (els., E. 14. Jh.): wie sint sú in daz urteil Gottes in dem lesten gevallen. Wiessner, Wittenw. Ring 4607 (ohalem., 1400/08): ker dich auf das best | Und auf daz gnädigost ze lest! Chron. Augsb. 2, 68, 26 (schwäb., Hs. 16. Jh.): daß er gottes leichnam begert hett an dem letsten. Piirainen, Stadtr. Kremnitz 84 (mslow. inseldt., 1537): Zum Letzten, Wollen wier Iederman treulich gewarnet haben. – Baumann, Bauernkr. Rotenb. 104, 21; Wyss, Limb. Chron. 68, 26; Köbler, Ref. Franckenfort 39, 10; 43, 17; Chron. Augsb. 8, 157, 2. – Zu den Phrasemen: Kurz, Waldis. Esopus 3, 26, 3; v. Liliencron, Dür. Chron. Rothe 689, 17; Williams u. a., Els. Leg. Aurea 346, 7; Chron. Augsb. 1, 99, 9; 303, 25; Roth, E. v. Wildenberg 124, 20; Kummer, Erlauer Sp. 6, 56; Rwb 8, 1244f. – Vgl. ferner s. v. absenz (die) 2, ausrecken 5, 3auf 9, 1base 4. 2. an 1 anschließbar eine Fülle von Phrasemen um den Tod des Menschen, das Jüngste Gericht; teilweise elliptischer Gebrauch (Auslassung des Subst.). – Phras. (Ordnung so weit wie möglich und sinnvoll nach dem Alphabet): das lezte (abend)essen ›letztes, sakramentstiftendes Abendessen Jesu mit seinen Jüngern‹; der lezte abschied, das lezte abscheid / scheiden (o. ä.) jeweils euphemistisch für das Sterben, den Tod, die Todesnot; der lezte atem; die lezte auferstende ›Auferstehung des Menschen‹; das lezte ende ›letzte Zeit eines Lebens; Todeszeit, Tod‹; die lezte fart / hinfart; der lezte gang; das lezte gericht ›das jüngste Gericht‹; das lezte keichen; die lezte lässe ›letzter Stich beim Kartenspiel‹ (vgl. Dwb 6, 213; 772); der lezte lon; das lezte nachtmal wie das lezte (abend)essen; die lezte reitung ›die letzte Abrechnung‹; die lezte not ›Todesnot‹; die lezte stunde ›die Todesstunde‹; das lezte urteil ›Jüngstes Gericht‹; der lezte wille ›Testament‹; der lezte tag, die lezten tage ›Tag(e) vor dem Tod, Todestag‹; das lezte testament; die lezten zeichen; die lezte(n) zeit(en) oft in präp. Verbindung an / zu den lezten zeiten (o. ä.) für den Tod des einzelnen Menschen, für die Endzeit und die Zeit des jüngsten Gerichts (im einzelnen kaum trennbar); der lezte zorn; die lezten züge. Belege in der Reihenfolge der Nennungen (mit semantisch bedingten Abweichungen): Froning, Alsf. Passionssp. 3069 (ohess., 1501ff.): dijt sal das leste essen synn, | das ich mit uch essen sail! Reichert, Gesamtausl. Messe 11, 10 (Nürnb. um 1480): da er sprach an dem letsten abentessen nach dem als er den jungernn het das heylig sacrament gegeben. Bauer, Haller. Hieronymus-Br. 21, 7 (tir., 1464): Das ewenpild hat v̈ns lassen Christus an dem lësten abent ëssen, da er wüsch die füesse seiner junger. Schöpper 113a (Dortm. 1550): Mors. Todt sterben ¶ abgang letzstes abscheid. Kehrein, Kath. Gesangb. 1, 269, 2 (Nürnb. 1631): Glorwuͤrdig Er zum Oelberg kam, | Da Er den letzten abschiedt nam. Klein, Oswald 35, 36 (oobd., 1409/10): göttlich geburd durch magt mensch rain, | hilf an dem letzten schaiden! V. Anshelm. Berner Chron. 2, 134, 6 (halem., n. 1529): dass si biss an letsten aten wie die kaͤlber blaͤreten. Sachs 15, 342, 9 (Nürnb. 1562): Und hat sein unart gar ein end | Biß zu der letzten aufferstehnd. Schönbach, Adt. Pred. 14, 14 (osächs., 1. H. 14. Jh.): min lip muͦze sterben als die gerechten und min leste ende muze sich gelichen den selben. Böhme, Morg.R. 13, 7 (Hs. ˹schles., 1612˺): Mensch [...] der du an diesem letzten ende der zeit in so grosser sicherheit lebest. Langen, Myst. Leben 156, 6 (nobd., 1463): da mit er [poser geist] / anficht dy krancken an dem leczten ende. Wyss, Luz. Ostersp. 3179 (Luzern 1571): So sich thuͦt scheiden die seele min | Am lettsten end von minem lyb. Opitz. Poeterey 23, 23 (Breslau 1624): Worzue dienet das studieren / | [...] ?| Vnter dessen laufft die Bach | Vnsers lebens [...] | [...] | Auff jhr letztes ende hin. Primisser, Suchenwirt 32, 33 (oobd., 2. H. 14. Jh.): Nu let er auf der lesten vart | Sein grozzes guet auf erden. Schönbach, Adt. Pred. 7, 16 (osächs., 1. H. 14. Jh.): uͦ ffe daz du behalden werdes an diner leste hinevart. Fastnachtsp. 1451, 20 (nobd., 15. Jh.): Das lest oder gemein gericht wirt sein an dem end der wellt. Luther, WA 34, 2, 282, 25 (1531): Also [...] gewiß soll ich auch sein, wenn ich den letzten gang gehe unter die Erden. Roth, E. v. Wildenberg 4, 29 (moobd., v. 1493): ir müst warlich darumb antwort geben vor dem letzten gericht. Klein, Oswald 29, 24 (oobd., 1409, 1426?): Maria, hab, hilf an dem letzten keichen. Sachs 20, 77, 34 (Nürnb. 1559): Treib auch das spil der letzten leß, [möglicherweise Umdeutung von lässe auf les ›lectio‹] | Das mir offt war gar herb und reß. Gille u. a., M. Beheim 81, 33 (nobd., 2. H. 15. Jh.): das ist ein gross czaichen vermelt, | das in solch czeitlich glike | Czu einem lesten lon sey gebm, | als den grechten ir ewigs lebm | auch ist ir lester lone. Wyss, Luz. Ostersp. 6677 (Luzern 1545): wuͦsch in ir fuͦs, irs werden gsen, | [...] | nam ouch mit in sin letst nachtmal | zuͦ Hierusalem in einem saal. Spechtler, Mönch v. Salzb. 33, 47 (oobd., 3. Dr. 14. Jh.): die letzten raitung für uns gilt, | wann wir hie müssen sterben. Primisser, Suchenwirt 41, 700 (oobd., 2. H. 14. Jh.): daz uns in der lesten not | Chains poͤsen geistes aug anschilh. Luther, WA 53, 276, 2 (1542): Das sind die rechten letzten schrecklichen [...] plagen. Ebd. 46, 62, 18 (1537): von dem letzten Regiment des Endchrists, nemlich des Bapstumbs. Wyss, Luz. Ostersp. 9284 (Luzern 1545): verlass in nit in der letsten stund! Schönbach, Adt. Pred. 32, 41 (osächs., 1. H. 14. Jh.): erlose mich von dem ewigen tote an dem vorchsamen tage des lesten urteiles. Schöpper 106a (Dortm. 1550): Testamentvm Testament erb gemächt seel gerecht letzter will. v. d. Lee, M. v. Weida. Spigell 83, 2 (omd., 1487): Der letzte wille des vorstorben menschen sall Jn allen dingen [gehaldenn werden]. Moscherosch. Ges. Phil. v. Sittew. 47, 37 (Straßb. 1650): Anstatt daß sie sich [...] der Sterblichkeit vnnd ihres Endes erinnern [...], so fangen sie an von der verstorbenen Letztem Willen oder Testament vnd der verlassenschaft zu erzehlen. Grothausmann, Stadtb. Karpfen 70, 22 (mslow. inseldt., 1602): 1602, Ortnet die Tugendtśame fraw Catharina [...] bej guter vernunfft mit vornemlicher teutlicher rete, ihren letzten willen wie volget. Henschel u. a., Heidin 952 (nobd., um 1300): Din ich niht vergezze | [...] | Biz an minen letsten tak. Vetter, Pred. Taulers 34, 32 (els., E. 14. Jh.): in disen lesten tagen, das do sint die tage des heiles, so enmag enkein mensche niemerme genesen [...] dan úbermitz daz minnekliche wasser des tiches, daz ist daz bluͦt unsers herren. Bauer, Haller. Hieronymus-Br. 12, 30 (tir., 1464): er ist pesammen sein schaff in sein schoff an den lesten tägen. Grothausmann, Stadtb. Karpfen 68, 2 (mslow. inseldt., 1586): haben wir vns dem lezten teśtament nach gehalten. Luther, WA 29, 619, 5 (1529): es sollen die letzten zeichen nicht ferne sein. Ebd. 54, 472, 13 (1548): Was wunder ists, das auch wir, so jtzt, in dieser letzten schrecklichen zeit, Christum predigen. Dubizmay, kurß zu Teutze 16, 13 (hess., 1463): küm mir zu hilff an | meynnem letzten zeytten. Reichert, Gesamtausl. Messe 92, 33 (Nürnb. um 1480): das Got der herre [...] richten und urteylen wirt eyn yegklichen menschen an seynen letzten zeyten. Wyss, Luz. Ostersp. 10083 (Luzern 1545): es würt zuͦ den letsten zytten kon | sim glouben ein widerspeniger trutz. Bauer, Haller. Hieronymus-Br. 13, 3 (tir., 1464): Da in nu sein leste zeit wart nöten auz zugen von dem leib. Luther, WA 19, 193, 15 (1526): Also hat er auch Christum [...] ynn die welt gesand, ehe denn der letzte zorn des jungsten gerichtes kompt. Ebd. 28, 670, 23 (1529): Guͤter koͤnnen nicht helffen in den letzten zuͤgen. Sappler, H. Kaufringer 16, 555 (schwäb., Hs. 1464): wie gern ir [tiefel] den menschen beraubt | an den letzsten zügen sein | der tugent rain. – Elliptisch: Lohmeyer, K. v. Nostitz 159, 26 (preuß., 1578): wil ich alles, das ich weiß, auff meine letzte hinder mir verlassen. Loesch, Kölner Zunfturk. 4, 387, 9 (rib., 1397-1409): sal man in ermanen, wat he deme heilgencruiz wil geven [...] ind an sime lesten, dat he sin gunst ouch deme heilgencruiz bewise. Buch Weinsb. 1, 262, 6 (rib., um 1560): in sinem lesten hat er sinen einigen son Eduardum zum koning ingesatzt. Moscouia C 1v, 40 (Wien 1557): So aber der Großfuͦrst Hans an seinem letzten gelegen / vnd die Geistliche jne der gewissen vermant / hat [...]. – Bauer, Imitatio Haller 97, 16; Golius 116. – Vgl. ferner s. v. abschied 2, augenede, ausbleiben 3, auslassen 12, ausrichtung 6. 3. von einem später als das Bezugsgeschehen liegenden Zeitpunkt aus gesehen auf den zuletzt stattgefundenen oder einen kürzlich abgelaufenen Vorgang bezogen: ›neulich, letzthin, vor kurzem‹. – Bdv.: vgl. kürzlich 4, neulich 1. Loesch, Kölner Zunfturk. 11, 548, 14 (rib., 1454): darup begeren ich guetlich uire eirsamheit ind wissheit zo wissen, dat ich lest uiren frunden, die bij mir wairen, der gelegenheit en deil gesacht hain. Kurz, Waldis. Esopus 4, 65, 1 (Frankf. 1557): ZV Maintz am Rhein ich lesten war. Opel, Spittendorf 135, 2 (osächs., um 1480): seyne gnade und der rath hetten letzst zu sant Mauritz yre antwort gehort. 4. ›letzt, hinterst, entlegenst, nach allem anderen (unter dominant räumlichem Aspekt, teils auf die Linearität von Texten bezogen)‹. Große, Schwabensp. 47a, 37 (Hs. ˹nd./md., um 1410˺): de vuͦnfte sibbe stet an dem ersten lede des vengers. [...] de sebede an dem lesten lede vor deme nagele. Strehlke, Nic. Jerosch. Chron. 27734 (preuß., um 1330/40): dî êrsten und dî lesten [dorfir] | dî branten sî gar abe. Rot 303 (Augsb. 1571): Declinirn, [...] die letzt silben eines worts in ein andre lencken. Chron. Augsb. 4, 410, 1 (schwäb., zu 1490): da die ersten nachet bei Jnningen wassend, da wassend die lesten noch bei Gegingertor. Hohmann, H. v. Langenstein. Quästio 203, 52 (moobd., 1. H. 15. Jh.): als sand Paul spricht ad Ephesios am lesten. – Gerhard, Hist. alde e 2869; Rohland, Schäden 465; Brévart, K. v. Megenberg. Sphaera 47, 14. 5. ›zuletzt genannt‹; in einer Reihe von Bezugsgrößen mit Absetzung von erst, ehe gesprochen, dann den Zeitverlauf des Textinhalts betonend. – Wbg.: leztgenant. Quint, Eckharts Pred. 2, 433, 5 (E. 13./A. 14. Jh.): Nû lâze ich die lesten zwei und rede von dem êrsten stücke. Chron. Augsb. 1, 62, 17 (schwäb., zu 1378): uff dem egesprochen letzsten ros rait ain ersamer ritter. Turmair 4, 345, 1 (moobd., 1522/33): lezgenanter künig Schirm verfertiget herwider sein rät ab zue dem grossen Alexander. – Oorschot, Spee/Schmidt. Caut. Crim. 335, 21. 6. dient der Charakterisierung des Endgliedes einer eher logisch reihend als zeitlich oder räumlich gedachten Reihe. Schönbach, Adt. Pred. 24, 31 (osächs., 1. H. 14. Jh.): daz [vuͦr] sol der priester vuͦten und sol drier hande holz dar uf werfen tegiliches [...]. daz erste holz ist daz gotes wort der heiligen lere, daz ander ist gut bilde heiliges lebenes, daz leste ist daz ammacht des heiligen gotes dinest. Turmair 4, 426, 7 (moobd., 1522/33): ’Dialectica‘ ist die dritt und lest kunst, so auch wort und red antrift. Chron. baier. Städte. Regensb. 98, 12 (noobd., 1529): Sambstag Bricci hab ich den lesten zehet von Tegerheim außtailt. 7. dient der Kennzeichnung der äußersten Seinsmöglichkeit einer Bezugsgröße, darunter endzeitlicher Projektionen: ›äußerst, höchst; definitiv‹, zum Teil auch zu 2 stellbar. – Texte der Sinnwelt ,Religion‘. Helm, H. v. Hesler. Apok. 19007 (nrddt., 14. Jh.): Die [Degen] zeigent dan ir leste tugent | Mit degentlicher heldes mugent. Ebd. 22913 (nrddt., 14. Jh.): Alpha und O ich bin, | Erst und letzt, ende und begin. Luther, WA 46, 453, 8 (1538): Johannes ist der letzte und gibt den letze trunck. Ebd. 49, 741, 14 (1545): Die Donnerschlege [...] sind ein [...] vortraber des letzten donnerschlags. [...]. das wird die letzte Posaune. Strauch, Par. anime int. 71, 11 (thür., 14. Jh.): wan alse liplich frucht das leiste unde daz suziste daz da ist in dem menschin. Mathesius, Passionale 50v, 7 (Leipzig 1587): Der seine besten Tage gelebet hat / das ist / der aller letzte / geringste / vnterste vnnd außwuͤrfling / vnter vnnd von allen Menschen Kindern. Kurrelmeyer, Dt. Bibel 3, 89, 12 (Straßb. 1466): on zwifel hie hab ich gesehen die letzsten ding dez sehenden mich. Chron. Augsb. 7, 78, 8 (schwäb., zu 1548): so möcht daraus anders nichts dann diser stat endtlicher, letster undergang und eusserist verderben zuͤ gewarten.
+-->
+  <!--Texttest: Konvertiert
+lezt, lest (etwas seltener als erstere Form), Adj., in 3 nur adv. Gebrauch. 1. ›letzt, zeitlich gesehen nach allem anderen (z. B. nach dem ersten); schließlich‹; in adv. Gebrauch: ›zuletzt‹. – Phras.: (gehäuft; teils mit Substantivierung, dann von lezte keine klare Trennung möglich): am lezten o. ä., auf das lezte, fürs lezte, in dem lezten, zum lezten o. ä., zu lezt, jeweils ›zuletzt, schließlich‹; das lezte mal. – Wbg.: leztlebend ›jn. überlebend‹, leztlich. Quint, Eckharts Pred. 1, 389, 3 (E. 13./A. 14. Jh.) der êrste begin ist durch des lesten endes willen. Jâ, got der rouwet selbe niht dâ, dâ er ist der êrste begin; er rouwet dâ, dâ er ist ein ende und ein raste alles wesens. Peil, Rollenhagen. Froschm. 521, 448 (Magdeb. 1608) Weib halt ein / | Odr es sol dein letzter trunck sein. Beckers, Bauernpr. 55, 14 (Köln 1515/18) in den lesten tzweyen frydagen in dem mertzen. Köbler, Ref. Franckenfort 54, 7 (Mainz 1509) dann darnach das letstlebende sich widderumb in die zweyte ehe verandert. Opel, Spittendorf 128, 41 (osächs., um 1480) Derhalben were yn letzst zu santh Mauritz vorhalt gesehen. Grosch u. a., Schöffenspr. Pössneck 235, 36 (thür., 1474) Zcu deme letcztin uffgebote ist Jhaen von Thumpelingen vor gerichte [komen]. Sermon Thauleri 3ra, 10 (Leipzig 1498) Nun haben wir gesprochen von der erstenn vnd letzsten geburt, wie wir yn der letzsten an der ersten sollen lere neme͂. Bächtold, N. Manuel. 277, 537 (Basel 1530) Sie ist weder die erst noch letst, | Die mit dem fuͦss in bach ist treten. Wyss, Luz. Ostersp. 3, 48, 47 (Luzern 1616) Das ist deß Herren letste wunder, | so er mit andacht thatt besunder | Vor sinem todt. Chron. Augsb. 5, 104, 24 (schwäb., 1523/7) das schlos zuͦ Hochenaschperg, das was das lötzst, das der pundt eingenomen hat. Chron. Augsb. 8, 405, 11 (schwäb., zu 1552) auf den lesten tag des monats augusti. Winter, Nöst. Weist. 3, 729, 4 (moobd., A. 16. Jh.) welicher pawman der löst ist umb die fruemößzeit dem erstn ain metzn habern geben. Piirainen, Stadtr. Sillein 96a, 34 (sslow. inseldt., 1378) Der svntag waz der erste tag der ye wart vnd der auch wirt der leczte. – Zu den Phrasemen: Schöpper 47b (Dortm. 1550) Postremo. Lǎst / letztlich zum letzsten endtlich. Meijboom, Pilgerf. träum. Mönch 6289 (rib., 1444) Du en kans up dat leste geyn guyt gehain, | He en wille deilachtich syn da an. Loesch, Kölner Zunfturk. 2, 396, 3 (rib., 1489) ind u. g. die beide ampte int lest vereiniget haven. Chron. Köln 2, 11v, 6 (Köln 1499) zo dem lesten so sullen sy verkriegen die krone der merteler. v. d. Lee, M. v. Weida. Spigell 77, 18 (omd., 1487) Am letzsten er vor dem babst vorclaget [worden]. Roloff, Naogeorg/Tyrolff. Pamm. 105, 878 (Zwickau um 1540) Noch eins fuͤrs letzt. v. Keller, Ayrer. Dramen 2204, 6 (Nürnb. 1610/8) wenn er mich hie finden thet. | Ich euch das letzt mal gsehen hett. Vetter, Pred. Taulers 66, 28 (els., E. 14. Jh.) wie sint sú in daz urteil Gottes in dem lesten gevallen. Wiessner, Wittenw. Ring 4607 (ohalem., 1400/08) ker dich auf das best | Und auf daz gnädigost ze lest! Chron. Augsb. 2, 68, 26 (schwäb., Hs. 16. Jh.) daß er gottes leichnam begert hett an dem letsten. Piirainen, Stadtr. Kremnitz 84 (mslow. inseldt., 1537) Zum Letzten, Wollen wier Iederman treulich gewarnet haben. – Baumann, Bauernkr. Rotenb. 104, 21; Wyss, Limb. Chron. 68, 26; Köbler, Ref. Franckenfort 39, 10; 43, 17; Chron. Augsb. 8, 157, 2. – Zu den Phrasemen: Kurz, Waldis. Esopus 3, 26, 3; v. Liliencron, Dür. Chron. Rothe 689, 17; Williams u. a., Els. Leg. Aurea 346, 7; Chron. Augsb. 1, 99, 9; 303, 25; Roth, E. v. Wildenberg 124, 20; Kummer, Erlauer Sp. 6, 56; Rwb 8, 1244f. – Vgl. ferner s. v. absenz (die) 2, ausrecken 5, 3auf 9, 1base 4. 2. an 1 anschließbar eine Fülle von Phrasemen um den Tod des Menschen, das Jüngste Gericht; teilweise elliptischer Gebrauch (Auslassung des Subst.). – Phras.: (Ordnung so weit wie möglich und sinnvoll nach dem Alphabet): das lezte (abend)essen ›letztes, sakramentstiftendes Abendessen Jesu mit seinen Jüngern‹; der lezte abschied, das lezte abscheid / scheiden (o. ä.) jeweils euphemistisch für das Sterben, den Tod, die Todesnot; der lezte atem; die lezte auferstende ›Auferstehung des Menschen‹; das lezte ende ›letzte Zeit eines Lebens; Todeszeit, Tod‹; die lezte fart / hinfart; der lezte gang; das lezte gericht ›das jüngste Gericht‹; das lezte keichen; die lezte lässe ›letzter Stich beim Kartenspiel‹ (vgl. Dwb 6, 213; 772); der lezte lon; das lezte nachtmal wie das lezte (abend)essen; die lezte reitung ›die letzte Abrechnung‹; die lezte not ›Todesnot‹; die lezte stunde ›die Todesstunde‹; das lezte urteil ›Jüngstes Gericht‹; der lezte wille ›Testament‹; der lezte tag, die lezten tage ›Tag(e) vor dem Tod, Todestag‹; das lezte testament; die lezten zeichen; die lezte(n) zeit(en) oft in präp. Verbindung an / zu den lezten zeiten (o. ä.) für den Tod des einzelnen Menschen, für die Endzeit und die Zeit des jüngsten Gerichts (im einzelnen kaum trennbar); der lezte zorn; die lezten züge. Belege in der Reihenfolge der Nennungen (mit semantisch bedingten Abweichungen): Froning, Alsf. Passionssp. 3069 (ohess., 1501ff.) dijt sal das leste essen synn, | das ich mit uch essen sail! Reichert, Gesamtausl. Messe 11, 10 (Nürnb. um 1480) da er sprach an dem letsten abentessen nach dem als er den jungernn het das heylig sacrament gegeben. Bauer, Haller. Hieronymus-Br. 21, 7 (tir., 1464) Das ewenpild hat v̈ns lassen Christus an dem lësten abent ëssen, da er wüsch die füesse seiner junger. Schöpper 113a (Dortm. 1550) Mors. Todt sterben ¶ abgang letzstes abscheid. Kehrein, Kath. Gesangb. 1, 269, 2 (Nürnb. 1631) Glorwuͤrdig Er zum Oelberg kam, | Da Er den letzten abschiedt nam. Klein, Oswald 35, 36 (oobd., 1409/10) göttlich geburd durch magt mensch rain, | hilf an dem letzten schaiden! V. Anshelm. Berner Chron. 2, 134, 6 (halem., n. 1529) dass si biss an letsten aten wie die kaͤlber blaͤreten. Sachs 15, 342, 9 (Nürnb. 1562) Und hat sein unart gar ein end | Biß zu der letzten aufferstehnd. Schönbach, Adt. Pred. 14, 14 (osächs., 1. H. 14. Jh.) min lip muͦze sterben als die gerechten und min leste ende muze sich gelichen den selben. Böhme, Morg.R. 13, 7 (Hs. ˹schles., 1612˺) Mensch [...] der du an diesem letzten ende der zeit in so grosser sicherheit lebest. Langen, Myst. Leben 156, 6 (nobd., 1463) da mit er [poser geist] / anficht dy krancken an dem leczten ende. Wyss, Luz. Ostersp. 3179 (Luzern 1571) So sich thuͦt scheiden die seele min | Am lettsten end von minem lyb. Opitz. Poeterey 23, 23 (Breslau 1624) Worzue dienet das studieren / | [...] ?| Vnter dessen laufft die Bach | Vnsers lebens [...] | [...] | Auff jhr letztes ende hin. Primisser, Suchenwirt 32, 33 (oobd., 2. H. 14. Jh.) Nu let er auf der lesten vart | Sein grozzes guet auf erden. Schönbach, Adt. Pred. 7, 16 (osächs., 1. H. 14. Jh.) uͦ ffe daz du behalden werdes an diner leste hinevart. Fastnachtsp. 1451, 20 (nobd., 15. Jh.) Das lest oder gemein gericht wirt sein an dem end der wellt. Luther, WA 34, 2, 282, 25 (1531) Also [...] gewiß soll ich auch sein, wenn ich den letzten gang gehe unter die Erden. Roth, E. v. Wildenberg 4, 29 (moobd., v. 1493) ir müst warlich darumb antwort geben vor dem letzten gericht. Klein, Oswald 29, 24 (oobd., 1409, 1426?) Maria, hab, hilf an dem letzten keichen. Sachs 20, 77, 34 (Nürnb. 1559) Treib auch das spil der letzten leß, [möglicherweise Umdeutung von lässe auf les ›lectio‹] | Das mir offt war gar herb und reß. Gille u. a., M. Beheim 81, 33 (nobd., 2. H. 15. Jh.) das ist ein gross czaichen vermelt, | das in solch czeitlich glike | Czu einem lesten lon sey gebm, | als den grechten ir ewigs lebm | auch ist ir lester lone. Wyss, Luz. Ostersp. 6677 (Luzern 1545) wuͦsch in ir fuͦs, irs werden gsen, | [...] | nam ouch mit in sin letst nachtmal | zuͦ Hierusalem in einem saal. Spechtler, Mönch v. Salzb. 33, 47 (oobd., 3. Dr. 14. Jh.) die letzten raitung für uns gilt, | wann wir hie müssen sterben. Primisser, Suchenwirt 41, 700 (oobd., 2. H. 14. Jh.) daz uns in der lesten not | Chains poͤsen geistes aug anschilh. Luther, WA 53, 276, 2 (1542) Das sind die rechten letzten schrecklichen [...] plagen. Ebd. 46, 62, 18 (1537) von dem letzten Regiment des Endchrists, nemlich des Bapstumbs. Wyss, Luz. Ostersp. 9284 (Luzern 1545) verlass in nit in der letsten stund! Schönbach, Adt. Pred. 32, 41 (osächs., 1. H. 14. Jh.) erlose mich von dem ewigen tote an dem vorchsamen tage des lesten urteiles. Schöpper 106a (Dortm. 1550) Testamentvm Testament erb gemächt seel gerecht letzter will. v. d. Lee, M. v. Weida. Spigell 83, 2 (omd., 1487) Der letzte wille des vorstorben menschen sall Jn allen dingen [gehaldenn werden]. Moscherosch. Ges. Phil. v. Sittew. 47, 37 (Straßb. 1650) Anstatt daß sie sich [...] der Sterblichkeit vnnd ihres Endes erinnern [...], so fangen sie an von der verstorbenen Letztem Willen oder Testament vnd der verlassenschaft zu erzehlen. Grothausmann, Stadtb. Karpfen 70, 22 (mslow. inseldt., 1602) 1602, Ortnet die Tugendtśame fraw Catharina [...] bej guter vernunfft mit vornemlicher teutlicher rete, ihren letzten willen wie volget. Henschel u. a., Heidin 952 (nobd., um 1300) Din ich niht vergezze | [...] | Biz an minen letsten tak. Vetter, Pred. Taulers 34, 32 (els., E. 14. Jh.) in disen lesten tagen, das do sint die tage des heiles, so enmag enkein mensche niemerme genesen [...] dan úbermitz daz minnekliche wasser des tiches, daz ist daz bluͦt unsers herren. Bauer, Haller. Hieronymus-Br. 12, 30 (tir., 1464) er ist pesammen sein schaff in sein schoff an den lesten tägen. Grothausmann, Stadtb. Karpfen 68, 2 (mslow. inseldt., 1586) haben wir vns dem lezten teśtament nach gehalten. Luther, WA 29, 619, 5 (1529) es sollen die letzten zeichen nicht ferne sein. Ebd. 54, 472, 13 (1548) Was wunder ists, das auch wir, so jtzt, in dieser letzten schrecklichen zeit, Christum predigen. Dubizmay, kurß zu Teutze 16, 13 (hess., 1463) küm mir zu hilff an | meynnem letzten zeytten. Reichert, Gesamtausl. Messe 92, 33 (Nürnb. um 1480) das Got der herre [...] richten und urteylen wirt eyn yegklichen menschen an seynen letzten zeyten. Wyss, Luz. Ostersp. 10083 (Luzern 1545) es würt zuͦ den letsten zytten kon | sim glouben ein widerspeniger trutz. Bauer, Haller. Hieronymus-Br. 13, 3 (tir., 1464) Da in nu sein leste zeit wart nöten auz zugen von dem leib. Luther, WA 19, 193, 15 (1526) Also hat er auch Christum [...] ynn die welt gesand, ehe denn der letzte zorn des jungsten gerichtes kompt. Ebd. 28, 670, 23 (1529) Guͤter koͤnnen nicht helffen in den letzten zuͤgen. Sappler, H. Kaufringer 16, 555 (schwäb., Hs. 1464) wie gern ir [tiefel] den menschen beraubt | an den letzsten zügen sein | der tugent rain. – Elliptisch: Lohmeyer, K. v. Nostitz 159, 26 (preuß., 1578) wil ich alles, das ich weiß, auff meine letzte hinder mir verlassen. Loesch, Kölner Zunfturk. 4, 387, 9 (rib., 1397-1409) sal man in ermanen, wat he deme heilgencruiz wil geven [...] ind an sime lesten, dat he sin gunst ouch deme heilgencruiz bewise. Buch Weinsb. 1, 262, 6 (rib., um 1560) in sinem lesten hat er sinen einigen son Eduardum zum koning ingesatzt. Moscouia C 1v, 40 (Wien 1557) So aber der Großfuͦrst Hans an seinem letzten gelegen / vnd die Geistliche jne der gewissen vermant / hat [...]. – Bauer, Imitatio Haller 97, 16; Golius 116. – Vgl. ferner s. v. abschied 2, augenede, ausbleiben 3, auslassen 12, ausrichtung 6. 3. von einem später als das Bezugsgeschehen liegenden Zeitpunkt aus gesehen auf den zuletzt stattgefundenen oder einen kürzlich abgelaufenen Vorgang bezogen: ›neulich, letzthin, vor kurzem‹. – Bdv.: vgl. kürzlich 4, neulich 1. Loesch, Kölner Zunfturk. 11, 548, 14 (rib., 1454) darup begeren ich guetlich uire eirsamheit ind wissheit zo wissen, dat ich lest uiren frunden, die bij mir wairen, der gelegenheit en deil gesacht hain. Kurz, Waldis. Esopus 4, 65, 1 (Frankf. 1557) ZV Maintz am Rhein ich lesten war. Opel, Spittendorf 135, 2 (osächs., um 1480) seyne gnade und der rath hetten letzst zu sant Mauritz yre antwort gehort. 4. ›letzt, hinterst, entlegenst, nach allem anderen (unter dominant räumlichem Aspekt, teils auf die Linearität von Texten bezogen)‹. Große, Schwabensp. 47a, 37 (Hs. ˹nd./md., um 1410˺) de vuͦnfte sibbe stet an dem ersten lede des vengers. [...] de sebede an dem lesten lede vor deme nagele. Strehlke, Nic. Jerosch. Chron. 27734 (preuß., um 1330/40) dî êrsten und dî lesten [dorfir] | dî branten sî gar abe. Rot 303 (Augsb. 1571) Declinirn, [...] die letzt silben eines worts in ein andre lencken. Chron. Augsb. 4, 410, 1 (schwäb., zu 1490) da die ersten nachet bei Jnningen wassend, da wassend die lesten noch bei Gegingertor. Hohmann, H. v. Langenstein. Quästio 203, 52 (moobd., 1. H. 15. Jh.) als sand Paul spricht ad Ephesios am lesten. – Gerhard, Hist. alde e 2869; Rohland, Schäden 465; Brévart, K. v. Megenberg. Sphaera 47, 14. 5. ›zuletzt genannt‹; in einer Reihe von Bezugsgrößen mit Absetzung von erst, ehe gesprochen, dann den Zeitverlauf des Textinhalts betonend. – Wbg.: leztgenant. Quint, Eckharts Pred. 2, 433, 5 (E. 13./A. 14. Jh.) Nû lâze ich die lesten zwei und rede von dem êrsten stücke. Chron. Augsb. 1, 62, 17 (schwäb., zu 1378) uff dem egesprochen letzsten ros rait ain ersamer ritter. Turmair 4, 345, 1 (moobd., 1522/33) lezgenanter künig Schirm verfertiget herwider sein rät ab zue dem grossen Alexander. – Oorschot, Spee/Schmidt. Caut. Crim. 335, 21. 6. dient der Charakterisierung des Endgliedes einer eher logisch reihend als zeitlich oder räumlich gedachten Reihe. Schönbach, Adt. Pred. 24, 31 (osächs., 1. H. 14. Jh.) daz [vuͦr] sol der priester vuͦten und sol drier hande holz dar uf werfen tegiliches [...]. daz erste holz ist daz gotes wort der heiligen lere, daz ander ist gut bilde heiliges lebenes, daz leste ist daz ammacht des heiligen gotes dinest. Turmair 4, 426, 7 (moobd., 1522/33) ’Dialectica‘ ist die dritt und lest kunst, so auch wort und red antrift. Chron. baier. Städte. Regensb. 98, 12 (noobd., 1529) Sambstag Bricci hab ich den lesten zehet von Tegerheim außtailt. 7. dient der Kennzeichnung der äußersten Seinsmöglichkeit einer Bezugsgröße, darunter endzeitlicher Projektionen: ›äußerst, höchst; definitiv‹, zum Teil auch zu 2 stellbar. – Texte der Sinnwelt ,Religion‘. Helm, H. v. Hesler. Apok. 19007 (nrddt., 14. Jh.) Die [Degen] zeigent dan ir leste tugent | Mit degentlicher heldes mugent. Ebd. 22913 (nrddt., 14. Jh.) Alpha und O ich bin, | Erst und letzt, ende und begin. Luther, WA 46, 453, 8 (1538) Johannes ist der letzte und gibt den letze trunck. Ebd. 49, 741, 14 (1545) Die Donnerschlege [...] sind ein [...] vortraber des letzten donnerschlags. [...]. das wird die letzte Posaune. Strauch, Par. anime int. 71, 11 (thür., 14. Jh.) wan alse liplich frucht das leiste unde daz suziste daz da ist in dem menschin. Mathesius, Passionale 50v, 7 (Leipzig 1587) Der seine besten Tage gelebet hat / das ist / der aller letzte / geringste / vnterste vnnd außwuͤrfling / vnter vnnd von allen Menschen Kindern. Kurrelmeyer, Dt. Bibel 3, 89, 12 (Straßb. 1466) on zwifel hie hab ich gesehen die letzsten ding dez sehenden mich. Chron. Augsb. 7, 78, 8 (schwäb., zu 1548) so möcht daraus anders nichts dann diser stat endtlicher, letster undergang und eusserist verderben zuͤ gewarten.
+-->
+  <!--Interpunktionsloser Text:
+leztlest(etwasselteneralserstereForm)Adjin3nuradvGebrauch1›letztzeitlichgesehennachallemanderen(zBnachdemersten)schließlich‹inadvGebrauch›zuletzt‹Phras(gehäuftteilsmitSubstantivierungdannvonleztekeineklareTrennungmöglich)amleztenoäaufdasleztefürslezteindemleztenzumleztenoäzuleztjeweils›zuletztschließlich‹dasleztemalWbgleztlebend›jnüberlebend‹leztlichQuintEckhartsPred13893(E13/A14Jh)derêrstebeginistdurchdeslestenendeswillenJâgotderrouwetselbenihtdâdâeristderêrstebeginerrouwetdâdâeristeinendeundeinrastealleswesensPeilRollenhagenFroschm521448(Magdeb1608)Weibhaltein/|OdressoldeinletztertrunckseinBeckersBauernpr5514(Köln1515/18)indenlestentzweyenfrydagenindemmertzenKöblerRefFranckenfort547(Mainz1509)danndarnachdasletstlebendesichwidderumbindiezweyteeheverandertOpelSpittendorf12841(osächsum1480)DerhalbenwereynletzstzusanthMauritzvorhaltgesehenGroschuaSchöffensprPössneck23536(thür1474)ZcudemeletcztinuffgeboteistJhaenvonThumpelingenvorgerichte[komen]SermonThauleri3ra10(Leipzig1498)Nunhabenwirgesprochenvondererstennvndletzstengeburtwiewirynderletzstenandererstensollenlereneme͂BächtoldNManuel277537(Basel1530)Sieistwederdieerstnochletst|DiemitdemfuͦssinbachisttretenWyssLuzOstersp34847(Luzern1616)DasistdeßHerrenletstewunder|soermitandachtthattbesunder|VorsinemtodtChronAugsb510424(schwäb1523/7)dasschloszuͦHochenaschpergdaswasdaslötzstdasderpundteingenomenhatChronAugsb840511(schwäbzu1552)aufdenlestentagdesmonatsaugustiWinterNöstWeist37294(moobdA16Jh)welicherpawmanderlöstistumbdiefruemößzeitdemerstnainmetznhaberngebenPiirainenStadtrSillein96a34(sslowinseldt1378)DersvntagwazdererstetagderyewartvndderauchwirtderleczteZudenPhrasemenSchöpper47b(Dortm1550)PostremoLǎst/letztlichzumletzstenendtlichMeijboomPilgerfträumMönch6289(rib1444)Duenkansupdatlestegeynguytgehain|HeenwilledeilachtichsyndaanLoeschKölnerZunfturk23963(rib1489)indugdiebeideampteintlestvereinigethavenChronKöln211v6(Köln1499)zodemlestensosullensyverkriegendiekronedermertelervdLeeMvWeidaSpigell7718(omd1487)Amletzstenervordembabstvorclaget[worden]RoloffNaogeorg/TyrolffPamm105878(Zwickauum1540)NocheinsfuͤrsletztvKellerAyrerDramen22046(Nürnb1610/8)wennermichhiefindenthet|IcheuchdasletztmalgsehenhettVetterPredTaulers6628(elsE14Jh)wiesintsúindazurteilGottesindemlestengevallenWiessnerWittenwRing4607(ohalem1400/08)kerdichaufdasbest|UndaufdazgnädigostzelestChronAugsb26826(schwäbHs16Jh)daßergottesleichnambegerthettandemletstenPiirainenStadtrKremnitz84(mslowinseldt1537)ZumLetztenWollenwierIedermantreulichgewarnethabenBaumannBauernkrRotenb10421WyssLimbChron6826KöblerRefFranckenfort39104317ChronAugsb81572ZudenPhrasemenKurzWaldisEsopus3263vLiliencronDürChronRothe68917WilliamsuaElsLegAurea3467ChronAugsb199930325RothEvWildenberg12420KummerErlauerSp656Rwb81244fVglfernersvabsenz(die)2ausrecken53auf91base42an1anschließbareineFüllevonPhrasemenumdenToddesMenschendasJüngsteGerichtteilweiseelliptischerGebrauch(AuslassungdesSubst)Phras(OrdnungsoweitwiemöglichundsinnvollnachdemAlphabet)daslezte(abend)essen›letztessakramentstiftendesAbendessenJesumitseinenJüngern‹derlezteabschieddaslezteabscheid/scheiden(oä)jeweilseuphemistischfürdasSterbendenToddieTodesnotderlezteatemdielezteauferstende›AuferstehungdesMenschen‹daslezteende›letzteZeiteinesLebensTodeszeitTod‹dieleztefart/hinfartderleztegangdasleztegericht›dasjüngsteGericht‹dasleztekeichendieleztelässe›letzterStichbeimKartenspiel‹(vglDwb6213772)derleztelondasleztenachtmalwiedaslezte(abend)essendieleztereitung›dieletzteAbrechnung‹dieleztenot›Todesnot‹dieleztestunde›dieTodesstunde‹daslezteurteil›JüngstesGericht‹derleztewille›Testament‹derleztetagdieleztentage›Tag(e)vordemTodTodestag‹dasleztetestamentdieleztenzeichendielezte(n)zeit(en)oftinpräpVerbindungan/zudenleztenzeiten(oä)fürdenToddeseinzelnenMenschenfürdieEndzeitunddieZeitdesjüngstenGerichts(imeinzelnenkaumtrennbar)derleztezorndieleztenzügeBelegeinderReihenfolgederNennungen(mitsemantischbedingtenAbweichungen)FroningAlsfPassionssp3069(ohess1501ff)dijtsaldaslesteessensynn|dasichmituchessensailReichertGesamtauslMesse1110(Nürnbum1480)daersprachandemletstenabentessennachdemalserdenjungernnhetdasheyligsacramentgegebenBauerHallerHieronymusBr217(tir1464)Dasewenpildhatv̈nslassenChristusandemlëstenabentëssendaerwüschdiefüesseseinerjungerSchöpper113a(Dortm1550)MorsTodtsterben¶abgangletzstesabscheidKehreinKathGesangb12692(Nürnb1631)GlorwuͤrdigErzumOelbergkam|DaErdenletztenabschiedtnamKleinOswald3536(oobd1409/10)göttlichgeburddurchmagtmenschrain|hilfandemletztenschaidenVAnshelmBernerChron21346(halemn1529)dasssibissanletstenatenwiediekaͤlberblaͤretenSachs153429(Nürnb1562)Undhatseinunartgareinend|BißzuderletztenaufferstehndSchönbachAdtPred1414(osächs1H14Jh)minlipmuͦzesterbenalsdiegerechtenundminlesteendemuzesichgelichendenselbenBöhmeMorgR137(Hs˹schles1612˺)Mensch[]derduandiesemletztenendederzeitinsogrossersicherheitlebestLangenMystLeben1566(nobd1463)damiter[posergeist]/anfichtdykranckenandemlecztenendeWyssLuzOstersp3179(Luzern1571)Sosichthuͦtscheidendieseelemin|AmlettstenendvonminemlybOpitzPoeterey2323(Breslau1624)Worzuedienetdasstudieren/|[]|VnterdessenlaufftdieBach|Vnserslebens[]|[]|AuffjhrletztesendehinPrimisserSuchenwirt3233(oobd2H14Jh)Nuleteraufderlestenvart|SeingrozzesguetauferdenSchönbachAdtPred716(osächs1H14Jh)uͦffedazdubehaldenwerdesandinerlestehinevartFastnachtsp145120(nobd15Jh)DaslestodergemeingerichtwirtseinandemendderwelltLutherWA34228225(1531)Also[]gewißsollichauchseinwennichdenletztenganggeheunterdieErdenRothEvWildenberg429(moobdv1493)irmüstwarlichdarumbantwortgebenvordemletztengerichtKleinOswald2924(oobd14091426)MariahabhilfandemletztenkeichenSachs207734(Nürnb1559)Treibauchdasspilderletztenleß[möglicherweiseUmdeutungvonlässeaufles›lectio‹]|DasmirofftwargarherbundreßGilleuaMBeheim8133(nobd2H15Jh)dasisteingrossczaichenvermelt|dasinsolchczeitlichglike|Czueinemlestenlonseygebm|alsdengrechtenirewigslebm|auchistirlesterloneWyssLuzOstersp6677(Luzern1545)wuͦschinirfuͦsirswerdengsen|[]|namouchmitinsinletstnachtmal|zuͦHierusalemineinemsaalSpechtlerMönchvSalzb3347(oobd3Dr14Jh)dieletztenraitungfürunsgilt|wannwirhiemüssensterbenPrimisserSuchenwirt41700(oobd2H14Jh)dazunsinderlestennot|ChainspoͤsengeistesauganschilhLutherWA532762(1542)Dassinddierechtenletztenschrecklichen[]plagenEbd466218(1537)vondemletztenRegimentdesEndchristsnemlichdesBapstumbsWyssLuzOstersp9284(Luzern1545)verlassinnitinderletstenstundSchönbachAdtPred3241(osächs1H14Jh)erlosemichvondemewigentoteandemvorchsamentagedeslestenurteilesSchöpper106a(Dortm1550)TestamentvmTestamenterbgemächtseelgerechtletzterwillvdLeeMvWeidaSpigell832(omd1487)DerletztewilledesvorstorbenmenschensallJnallendingen[gehaldennwerden]MoscheroschGesPhilvSittew4737(Straßb1650)Anstattdaßsiesich[]derSterblichkeitvnndihresEndeserinnern[]sofangensieanvonderverstorbenenLetztemWillenoderTestamentvndderverlassenschaftzuerzehlenGrothausmannStadtbKarpfen7022(mslowinseldt1602)1602OrtnetdieTugendtśamefrawCatharina[]bejgutervernunfftmitvornemlicherteutlicherreteihrenletztenwillenwievolgetHenscheluaHeidin952(nobdum1300)Dinichnihtvergezze|[]|BizanminenletstentakVetterPredTaulers3432(elsE14Jh)indisenlestentagendasdosintdietagedesheilessoenmagenkeinmenscheniemermegenesen[]danúbermitzdazminneklichewasserdestichesdazistdazbluͦtunsersherrenBauerHallerHieronymusBr1230(tir1464)eristpesammenseinschaffinseinschoffandenlestentägenGrothausmannStadtbKarpfen682(mslowinseldt1586)habenwirvnsdemleztenteśtamentnachgehaltenLutherWA296195(1529)essollendieletztenzeichennichtferneseinEbd5447213(1548)WaswunderistsdasauchwirsojtztindieserletztenschrecklichenzeitChristumpredigenDubizmaykurßzuTeutze1613(hess1463)kümmirzuhilffan|meynnemletztenzeyttenReichertGesamtauslMesse9233(Nürnbum1480)dasGotderherre[]richtenundurteylenwirteynyegklichenmenschenanseynenletztenzeytenWyssLuzOstersp10083(Luzern1545)eswürtzuͦdenletstenzyttenkon|simgloubeneinwiderspenigertrutzBauerHallerHieronymusBr133(tir1464)DainnuseinlestezeitwartnötenauzzugenvondemleibLutherWA1919315(1526)AlsohaterauchChristum[]ynndieweltgesandehedennderletztezorndesjungstengerichteskomptEbd2867023(1529)GuͤterkoͤnnennichthelffenindenletztenzuͤgenSapplerHKaufringer16555(schwäbHs1464)wiegernir[tiefel]denmenschenberaubt|andenletzstenzügensein|dertugentrainElliptischLohmeyerKvNostitz15926(preuß1578)wilichallesdasichweißauffmeineletztehindermirverlassenLoeschKölnerZunfturk43879(rib13971409)salmaninermanenwathedemeheilgencruizwilgeven[]indansimelestendathesingunstouchdemeheilgencruizbewiseBuchWeinsb12626(ribum1560)insinemlestenhatersineneinigensonEduardumzumkoningingesatztMoscouiaC1v40(Wien1557)SoaberderGroßfuͦrstHansanseinemletztengelegen/vnddieGeistlichejnedergewissenvermant/hat[]BauerImitatioHaller9716Golius116Vglfernersvabschied2augenedeausbleiben3auslassen12ausrichtung63voneinemspäteralsdasBezugsgeschehenliegendenZeitpunktausgesehenaufdenzuletztstattgefundenenodereinenkürzlichabgelaufenenVorgangbezogen›neulichletzthinvorkurzem‹Bdvvglkürzlich4neulich1LoeschKölnerZunfturk1154814(rib1454)darupbegerenichguetlichuireeirsamheitindwissheitzowissendatichlestuirenfrundendiebijmirwairendergelegenheitendeilgesachthainKurzWaldisEsopus4651(Frankf1557)ZVMaintzamRheinichlestenwarOpelSpittendorf1352(osächsum1480)seynegnadeundderrathhettenletzstzusantMauritzyreantwortgehort4›letzthinterstentlegenstnachallemanderen(unterdominanträumlichemAspektteilsaufdieLinearitätvonTextenbezogen)‹GroßeSchwabensp47a37(Hs˹nd/mdum1410˺)devuͦnftesibbestetandemerstenlededesvengers[]desebedeandemlestenledevordemenageleStrehlkeNicJeroschChron27734(preußum1330/40)dîêrstenunddîlesten[dorfir]|dîbrantensîgarabeRot303(Augsb1571)Declinirn[]dieletztsilbeneineswortsineinandrelenckenChronAugsb44101(schwäbzu1490)dadieerstennachetbeiJnningenwassenddawassenddielestennochbeiGegingertorHohmannHvLangensteinQuästio20352(moobd1H15Jh)alssandPaulsprichtadEphesiosamlestenGerhardHistaldee2869RohlandSchäden465BrévartKvMegenbergSphaera47145›zuletztgenannt‹ineinerReihevonBezugsgrößenmitAbsetzungvonerstehegesprochendanndenZeitverlaufdesTextinhaltsbetonendWbgleztgenantQuintEckhartsPred24335(E13/A14Jh)NûlâzeichdielestenzweiundredevondemêrstenstückeChronAugsb16217(schwäbzu1378)uffdemegesprochenletzstenrosraitainersamerritterTurmair43451(moobd1522/33)lezgenanterkünigSchirmverfertigetherwiderseinrätabzuedemgrossenAlexanderOorschotSpee/SchmidtCautCrim335216dientderCharakterisierungdesEndgliedeseinereherlogischreihendalszeitlichoderräumlichgedachtenReiheSchönbachAdtPred2431(osächs1H14Jh)daz[vuͦr]solderpriestervuͦtenundsoldrierhandeholzdarufwerfentegiliches[]dazersteholzistdazgoteswortderheiligenleredazanderistgutbildeheiligeslebenesdazlesteistdazammachtdesheiligengotesdinestTurmair44267(moobd1522/33)’Dialectica‘istdiedrittundlestkunstsoauchwortundredantriftChronbaierStädteRegensb9812(noobd1529)SambstagBriccihabichdenlestenzehetvonTegerheimaußtailt7dientderKennzeichnungderäußerstenSeinsmöglichkeiteinerBezugsgrößedarunterendzeitlicherProjektionen›äußersthöchstdefinitiv‹zumTeilauchzu2stellbarTextederSinnweltReligion‘HelmHvHeslerApok19007(nrddt14Jh)Die[Degen]zeigentdanirlestetugent|MitdegentlicherheldesmugentEbd22913(nrddt14Jh)AlphaundOichbin|ErstundletztendeundbeginLutherWA464538(1538)JohannesistderletzteundgibtdenletzetrunckEbd4974114(1545)DieDonnerschlege[]sindein[]vortraberdesletztendonnerschlags[]daswirddieletztePosauneStrauchParanimeint7111(thür14Jh)wanalseliplichfruchtdasleisteundedazsuzistedazdaistindemmenschinMathesiusPassionale50v7(Leipzig1587)DerseinebestenTagegelebethat/dasist/derallerletzte/geringste/vnterstevnndaußwuͤrfling/vntervnndvonallenMenschenKindernKurrelmeyerDtBibel38912(Straßb1466)onzwifelhiehabichgesehendieletzstendingdezsehendenmichChronAugsb7788(schwäbzu1548)somöchtdarausandersnichtsdanndiserstatendtlicherletsterundergangundeusseristverderbenzuͤgewarten
+leztlest(etwasselteneralserstereForm)Adjin3nuradvGebrauch1›letztzeitlichgesehennachallemanderen(zBnachdemersten)schließlich‹inadvGebrauch›zuletzt‹Phras(gehäuftteilsmitSubstantivierungdannvonleztekeineklareTrennungmöglich)amleztenoäaufdasleztefürslezteindemleztenzumleztenoäzuleztjeweils›zuletztschließlich‹dasleztemalWbgleztlebend›jnüberlebend‹leztlichQuintEckhartsPred13893(E13/A14Jh)derêrstebeginistdurchdeslestenendeswillenJâgotderrouwetselbenihtdâdâeristderêrstebeginerrouwetdâdâeristeinendeundeinrastealleswesensPeilRollenhagenFroschm521448(Magdeb1608)Weibhaltein/|OdressoldeinletztertrunckseinBeckersBauernpr5514(Köln1515/18)indenlestentzweyenfrydagenindemmertzenKöblerRefFranckenfort547(Mainz1509)danndarnachdasletstlebendesichwidderumbindiezweyteeheverandertOpelSpittendorf12841(osächsum1480)DerhalbenwereynletzstzusanthMauritzvorhaltgesehenGroschuaSchöffensprPössneck23536(thür1474)ZcudemeletcztinuffgeboteistJhaenvonThumpelingenvorgerichte[komen]SermonThauleri3ra10(Leipzig1498)Nunhabenwirgesprochenvondererstennvndletzstengeburtwiewirynderletzstenandererstensollenlereneme͂BächtoldNManuel277537(Basel1530)Sieistwederdieerstnochletst|DiemitdemfuͦssinbachisttretenWyssLuzOstersp34847(Luzern1616)DasistdeßHerrenletstewunder|soermitandachtthattbesunder|VorsinemtodtChronAugsb510424(schwäb1523/7)dasschloszuͦHochenaschpergdaswasdaslötzstdasderpundteingenomenhatChronAugsb840511(schwäbzu1552)aufdenlestentagdesmonatsaugustiWinterNöstWeist37294(moobdA16Jh)welicherpawmanderlöstistumbdiefruemößzeitdemerstnainmetznhaberngebenPiirainenStadtrSillein96a34(sslowinseldt1378)DersvntagwazdererstetagderyewartvndderauchwirtderleczteZudenPhrasemenSchöpper47b(Dortm1550)PostremoLǎst/letztlichzumletzstenendtlichMeijboomPilgerfträumMönch6289(rib1444)Duenkansupdatlestegeynguytgehain|HeenwilledeilachtichsyndaanLoeschKölnerZunfturk23963(rib1489)indugdiebeideampteintlestvereinigethavenChronKöln211v6(Köln1499)zodemlestensosullensyverkriegendiekronedermertelervdLeeMvWeidaSpigell7718(omd1487)Amletzstenervordembabstvorclaget[worden]RoloffNaogeorg/TyrolffPamm105878(Zwickauum1540)NocheinsfuͤrsletztvKellerAyrerDramen22046(Nürnb1610/8)wennermichhiefindenthet|IcheuchdasletztmalgsehenhettVetterPredTaulers6628(elsE14Jh)wiesintsúindazurteilGottesindemlestengevallenWiessnerWittenwRing4607(ohalem1400/08)kerdichaufdasbest|UndaufdazgnädigostzelestChronAugsb26826(schwäbHs16Jh)daßergottesleichnambegerthettandemletstenPiirainenStadtrKremnitz84(mslowinseldt1537)ZumLetztenWollenwierIedermantreulichgewarnethabenBaumannBauernkrRotenb10421WyssLimbChron6826KöblerRefFranckenfort39104317ChronAugsb81572ZudenPhrasemenKurzWaldisEsopus3263vLiliencronDürChronRothe68917WilliamsuaElsLegAurea3467ChronAugsb199930325RothEvWildenberg12420KummerErlauerSp656Rwb81244fVglfernersvabsenz(die)2ausrecken53auf91base42an1anschließbareineFüllevonPhrasemenumdenToddesMenschendasJüngsteGerichtteilweiseelliptischerGebrauch(AuslassungdesSubst)Phras(OrdnungsoweitwiemöglichundsinnvollnachdemAlphabet)daslezte(abend)essen›letztessakramentstiftendesAbendessenJesumitseinenJüngern‹derlezteabschieddaslezteabscheid/scheiden(oä)jeweilseuphemistischfürdasSterbendenToddieTodesnotderlezteatemdielezteauferstende›AuferstehungdesMenschen‹daslezteende›letzteZeiteinesLebensTodeszeitTod‹dieleztefart/hinfartderleztegangdasleztegericht›dasjüngsteGericht‹dasleztekeichendieleztelässe›letzterStichbeimKartenspiel‹(vglDwb6213772)derleztelondasleztenachtmalwiedaslezte(abend)essendieleztereitung›dieletzteAbrechnung‹dieleztenot›Todesnot‹dieleztestunde›dieTodesstunde‹daslezteurteil›JüngstesGericht‹derleztewille›Testament‹derleztetagdieleztentage›Tag(e)vordemTodTodestag‹dasleztetestamentdieleztenzeichendielezte(n)zeit(en)oftinpräpVerbindungan/zudenleztenzeiten(oä)fürdenToddeseinzelnenMenschenfürdieEndzeitunddieZeitdesjüngstenGerichts(imeinzelnenkaumtrennbar)derleztezorndieleztenzügeBelegeinderReihenfolgederNennungen(mitsemantischbedingtenAbweichungen)FroningAlsfPassionssp3069(ohess1501ff)dijtsaldaslesteessensynn|dasichmituchessensailReichertGesamtauslMesse1110(Nürnbum1480)daersprachandemletstenabentessennachdemalserdenjungernnhetdasheyligsacramentgegebenBauerHallerHieronymusBr217(tir1464)Dasewenpildhatv̈nslassenChristusandemlëstenabentëssendaerwüschdiefüesseseinerjungerSchöpper113a(Dortm1550)MorsTodtsterben¶abgangletzstesabscheidKehreinKathGesangb12692(Nürnb1631)GlorwuͤrdigErzumOelbergkam|DaErdenletztenabschiedtnamKleinOswald3536(oobd1409/10)göttlichgeburddurchmagtmenschrain|hilfandemletztenschaidenVAnshelmBernerChron21346(halemn1529)dasssibissanletstenatenwiediekaͤlberblaͤretenSachs153429(Nürnb1562)Undhatseinunartgareinend|BißzuderletztenaufferstehndSchönbachAdtPred1414(osächs1H14Jh)minlipmuͦzesterbenalsdiegerechtenundminlesteendemuzesichgelichendenselbenBöhmeMorgR137(Hs˹schles1612˺)Mensch[]derduandiesemletztenendederzeitinsogrossersicherheitlebestLangenMystLeben1566(nobd1463)damiter[posergeist]/anfichtdykranckenandemlecztenendeWyssLuzOstersp3179(Luzern1571)Sosichthuͦtscheidendieseelemin|AmlettstenendvonminemlybOpitzPoeterey2323(Breslau1624)Worzuedienetdasstudieren/|[]|VnterdessenlaufftdieBach|Vnserslebens[]|[]|AuffjhrletztesendehinPrimisserSuchenwirt3233(oobd2H14Jh)Nuleteraufderlestenvart|SeingrozzesguetauferdenSchönbachAdtPred716(osächs1H14Jh)uͦffedazdubehaldenwerdesandinerlestehinevartFastnachtsp145120(nobd15Jh)DaslestodergemeingerichtwirtseinandemendderwelltLutherWA34228225(1531)Also[]gewißsollichauchseinwennichdenletztenganggeheunterdieErdenRothEvWildenberg429(moobdv1493)irmüstwarlichdarumbantwortgebenvordemletztengerichtKleinOswald2924(oobd14091426)MariahabhilfandemletztenkeichenSachs207734(Nürnb1559)Treibauchdasspilderletztenleß[möglicherweiseUmdeutungvonlässeaufles›lectio‹]|DasmirofftwargarherbundreßGilleuaMBeheim8133(nobd2H15Jh)dasisteingrossczaichenvermelt|dasinsolchczeitlichglike|Czueinemlestenlonseygebm|alsdengrechtenirewigslebm|auchistirlesterloneWyssLuzOstersp6677(Luzern1545)wuͦschinirfuͦsirswerdengsen|[]|namouchmitinsinletstnachtmal|zuͦHierusalemineinemsaalSpechtlerMönchvSalzb3347(oobd3Dr14Jh)dieletztenraitungfürunsgilt|wannwirhiemüssensterbenPrimisserSuchenwirt41700(oobd2H14Jh)dazunsinderlestennot|ChainspoͤsengeistesauganschilhLutherWA532762(1542)Dassinddierechtenletztenschrecklichen[]plagenEbd466218(1537)vondemletztenRegimentdesEndchristsnemlichdesBapstumbsWyssLuzOstersp9284(Luzern1545)verlassinnitinderletstenstundSchönbachAdtPred3241(osächs1H14Jh)erlosemichvondemewigentoteandemvorchsamentagedeslestenurteilesSchöpper106a(Dortm1550)TestamentvmTestamenterbgemächtseelgerechtletzterwillvdLeeMvWeidaSpigell832(omd1487)DerletztewilledesvorstorbenmenschensallJnallendingen[gehaldennwerden]MoscheroschGesPhilvSittew4737(Straßb1650)Anstattdaßsiesich[]derSterblichkeitvnndihresEndeserinnern[]sofangensieanvonderverstorbenenLetztemWillenoderTestamentvndderverlassenschaftzuerzehlenGrothausmannStadtbKarpfen7022(mslowinseldt1602)1602OrtnetdieTugendtśamefrawCatharina[]bejgutervernunfftmitvornemlicherteutlicherreteihrenletztenwillenwievolgetHenscheluaHeidin952(nobdum1300)Dinichnihtvergezze|[]|BizanminenletstentakVetterPredTaulers3432(elsE14Jh)indisenlestentagendasdosintdietagedesheilessoenmagenkeinmenscheniemermegenesen[]danúbermitzdazminneklichewasserdestichesdazistdazbluͦtunsersherrenBauerHallerHieronymusBr1230(tir1464)eristpesammenseinschaffinseinschoffandenlestentägenGrothausmannStadtbKarpfen682(mslowinseldt1586)habenwirvnsdemleztenteśtamentnachgehaltenLutherWA296195(1529)essollendieletztenzeichennichtferneseinEbd5447213(1548)WaswunderistsdasauchwirsojtztindieserletztenschrecklichenzeitChristumpredigenDubizmaykurßzuTeutze1613(hess1463)kümmirzuhilffan|meynnemletztenzeyttenReichertGesamtauslMesse9233(Nürnbum1480)dasGotderherre[]richtenundurteylenwirteynyegklichenmenschenanseynenletztenzeytenWyssLuzOstersp10083(Luzern1545)eswürtzuͦdenletstenzyttenkon|simgloubeneinwiderspenigertrutzBauerHallerHieronymusBr133(tir1464)DainnuseinlestezeitwartnötenauzzugenvondemleibLutherWA1919315(1526)AlsohaterauchChristum[]ynndieweltgesandehedennderletztezorndesjungstengerichteskomptEbd2867023(1529)GuͤterkoͤnnennichthelffenindenletztenzuͤgenSapplerHKaufringer16555(schwäbHs1464)wiegernir[tiefel]denmenschenberaubt|andenletzstenzügensein|dertugentrainElliptischLohmeyerKvNostitz15926(preuß1578)wilichallesdasichweißauffmeineletztehindermirverlassenLoeschKölnerZunfturk43879(rib13971409)salmaninermanenwathedemeheilgencruizwilgeven[]indansimelestendathesingunstouchdemeheilgencruizbewiseBuchWeinsb12626(ribum1560)insinemlestenhatersineneinigensonEduardumzumkoningingesatztMoscouiaC1v40(Wien1557)SoaberderGroßfuͦrstHansanseinemletztengelegen/vnddieGeistlichejnedergewissenvermant/hat[]BauerImitatioHaller9716Golius116Vglfernersvabschied2augenedeausbleiben3auslassen12ausrichtung63voneinemspäteralsdasBezugsgeschehenliegendenZeitpunktausgesehenaufdenzuletztstattgefundenenodereinenkürzlichabgelaufenenVorgangbezogen›neulichletzthinvorkurzem‹Bdvvglkürzlich4neulich1LoeschKölnerZunfturk1154814(rib1454)darupbegerenichguetlichuireeirsamheitindwissheitzowissendatichlestuirenfrundendiebijmirwairendergelegenheitendeilgesachthainKurzWaldisEsopus4651(Frankf1557)ZVMaintzamRheinichlestenwarOpelSpittendorf1352(osächsum1480)seynegnadeundderrathhettenletzstzusantMauritzyreantwortgehort4›letzthinterstentlegenstnachallemanderen(unterdominanträumlichemAspektteilsaufdieLinearitätvonTextenbezogen)‹GroßeSchwabensp47a37(Hs˹nd/mdum1410˺)devuͦnftesibbestetandemerstenlededesvengers[]desebedeandemlestenledevordemenageleStrehlkeNicJeroschChron27734(preußum1330/40)dîêrstenunddîlesten[dorfir]|dîbrantensîgarabeRot303(Augsb1571)Declinirn[]dieletztsilbeneineswortsineinandrelenckenChronAugsb44101(schwäbzu1490)dadieerstennachetbeiJnningenwassenddawassenddielestennochbeiGegingertorHohmannHvLangensteinQuästio20352(moobd1H15Jh)alssandPaulsprichtadEphesiosamlestenGerhardHistaldee2869RohlandSchäden465BrévartKvMegenbergSphaera47145›zuletztgenannt‹ineinerReihevonBezugsgrößenmitAbsetzungvonerstehegesprochendanndenZeitverlaufdesTextinhaltsbetonendWbgleztgenantQuintEckhartsPred24335(E13/A14Jh)NûlâzeichdielestenzweiundredevondemêrstenstückeChronAugsb16217(schwäbzu1378)uffdemegesprochenletzstenrosraitainersamerritterTurmair43451(moobd1522/33)lezgenanterkünigSchirmverfertigetherwiderseinrätabzuedemgrossenAlexanderOorschotSpee/SchmidtCautCrim335216dientderCharakterisierungdesEndgliedeseinereherlogischreihendalszeitlichoderräumlichgedachtenReiheSchönbachAdtPred2431(osächs1H14Jh)daz[vuͦr]solderpriestervuͦtenundsoldrierhandeholzdarufwerfentegiliches[]dazersteholzistdazgoteswortderheiligenleredazanderistgutbildeheiligeslebenesdazlesteistdazammachtdesheiligengotesdinestTurmair44267(moobd1522/33)’Dialectica‘istdiedrittundlestkunstsoauchwortundredantriftChronbaierStädteRegensb9812(noobd1529)SambstagBriccihabichdenlestenzehetvonTegerheimaußtailt7dientderKennzeichnungderäußerstenSeinsmöglichkeiteinerBezugsgrößedarunterendzeitlicherProjektionen›äußersthöchstdefinitiv‹zumTeilauchzu2stellbarTextederSinnweltReligion‘HelmHvHeslerApok19007(nrddt14Jh)Die[Degen]zeigentdanirlestetugent|MitdegentlicherheldesmugentEbd22913(nrddt14Jh)AlphaundOichbin|ErstundletztendeundbeginLutherWA464538(1538)JohannesistderletzteundgibtdenletzetrunckEbd4974114(1545)DieDonnerschlege[]sindein[]vortraberdesletztendonnerschlags[]daswirddieletztePosauneStrauchParanimeint7111(thür14Jh)wanalseliplichfruchtdasleisteundedazsuzistedazdaistindemmenschinMathesiusPassionale50v7(Leipzig1587)DerseinebestenTagegelebethat/dasist/derallerletzte/geringste/vnterstevnndaußwuͤrfling/vntervnndvonallenMenschenKindernKurrelmeyerDtBibel38912(Straßb1466)onzwifelhiehabichgesehendieletzstendingdezsehendenmichChronAugsb7788(schwäbzu1548)somöchtdarausandersnichtsdanndiserstatendtlicherletsterundergangundeusseristverderbenzuͤgewarten
+-->
+  <!--Original:
+<p2 uuid="62f1f433-8901-40fb-9424-7b983ed4b8aa"><b>lezt, lest</b> (etwas seltener als erstere Form), Adj., in 3 nur adv. Gebrauch.</p2>
+<p2 uuid="a707a505-daf0-4118-bba7-2b1fad8bdb24">1. ›letzt, zeitlich gesehen nach allem anderen (z. B. <i>nach dem ersten</i>); schließlich‹ ; in adv. Gebrauch: ›zuletzt‹. – Phras. (gehäuft; teils mit Substantivierung, dann von <i>lezte</i> keine klare Trennung möglich): <i>am lezten</i> o. ä., <i>auf das lezte, fürs lezte, in dem lezten, zum lezten</i> o. ä., <i>zu lezt</i>, jeweils ›zuletzt, schließlich‹ ; <i>das lezte mal</i>. – Wbg.: <i>leztlebend</i> ›jn. überlebend‹, <i>leztlich</i>.</p2>
+<p><sc>Quint</sc>, Eckharts Pred. 1, 389, 3 (E. 13./A. 14. Jh.): <i>der êrste begin ist durch des lesten endes willen. Jâ, got der rouwet selbe niht dâ, dâ er ist der êrste begin; er rouwet dâ, dâ er ist ein ende und ein raste alles wesens</i>. <sc>Peil</sc>, Rollenhagen. Froschm. 521, 448 (Magdeb. 1608): <i>Weib halt ein / | Odr es sol dein letzter trunck sein</i>. <sc>Beckers</sc>, Bauernpr. 55, 14 (Köln 1515/18): <i>in den lesten tzweyen frydagen in dem mertzen</i>. <sc>Köbler</sc>, Ref. Franckenfort 54, 7 (Mainz 1509): <i>dann darnach das letstlebende sich widderumb in die zweyte ehe verandert</i>. <sc>Opel</sc>, Spittendorf 128, 41 (osächs., um 1480): <i>Derhalben were yn letzst zu santh Mauritz vorhalt gesehen</i>. <sc>Grosch</sc> u. a., Schöffenspr. Pössneck 235, 36 (thür., 1474): <i>Zcu deme letcztin uffgebote ist Jhaen von Thumpelingen vor gerichte [komen]</i>. <sc>Sermon Thauleri</sc> 3ra, 10 (Leipzig 1498): <i>Nun haben wir gesprochen von der erstenn vnd letzsten geburt, wie wir yn der letzsten an der ersten sollen lere neme͂</i>. <sc>Bächtold</sc>, N. Manuel. 277, 537 (Basel 1530): <i>Sie ist weder die erst noch letst, | Die mit dem fuͦss in bach ist treten</i>. <sc>Wyss</sc>, Luz. Ostersp. 3, 48, 47 (Luzern 1616): <i>Das ist deß Herren letste wunder, | so er mit andacht thatt besunder | Vor sinem todt</i>. <sc>Chron. Augsb</sc>. 5, 104, 24 (schwäb., 1523/7): <i>das schlos zuͦ Hochenaschperg, das was das lötzst, das der pundt eingenomen hat</i>. <sc>Chron. Augsb</sc>. 8, 405, 11 (schwäb., zu 1552): <i>auf den lesten tag des monats augusti</i>. <sc>Winter</sc>, Nöst. Weist. 3, 729, 4 (moobd., A. 16. Jh.): <i>welicher pawman der löst ist umb die fruemößzeit dem erstn ain metzn habern geben</i>. <sc>Piirainen</sc>, Stadtr. Sillein 96a, 34 (sslow. inseldt., 1378): <i>Der svntag waz der erste tag der ye wart vnd der auch wirt der leczte</i>. – Zu den Phrasemen: <sc>Schöpper</sc> 47b (Dortm. 1550): <i>Postremo. Lǎst / letztlich zum letzsten endtlich</i>. <sc>Meijboom</sc>, Pilgerf. träum. Mönch 6289 (rib., 1444): <i>Du en kans up dat leste geyn guyt gehain, | He en wille deilachtich syn da an</i>. <sc>Loesch</sc>, Kölner Zunfturk. 2, 396, 3 (rib., 1489): <i>ind u. g. die beide ampte int lest vereiniget haven</i>. <sc>Chron. Köln</sc> 2, 11v, 6 (Köln 1499): <i>zo dem lesten so sullen sy verkriegen die krone der merteler</i>. <sc>v. d. Lee</sc>, M. v. Weida. Spigell 77, 18 (omd., 1487): <i>Am letzsten er vor dem babst vorclaget [worden]</i>. <sc>Roloff</sc>, Naogeorg/Tyrolff. Pamm. 105, 878 (Zwickau um 1540): <i>Noch eins fuͤrs letzt</i>. <sc>v. Keller</sc>, Ayrer. Dramen 2204, 6 (Nürnb. 1610/8): <i>wenn er mich hie finden thet. | Ich euch das letzt mal gsehen hett</i>. <sc>Vetter</sc>, Pred. Taulers 66, 28 (els., E. 14. Jh.): <i>wie sint sú in daz urteil Gottes in dem lesten gevallen</i>. <sc>Wiessner</sc>, Wittenw. Ring 4607 (ohalem., 1400/08): <i>ker dich auf das best | Und auf daz gnädigost ze lest!</i> <sc>Chron. Augsb</sc>. 2, 68, 26 (schwäb., Hs. 16. Jh.): <i>daß er gottes leichnam begert hett an dem letsten</i>. <sc>Piirainen</sc>, Stadtr. Kremnitz 84 (mslow. inseldt., 1537): <i>Zum Letzten, Wollen wier Iederman treulich gewarnet haben</i>. – <sc>Baumann</sc>, Bauernkr. Rotenb. 104, 21; <sc>Wyss</sc>, Limb. Chron. 68, 26; <sc>Köbler</sc>, Ref. Franckenfort 39, 10; 43, 17; <sc>Chron. Augsb</sc>. 8, 157, 2. – Zu den Phrasemen: <sc>Kurz</sc>, Waldis. Esopus 3, 26, 3; <sc>v. Liliencron</sc>, Dür. Chron. Rothe 689, 17; <sc>Williams</sc> u. a., Els. Leg. Aurea 346, 7; <sc>Chron. Augsb</sc>. 1, 99, 9; 303, 25; <sc>Roth</sc>, E. v. Wildenberg 124, 20; <sc>Kummer</sc>, Erlauer Sp. 6, 56; <sc>Rwb</sc> 8, 1244 f. – Vgl. ferner s. v. <i>absenz</i> (<i>die</i>) 2, <i>ausrecken</i> 5, <sup>3</sup><i>auf</i> 9, <sup>1</sup><i>base</i> 4.</p>
+<p2 uuid="db3d6b80-ff70-4fab-bda7-ab2e6938b0e5">2. an 1 anschließbar eine Fülle von Phrasemen um den Tod des Menschen, das Jüngste Gericht; teilweise elliptischer Gebrauch (Auslassung des Subst.). – Phras. (Ordnung so weit wie möglich und sinnvoll nach dem Alphabet ): <i>das lezte (abend)essen</i> ›letztes, sakramentstiftendes Abendessen Jesu mit seinen Jüngern‹ ; <i>der lezte abschied, das lezte abscheid / scheiden</i> (o. ä.) jeweils euphemistisch für das Sterben, den Tod, die Todesnot; <i>der lezte atem</i> ; <i>die lezte auferstende</i> ›Auferstehung des Menschen‹ ; <i>das lezte ende</i> ›letzte Zeit eines Lebens; Todeszeit, Tod‹ ; <i>die lezte fart / hinfart</i> ; <i>der lezte gang</i> ; <i>das lezte gericht</i> ›das jüngste Gericht‹ ; <i>das lezte keichen</i> ; <i>die lezte lässe</i> ›letzter Stich beim Kartenspiel‹ (vgl. <sc>Dwb</sc> 6, 213; 772); <i>der lezte lon</i> ; <i>das lezte nachtmal</i> wie <i>das lezte (abend)essen</i> ; <i>die lezte reitung</i> ›die letzte Abrechnung‹ ; <i>die lezte not</i> ›Todesnot‹ ; <i>die lezte stunde</i> ›die Todesstunde‹ ; <i>das lezte urteil</i> ›Jüngstes Gericht‹ ; <i>der lezte wille</i> ›Testament‹ ; <i>der lezte tag, die lezten tage</i> ›Tag(e) vor dem Tod, Todestag‹ ; <i>das lezte testament</i> ; <i>die lezten zeichen</i> ; <i>die lezte(n) zeit(en)</i> oft in präp. Verbindung <i>an / zu den lezten zeiten</i> (o. ä.) für den Tod des einzelnen Menschen, für die Endzeit und die Zeit des jüngsten Gerichts (im einzelnen kaum trennbar); <i>der lezte zorn</i> ; <i>die lezten züge</i>.</p2>
+<p>Belege in der Reihenfolge der Nennungen (mit semantisch bedingten Abweichungen): <sc>Froning</sc>, Alsf. Passionssp. 3069 (ohess., 1501 ff.): <i>dijt sal das leste essen synn, | das ich mit uch essen sail!</i> <sc>Reichert</sc>, Gesamtausl. Messe 11, 10 (Nürnb. um 1480): <i>da er sprach an dem letsten abentessen nach dem als er den jungernn het das heylig sacrament gegeben</i>. <sc>Bauer</sc>, Haller. Hieronymus-Br. 21, 7 (tir., 1464): <i>Das ewenpild hat v̈ns lassen Christus an dem lësten abent ëssen, da er wüsch die füesse seiner junger</i>. <sc>Schöpper</sc> 113a (Dortm. 1550): <i>Mors. Todt sterben ¶ abgang letzstes abscheid</i>. <sc>Kehrein</sc>, Kath. Gesangb. 1, 269, 2 (Nürnb. 1631): <i>Glorwuͤrdig Er zum Oelberg kam, | Da Er den letzten abschiedt nam</i>. <sc>Klein</sc>, Oswald 35, 36 (oobd., 1409/10): <i>göttlich geburd durch magt mensch rain, | hilf an dem letzten schaiden!</i> <sc>V. Anshelm</sc>. Berner Chron. 2, 134, 6 (halem., n. 1529): <i>dass si biss an letsten aten wie die kaͤlber blaͤreten</i>. <sc>Sachs</sc> 15, 342, 9 (Nürnb. 1562): <i>Und hat sein unart gar ein end | Biß zu der letzten aufferstehnd</i>. <sc>Schönbach</sc>, Adt. Pred. 14, 14 (osächs., 1. H. 14. Jh.): <i>min lip muͦze sterben als die gerechten und min leste ende muze sich gelichen den selben</i>. <sc>Böhme</sc>, Morg.R. 13, 7 (Hs. ˹schles., 1612˺ ): <i>Mensch [...] der du an diesem letzten ende der zeit in so grosser sicherheit lebest</i>. <sc>Langen</sc>, Myst. Leben 156, 6 (nobd., 1463): <i>da mit er [poser geist] / anficht dy krancken an dem leczten ende</i>. <sc>Wyss</sc>, Luz. Ostersp. 3179 (Luzern 1571): <i>So sich thuͦt scheiden die seele min | Am lettsten end von minem lyb</i>. <sc>Opitz</sc>. Poeterey 23, 23 (Breslau 1624): <i>Worzue dienet das studieren / | [...] ?| Vnter dessen laufft die Bach | Vnsers lebens [...] | [...] | Auff jhr letztes ende hin</i>. <sc>Primisser</sc>, Suchenwirt 32, 33 (oobd., 2. H. 14. Jh.): <i>Nu let er auf der lesten vart | Sein grozzes guet auf erden</i>. <sc>Schönbach</sc>, Adt. Pred. 7, 16 (osächs., 1. H. 14. Jh.): <i>uͦ ffe daz du behalden werdes an diner leste hinevart</i>. <sc>Fastnachtsp</sc>. 1451, 20 (nobd., 15. Jh.): <i>Das lest oder gemein gericht wirt sein an dem end der wellt</i>. <sc>Luther</sc>, WA 34, 2, 282, 25 (1531): <i>Also [...] gewiß soll ich auch sein, wenn ich den letzten gang gehe unter die Erden</i>. <sc>Roth</sc>, E. v. Wildenberg 4, 29 (moobd., v. 1493): <i>ir müst warlich darumb antwort geben vor dem letzten gericht</i>. <sc>Klein</sc>, Oswald 29, 24 (oobd., 1409, 1426 ?): <i>Maria, hab, hilf an dem letzten keichen</i>. <sc>Sachs</sc> 20, 77, 34 (Nürnb. 1559): <i>Treib auch das spil der letzten leß,</i> [möglicherweise Umdeutung von <i>lässe</i> auf <i>les</i> ›lectio‹] <i>| Das mir offt war gar herb und reß</i>. <sc>Gille</sc> u. a., M. Beheim 81, 33 (nobd., 2. H. 15. Jh.): <i>das ist ein gross czaichen vermelt, | das in solch czeitlich glike | Czu einem lesten lon sey gebm, | als den grechten ir ewigs lebm | auch ist ir lester lone</i>. <sc>Wyss</sc>, Luz. Ostersp. 6677 (Luzern 1545): <i>wuͦsch in ir fuͦs, irs werden gsen, | [...] | nam ouch mit in sin letst nachtmal | zuͦ Hierusalem in einem saal</i>. <sc>Spechtler</sc>, Mönch v. Salzb. 33, 47 (oobd., 3. Dr. 14. Jh.): <i>die letzten raitung für uns gilt, | wann wir hie müssen sterben</i>. <sc>Primisser</sc>, Suchenwirt 41, 700 (oobd., 2. H. 14. Jh.): <i>daz uns in der lesten not | Chains poͤsen geistes aug anschilh</i>. <sc>Luther</sc>, WA 53, 276, 2 (1542): <i>Das sind die rechten letzten schrecklichen [...] plagen</i>. <sc>Ebd</sc>. 46, 62, 18 (1537): <i>von dem letzten Regiment des Endchrists, nemlich des Bapstumbs</i>. <sc>Wyss</sc>, Luz. Ostersp. 9284 (Luzern 1545): <i>verlass in nit in der letsten stund!</i> <sc>Schönbach</sc>, Adt. Pred. 32, 41 (osächs., 1. H. 14. Jh.): <i>erlose mich von dem ewigen tote an dem vorchsamen tage des lesten urteiles</i>. <sc>Schöpper</sc> 106a (Dortm. 1550): <i>Testamentvm Testament erb gemächt seel gerecht letzter will</i>. <sc>v. d. Lee</sc>, M. v. Weida. Spigell 83, 2 (omd., 1487): <i>Der letzte wille des vorstorben menschen sall Jn allen dingen [gehaldenn werden]</i>. <sc>Moscherosch</sc>. Ges. Phil. v. Sittew. 47, 37 (Straßb. 1650): <i>Anstatt daß sie sich [...] der Sterblichkeit vnnd ihres Endes erinnern [...], so fangen sie an von der verstorbenen Letztem Willen oder Testament vnd der verlassenschaft zu erzehlen</i>. <sc>Grothausmann</sc>, Stadtb. Karpfen 70, 22 (mslow. inseldt., 1602): <i>1602, Ortnet die Tugendtśame fraw Catharina [...] bej guter vernunfft mit vornemlicher teutlicher rete, ihren letzten willen wie volget</i>. <sc>Henschel</sc> u. a., Heidin 952 (nobd., um 1300): <i>Din ich niht vergezze | [...] | Biz an minen letsten tak</i>. <sc>Vetter</sc>, Pred. Taulers 34, 32 (els., E. 14. Jh.): <i>in disen lesten tagen, das do sint die tage des heiles, so enmag enkein mensche niemerme genesen [...] dan úbermitz daz minnekliche wasser des tiches, daz ist daz bluͦt unsers herren</i>. <sc>Bauer</sc>, Haller. Hieronymus-Br. 12, 30 (tir., 1464): <i>er ist pesammen sein schaff in sein schoff an den lesten tägen</i>. <sc>Grothausmann</sc>, Stadtb. Karpfen 68, 2 (mslow. inseldt., 1586): <i>haben wir vns dem lezten teśtament nach gehalten</i>. <sc>Luther</sc>, WA 29, 619, 5 (1529): <i>es sollen die letzten zeichen nicht ferne sein</i>. <sc>Ebd</sc>. 54, 472, 13 (1548): <i>Was wunder ists, das auch wir, so jtzt, in dieser letzten schrecklichen zeit, Christum predigen</i>. <sc>Dubizmay</sc>, kurß zu Teutze 16, 13 (hess., 1463): <i>küm mir zu hilff an | meynnem letzten zeytten</i>. <sc>Reichert</sc>, Gesamtausl. Messe 92, 33 (Nürnb. um 1480): <i>das Got der herre [...] richten und urteylen wirt eyn yegklichen menschen an seynen letzten zeyten</i>. <sc>Wyss</sc>, Luz. Ostersp. 10083 (Luzern 1545): <i>es würt zuͦ den letsten zytten kon | sim glouben ein widerspeniger trutz</i>. <sc>Bauer</sc>, Haller. Hieronymus-Br. 13, 3 (tir., 1464): <i>Da in nu sein leste zeit wart nöten auz zugen von dem leib</i>. <sc>Luther</sc>, WA 19, 193, 15 (1526): <i>Also hat er auch Christum [...] ynn die welt gesand, ehe denn der letzte zorn des jungsten gerichtes kompt</i>. <sc>Ebd</sc>. 28, 670, 23 (1529): <i>Guͤter koͤnnen nicht helffen in den letzten zuͤgen</i>. <sc>Sappler</sc>, H. Kaufringer 16, 555 (schwäb., Hs. 1464): <i>wie gern ir [tiefel] den menschen beraubt | an den letzsten zügen sein | der tugent rain</i>. – Elliptisch: <sc>Lohmeyer</sc>, K. v. Nostitz 159, 26 (preuß., 1578): <i>wil ich alles, das ich weiß, auff meine letzte hinder mir verlassen</i>. <sc>Loesch</sc>, Kölner Zunfturk. 4, 387, 9 (rib., 1397-1409): <i>sal man in ermanen, wat he deme heilgencruiz wil geven [...] ind an sime lesten, dat he sin gunst ouch deme heilgencruiz bewise</i>. <sc>Buch Weinsb</sc>. 1, 262, 6 (rib., um 1560): <i>in sinem lesten hat er sinen einigen son Eduardum zum koning ingesatzt</i>. <sc>Moscouia</sc> C 1v, 40 (Wien 1557): <i>So aber der Großfuͦrst Hans an seinem letzten gelegen / vnd die Geistliche jne der gewissen vermant / hat [...]</i>. – <sc>Bauer</sc>, Imitatio Haller 97, 16; <sc>Golius</sc> 116. – Vgl. ferner s. v. <i>abschied</i> 2, <i>augenede, ausbleiben</i> 3, <i>auslassen</i> 12, <i>ausrichtung</i> 6.</p>
+<p2 uuid="b9003289-2a93-43fc-8b6a-d191773fbf87">3. von einem später als das Bezugsgeschehen liegenden Zeitpunkt aus gesehen auf den zuletzt stattgefundenen oder einen kürzlich abgelaufenen Vorgang bezogen: ›neulich, letzthin, vor kurzem‹. – Bdv.: vgl. <i>kürzlich</i> 4, <i>neulich</i> 1.</p2>
+<p><sc>Loesch</sc>, Kölner Zunfturk. 11, 548, 14 (rib., 1454): <i>darup begeren ich guetlich uire eirsamheit ind wissheit zo wissen, dat ich lest uiren frunden, die bij mir wairen, der gelegenheit en deil gesacht hain</i>. <sc>Kurz</sc>, Waldis. Esopus 4, 65, 1 (Frankf. 1557): <i>ZV Maintz am Rhein ich lesten war</i>. <sc>Opel</sc>, Spittendorf 135, 2 (osächs., um 1480): <i>seyne gnade und der rath hetten letzst zu sant Mauritz yre antwort gehort</i>.</p>
+<p2 uuid="9ff7161c-f923-4f8d-ba52-7c4a604b6414">4. ›letzt, hinterst, entlegenst, nach allem anderen (unter dominant räumlichem Aspekt, teils auf die Linearität von Texten bezogen)‹.</p2>
+<p><sc>Große</sc>, Schwabensp. 47a, 37 (Hs. ˹nd./md., um 1410˺ ): <i>de vuͦnfte sibbe stet an dem ersten lede des vengers. [...] de sebede an dem lesten lede vor deme nagele</i>. <sc>Strehlke</sc>, Nic. Jerosch. Chron. 27734 (preuß., um 1330/40): <i>dî êrsten und dî lesten [dorfir] | dî branten sî gar abe</i>. <sc>Rot</sc> 303 (Augsb. 1571): <i>Declinirn, [...] die letzt silben eines worts in ein andre lencken</i>. <sc>Chron. Augsb</sc>. 4, 410, 1 (schwäb., zu 1490): <i>da die ersten nachet bei Jnningen wassend, da wassend die lesten noch bei Gegingertor</i>. <sc>Hohmann</sc>, H. v. Langenstein. Quästio 203, 52 (moobd., 1. H. 15. Jh.): <i>als sand Paul spricht ad Ephesios am lesten</i>. – <sc>Gerhard</sc>, Hist. alde e 2869; <sc>Rohland</sc>, Schäden 465; <sc>Brévart</sc>, K. v. Megenberg. Sphaera 47, 14.</p>
+<p2 uuid="d733a24f-3efd-419e-83c9-20ac400f4a2d">5. ›zuletzt genannt‹ ; in einer Reihe von Bezugsgrößen mit Absetzung von <i>erst, ehe gesprochen</i>, dann den Zeitverlauf des Textinhalts betonend. – Wbg.: <i>leztgenant</i>.</p2>
+<p><sc>Quint</sc>, Eckharts Pred. 2, 433, 5 (E. 13./A. 14. Jh.): <i>Nû lâze ich die lesten zwei und rede von dem êrsten stücke</i>. <sc>Chron. Augsb</sc>. 1, 62, 17 (schwäb., zu 1378): <i>uff dem egesprochen letzsten ros rait ain ersamer ritter</i>. <sc>Turmair</sc> 4, 345, 1 (moobd., 1522/33): <i>lezgenanter künig Schirm verfertiget herwider sein rät ab zue dem grossen Alexander</i>. – <sc>Oorschot</sc>, Spee/Schmidt. Caut. Crim. 335, 21.</p>
+<p2 uuid="8ec5d68d-4cf7-414e-8379-561dfd13b2fd">6. dient der Charakterisierung des Endgliedes einer eher logisch reihend als zeitlich oder räumlich gedachten Reihe.</p2>
+<p><sc>Schönbach</sc>, Adt. Pred. 24, 31 (osächs., 1. H. 14. Jh.): <i>daz [vuͦr] sol der priester vuͦten und sol drier hande holz dar uf werfen tegiliches [...]. daz erste holz ist daz gotes wort der heiligen lere, daz ander ist gut bilde heiliges lebenes, daz leste ist daz ammacht des heiligen gotes dinest</i>. <sc>Turmair</sc> 4, 426, 7 (moobd., 1522/33): <i>’Dialectica‘ ist die dritt und lest kunst, so auch wort und red antrift</i>. <sc>Chron. baier. Städte</sc>. Regensb. 98, 12 (noobd., 1529): <i>Sambstag Bricci hab ich den lesten zehet von Tegerheim außtailt</i>.</p>
+<p2 uuid="0a5f40b2-177a-41d0-a595-858ce4472af5">7. dient der Kennzeichnung der äußersten Seinsmöglichkeit einer Bezugsgröße, darunter endzeitlicher Projektionen: ›äußerst, höchst; definitiv‹, zum Teil auch zu 2 stellbar. – Texte der Sinnwelt ,Religion‘.</p2>
+<p><sc>Helm</sc>, H. v. Hesler. Apok. 19007 (nrddt., 14. Jh.): <i>Die [Degen] zeigent dan ir leste tugent | Mit degentlicher heldes mugent</i>. <sc>Ebd</sc>. 22913 (nrddt., 14. Jh.): <i>Alpha und O ich bin, | Erst und letzt, ende und begin</i>. <sc>Luther</sc>, WA 46, 453, 8 (1538): <i>Johannes ist der letzte und gibt den letze trunck</i>. <sc>Ebd</sc>. 49, 741, 14 (1545): <i>Die Donnerschlege [...] sind ein [...] vortraber des letzten donnerschlags. [...]. das wird die letzte Posaune</i>. <sc>Strauch</sc>, Par. anime int. 71, 11 (thür., 14. Jh.): <i>wan alse liplich frucht das leiste unde daz suziste daz da ist in dem menschin</i>. <sc>Mathesius</sc>, Passionale 50v, 7 (Leipzig 1587): <i>Der seine besten Tage gelebet hat / das ist / der aller letzte / geringste / vnterste vnnd außwuͤrfling / vnter vnnd von allen Menschen Kindern</i>. <sc>Kurrelmeyer</sc>, Dt. Bibel 3, 89, 12 (Straßb. 1466): <i>on zwifel hie hab ich gesehen die letzsten ding dez sehenden mich</i>. <sc>Chron. Augsb</sc>. 7, 78, 8 (schwäb., zu 1548): <i>so möcht daraus anders nichts dann diser stat endtlicher, letster undergang und eusserist verderben zuͤ gewarten</i>.</p>
+
+-->
+
+</TEI>
