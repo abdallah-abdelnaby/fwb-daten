@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          nachtliecht
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="2020-11-01"/>
+        </availability>
+      </publicationStmt>
+      <notesStmt>
+        <note type="orth.de_DE">nachtlicht</note>
+      </notesStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>83ed804b-39ed-4007-9c14-9f272b16921f</idno>
+          <biblScope unit="volume">09</biblScope>
+          <biblScope unit="column">3290</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="nachtliecht.s.2n" sortKey="nachtliecht.nachtliecht.s.2n">
+        <form type="lemma">
+          <orth>nachtliecht,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart"><hi rendition="it">das</hi>;</gram> <gram xml:space="preserve" type="flex"><hi rendition="it">–/<oRef type="oRef.lem">-</oRef>er</hi>.</gram></dictScrap>
+        
+        <!-- Bedeutung 1 -->
+        <sense xml:id="nachtliecht.s.2n_s1" level="1" rend="1">
+          <def xml:space="preserve"><dictScrap rend="def">›Licht, Lampe, die in der Kirche zu Symbolisierungen, Verehrungen, Gedächtnissen verschiedener Art gebraucht wird‹</dictScrap>; metonymisch auch auf den Ölkrug mit dem Brennstoff des <hi rendition="it">nachtliechtes</hi> bezogen; kritische Sicht in der Reformationszeit; zu <hi rendition="hoch">1</hi><ref type="mat" target="nacht.h1.1f">nacht</ref> <ref type="mat" target="nacht.h1.1f#nacht.h1.1f_s1">1</ref>, <ref type="mat" target="liecht.s.2n">liecht</ref> (<hi rendition="it">das</hi>) <ref type="mat" target="liecht.s.2n#liecht.s.2n_s1">1</ref>.</def>
+          <entry rend="phras">
+            <dictScrap rend="phras"><hi rendition="it">ewiges nachtliecht</hi>.</dictScrap>
+          </entry>
+          <entry rend="bdv">
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="bdv"><ref type="mat" target="ampel.s.1f">ampel</ref> <ref type="mat" target="ampel.s.1f#ampel.s.1f_s1">1</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="lampe.s.1fn">lampe</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="laterne.s.1f">laterne</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="leuchte.s.1f">leuchte</ref> <ref type="mat" target="leuchte.s.1f#leuchte.s.1f_s1">1</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="leuchter.s.0m">leuchter</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="liechtfas.s.9ref">liechtfas</ref>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="nachtliecht.s.2n_s1">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="89" cert="high">Schade</name>, Sat. u. Pasqu. <citedRange n="89" facs="2,262,4" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n535">2, 262, 4</citedRange> (<add>o. O. </add><region key="unknown"/><date from="1524" to="1524" confidence="1">1524</date>/<date from="1527" to="1527" confidence="1">7</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Was darf man der <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="89">nachtlichter</oRef>? die totenschädel sehen nicht. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="33,288,18" rend="export" target="https://archive.org/details/werkekritischege33luthuoft/page/288">33, 288, 18</citedRange> (<region key="omd."/><date from="1530" to="1530" confidence="1">1530</date>/<date from="1532" to="1532" confidence="1">2</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Mein Glaube der ist gegen meinem heiligen leben und guten wercken, [...], wie die Sonne ist gegen ein <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="87">Nachtliecht</oRef>. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="130" cert="high">Vetter</name>, Schw. zu Töß <citedRange n="130" facs="45,26" rend="export" target="https://archive.org/details/DasLebenDerSchwesternZuToss/page/n80">45, 26</citedRange> (<region key="halem.">halem.</region><add>, Hs. </add><date from="1400" to="1499" confidence="0.01">15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Sy geschuͦff das der altar in der capell gewicht ward und das man das <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="89">nacht liecht</oRef> und die kertzen dar git. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d15" cert="high">Rot</name> <citedRange n="d15" facs="289">289</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1571" to="1571" confidence="1">1571</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Ampl, Ein weit geschirr / als ein Olkruͦg. Jtem das gefaͤß darinn man in den Kirchen <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="79">nachtliechter</oRef> prent. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="301" cert="high">Bastian</name> u. a., Regensb. UB <citedRange n="301" facs="470,15">470, 15</citedRange> (<region key="oobd.">oobd.</region>, <date from="1378" to="1378" confidence="1">1378</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">15 lb zu einem ewigen <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="85">nachtlieht</oRef> fuͤr unserer frawen pild. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="733a" cert="high">Vogel</name>, Urk. Heiliggeistsp. <citedRange n="733a" facs="1,284,23">1, 284, 23</citedRange> (<region key="moobd.">moobd.</region>, <date from="1396" to="1396" confidence="1">1396</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Darzuͤ sein wir ir schuldig vnd auch ewigklich ze volpringen ain ewigs <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="83">nachtlieht</oRef> in vͤnserm goczhaws zuͤ spital.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="209" cert="high">Leisi</name>, Thurg. UB <citedRange n="209" facs="7,705,12">7, 705, 12</citedRange><region key="halem."/><date from="1375" to="1390" confidence="0.0625"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="733b" cert="high">Vogel</name>, Salb. Heiliggeistsp. <citedRange n="733b" facs="76,24">76, 24</citedRange><region key="moobd."/><date from="1390" to="1399" confidence="0.1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="795" cert="high">Fuchs</name>, Kart. Aggsbach <citedRange n="795" facs="165,5" rend="export" target="https://archive.org/details/urkundenundrege01fuchgoog/page/n185/mode/2up">165, 5</citedRange><region key="moobd."/><date from="1350" to="1500" confidence="0.0066"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 2 -->
+        <sense xml:id="nachtliecht.s.2n_s2" level="1" rend="2">
+          <def xml:space="preserve">extensional bezogen auf Sonne und Mond als <hi rendition="it">tagliecht</hi> bzw. <hi rendition="it">nachtliecht</hi>.</def>
+          <entry rend="ggs">
+            <dictScrap rend="ggs"><ref type="mat" rend="ggs" target="tagliecht.s.2n">tagliecht</ref>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="nachtliecht.s.2n_s2">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="24513" cert="high">Sudhoff</name>, Paracelsus <citedRange n="24513" facs="13,146,2" rend="export" target="https://publikationsserver.tu-braunschweig.de/rsc/viewer/dbbs_derivate_00000701/max/00000165.jpg">13, 146, 2</citedRange> (<region key="nalem."/><date from="1530" to="1530" confidence="1">1530</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">und hat da zweierlei liecht gemacht in das firmament, ein tagliecht und <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="93">nachtliecht</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 3 -->
+        <sense xml:id="nachtliecht.s.2n_s3" level="1" rend="3">
+          <def xml:space="preserve">s. <hi rendition="hoch">1</hi><ref type="mat" target="nacht.h1.1f">nacht</ref> <ref type="mat" target="nacht.h1.1f#nacht.h1.1f_s4">4</ref>.</def>
+        </sense>
+        
+        <!-- Bedeutung 4 -->
+        <sense xml:id="nachtliecht.s.2n_s4" level="1" rend="4">
+          <def xml:space="preserve"><dictScrap rend="def">›nächtens zu Orientierungs- und Warnzwecken brennendes Licht‹</dictScrap>; zu <hi rendition="hoch">1</hi><ref type="mat" target="nacht.h1.1f">nacht</ref> <ref type="mat" target="nacht.h1.1f#nacht.h1.1f_s1">1</ref>, <ref type="mat" target="liecht.s.2n">liecht</ref> (<hi rendition="it">das</hi>) <ref type="mat" target="liecht.s.2n#liecht.s.2n_s1">1</ref>.</def>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="nachtliecht.s.2n_s4">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="467" cert="high">Dasypodius</name> <citedRange n="467" facs="176r" rend="export" target="https://archive.org/details/Dasypodius-Petrus-Dictionarium-Latinogermanicum/page/n358">176r</citedRange> (<region key="els.">Straßb.</region> <date from="1536" to="1536" confidence="1">1536</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Pharos, Vor zeiten ein Insel bey Alexandria Egypti / nachmals an das land angehencket. Jtẽ ein thurn dariñ / in welchem ein <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="93">nachtliecht</oRef> gehalten / den schiffendẽ zuͤ guͦttem. Daher alle thurn od  gebew / die <oRef norm="nachtliecht" type="oVar.lem" rend="automatic" n="93">nachtliecht</oRef> habẽ / Phari genant werdẽ.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+nachtliecht, das; –/-er. 1. ›Licht, Lampe, die in der Kirche zu Symbolisierungen, Verehrungen, Gedächtnissen verschiedener Art gebraucht wird‹; metonymisch auch auf den Ölkrug mit dem Brennstoff des nachtliechtes bezogen; kritische Sicht in der Reformationszeit; zu 1nacht 1, liecht (das) 1. – Phras.: ewiges nachtliecht. – Bdv.: vgl. ampel 1, lampe, laterne, leuchte 1, leuchter, liechtfas. Schade, Sat. u. Pasqu. 2, 262, 4 (o. O. 1524/7): Was darf man der nachtlichter? die totenschädel sehen nicht. Luther, WA 33, 288, 18 (1530/2): Mein Glaube der ist gegen meinem heiligen leben und guten wercken, [...], wie die Sonne ist gegen ein Nachtliecht. Vetter, Schw. zu Töß 45, 26 (halem., Hs. 15. Jh.): Sy geschuͦff das der altar in der capell gewicht ward und das man das nacht liecht und die kertzen dar git. Rot 289 (Augsb. 1571): Ampl, Ein weit geschirr / als ein Olkruͦg. Jtem das gefaͤß darinn man in den Kirchen nachtliechter prent. Bastian u. a., Regensb. UB 470, 15 (oobd., 1378): 15 lb zu einem ewigen nachtlieht fuͤr unserer frawen pild. Vogel, Urk. Heiliggeistsp. 1, 284, 23 (moobd., 1396): Darzuͤ sein wir ir schuldig vnd auch ewigklich ze volpringen ain ewigs nachtlieht in vͤnserm goczhaws zuͤ spital. – Leisi, Thurg. UB 7, 705, 12; Vogel, Salb. Heiliggeistsp. 76, 24; Fuchs, Kart. Aggsbach 165, 5. 2. extensional bezogen auf Sonne und Mond als tagliecht bzw. nachtliecht. – Ggs.: tagliecht. Sudhoff, Paracelsus 13, 146, 2 (1530): und hat da zweierlei liecht gemacht in das firmament, ein tagliecht und nachtliecht. 3., s. 1nacht 4. 4.›nächtens zu Orientierungs- und Warnzwecken brennendes Licht‹; zu 1nacht 1, liecht (das) 1. Dasypodius 176r (Straßb. 1536): Pharos, Vor zeiten ein Insel bey Alexandria Egypti / nachmals an das land angehencket. Jtẽ ein thurn dariñ / in welchem ein nachtliecht gehalten / den schiffendẽ zuͤ guͦttem. Daher alle thurn od gebew / die nachtliecht habẽ / Phari genant werdẽ.
+-->
+  <!--Texttest: Konvertiert
+nachtliecht, das; –/-er. 1. ›Licht, Lampe, die in der Kirche zu Symbolisierungen, Verehrungen, Gedächtnissen verschiedener Art gebraucht wird‹; metonymisch auch auf den Ölkrug mit dem Brennstoff des nachtliechtes bezogen; kritische Sicht in der Reformationszeit; zu 1nacht 1, liecht (das) 1. – Phras.: ewiges nachtliecht. – Bdv.: vgl. ampel 1, lampe, laterne, leuchte 1, leuchter, liechtfas. Schade, Sat. u. Pasqu. 2, 262, 4 (o. O. 1524/7) Was darf man der nachtlichter? die totenschädel sehen nicht. Luther, WA 33, 288, 18 (1530/2) Mein Glaube der ist gegen meinem heiligen leben und guten wercken, [...], wie die Sonne ist gegen ein Nachtliecht. Vetter, Schw. zu Töß 45, 26 (halem., Hs. 15. Jh.) Sy geschuͦff das der altar in der capell gewicht ward und das man das nacht liecht und die kertzen dar git. Rot 289 (Augsb. 1571) Ampl, Ein weit geschirr / als ein Olkruͦg. Jtem das gefaͤß darinn man in den Kirchen nachtliechter prent. Bastian u. a., Regensb. UB 470, 15 (oobd., 1378) 15 lb zu einem ewigen nachtlieht fuͤr unserer frawen pild. Vogel, Urk. Heiliggeistsp. 1, 284, 23 (moobd., 1396) Darzuͤ sein wir ir schuldig vnd auch ewigklich ze volpringen ain ewigs nachtlieht in vͤnserm goczhaws zuͤ spital. – Leisi, Thurg. UB 7, 705, 12; Vogel, Salb. Heiliggeistsp. 76, 24; Fuchs, Kart. Aggsbach 165, 5. 2. extensional bezogen auf Sonne und Mond als tagliecht bzw. nachtliecht. – Ggs.: tagliecht. Sudhoff, Paracelsus 13, 146, 2 (1530) und hat da zweierlei liecht gemacht in das firmament, ein tagliecht und nachtliecht. 3. s. 1nacht 4. 4. ›nächtens zu Orientierungs- und Warnzwecken brennendes Licht‹; zu 1nacht 1, liecht (das) 1. Dasypodius 176r (Straßb. 1536) Pharos, Vor zeiten ein Insel bey Alexandria Egypti / nachmals an das land angehencket. Jtẽ ein thurn dariñ / in welchem ein nachtliecht gehalten / den schiffendẽ zuͤ guͦttem. Daher alle thurn od gebew / die nachtliecht habẽ / Phari genant werdẽ.
+-->
+  <!--Interpunktionsloser Text:
+nachtliechtdas/er1›LichtLampedieinderKirchezuSymbolisierungenVerehrungenGedächtnissenverschiedenerArtgebrauchtwird‹metonymischauchaufdenÖlkrugmitdemBrennstoffdesnachtliechtesbezogenkritischeSichtinderReformationszeitzu1nacht1liecht(das)1PhrasewigesnachtliechtBdvvglampel1lampelaterneleuchte1leuchterliechtfasSchadeSatuPasqu22624(oO1524/7)WasdarfmandernachtlichterdietotenschädelsehennichtLutherWA3328818(1530/2)MeinGlaubederistgegenmeinemheiligenlebenundgutenwercken[]wiedieSonneistgegeneinNachtliechtVetterSchwzuTöß4526(halemHs15Jh)SygeschuͦffdasderaltarindercapellgewichtwardunddasmandasnachtliechtunddiekertzendargitRot289(Augsb1571)AmplEinweitgeschirr/alseinOlkruͦgJtemdasgefaͤßdarinnmanindenKirchennachtliechterprentBastianuaRegensbUB47015(oobd1378)15lbzueinemewigennachtliehtfuͤrunsererfrawenpildVogelUrkHeiliggeistsp128423(moobd1396)DarzuͤseinwirirschuldigvndauchewigklichzevolpringenainewigsnachtliehtinvͤnsermgoczhawszuͤspitalLeisiThurgUB770512VogelSalbHeiliggeistsp7624FuchsKartAggsbach16552extensionalbezogenaufSonneundMondalstagliechtbzwnachtliechtGgstagliechtSudhoffParacelsus131462(1530)undhatdazweierleiliechtgemachtindasfirmamenteintagliechtundnachtliecht3s1nacht44›nächtenszuOrientierungsundWarnzweckenbrennendesLicht‹zu1nacht1liecht(das)1Dasypodius176r(Straßb1536)PharosVorzeiteneinInselbeyAlexandriaEgypti/nachmalsandaslandangehencketJtẽeinthurndariñ/inwelchemeinnachtliechtgehalten/denschiffendẽzuͤguͦttemDaherallethurnodgebew/dienachtliechthabẽ/Pharigenantwerdẽ
+nachtliechtdas/er1›LichtLampedieinderKirchezuSymbolisierungenVerehrungenGedächtnissenverschiedenerArtgebrauchtwird‹metonymischauchaufdenÖlkrugmitdemBrennstoffdesnachtliechtesbezogenkritischeSichtinderReformationszeitzu1nacht1liecht(das)1PhrasewigesnachtliechtBdvvglampel1lampelaterneleuchte1leuchterliechtfasSchadeSatuPasqu22624(oO1524/7)WasdarfmandernachtlichterdietotenschädelsehennichtLutherWA3328818(1530/2)MeinGlaubederistgegenmeinemheiligenlebenundgutenwercken[]wiedieSonneistgegeneinNachtliechtVetterSchwzuTöß4526(halemHs15Jh)SygeschuͦffdasderaltarindercapellgewichtwardunddasmandasnachtliechtunddiekertzendargitRot289(Augsb1571)AmplEinweitgeschirr/alseinOlkruͦgJtemdasgefaͤßdarinnmanindenKirchennachtliechterprentBastianuaRegensbUB47015(oobd1378)15lbzueinemewigennachtliehtfuͤrunsererfrawenpildVogelUrkHeiliggeistsp128423(moobd1396)DarzuͤseinwirirschuldigvndauchewigklichzevolpringenainewigsnachtliehtinvͤnsermgoczhawszuͤspitalLeisiThurgUB770512VogelSalbHeiliggeistsp7624FuchsKartAggsbach16552extensionalbezogenaufSonneundMondalstagliechtbzwnachtliechtGgstagliechtSudhoffParacelsus131462(1530)undhatdazweierleiliechtgemachtindasfirmamenteintagliechtundnachtliecht3s1nacht44›nächtenszuOrientierungsundWarnzweckenbrennendesLicht‹zu1nacht1liecht(das)1Dasypodius176r(Straßb1536)PharosVorzeiteneinInselbeyAlexandriaEgypti/nachmalsandaslandangehencketJtẽeinthurndariñ/inwelchemeinnachtliechtgehalten/denschiffendẽzuͤguͦttemDaherallethurnodgebew/dienachtliechthabẽ/Pharigenantwerdẽ
+-->
+  <!--Original:
+<p2 uuid="83ed804b-39ed-4007-9c14-9f272b16921f"><b>nachtliecht,</b> <i>das</i> ; <i>–/-er</i>.</p2> 
+<p2 uuid="b1a40425-9559-4982-8a2e-c79f020245ae">1. ›Licht, Lampe, die in der Kirche zu Symbolisierungen, Verehrungen, Gedächtnissen verschiedener Art gebraucht wird‹ ; metonymisch auch auf den Ölkrug mit dem Brennstoff des <i>nachtliechtes</i> bezogen; kritische Sicht in der Reformationszeit; zu <sup>1</sup><i>nacht</i> 1, <i>liecht</i> (<i>das</i>) 1. – Phras.: <i>ewiges nachtliecht</i>. – Bdv.: vgl. <i>ampel</i> 1, <i>lampe, laterne, leuchte</i> 1, <i>leuchter, liechtfas</i>.</p2> 
+<p><sc>Schade</sc>, Sat. u. Pasqu. 2, 262, 4 (o. O. 1524/7): <i>Was darf man der nachtlichter ? die totenschädel sehen nicht</i>. <sc>Luther</sc>, WA 33, 288, 18 (1530/2): <i>Mein Glaube der ist gegen meinem heiligen leben und guten wercken, [...], wie die Sonne ist gegen ein Nachtliecht</i>. <sc>Vetter</sc>, Schw. zu Töß 45, 26 (halem., Hs. 15. Jh.): <i>Sy geschuͦff das der altar in der capell gewicht ward und das man das nacht liecht und die kertzen dar git</i>. <sc>Rot</sc> 289 (Augsb. 1571): <i>Ampl, Ein weit geschirr / als ein Olkruͦg. Jtem das gefaͤß darinn man in den Kirchen nachtliechter prent</i>. <sc>Bastian</sc> u. a., Regensb. UB 470, 15 (oobd., 1378): <i>15 lb zu einem ewigen nachtlieht fuͤr unserer frawen pild</i>. <sc>Vogel</sc>, Urk. Heiliggeistsp. 1, 284, 23 (moobd., 1396): <i>Darzuͤ sein wir ir schuldig vnd auch ewigklich ze volpringen ain ewigs nachtlieht in vͤnserm goczhaws zuͤ spital</i>. – <sc>Leisi</sc>, Thurg. UB 7, 705, 12; <sc>Vogel</sc>, Salb. Heiliggeistsp. 76, 24; <sc>Fuchs</sc>, Kart. Aggsbach 165, 5.</p> 
+<p2 uuid="f59d12d0-59de-4250-9f7a-cb15a7653e98">2. extensional bezogen auf Sonne und Mond als <i>tagliecht</i> bzw. <i>nachtliecht</i>. – Ggs.: <i>tagliecht</i>.</p2> 
+<p><sc>Sudhoff</sc>, Paracelsus 13, 146, 2 (1530): <i>und hat da zweierlei liecht gemacht in das firmament, ein tagliecht und nachtliecht</i>.</p> 
+<p2 uuid="c4cab8b9-ee8c-4d49-93d9-150f95063283">3., s. <sup>1</sup><i>nacht</i> 4.</p2> 
+<p2 uuid="0403dcb1-542e-4f0d-9dd6-28ee496a42e5">4.›nächtens zu Orientierungs- und Warnzwecken brennendes Licht‹; zu <sup>1</sup><i>nacht</i> 1, <i>liecht</i> (<i>das</i>) 1.</p2>
+<p><sc>Dasypodius</sc> 176r (Straßb. 1536): <i>Pharos, Vor zeiten ein Insel bey Alexandria Egypti / nachmals an das land angehencket. Jtẽ ein thurn dariñ / in welchem ein nachtliecht gehalten / den schiffendẽ zuͤ guͦttem. Daher alle thurn od  gebew / die nachtliecht habẽ / Phari genant werdẽ</i>. </p>
+
+-->
+
+</TEI>
