@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          achsel
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="1989-07-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>0aea3604-a1f5-4cd8-9b7d-a50220dbad43</idno>
+          <biblScope unit="volume">01</biblScope>
+          <biblScope unit="column">538</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="achsel.s.1f" sortKey="achsel.achsel.s.1f">
+        <form type="lemma">
+          <orth>achsel,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> <gram xml:space="preserve" type="wortart"><hi rendition="it">die</hi>;</gram> <gram xml:space="preserve" type="flex"><hi rendition="it"><oRef type="oRef.lem">-</oRef>(e)n/<oRef type="oRef.lem">-</oRef>(e)n</hi>;</gram> wegen semantischer Berührung mit <ref type="mat" target="achse.s.1f">achse</ref> sehr vereinzelt ohne <hi rendition="it">-l</hi> im Auslaut: <hi rendition="it">achse.</hi></dictScrap>
+        
+        <!-- Bedeutung 1 -->
+        <sense xml:id="achsel.s.1f_s1" level="1" rend="1">
+          <def xml:space="preserve"><dictScrap rend="def">›Drehgelenk des Oberarmes, Schultergelenk‹</dictScrap>.</def>
+          <entry rend="stw">
+            <dictScrap rend="stw">Medizinische Fachtexte.</dictScrap>
+          </entry>
+          <entry rend="bdv">
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="bdv"><ref type="mat" target="achselgleich.s.1f">achselgleich</ref>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="achsel.s.1f_s1">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="941" cert="high">Cirurgia H. Brunschwig</name> <citedRange n="941" facs="16va,5" rend="export" target="https://archive.org/details/b24865382/page/28/mode/2up ">16va, 5</citedRange> (<region key="els.">Straßb.</region> [<date from="1497" to="1497" confidence="1">1497</date>])</bibl>
+                <quote xml:space="preserve" source="Objektsprache">die do mit dem gantzen arm arbeitẽ sint noturftig der <oRef norm="achsel" type="oVar.lem" rend="automatic" n="85">achselen</oRef> bewegũg. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="2457" cert="high">Sudhoff</name>, Paracelsus <citedRange n="2457" facs="7,220,4" rend="export" target="https://publikationsserver.tu-braunschweig.de/rsc/viewer/dbbs_derivate_00000708/max/00000223.jpg">7, 220, 4</citedRange> (<region key="nalem."/><date from="1529" to="1529" confidence="1">1529</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ir wissen, das die gleich unleidlich sind in knüen, <oRef norm="achsel" type="oVar.lem" rend="automatic" n="88">achseln</oRef>, elenbogen.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="941" cert="high">Cirurgia H. Brunschwig</name>, <citedRange n="941" facs="15vb,38" rend="export" target="https://archive.org/details/b24865382/page/26/mode/2up ">15vb, 38</citedRange><region key="els."/><date from="1497" to="1497" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="2457" cert="high">Sudhoff</name>, a. a. O. <citedRange n="2457" facs="7,225,31" rend="export" target="https://publikationsserver.tu-braunschweig.de/rsc/viewer/dbbs_derivate_00000708/max/00000228.jpg">7, 225, 31</citedRange><region key="nalem."/><date from="1529" to="1529" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1000" cert="high">Rupprich</name>, Dürer <citedRange n="1000" facs="2,237,8" rend="export" target="https://digi.ub.uni-heidelberg.de/diglit/rupprich1966bd2/0241/image">2, 237, 8</citedRange><region key="nobd."/><date from="1502" to="1514" confidence="0.0769"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 2 -->
+        <sense xml:id="achsel.s.1f_s2" level="1" rend="2">
+          <def xml:space="preserve"><dictScrap rend="def">›Achselhöhle‹</dictScrap>; Metonymie zu <ref type="mat" target="achsel.s.1f#achsel.s.1f_s1">1</ref>; s. <ref type="mat" target="achselweh.s.2n">achselweh</ref>.</def>
+          <entry rend="wbg">
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="achselgestank.s.9ref" expand="achselgestank.s.9ref·achsel.s.1f_s2">achselgestank</re>, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="achselhar.s.9ref" expand="achselhar.s.9ref·achsel.s.1f_s2">achselhar</re>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="achsel.s.1f_s2">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d16" cert="high">Mylius</name> <citedRange n="d16" facs="C 3r" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb11281412?page=37">C 3r</citedRange> (<region key="schles.">Görlitz</region> <date from="1577" to="1577" confidence="1">1577</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Hircus <oRef norm="achselgestank" type="oVar.wbg" rend="automatic" n="69">Achselngestanck</oRef>. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="963" cert="high">Rauwolf.</name> Raiß <citedRange n="963" facs="31,29" target="https://books.google.de/books?id=dqpeAAAAcAAJ&amp;hl=de&amp;pg=PA31#v=onepage&amp;q&amp;f=false">31, 29</citedRange> ([<region key="schwäb.">Lauingen</region>] <date from="1582" to="1582" confidence="1">1582</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">dann sie keine haar am leib / alß vnder den <oRef norm="achsel" type="oVar.lem" rend="automatic" n="74">Achßlen</oRef> / [...] wachßen lassen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="48" cert="high">Pfeiffer</name>, K. v. Megenberg. B. d. Nat. <citedRange n="48" facs="370,32" rend="export" target="https://books.google.de/books?id=aKEKAAAAQAAJ&amp;pg=PA370&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">370, 32</citedRange> (<region key="oobd.">oobd.</region>, <date from="1349" to="1349" confidence="1">1349</date>/<date from="1350" to="1350" confidence="1">50</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">wenn man in [mirr] mischt mit ainem weizen ains ais und mit wein und salbt die <oRef norm="achsel" type="oVar.lem" rend="automatic" n="80">ahseln</oRef> dâ mit und niden die schämigen stat, daz benimt den stank paider seiten und under den üehsen und unden an dem leib.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="d16" cert="high">Mylius</name> <citedRange n="d16" facs="B 7v" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb11281412?page=30">B 7v</citedRange><region key="schles."/><date from="1577" to="1577" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d7" cert="high">Golius</name> <citedRange n="d7" facs="89" rend="export" target="https://books.google.de/books?id=ivA7AAAAcAAJ&amp;dq=%22Theophilus%20Golius%22&amp;hl=de&amp;pg=PA89#v=onepage&amp;q&amp;f=false ">89</citedRange><region key="els."/><date from="1579" to="1579" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="10" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=21">10</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 3 -->
+        <sense xml:id="achsel.s.1f_s3" level="1" rend="3">
+          <def xml:space="preserve"><dictScrap rend="def">›Schulterpartie (beim Menschen), oberer Teil des Rückens (bei Tieren)‹</dictScrap>; Metonymie zu <ref type="mat" target="achsel.s.1f#achsel.s.1f_s1">1</ref>; s. <ref type="mat" target="achselhöhe.s.1f">achselhöhe</ref>, <ref type="nex" target="-kleid.s.*">-kleid</ref>.</def>
+          <entry rend="phras">
+            <dictScrap rend="phras">Oft in bildlicher und redensartlicher Verwendung.</dictScrap>
+          </entry>
+          <entry rend="bdv">
+            <dictScrap rend="bdv"><ref type="mat" target="schulter.s.1f">schulter</ref> <ref type="mat" target="schulter.s.1f#schulter.s.1f_s1">1</ref>.</dictScrap>
+          </entry>
+          <entry rend="synt">
+            <dictScrap rend="synt"><hi rendition="it">jm. die a. vom leib schlagen; a. stehen formiglich/ tragen arbeit; (jm./sich) etw. auf die a. legen / nemen / setzen, etw. auf der / den a. tragen, etw. auf die leichte a. nemen</hi> (ral. für: ›etw. auf die leichte Schulter nehmen‹), <hi rendition="it">jn. über die a. ansehen</hi> (ral. für: ›jn. verächtlich ansehen‹), <hi rendition="it">jn. an die a. küssen; der weihe a.; grosse a.; mit hangenden a.; auf der a. schrank; sattel auf der a</hi>.</dictScrap>
+          </entry>
+          <entry rend="wbg">
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="achselfleisch.s.9ref" expand="achselfleisch.s.9ref·achsel.s.1f_s3">achselfleisch</re>, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="achselspange.s.1f" expand="achselspange.s.1f·achsel.s.1f_s3">achselspange</re>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="achsel.s.1f_s3">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="74" cert="high">Fischer</name>, Eunuchus d. Terenz <citedRange n="74" facs="59,1" rend="export" target="https://archive.org/details/dereunuchusdeste00tere/page/59">59, 1</citedRange> (<region key="schwäb.">Ulm</region> <date from="1486" to="1486" confidence="1">1486</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Es ist kain jungkfrau unser burgerin deren gleich. die ire muttern flyslich ziechen, mit hangenden <oRef norm="achsel" type="oVar.lem" rend="automatic" n="86">achseln</oRef>, mit geschmucktem leib das sie ran seien</quote>
+                <note rend="meta"> (hängende und daher schmal erscheinende Schultern als Schönheitsideal). </note>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="48" cert="high">Pfeiffer</name>, K. v. Megenberg. B. d. Nat. <citedRange n="48" facs="19,9" rend="export" target="https://books.google.de/books?id=aKEKAAAAQAAJ&amp;pg=PA19&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">19, 9</citedRange> (<region key="oobd.">oobd.</region>, <date from="1349" to="1349" confidence="1">1349</date>/<date from="1350" to="1350" confidence="1">50</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der mensch hât grœzer <oRef norm="achsel" type="oVar.lem" rend="automatic" n="88">achseln</oRef> dann kain ander tier nâch seiner grœzen, daz ez dâ mit trag und hab sein pürd. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="48" cert="high">Ebd.</name> <citedRange n="48" facs="179,3" rend="export" target="https://books.google.de/books?id=aKEKAAAAQAAJ&amp;pg=PA179&amp;dq&amp;f=false#v=onepage&amp;q&amp;f=false">179, 3</citedRange><date from="1349" to="1349" confidence="1"/><date from="1350" to="1350" confidence="1"/><region key="oobd."/></bibl>
+                <quote xml:space="preserve" source="Objektsprache">daz si [die gäuch] sitzen auf der weien <oRef norm="achsel" type="oVar.lem" rend="automatic" n="80">ahseln</oRef>, dar umb, daz si iht müed werden mit langem vliegen über verreu lant. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="455" cert="high">Munz</name>, Füetrer. Persibein <citedRange n="455" facs="508,6">508, 6</citedRange> (<region key="moobd.">moobd.</region>, <date from="1478" to="1478" confidence="1">1478</date>/<date from="1484" to="1484" confidence="1">84</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">von <oRef norm="achsel" type="oVar.lem" rend="automatic" n="92">achsel</oRef> zu der gürtel ab schlúeg er den vaigen do zw zwayen stucken. </quote>
+              </cit>
+              <note rend="meta">˹Bildl.: </note>
+              <cit>
+                <bibl xml:space="preserve"><name n="699" cert="high">Jahr</name>, H. v. Mügeln <citedRange n="699" facs="1024">1024</citedRange> (<region key="omd.">omd.</region><add>, Hs. </add><date from="1463" to="1463" confidence="1">1463</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ouch stunt uf irer <oRef norm="achsel" type="oVar.lem" rend="automatic" n="91">achsel</oRef> schrank die sunne und der mande klar und luchten ir zu dinste dar. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="373" cert="high">Rieder</name>, St. Georg. Pred. <citedRange n="373" facs="280,24" rend="export" target="https://archive.org/details/dersogenanntest00bertgoog/page/n313">280, 24</citedRange> (<add>Hs. ˹</add><region key="önalem.">önalem.</region>, <date from="1387" to="1387" confidence="1">1387</date>˺)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">bi den <oRef norm="achsel" type="oVar.lem" rend="automatic" n="69">ahslen</oRef> ist bezaichent die arbait, und also die <oRef norm="achsel" type="oVar.lem" rend="automatic" n="69">ahslen</oRef> die arbait tragent, also treit daz hertze gedultekait.<hi rendition="rect">˺ </hi></quote>
+              </cit>
+              <note rend="meta">˹Redensart: </note>
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="32,453,21" rend="export" target="https://archive.org/details/werkekritischege32luthuoft/page/453">32, 453, 21</citedRange> (<region key="omd."/><date from="1532" to="1532" confidence="1">1532</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">zweyen ungleichen herrn zugleich dienen, Wie wol es die welt meisterlich kan, und heisst auff deudsch ‚Den baum auff beiden <oRef norm="achsel" type="oVar.lem" rend="automatic" n="81">achseln</oRef> tragen‘ und ‚kald und warm aus einem mund blasen‘. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="2,435,6" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1881-2/0438?sid=19cb8208930a6d753292fbdd64ddf24f">2, 435, 6</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1540" to="1560" confidence="0.0476">M. 16. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Solchs gab graf Wilhalmen wenig zu schaffen, nams uf die leicht <oRef norm="achsel" type="oVar.lem" rend="automatic" n="92">achsel</oRef> und schluegs in wind. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="10" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=21">10</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1616" to="1616" confidence="1">1616</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef norm="achsel" type="oVar.lem" rend="automatic" n="92">Achsel</oRef> [...] Ein ding nicht auff die hohen <oRef norm="achsel" type="oVar.lem" rend="automatic" n="83">achslen</oRef> nemen / das ist / im aller besten / oder freundtlich vnd guͤtigklich annemmen/ [...] Last dir auff die <oRef norm="achsel" type="oVar.lem" rend="automatic" n="92">achsel</oRef> sitzen / so sitzt man dir zu letzt gar auff den Kopff.<hi rendition="rect">˺</hi></quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="69" cert="high">Ziesemer</name>, Proph. Cranc. Jes. <citedRange n="69" facs="3,19">3, 19</citedRange><region key="preuß."/><date from="1340" to="1360" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="400" cert="high">Große</name>, Schwabensp. <citedRange n="400" facs="47a,26" rend="export" target="https://daten.digitale-sammlungen.de/~db/bsb00000678/images/index.html?id=00000678&amp;nativeno=47">47a, 26</citedRange><region key="nrddt., md."/><date from="1400" to="1420" confidence="0.0476"/>; <citedRange n="400" facs="136a,8" rend="export" target="https://daten.digitale-sammlungen.de/~db/bsb00000678/images/index.html?id=00000678&amp;nativeno=136">136a, 8</citedRange><region key="nrddt., md."/><date from="1400" to="1420" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="41" cert="high">Bömer</name>, Pilgerf. träum. Mönch <citedRange n="41" facs="310" rend="export" target="https://archive.org/details/DiePilgerfahrtDesTrumendenMnchs/page/n16">310</citedRange><region key="rhfrk."/><date from="1395" to="1415" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="88" cert="high">Kurz</name>, Waldis. Esopus <citedRange n="88" facs="1,93,22" rend="export" target="https://archive.org/details/esopus00unkngoog/page/n192">1, 93, 22</citedRange><region key="hess."/><date from="1557" to="1557" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="6" cert="high">Feudel</name>, Evangelistar <citedRange n="6" facs="26,14">26, 14</citedRange><region key="omd."/><date from="1340" to="1360" confidence="0.0476"/>; <citedRange n="6" facs="106,34">106, 34</citedRange><region key="omd."/><date from="1340" to="1360" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="328" cert="high">Thiele</name>, Luthers Sprichw. <citedRange n="328" facs="136" rend="export" target="https://archive.org/details/lutherssprichwr00luthgoog/page/n39/mode/2up">136</citedRange><region key="omd."/><date from="1525" to="1545" confidence="0.0476"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="4652" cert="high">Gilman</name>, Agricola. Sprichw. <citedRange n="4652" facs="2,82,6">2, 82, 6</citedRange><region key="schwäb."/><date from="1548" to="1548" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1000" cert="high">Rupprich</name>, Dürer <citedRange n="1000" facs="2,202,358" rend="export" target="https://digi.ub.uni-heidelberg.de/diglit/rupprich1966bd2/0206/image">2, 202, 358</citedRange><region key="nobd."/><date from="1502" to="1514" confidence="0.0769"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="106" cert="high">Gille</name> u. a., M. Beheim <citedRange n="106" facs="25,19">25, 19</citedRange><region key="nobd."/><date from="1450" to="1499" confidence="0.02"/>; <citedRange n="106" facs="91,27">91, 27</citedRange><region key="nobd."/><date from="1450" to="1499" confidence="0.02"/>; <citedRange n="106" facs="268,73">268, 73</citedRange><region key="nobd."/><date from="1450" to="1499" confidence="0.02"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="20" cert="high">Gerhardt</name>, Meister v. Prag <citedRange n="20" facs="46,3">46, 3</citedRange><region key="nobd."/><date from="1477" to="1477" confidence="1"/>; <citedRange n="20" facs="185,22">185, 22</citedRange><region key="nobd."/><date from="1477" to="1477" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="345" cert="high">Vetter</name>, Pred. Taulers <citedRange n="345" facs="131,17" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/273117">131, 17</citedRange><region key="els."/><date from="1350" to="1399" confidence="0.02"/>; <citedRange n="345" facs="140,34" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/273127">140, 34</citedRange><region key="els."/><date from="1350" to="1399" confidence="0.02"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="89" cert="high">Schade</name>, Sat. u. Pasqu. <citedRange n="89" facs="3,67,31" rend="export" target="https://archive.org/details/satirenundpasqu00schagoog/page/n724">3, 67, 31</citedRange><region key="unknown"/><date from="1520" to="1587" confidence="0.0147"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="939" cert="high">Moscherosch.</name> Ges. Phil. v. Sittew. <citedRange n="939" facs="36,28" rend="export" target="https://archive.org/details/gesichtephilande00moscuoft/page/36">36, 28</citedRange><region key="els."/><date from="1650" to="1650" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="945" cert="high">Heydn. maister</name> <citedRange n="945" facs="33r,21">33r, 21</citedRange><region key="schwäb."/><date from="1490" to="1490" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="64" cert="high">Päpke</name>, Marienl. Wernher <citedRange n="64" facs="11567" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/286703">11567</citedRange><region key="halem."/><date from="1372" to="1381" confidence="0.1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="177" cert="high">Spiller</name>, Füetrer. Bay. Chron. <citedRange n="177" facs="104,9" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/content/pageview/1034260">104, 9</citedRange><region key="moobd."/><date from="1478" to="1481" confidence="0.25"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d12" cert="high">Brack</name> <citedRange n="d12" facs="a 5v" rend="export" target="https://daten.digitale-sammlungen.de/bsb00034148/image_18">a 5v</citedRange><region key="halem."/><date from="1483" to="1483" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="467" cert="high">Dasypodius</name> <citedRange n="467" facs="287r" rend="export" target="https://archive.org/details/Dasypodius-Petrus-Dictionarium-Latinogermanicum/page/n580">287r</citedRange><region key="els."/><date from="1536" to="1536" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="461" cert="high">Schöpper</name> <citedRange n="461" facs="113b" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN671869167&amp;PHYSID=PHYS_0127&amp;DMDID=">113b</citedRange><region key="westf."/><date from="1550" to="1550" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> <citedRange n="d4" facs="9v" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA9-IA1#v=onepage&amp;q&amp;f=false">9v</citedRange><region key="halem."/><date from="1561" to="1561" confidence="1"/>; <citedRange n="d4" facs="10r" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA10#v=onepage&amp;q&amp;f=false">10r</citedRange><region key="halem."/><date from="1561" to="1561" confidence="1"/>; <citedRange n="d4" facs="364r" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA364#v=onepage&amp;q&amp;f=false">364r</citedRange><region key="halem."/><date from="1561" to="1561" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="468" cert="high">Hulsius</name> <citedRange n="468" facs="A jr" rend="export" target="https://books.google.de/books?id=ietMAAAAcAAJ&amp;newbks=1&amp;newbks_redir=0&amp;hl=de&amp;pg=PP13#v=onepage&amp;q&amp;f=false">A jr</citedRange><region key="ofrk."/><date from="1596" to="1596" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d5" cert="high">Volkmar</name> <citedRange n="d5" facs="277" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN830008934&amp;PHYSID=PHYS_0151">277</citedRange><region key="npreuß."/><date from="1596" to="1596" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="b144" cert="low">Dietz</name>, Wb. Luther <citedRange n="b144" facs="1,39" rend="export" target="https://archive.org/details/bub_gb_jLMrAAAAYAAJ/page/n132/mode/2up">1, 39</citedRange><region key="omd."/><date from="1500" to="1524" confidence="0.04"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d28" cert="high">Preuss. Wb.</name> (Z) <citedRange n="d28" facs="1,78">1, 78</citedRange><region key="preuß."/><date from="1320" to="1680" confidence="0.0028"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d29" cert="high">Schles. Wb.</name> <citedRange n="d29" facs="1,26">1, 26</citedRange><region key="schles."/><date from="1320" to="1680" confidence="0.0028"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d31" cert="high">Crecelius</name> <citedRange n="d31" facs="1,15" rend="export" target="https://archive.org/details/bub_gb_N5USAAAAIAAJ/page/n68">1, 15</citedRange><region key="hess."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 4 -->
+        <sense xml:id="achsel.s.1f_s4" level="1" rend="4">
+          <def xml:space="preserve"><dictScrap rend="def">›Achselstück an der Kleidung oder Rüstung‹</dictScrap>; Metonymie zu <ref type="mat" target="achsel.s.1f#achsel.s.1f_s3">3</ref>.</def>
+          <entry rend="ref">
+            <dictScrap rend="ref">Zum Rüstungsteil vgl. <bibl xml:space="preserve"><name n="d61" cert="high">Lex. d. Mal.</name> <citedRange n="d61" facs="1,78">1, 78</citedRange></bibl>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="achsel.s.1f_s4">
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="338" cert="high">Ziesemer</name>, Gr. Ämterb. <citedRange n="338" facs="122,12">122, 12</citedRange> (<region key="preuß.">preuß.</region>, <date from="1520" to="1520" confidence="1">1520</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">4 armzeugk, 2 <oRef norm="achsel" type="oVar.lem" rend="automatic" n="85">achsseln</oRef>, 4 knipokeln, 4 schinen. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="16" cert="low">Adrian</name>, Saelden Hort <citedRange n="16" facs="7001">7001</citedRange> (<region key="alem.">alem.</region>, <date from="1380" to="1399" confidence="0.05">E. 14.</date>/<date from="1400" to="1420" confidence="0.0476">A. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">da mit man daz edel klait<lb/>noch zieret [...]<lb/>die purpur [...]<lb/>uf die porten do genat<lb/>[...]<lb/>vornen um die ermel och<lb/>und <oRef norm="achsel" type="oVar.lem" rend="automatic" n="83">ahsel</oRef>.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="338" cert="high">Ziesemer</name>, a. a. O. <citedRange n="338" facs="123,12">123, 12</citedRange><region key="preuß."/><date from="1350" to="1499" confidence="0.0067"/>; <citedRange n="338" facs="359,25">359, 25</citedRange><region key="preuß."/><date from="1350" to="1499" confidence="0.0067"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d24" cert="high">Schwäb. Wb.</name> <citedRange n="d24" facs="1,90" rend="export" target="https://archive.org/details/schwbischeswrte00kellgoog/page/n73">1, 90</citedRange><region key="schwäb."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 5 -->
+        <sense xml:id="achsel.s.1f_s5" level="1" rend="5">
+          <def xml:space="preserve">im Anschluß an <ref type="mat" target="achsel.s.1f#achsel.s.1f_s1">1</ref> ütr. Verwendung für: </def>
+          <sense xml:id="achsel.s.1f_s5_a" rend="a" level="2">
+            <def xml:space="preserve">die Ast-, Zweig-, Blattansatzstelle;</def>
+          </sense>
+          <sense xml:id="achsel.s.1f_s5_b" rend="b" level="2">
+            <def xml:space="preserve">die spitzwinklig aufgesetzte Strebe, Stütze an Geräten.</def>
+          </sense>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="achsel.s.1f_s5">
+            <note rend="meta">a) </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="165" cert="high">Löffler</name>, Columella/Österreicher <citedRange n="165" facs="1,148,19" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/418837">1, 148, 19</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1491" to="1491" confidence="1">1491</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Ob du die steck [...] nimpst von den bomen, so nimps [...] von denen die alle jaͮr gůtt [...] frúcht tragen, und merck von den asslen woͤlhe syen gegen dem uffgang, das du die selbigen abgwinist. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve">b) <name n="359" cert="high">Luther.</name> Hl. Schrifft. <citedRange n="359" change="facs_expanded" facs="1.Kön.7,30" target="https://www.digitale-sammlungen.de/en/view/bsb11059048?q=%28Heilige+Schrifft+1545%29&amp;page=20,21">1. Kön. 7, 30</citedRange> (<region key="osächs.">Wittenb.</region> <date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">auff den vier ecken [des gestüles] waren <oRef norm="achsel" type="oVar.lem" rend="automatic" n="86">achseln</oRef> gegossen / ein jgliche gegen der andern vber / vnten an den Kessel gelehnet.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="359" cert="high">Ebd.</name> <citedRange n="359" change="facs_expanded" facs="1.Kön.7,34" target="https://www.digitale-sammlungen.de/en/view/bsb11059048?q=%28Heilige+Schrifft+1545%29&amp;page=20,21">1. Kön. 7, 34</citedRange><region key="osächs."/><date from="1545" to="1545" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="111" cert="low">Kurrelmeyer</name> Dt. Bibel <citedRange n="111" facs="5,270,1" rend="export" target="https://archive.org/details/dieerstedeutsch03kurrgoog/page/n279">5, 270, 1</citedRange><region key="els."/><date from="1466" to="1466" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> <citedRange n="d4" facs="83v" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA83-IA1#v=onepage&amp;q&amp;f=false">83v</citedRange><region key="halem."/><date from="1561" to="1561" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+achsel, die; -(e)n/-(e)n; wegen semantischer Berührung mit achse sehr vereinzelt ohne -l im Auslaut: achse. 1. ›Drehgelenk des Oberarmes, Schultergelenk‹. – Medizinische Fachtexte. – Bdv.: vgl. achselgleich. Cirurgia H. Brunschwig 16va, 5 (Straßb. [1497]): die do mit dem gantzen arm arbeitẽ sint noturftig der achselen bewegũg. Sudhoff, Paracelsus 7, 220, 4 (1529): ir wissen, das die gleich unleidlich sind in knüen, achseln, elenbogen. – Cirurgia H. Brunschwig, 15vb, 38; Sudhoff, a. a. O. 7, 225, 31; Rupprich, Dürer 2, 237, 8. 2. ›Achselhöhle‹; Metonymie zu 1; s. achselweh. – Wbg.: achselgestank, achselhar. Mylius C 3r (Görlitz 1577): Hircus Achselngestanck. Rauwolf. Raiß 31, 29 ([Lauingen] 1582): dann sie keine haar am leib / alß vnder den Achßlen / [...] wachßen lassen. Pfeiffer, K. v. Megenberg. B. d. Nat. 370, 32 (oobd., 1349/50): wenn man in [mirr] mischt mit ainem weizen ains ais und mit wein und salbt die ahseln dâ mit und niden die schämigen stat, daz benimt den stank paider seiten und under den üehsen und unden an dem leib. – Mylius B 7v; Golius 89; Henisch 10. 3. ›Schulterpartie (beim Menschen), oberer Teil des Rückens (bei Tieren)‹; Metonymie zu 1; s. achselhöhe, -kleid. – Phras.: Oft in bildlicher und redensartlicher Verwendung. – Bdv.: schulter 1. – Synt.: jm. die a. vom leib schlagen; a. stehen formiglich/ tragen arbeit; (jm./sich) etw. auf die a. legen / nemen / setzen, etw. auf der / den a. tragen, etw. auf die leichte a. nemen (ral. für: ›etw. auf die leichte Schulter nehmen‹), jn. über die a. ansehen (ral. für: ›jn. verächtlich ansehen‹), jn. an die a. küssen; der weihe a.; grosse a.; mit hangenden a.; auf der a. schrank; sattel auf der a. Wbg.: achselfleisch, achselspange. Fischer, Eunuchus d. Terenz 59, 1 (Ulm 1486): Es ist kain jungkfrau unser burgerin deren gleich. die ire muttern flyslich ziechen, mit hangenden achseln, mit geschmucktem leib das sie ran seien (hängende und daher schmal erscheinende Schultern als Schönheitsideal). Pfeiffer, K. v. Megenberg. B. d. Nat. 19, 9 (oobd., 1349/50): Der mensch hât grœzer achseln dann kain ander tier nâch seiner grœzen, daz ez dâ mit trag und hab sein pürd. Ebd. 179, 3: daz si [die gäuch] sitzen auf der weien ahseln, dar umb, daz si iht müed werden mit langem vliegen über verreu lant. Munz, Füetrer. Persibein 508, 6 (moobd., 1478/84): von achsel zu der gürtel ab schlúeg er den vaigen do zw zwayen stucken. ˹Bildl.: Jahr, H. v. Mügeln 1024 (omd., Hs. 1463): ouch stunt uf irer achsel schrank die sunne und der mande klar und luchten ir zu dinste dar. Rieder, St. Georg. Pred. 280, 24 (Hs. ˹önalem., 1387˺): bi den ahslen ist bezaichent die arbait, und also die ahslen die arbait tragent, also treit daz hertze gedultekait.˺ ˹Redensart: Luther, WA 32, 453, 21 (1532): zweyen ungleichen herrn zugleich dienen, Wie wol es die welt meisterlich kan, und heisst auff deudsch ‚Den baum auff beiden achseln tragen‘ und ‚kald und warm aus einem mund blasen‘. Barack, Zim. Chron. 2, 435, 6 (schwäb., M. 16. Jh.): Solchs gab graf Wilhalmen wenig zu schaffen, nams uf die leicht achsel und schluegs in wind. Henisch 10 (Augsb. 1616): Achsel [...] Ein ding nicht auff die hohen achslen nemen / das ist / im aller besten / oder freundtlich vnd guͤtigklich annemmen/ [...] Last dir auff die achsel sitzen / so sitzt man dir zu letzt gar auff den Kopff.˺ – Ziesemer, Proph. Cranc. Jes. 3, 19; Große, Schwabensp. 47a, 26; 136a, 8; Bömer, Pilgerf. träum. Mönch 310; Kurz, Waldis. Esopus 1, 93, 22; Feudel, Evangelistar 26, 14; 106, 34; Thiele, Luthers Sprichw. 136; Gilman, Agricola. Sprichw. 2, 82, 6; Rupprich, Dürer 2, 202, 358; Gille u. a., M. Beheim 25, 19; 91, 27; 268, 73; Gerhardt, Meister v. Prag 46, 3; 185, 22; Vetter, Pred. Taulers 131, 17; 140, 34; Schade, Sat. u. Pasqu. 3, 67, 31; Moscherosch. Ges. Phil. v. Sittew. 36, 28; Heydn. maister 33r, 21; Päpke, Marienl. Wernher 11567; Spiller, Füetrer. Bay. Chron. 104, 9; Brack a 5v; Dasypodius 287r; Schöpper 113b; Maaler 9v; 10r; 364r; Hulsius A jr; Volkmar 277; Dietz, Wb. Luther 1, 39; Preuss. Wb. (Z) 1, 78; Schles. Wb. 1, 26; Crecelius 1, 15. 4. ›Achselstück an der Kleidung oder Rüstung‹; Metonymie zu 3. – Zum Rüstungsteil vgl. Lex. d. Mal. 1, 78. Ziesemer, Gr. Ämterb. 122, 12 (preuß., 1520): 4 armzeugk, 2 achsseln, 4 knipokeln, 4 schinen. Adrian, Saelden Hort 7001 (alem., E. 14./A. 15. Jh.): da mit man daz edel klait | noch zieret [...] | die purpur [...] | uf die porten do genat | [...] | vornen um die ermel och | und ahsel. – Ziesemer, a. a. O. 123, 12; 359, 25; Schwäb. Wb. 1, 90. 5. im Anschluß an 1 ütr. Verwendung für: a) die Ast-, Zweig-, Blattansatzstelle; – b) die spitzwinklig aufgesetzte Strebe, Stütze an Geräten. a) Löffler, Columella/Österreicher 1, 148, 19 (schwäb., 1491): Ob du die steck [...] nimpst von den bomen, so nimps [...] von denen die alle jaͮr gůtt [...] frúcht tragen, und merck von den asslen woͤlhe syen gegen dem uffgang, das du die selbigen abgwinist. b) Luther. Hl. Schrifft. 1. Kön. 7, 30 (Wittenb. 1545): auff den vier ecken [des gestüles] waren achseln gegossen / ein jgliche gegen der andern vber / vnten an den Kessel gelehnet. – Ebd. 1. Kön. 7, 34; Kurrelmeyer Dt. Bibel 5, 270, 1; Maaler 83v.
+-->
+  <!--Texttest: Konvertiert
+achsel, die; -(e)n/-(e)n; wegen semantischer Berührung mit achse sehr vereinzelt ohne -l im Auslaut: achse. 1. ›Drehgelenk des Oberarmes, Schultergelenk‹. – Medizinische Fachtexte. – Bdv.: vgl. achselgleich. Cirurgia H. Brunschwig 16va, 5 (Straßb. [1497]) die do mit dem gantzen arm arbeitẽ sint noturftig der achselen bewegũg. Sudhoff, Paracelsus 7, 220, 4 (1529) ir wissen, das die gleich unleidlich sind in knüen, achseln, elenbogen. – Cirurgia H. Brunschwig, 15vb, 38; Sudhoff, a. a. O. 7, 225, 31; Rupprich, Dürer 2, 237, 8. 2. ›Achselhöhle‹; Metonymie zu 1; s. achselweh. – Wbg.: achselgestank, achselhar. Mylius C 3r (Görlitz 1577) Hircus Achselngestanck. Rauwolf. Raiß 31, 29 ([Lauingen] 1582) dann sie keine haar am leib / alß vnder den Achßlen / [...] wachßen lassen. Pfeiffer, K. v. Megenberg. B. d. Nat. 370, 32 (oobd., 1349/50) wenn man in [mirr] mischt mit ainem weizen ains ais und mit wein und salbt die ahseln dâ mit und niden die schämigen stat, daz benimt den stank paider seiten und under den üehsen und unden an dem leib. – Mylius B 7v; Golius 89; Henisch 10. 3. ›Schulterpartie (beim Menschen), oberer Teil des Rückens (bei Tieren)‹; Metonymie zu 1; s. achselhöhe, -kleid. – Phras.: Oft in bildlicher und redensartlicher Verwendung. – Bdv.: schulter 1. – Synt.: jm. die a. vom leib schlagen; a. stehen formiglich/ tragen arbeit; (jm./sich) etw. auf die a. legen / nemen / setzen, etw. auf der / den a. tragen, etw. auf die leichte a. nemen (ral. für: ›etw. auf die leichte Schulter nehmen‹), jn. über die a. ansehen (ral. für: ›jn. verächtlich ansehen‹), jn. an die a. küssen; der weihe a.; grosse a.; mit hangenden a.; auf der a. schrank; sattel auf der a. – Wbg.: achselfleisch, achselspange. Fischer, Eunuchus d. Terenz 59, 1 (Ulm 1486) Es ist kain jungkfrau unser burgerin deren gleich. die ire muttern flyslich ziechen, mit hangenden achseln, mit geschmucktem leib das sie ran seien (hängende und daher schmal erscheinende Schultern als Schönheitsideal). Pfeiffer, K. v. Megenberg. B. d. Nat. 19, 9 (oobd., 1349/50) Der mensch hât grœzer achseln dann kain ander tier nâch seiner grœzen, daz ez dâ mit trag und hab sein pürd. Ebd. 179, 3 daz si [die gäuch] sitzen auf der weien ahseln, dar umb, daz si iht müed werden mit langem vliegen über verreu lant. Munz, Füetrer. Persibein 508, 6 (moobd., 1478/84) von achsel zu der gürtel ab schlúeg er den vaigen do zw zwayen stucken. ˹Bildl.: Jahr, H. v. Mügeln 1024 (omd., Hs. 1463) ouch stunt uf irer achsel schrank die sunne und der mande klar und luchten ir zu dinste dar. Rieder, St. Georg. Pred. 280, 24 (Hs. ˹önalem., 1387˺) bi den ahslen ist bezaichent die arbait, und also die ahslen die arbait tragent, also treit daz hertze gedultekait.˺ ˹Redensart: Luther, WA 32, 453, 21 (1532) zweyen ungleichen herrn zugleich dienen, Wie wol es die welt meisterlich kan, und heisst auff deudsch ‚Den baum auff beiden achseln tragen‘ und ‚kald und warm aus einem mund blasen‘. Barack, Zim. Chron. 2, 435, 6 (schwäb., M. 16. Jh.) Solchs gab graf Wilhalmen wenig zu schaffen, nams uf die leicht achsel und schluegs in wind. Henisch 10 (Augsb. 1616) Achsel [...] Ein ding nicht auff die hohen achslen nemen / das ist / im aller besten / oder freundtlich vnd guͤtigklich annemmen/ [...] Last dir auff die achsel sitzen / so sitzt man dir zu letzt gar auff den Kopff.˺ – Ziesemer, Proph. Cranc. Jes. 3, 19; Große, Schwabensp. 47a, 26; 136a, 8; Bömer, Pilgerf. träum. Mönch 310; Kurz, Waldis. Esopus 1, 93, 22; Feudel, Evangelistar 26, 14; 106, 34; Thiele, Luthers Sprichw. 136; Gilman, Agricola. Sprichw. 2, 82, 6; Rupprich, Dürer 2, 202, 358; Gille u. a., M. Beheim 25, 19; 91, 27; 268, 73; Gerhardt, Meister v. Prag 46, 3; 185, 22; Vetter, Pred. Taulers 131, 17; 140, 34; Schade, Sat. u. Pasqu. 3, 67, 31; Moscherosch. Ges. Phil. v. Sittew. 36, 28; Heydn. maister 33r, 21; Päpke, Marienl. Wernher 11567; Spiller, Füetrer. Bay. Chron. 104, 9; Brack a 5v; Dasypodius 287r; Schöpper 113b; Maaler 9v; 10r; 364r; Hulsius A jr; Volkmar 277; Dietz, Wb. Luther 1, 39; Preuss. Wb. (Z) 1, 78; Schles. Wb. 1, 26; Crecelius 1, 15. 4. ›Achselstück an der Kleidung oder Rüstung‹; Metonymie zu 3. – Zum Rüstungsteil vgl. Lex. d. Mal. 1, 78. Ziesemer, Gr. Ämterb. 122, 12 (preuß., 1520) 4 armzeugk, 2 achsseln, 4 knipokeln, 4 schinen. Adrian, Saelden Hort 7001 (alem., E. 14./A. 15. Jh.) da mit man daz edel klait | noch zieret [...] | die purpur [...] | uf die porten do genat | [...] | vornen um die ermel och | und ahsel. – Ziesemer, a. a. O. 123, 12; 359, 25; Schwäb. Wb. 1, 90. 5. im Anschluß an 1 ütr. Verwendung für: a) die Ast-, Zweig-, Blattansatzstelle; b) die spitzwinklig aufgesetzte Strebe, Stütze an Geräten. a) Löffler, Columella/Österreicher 1, 148, 19 (schwäb., 1491) Ob du die steck [...] nimpst von den bomen, so nimps [...] von denen die alle jaͮr gůtt [...] frúcht tragen, und merck von den asslen woͤlhe syen gegen dem uffgang, das du die selbigen abgwinist. b) Luther. Hl. Schrifft. 1. Kön. 7, 30 (Wittenb. 1545) auff den vier ecken [des gestüles] waren achseln gegossen / ein jgliche gegen der andern vber / vnten an den Kessel gelehnet. – Ebd. 1. Kön. 7, 34; Kurrelmeyer Dt. Bibel 5, 270, 1; Maaler 83v.
+-->
+  <!--Interpunktionsloser Text:
+achseldie(e)n/(e)nwegensemantischerBerührungmitachsesehrvereinzeltohnelimAuslautachse1›DrehgelenkdesOberarmesSchultergelenk‹MedizinischeFachtexteBdvvglachselgleichCirurgiaHBrunschwig16va5(Straßb[1497])diedomitdemgantzenarmarbeitẽsintnoturftigderachselenbewegũgSudhoffParacelsus72204(1529)irwissendasdiegleichunleidlichsindinknüenachselnelenbogenCirurgiaHBrunschwig15vb38SudhoffaaO722531RupprichDürer223782›Achselhöhle‹Metonymiezu1sachselwehWbgachselgestankachselharMyliusC3r(Görlitz1577)HircusAchselngestanckRauwolfRaiß3129([Lauingen]1582)dannsiekeinehaaramleib/alßvnderdenAchßlen/[]wachßenlassenPfeifferKvMegenbergBdNat37032(oobd1349/50)wennmanin[mirr]mischtmitainemweizenainsaisundmitweinundsalbtdieahselndâmitundnidendieschämigenstatdazbenimtdenstankpaiderseitenundunderdenüehsenundundenandemleibMyliusB7vGolius89Henisch103›Schulterpartie(beimMenschen)obererTeildesRückens(beiTieren)‹Metonymiezu1sachselhöhekleidPhrasOftinbildlicherundredensartlicherVerwendungBdvschulter1Syntjmdieavomleibschlagenastehenformiglich/tragenarbeit(jm/sich)etwaufdiealegen/nemen/setzenetwaufder/denatragenetwaufdieleichteanemen(ralfür›etwaufdieleichteSchulternehmen‹)jnüberdieaansehen(ralfür›jnverächtlichansehen‹)jnandieaküssenderweiheagrosseamithangendenaaufderaschranksattelaufderaWbgachselfleischachselspangeFischerEunuchusdTerenz591(Ulm1486)Esistkainjungkfrauunserburgerinderengleichdieiremutternflyslichziechenmithangendenachselnmitgeschmucktemleibdassieranseien(hängendeunddaherschmalerscheinendeSchulternalsSchönheitsideal)PfeifferKvMegenbergBdNat199(oobd1349/50)DermenschhâtgrœzerachselndannkainandertiernâchseinergrœzendazezdâmittragundhabseinpürdEbd1793dazsi[diegäuch]sitzenaufderweienahselndarumbdazsiihtmüedwerdenmitlangemvliegenüberverreulantMunzFüetrerPersibein5086(moobd1478/84)vonachselzudergürtelabschlúegerdenvaigendozwzwayenstucken˹BildlJahrHvMügeln1024(omdHs1463)ouchstuntufirerachselschrankdiesunneunddermandeklarundluchtenirzudinstedarRiederStGeorgPred28024(Hs˹önalem1387˺)bidenahslenistbezaichentdiearbaitundalsodieahslendiearbaittragentalsotreitdazhertzegedultekait˺˹RedensartLutherWA3245321(1532)zweyenungleichenherrnzugleichdienenWiewolesdieweltmeisterlichkanundheisstauffdeudsch‚Denbaumauffbeidenachselntragen‘und‚kaldundwarmauseinemmundblasen‘BarackZimChron24356(schwäbM16Jh)SolchsgabgrafWilhalmenwenigzuschaffennamsufdieleichtachselundschluegsinwindHenisch10(Augsb1616)Achsel[]Eindingnichtauffdiehohenachslennemen/dasist/imallerbesten/oderfreundtlichvndguͤtigklichannemmen/[]Lastdirauffdieachselsitzen/sositztmandirzuletztgarauffdenKopff˺ZiesemerProphCrancJes319GroßeSchwabensp47a26136a8BömerPilgerfträumMönch310KurzWaldisEsopus19322FeudelEvangelistar261410634ThieleLuthersSprichw136GilmanAgricolaSprichw2826RupprichDürer2202358GilleuaMBeheim2519912726873GerhardtMeistervPrag46318522VetterPredTaulers1311714034SchadeSatuPasqu36731MoscheroschGesPhilvSittew3628Heydnmaister33r21PäpkeMarienlWernher11567SpillerFüetrerBayChron1049Bracka5vDasypodius287rSchöpper113bMaaler9v10r364rHulsiusAjrVolkmar277DietzWbLuther139PreussWb(Z)178SchlesWb126Crecelius1154›AchselstückanderKleidungoderRüstung‹Metonymiezu3ZumRüstungsteilvglLexdMal178ZiesemerGrÄmterb12212(preuß1520)4armzeugk2achsseln4knipokeln4schinenAdrianSaeldenHort7001(alemE14/A15Jh)damitmandazedelklait|nochzieret[]|diepurpur[]|ufdieportendogenat|[]|vornenumdieermeloch|undahselZiesemeraaO1231235925SchwäbWb1905imAnschlußan1ütrVerwendungfüra)dieAstZweigBlattansatzstelleb)diespitzwinkligaufgesetzteStrebeStützeanGerätena)LöfflerColumella/Österreicher114819(schwäb1491)Obdudiesteck[]nimpstvondenbomensonimps[]vondenendieallejaͮrgůtt[]frúchttragenundmerckvondenasslenwoͤlhesyengegendemuffgangdasdudieselbigenabgwinistb)LutherHlSchrifft1Kön730(Wittenb1545)auffdenvierecken[desgestüles]warenachselngegossen/einjglichegegenderandernvber/vntenandenKesselgelehnetEbd1Kön734KurrelmeyerDtBibel52701Maaler83v
+achseldie(e)n/(e)nwegensemantischerBerührungmitachsesehrvereinzeltohnelimAuslautachse1›DrehgelenkdesOberarmesSchultergelenk‹MedizinischeFachtexteBdvvglachselgleichCirurgiaHBrunschwig16va5(Straßb[1497])diedomitdemgantzenarmarbeitẽsintnoturftigderachselenbewegũgSudhoffParacelsus72204(1529)irwissendasdiegleichunleidlichsindinknüenachselnelenbogenCirurgiaHBrunschwig15vb38SudhoffaaO722531RupprichDürer223782›Achselhöhle‹Metonymiezu1sachselwehWbgachselgestankachselharMyliusC3r(Görlitz1577)HircusAchselngestanckRauwolfRaiß3129([Lauingen]1582)dannsiekeinehaaramleib/alßvnderdenAchßlen/[]wachßenlassenPfeifferKvMegenbergBdNat37032(oobd1349/50)wennmanin[mirr]mischtmitainemweizenainsaisundmitweinundsalbtdieahselndâmitundnidendieschämigenstatdazbenimtdenstankpaiderseitenundunderdenüehsenundundenandemleibMyliusB7vGolius89Henisch103›Schulterpartie(beimMenschen)obererTeildesRückens(beiTieren)‹Metonymiezu1sachselhöhekleidPhrasOftinbildlicherundredensartlicherVerwendungBdvschulter1Syntjmdieavomleibschlagenastehenformiglich/tragenarbeit(jm/sich)etwaufdiealegen/nemen/setzenetwaufder/denatragenetwaufdieleichteanemen(ralfür›etwaufdieleichteSchulternehmen‹)jnüberdieaansehen(ralfür›jnverächtlichansehen‹)jnandieaküssenderweiheagrosseamithangendenaaufderaschranksattelaufderaWbgachselfleischachselspangeFischerEunuchusdTerenz591(Ulm1486)Esistkainjungkfrauunserburgerinderengleichdieiremutternflyslichziechenmithangendenachselnmitgeschmucktemleibdassieranseien(hängendeunddaherschmalerscheinendeSchulternalsSchönheitsideal)PfeifferKvMegenbergBdNat199(oobd1349/50)DermenschhâtgrœzerachselndannkainandertiernâchseinergrœzendazezdâmittragundhabseinpürdEbd1793dazsi[diegäuch]sitzenaufderweienahselndarumbdazsiihtmüedwerdenmitlangemvliegenüberverreulantMunzFüetrerPersibein5086(moobd1478/84)vonachselzudergürtelabschlúegerdenvaigendozwzwayenstucken˹BildlJahrHvMügeln1024(omdHs1463)ouchstuntufirerachselschrankdiesunneunddermandeklarundluchtenirzudinstedarRiederStGeorgPred28024(Hs˹önalem1387˺)bidenahslenistbezaichentdiearbaitundalsodieahslendiearbaittragentalsotreitdazhertzegedultekait˺˹RedensartLutherWA3245321(1532)zweyenungleichenherrnzugleichdienenWiewolesdieweltmeisterlichkanundheisstauffdeudsch‚Denbaumauffbeidenachselntragen‘und‚kaldundwarmauseinemmundblasen‘BarackZimChron24356(schwäbM16Jh)SolchsgabgrafWilhalmenwenigzuschaffennamsufdieleichtachselundschluegsinwindHenisch10(Augsb1616)Achsel[]Eindingnichtauffdiehohenachslennemen/dasist/imallerbesten/oderfreundtlichvndguͤtigklichannemmen/[]Lastdirauffdieachselsitzen/sositztmandirzuletztgarauffdenKopff˺ZiesemerProphCrancJes319GroßeSchwabensp47a26136a8BömerPilgerfträumMönch310KurzWaldisEsopus19322FeudelEvangelistar261410634ThieleLuthersSprichw136GilmanAgricolaSprichw2826RupprichDürer2202358GilleuaMBeheim2519912726873GerhardtMeistervPrag46318522VetterPredTaulers1311714034SchadeSatuPasqu36731MoscheroschGesPhilvSittew3628Heydnmaister33r21PäpkeMarienlWernher11567SpillerFüetrerBayChron1049Bracka5vDasypodius287rSchöpper113bMaaler9v10r364rHulsiusAjrVolkmar277DietzWbLuther139PreussWb(Z)178SchlesWb126Crecelius1154›AchselstückanderKleidungoderRüstung‹Metonymiezu3ZumRüstungsteilvglLexdMal178ZiesemerGrÄmterb12212(preuß1520)4armzeugk2achsseln4knipokeln4schinenAdrianSaeldenHort7001(alemE14/A15Jh)damitmandazedelklait|nochzieret[]|diepurpur[]|ufdieportendogenat|[]|vornenumdieermeloch|undahselZiesemeraaO1231235925SchwäbWb1905imAnschlußan1ütrVerwendungfüra)dieAstZweigBlattansatzstelleb)diespitzwinkligaufgesetzteStrebeStützeanGerätena)LöfflerColumella/Österreicher114819(schwäb1491)Obdudiesteck[]nimpstvondenbomensonimps[]vondenendieallejaͮrgůtt[]frúchttragenundmerckvondenasslenwoͤlhesyengegendemuffgangdasdudieselbigenabgwinistb)LutherHlSchrifft1Kön730(Wittenb1545)auffdenvierecken[desgestüles]warenachselngegossen/einjglichegegenderandernvber/vntenandenKesselgelehnetEbd1Kön734KurrelmeyerDtBibel52701Maaler83v
+-->
+  <!--Original:
+<p2 uuid="0aea3604-a1f5-4cd8-9b7d-a50220dbad43"><b>achsel,</b> <i>die</i>; <i>-(e)n/-(e)n</i>; wegen semantischer Berührung mit <i verw="ja">achse</i> sehr vereinzelt ohne <i>-l</i> im Auslaut: <i>achse.</i></p2>
+<p2 uuid="78503f20-eae1-4244-8e4c-19da0a85e81c">1. ›Drehgelenk des Oberarmes, Schultergelenk‹. – Medizinische Fachtexte. – Bdv.: vgl. <i>achselgleich.</i></p2>
+<p><sc>Cirurgia H. Brunschwig</sc> 16va, 5 (Straßb. [1497]): <i>die do mit dem gantzen arm arbeitẽ sint noturftig der achselen bewegũg.</i> <sc>Sudhoff</sc>, Paracelsus 7, 220, 4 (1529): <i>ir wissen, das die gleich unleidlich sind in knüen, achseln, elenbogen.</i> – <sc>Cirurgia H. Brunschwig</sc>, 15vb, 38; <sc>Sudhoff</sc>, a. a. O. 7, 225, 31; <sc>Rupprich</sc>, Dürer 2, 237, 8.</p>
+<p2 uuid="ae0e20d7-a368-451f-9f86-45693f07c26b">2. ›Achselhöhle‹; Metonymie zu 1; s. <i>achselweh.</i> – Wbg.: <i>achselgestank, achselhar.</i></p2>
+<p><sc>Mylius</sc> C 3r (Görlitz 1577): <i>Hircus Achselngestanck</i>. <sc>Rauwolf</sc>. Raiß 31, 29 ([Lauingen] 1582): <i>dann sie keine haar am leib / alß vnder den Achßlen / [...] wachßen lassen.</i> <sc>Pfeiffer</sc>, K. v. Megenberg. B. d. Nat. 370, 32 (oobd., 1349/50): <i>wenn man in [mirr] mischt mit ainem weizen ains ais und mit wein und salbt die ahseln dâ mit und niden die schämigen stat, daz benimt den stank paider seiten und under den üehsen und unden an dem leib.</i> – <sc>Mylius</sc> B 7v; <sc>Golius</sc> 89; <sc>Henisch</sc> 10.</p>
+<p2 uuid="b686878d-3e00-4988-a01f-724a0c2d6d0b">3. ›Schulterpartie (beim Menschen), oberer Teil des Rückens (bei Tieren)‹; Metonymie zu 1; s. <i>achselhöhe, -kleid.</i> – Phras.: Oft in bildlicher und redensartlicher Verwendung. – Bdv.: <i>schulter</i> 1. – Synt.: <i>jm. die a. vom leib schlagen; a. stehen formiglich/ tragen arbeit; (jm./sich) etw. auf die a. legen / nemen / setzen, etw. auf der / den a. tragen, etw. auf die leichte a. nemen</i> (ral. für: ›etw. auf die leichte Schulter nehmen‹), <i>jn. über die a. ansehen</i> (ral. für: ›jn. verächtlich ansehen‹), <i>jn. an die a. küssen; der weihe a.; grosse a.; mit hangenden a.; auf der a. schrank; sattel auf der a</i>. Wbg.: <i>achselfleisch, achselspange.</i></p2>
+<p><sc>Fischer</sc>, Eunuchus d. Terenz 59, 1 (Ulm 1486): <i>Es ist kain jungkfrau unser burgerin deren gleich. die ire muttern flyslich ziechen, mit hangenden achseln, mit geschmucktem leib das sie ran seien</i> (hängende und daher schmal erscheinende Schultern als Schönheitsideal). <sc>Pfeiffer</sc>, K. v. Megenberg. B. d. Nat. 19, 9 (oobd., 1349/50): <i>Der mensch hât grœzer achseln dann kain ander tier nâch seiner grœzen, daz ez dâ mit trag und hab sein pürd.</i> <sc>Ebd</sc>. 179, 3: <i>daz si [die gäuch] sitzen auf der weien ahseln, dar umb, daz si iht müed werden mit langem vliegen über verreu lant.</i> <sc>Munz</sc>, Füetrer. Persibein 508, 6 (moobd., 1478/84): <i>von achsel zu der gürtel ab schlúeg er den vaigen do zw zwayen stucken.</i> ˹Bildl.: <sc>Jahr</sc>, H. v. Mügeln 1024 (omd., Hs. 1463): <i>ouch stunt uf irer achsel schrank die sunne und der mande klar und luchten ir zu dinste dar.</i> <sc>Rieder</sc>, St. Georg. Pred. 280, 24 (Hs. ˹önalem., 1387˺): <i>bi den ahslen ist bezaichent die arbait, und also die ahslen die arbait tragent, also treit daz hertze gedultekait.</i>˺ ˹Redensart: <sc>Luther</sc>, WA 32, 453, 21 (1532): <i>zweyen ungleichen herrn zugleich dienen, Wie wol es die welt meisterlich kan, und heisst auff deudsch ‚Den baum auff beiden achseln tragen‘ und ‚kald und warm aus einem mund blasen‘.</i> <sc>Barack</sc>, Zim. Chron. 2, 435, 6 (schwäb., M. 16. Jh.): <i>Solchs gab graf Wilhalmen wenig zu schaffen, nams uf die leicht achsel und schluegs in wind.</i> <sc>Henisch</sc> 10 (Augsb. 1616): <i>Achsel [...] Ein ding nicht auff die hohen achslen nemen / das ist / im aller besten / oder freundtlich vnd guͤtigklich annemmen/ [...] Last dir auff die achsel sitzen / so sitzt man dir zu letzt gar auff den Kopff.</i>˺ – <sc>Ziesemer</sc>, Proph. Cranc. Jes. 3, 19; <sc>Große</sc>, Schwabensp. 47a, 26; 136a, 8; <sc>Bömer</sc>, Pilgerf. träum. Mönch 310; <sc>Kurz</sc>, Waldis. Esopus 1, 93, 22; <sc>Feudel</sc>, Evangelistar 26, 14; 106, 34; <sc>Thiele</sc>, Luthers Sprichw. 136; <sc>Gilman</sc>, Agricola. Sprichw. 2, 82, 6; <sc>Rupprich</sc>, Dürer 2, 202, 358; <sc>Gille</sc> u. a., M. Beheim 25, 19; 91, 27; 268, 73; <sc>Gerhardt</sc>, Meister v. Prag 46, 3; 185, 22; <sc>Vetter</sc>, Pred. Taulers 131, 17; 140, 34; <sc>Schade</sc>, Sat. u. Pasqu. 3, 67, 31; <sc>Moscherosch</sc>. Ges. Phil. v. Sittew. 36, 28; <sc>Heydn. maister</sc> 33r, 21; <sc>Päpke</sc>, Marienl. Wernher 11567; <sc>Spiller</sc>, Füetrer. Bay. Chron. 104, 9; <sc>Brack</sc> a 5v; <sc>Dasypodius</sc> 287r; <sc>Schöpper</sc> 113b; <sc>Maaler</sc> 9v; 10r; 364r; <sc>Hulsius</sc> A jr; <sc>Volkmar</sc> 277; <sc>Dietz</sc>, Wb. Luther 1, 39; <sc>Preuss. Wb</sc>. (Z) 1, 78; <sc>Schles. Wb</sc>. 1, 26; <sc>Crecelius</sc> 1, 15.</p>
+<p2 uuid="f048105e-0215-4e2a-ae53-37cbeabd93af">4. ›Achselstück an der Kleidung oder Rüstung‹; Metonymie zu 3. – Zum Rüstungsteil vgl. <sc>Lex. d. Mal</sc>. 1, 78.</p2>
+<p><sc>Ziesemer</sc>, Gr. Ämterb. 122, 12 (preuß., 1520): <i>4 armzeugk, 2 achsseln, 4 knipokeln, 4 schinen.</i> <sc>Adrian</sc>, Saelden Hort 7001 (alem., E. 14./A. 15. Jh.): <i>da mit man daz edel klait | noch zieret [...] | die purpur [...] | uf die porten do genat | [...] | vornen um die ermel och | und ahsel.</i> – <sc>Ziesemer</sc>, a. a. O. 123, 12; 359, 25; <sc>Schwäb. Wb</sc>. 1, 90.</p>
+<p2 uuid="56085446-f22a-46d3-9318-d14706645404">5. im Anschluß an 1 ütr. Verwendung für: a) die Ast-, Zweig-, Blattansatzstelle; – b) die spitzwinklig aufgesetzte Strebe, Stütze an Geräten.</p2>
+<p>a) <sc>Löffler</sc>, Columella/Österreicher 1, 148, 19 (schwäb., 1491): <i>Ob du die steck [...] nimpst von den bomen, so nimps [...] von denen die alle jaͮr gůtt [...] frúcht tragen, und merck von den asslen woͤlhe syen gegen dem uffgang, das du die selbigen abgwinist.</i> b) <sc>Luther</sc>. Hl. Schrifft. 1. Kön. 7, 30 (Wittenb. 1545): <i>auff den vier ecken [des gestüles] waren achseln gegossen / ein jgliche gegen der andern vber / vnten an den Kessel gelehnet.</i> – <sc>Ebd</sc>. 1. Kön. 7, 34; <sc>Kurrelmeyer</sc> Dt. Bibel 5, 270, 1; <sc>Maaler</sc> 83v.</p>
+
+-->
+
+</TEI>

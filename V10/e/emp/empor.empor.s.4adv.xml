@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          empor
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="2021-11-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>65b7ec1d-1570-476b-986e-75b94ca7b42b</idno>
+          <biblScope unit="volume">05</biblScope>
+          <biblScope unit="column">2654</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="empor.s.4adv" sortKey="empor.empor.s.4adv">
+        <form type="lemma">
+          <orth>empor,</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve">
+
+<!-- Nebenlemma -->
+<re type="re.neblem" subtype="mat" copyOf="empor-.s.8w_9u">empor-, </re><gram xml:space="preserve" type="wortart">Adv.,</gram> überwiegend als verbales <gram xml:space="preserve" type="wortart">Präfix</gram> mit reihenbildendem Potential; <etym xml:space="preserve">zu <lang>mhd.</lang> <hi rendition="it">enbore</hi> <desc>›in der Höhe, in die Höhe‹</desc> (<bibl xml:space="preserve"><name n="d63" cert="high">Mwb</name> <citedRange n="d63" facs="1,1604">1, 1604</citedRange></bibl>; zur Etymologie s. <hi rendition="hoch">2</hi><hi rendition="it">bor</hi>, Adv.); </etym>Schreibvarianten z. B. <hi rendition="it">embor, enbor, entbor</hi>; in der Verbindung mit Vollverben kann teils auch adverbialer Gebrauch angenommen werden. – Die Bildungen mit <hi rendition="it">empor</hi> werden hier nur in Auswahl aufgelistet und einem reduzierten Beschreibungsprogramm unterworfen. Bei Voraussetzung (Beleghäufigkeit, Polysemie, semantische Differenz zum heutigen Deutsch) werden Vollartikel angesetzt.</dictScrap>
+        
+        <!-- Bedeutung 1 -->
+        <sense xml:id="empor.s.4adv_s1" level="1" rend="1">
+          <def xml:space="preserve"><dictScrap rend="def">›oben, in der Höhe‹</dictScrap>; bestimmt die Lage von jm. / etw. oberhalb eines Bezugspunktes.</def>
+          <entry rend="bdv">
+            <dictScrap rend="bdv"><ref type="nex" target="hoch.s.*">hoch</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="oben.s.4adv">oben</ref> (Adv.) <ref type="mat" target="oben.s.4adv#oben.s.4adv_s1">1</ref>; </dictScrap>
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="bdv"><hi rendition="hoch">3</hi><ref type="mat" target="auf.h3.7pr">auf</ref> <ref type="mat" target="auf.h3.7pr#auf.h3.7pr_s17">17</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="aufwert.s.4adv">aufwert</ref> <ref type="mat" target="aufwert.s.4adv#aufwert.s.4adv_s2">2</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="boben.s.4adv">boben</ref> <ref type="mat" target="boben.s.4adv#boben.s.4adv_s1">1</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="darob.s.4adv">darob</ref> <ref type="mat" target="darob.s.4adv#darob.s.4adv_s1">1</ref>.</dictScrap>
+          </entry>
+          <entry rend="wbg" rendition="list">
+            <note rend="meta">(in Auswahl): </note>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporgehen.s.3v_s1" expand="emporgehen.s.3v_s1·empor.s.4adv_s1">emporgehen</re> 1 ›sich über allem bewegen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporhalten.s.3v_s1" expand="emporhalten.s.3v_s1·empor.s.4adv_s1">emporhalten</re> 1 ›etw. oben halten, festhalten‹ (dazu phras.: <hi rendition="it">sich emporhalten</hi> ›sich aufrecht halten‹), </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporhängen.s.3v_s1" expand="emporhängen.s.3v_s1·empor.s.4adv_s1">emporhängen</re> 1 ›oben, in der Höhe hängen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporherschen.s.9ref" expand="emporherschen.s.9ref·empor.s.4adv_s1">emporherschen</re> ›die Oberhand haben‹ (a. 1484/1531), </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporschwimmen.s.3v_s1" expand="emporschwimmen.s.3v_s1·empor.s.4adv_s1">emporschwimmen</re> 1 ›sich auf einer Wasseroberfläche schwimmend bewegen‹.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="empor.s.4adv_s1">
+            <note rend="meta">Zu <hi rendition="it">empor</hi>: </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="49" cert="high">Strehlke</name>, Nic. Jerosch. Chron. <citedRange n="49" facs="22744" rend="export" target="https://archive.org/details/bub_gb_YX8OAAAAYAAJ/page/n579">22744</citedRange> (<region key="preuß.">preuß.</region>, <date from="1325" to="1335" confidence="0.0909">um 1330</date>/<date from="1335" to="1345" confidence="0.0909">40</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">[ein ertbibunge] gab sô harten stôz<lb/>[...] dem gebuide,<lb/>daz kuime sich dî luide,<lb/>dî <oRef norm="empor" type="oVar.lem" rend="automatic" n="75">impor</oRef> binnen<hi rendition="rect"> [›innerhalb‹] </hi>wârn,<lb/>mochtin vallis bewarn. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="486" cert="high">Wiessner</name>, Wittenw. Ring <citedRange n="486" facs="8270">8270</citedRange> (<region key="halem.">ohalem.</region>, <date from="1400" to="1400" confidence="1">1400</date>/<date from="1408" to="1408" confidence="1">08</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Du pists der panermaister so<lb/>Und hast ze schaffen anders nicht<lb/>Dann den sturmfan, so man vicht,<lb/>Tragen vestecleich hin an<lb/>Hoh <oRef norm="empor" type="oVar.lem" rend="automatic" n="82">embor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="461" cert="high">Schöpper</name> <citedRange n="461" facs="115b" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN671869167&amp;PHYSID=PHYS_0129&amp;DMDID=">115b</citedRange><region key="westf."/><date from="1550" to="1550" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d24" cert="high">Schwäb. Wb.</name> <citedRange n="d24" facs="2,706" rend="export" target="https://archive.org/details/bub_gb_P0o_AAAAMAAJ_2/page/n362">2, 706</citedRange> (auch mit Belegen zu Wortbildungen)<region key="schwäb."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporgehen</hi> 1: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="18,387,30" rend="export" target="https://archive.org/details/werkekritischege18luthuoft/page/387">18, 387, 30</citedRange> (<region key="omd."/><date from="1525" to="1525" confidence="1">1525</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Es must alles recht seyn, da war barmhertzickeyt geschwigen und nichts, Recht, Recht, Recht, das gallt und gieng <oRef norm="empor" type="oVar.lem" rend="automatic" n="91">empor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporhalten</hi> 1: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="66" cert="high">v. Tscharner</name>, Md. Marco Polo <citedRange n="66" facs="21,18">21, 18</citedRange> (<region key="osächs.">osächs.</region>, <date from="1350" to="1399" confidence="0.02">2. H. 14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">[das hus] wirt <oRef norm="empor" type="oVar.lem" rend="automatic" n="83">enpor</oRef> gehaldin von hulczinen sulin. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="213a" cert="low">Klein</name>, Oswald <citedRange n="213a" facs="5,39">5, 39</citedRange> (<region key="oobd.">oobd.</region>, <date from="1426" to="1426" confidence="1">1426</date>?)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Ach, jüngelingk,<lb/>[...]<lb/>[...] halt dich <oRef norm="empor" type="oVar.lem" rend="automatic" n="85">embor</oRef><lb/>mit gaistlichem gedöne!</quote>
+                <note rend="meta"> (Altersklage).</note>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporhängen</hi> 1: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="175" cert="high">Chron. Strassb.</name> <citedRange n="175" facs="534,18" rend="export" target="https://books.google.de/books?id=w0ABAAAAMAAJ&amp;hl=de&amp;pg=PA534#v=onepage&amp;q&amp;f=false">534, 18</citedRange> (<region key="els.">els.</region>, <date from="1400" to="1420" confidence="0.0476">A. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">das der selbe schrin hanget [...] <oRef norm="empor" type="oVar.lem" rend="automatic" n="64">einbor</oRef> one alle stüre.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporherschen</hi>: 
+
+      </note>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="d39" cert="high">Schweiz. Id.</name> <citedRange n="d39" facs="2,1636" rend="export" target="https://digital.idiotikon.ch/idtkn/id2.htm#!page/21635/mode/1up">2, 1636</citedRange><region key="alem."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporschwimmen</hi> 1: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="99" cert="low">Fuchs</name>, Murner. 4 Ketzer <citedRange n="99" facs="3168">3168</citedRange> (<add>˹wohl </add><region key="els.">Straßb.</region>˺ <date from="1509" to="1509" confidence="1">1509</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der suppen er do ware nam.<lb/>Das griene gifft schwam ob <oRef norm="empor" type="oVar.lem" rend="automatic" n="59">entbor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+            <!--  sub voce  -->
+            <dictScrap rend="sv">Vgl. ferner s. v. <ref type="mat" target="andreasabend.s.0m">andreasabend</ref>.</dictScrap>
+          </entry>
+        </sense>
+        
+        <!-- Bedeutung 2 -->
+        <sense xml:id="empor.s.4adv_s2" level="1" rend="2">
+          <def xml:space="preserve"><dictScrap rend="def">›nach oben; hinauf, in die Höhe‹</dictScrap>; bestimmt von einem Bezugspunkt aus die Richtung nach oben; in verschiedene Richtungen ütr.; im Einzelnen: <dictScrap rend="def">›zu oberst‹</dictScrap>; <dictScrap rend="def">›zum Vorschein, an die Oberfläche‹</dictScrap>; <dictScrap rend="def">›gerüstet‹</dictScrap>; <dictScrap rend="def">›aufrührig, in Empörung‹</dictScrap>; in adverbialer Funktion häufig verstärkend in Verbindung mit <hi rendition="it">hoch</hi> gebraucht; zu <hi rendition="hoch">3</hi><ref type="mat" target="bor.h3.4adv">bor</ref> <ref type="mat" target="bor.h3.4adv#bor.h3.4adv_s1">1</ref>.</def>
+          <entry rend="bdv">
+            <dictScrap rend="bdv"><hi rendition="hoch">3</hi><ref type="mat" target="auf.h3.7pr">auf</ref> <ref type="mat" target="auf.h3.7pr#auf.h3.7pr_s20">20</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="nex" target="hoch.s.*">hoch</ref>; </dictScrap>
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="bdv"><ref type="mat" target="aufhin.s.4adv">aufhin</ref> <ref type="mat" target="aufhin.s.4adv#aufhin.s.4adv_s1">1</ref>, </dictScrap>
+            <dictScrap rend="bdv"><ref type="mat" target="herauf.s.4adv">herauf</ref> <ref type="mat" target="herauf.s.4adv#herauf.s.4adv_s1">1</ref>.</dictScrap>
+          </entry>
+          <entry rend="ggs">
+            <note rend="meta">vgl. </note>
+            <dictScrap rend="ggs"><ref type="mat" rend="ggs" target="herab.s.4adv">herab</ref> <ref type="mat" rend="ggs" target="herab.s.4adv#herab.s.4adv_s1">1</ref>, </dictScrap>
+            <dictScrap rend="ggs"><ref type="mat" rend="ggs" target="herunter.s.4adv">herunter</ref> <ref type="mat" rend="ggs" target="herunter.s.4adv#herunter.s.4adv_s1">1</ref>.</dictScrap>
+          </entry>
+          <entry rend="wbg" rendition="list">
+            <note rend="meta">(in Auswahl): </note>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporfaren.s.3v_s1" expand="emporfaren.s.3v_s1·empor.s.4adv_s2">emporfaren</re> 1 ›sich plötzlich erheben, aufspringen, auffahren vor Erregung o. Ä.‹ (dazu bdv.: vgl. <re type="re.bdv" corresp="emporfaren.s.3v_s1"><ref type="mat" target="auffaren.s.3vu">auffaren</ref> <ref type="mat" target="auffaren.s.3vu#auffaren.s.3vu_s7">7</ref></re>); 2 ›zum Himmel auffahren‹ (dazu bdv.: vgl. <re type="re.bdv" corresp="emporfaren.s.3v_s1"><ref type="mat" target="auffaren.s.3vu">auffaren</ref> <ref type="mat" target="auffaren.s.3vu#auffaren.s.3vu_s4">4</ref></re>), </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporfliegen.s.3v" expand="emporfliegen.s.3v·empor.s.4adv_s2">emporfliegen</re> ›hoch auffliegen‹, </dictScrap>
+            <dictScrap rend="wbg">˹<re type="re.wbg" subtype="mat" copyOf="emporgehen.s.3v_s2" expand="emporgehen.s.3v_s2·empor.s.4adv_s2">emporgehen</re> 2, <re type="re.wbg" subtype="mat" copyOf="emporkommen.s.9ref" expand="emporkommen.s.9ref·empor.s.4adv_s2">emporkommen</re> (dazu bdv.: <re type="re.bdv" corresp="emporkommen.s.9ref"><ref type="mat" target="erzeigen.s.3v">erzeigen</ref>, V., <ref type="mat" target="erzeigen.s.3v#erzeigen.s.3v_s2">2</ref>, <ref type="mat" target="herfürkommen.s.3vu">herfürkommen</ref> <ref type="mat" target="herfürkommen.s.3vu#herfürkommen.s.3vu_s2">2</ref></re>)˺ ›nach oben gelangen‹; häufig ütr.: ›an den Tag kommen, offenbar werden; sich zeigen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporhalten.s.3v_s2" expand="emporhalten.s.3v_s2·empor.s.4adv_s2">emporhalten</re> 2 ›etw. in die Höhe heben‹ (dazu ggs.: <re type="re.ggs" corresp="emporhalten.s.3v_s2"><ref type="mat" rend="ggs" target="drücken.rI.3v">drücken</ref> I, <ref type="mat" rend="ggs" target="drücken.rI.3v#drücken.rI.3v_s6">6</ref></re>), </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporhängen.s.3v_s2" expand="emporhängen.s.3v_s2·empor.s.4adv_s2">emporhängen</re> 2 ›etw. nach oben hängen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporhelfen.s.9ref" expand="emporhelfen.s.9ref·empor.s.4adv_s2">emporhelfen</re> ›jm. hochhelfen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporrecken.s.9ref" expand="emporrecken.s.9ref·empor.s.4adv_s2">emporrecken</re> ›etw. aufrichten‹; hierzu speziell: ›die Ohren spitzen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporrichten.s.9ref" expand="emporrichten.s.9ref·empor.s.4adv_s2">emporrichten</re> ›etw. aufstellen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporrüren.s.9ref" expand="emporrüren.s.9ref·empor.s.4adv_s2">emporrüren</re> ›etw. nach oben rühren, an die Oberfläche bringen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporschwimmen.s.3v_s2" expand="emporschwimmen.s.3v_s2·empor.s.4adv_s2">emporschwimmen</re> 2 ›sich nach oben zur Wasseroberfläche bewegen‹; ütr.: ›nach außen dringen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporsetzen.s.9ref" expand="emporsetzen.s.9ref·empor.s.4adv_s2">emporsetzen</re> ›jn. / etw. auf einen erhöhten Gegenstand setzen, stellen, legen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emporspringen.s.9ref" expand="emporspringen.s.9ref·empor.s.4adv_s2">emporspringen</re> ›aufspringen, in die Höhe springen‹, </dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="emportreten.s.9ref" expand="emportreten.s.9ref·empor.s.4adv_s2">emportreten</re> ›auf eine Anhöhung steigen‹.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="empor.s.4adv_s2">
+            <note rend="meta">Zu <hi rendition="it">empor</hi>: </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="24" cert="high">Hübner</name>, Buch Daniel <citedRange n="24" facs="4866" rend="export" target="https://digital.ub.uni-duesseldorf.de/ihd/content/pageview/272112">4866</citedRange> (<region key="omd.">omd.</region><add>, Hs. </add><date from="1300" to="1399" confidence="0.01">14.</date>/<date from="1400" to="1420" confidence="0.0476">A. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Swie sie [keiser, kunge] Got doch hat <oRef norm="empor" type="oVar.lem" rend="automatic" n="86">enpor</oRef><lb/>Mit achperkeit irhaben. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="106" cert="high">Gille</name> u. a., M. Beheim <citedRange n="106" facs="99,490">99, 490</citedRange> (<region key="nobd.">nobd.</region>, <date from="1450" to="1499" confidence="0.02">2. H. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">der Trakol nam das selbig weib<lb/>und raiss ir gancz auff iren leib<lb/>von der scham pis <oRef norm="empor" type="oVar.lem" rend="automatic" n="79">enpore</oRef>. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="134" cert="high">Welti</name>, Stadtr. Bern <citedRange n="134" facs="145,2" rend="export" target="https://www.ssrq-sds-fds.ch/online/BE_I_1_und_2/index.html#p_145">145, 2</citedRange> (<region key="halem.">halem.</region>, <date from="1380" to="1399" confidence="0.05">E. 14.</date> / <date from="1400" to="1420" confidence="0.0476">A. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">waz die liden soͤllent, die in der statt mit kuglen oder mit steinen hoch vnd <oRef norm="empor" type="oVar.lem" rend="automatic" n="61">enbore</oRef> in gewette werfent. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="14" cert="high">Koppitz</name>, Trojanerkr. <citedRange n="14" facs="12487" rend="export" target="http://www.mhgta.uni-trier.de/frameset.php?ses_id=7cfc4fb0cf6c5d6bd3f80228c9d96726&amp;id=GTROJ&amp;pid=211">12487</citedRange> (<add>Hs. ˹</add><region key="önalem.">noschweiz.</region>, <date from="1400" to="1499" confidence="0.01">15. Jh.</date>˺)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Uff zuktte hoch enbor<lb/>Sin schwertt der fürste Hector. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="124" cert="high">Lemmer</name>, Brant. Narrensch. <citedRange n="124" facs="15,8">15, 8</citedRange> (<region key="halem.">Basel</region> <date from="1494" to="1494" confidence="1">1494</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der kunig Nabuchodonosor<lb/>Erhuͦb jn hochfart sich entbor. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="213a" cert="low">Klein</name>, Oswald <citedRange n="213a" facs="76,15">76, 15</citedRange> (<region key="oobd.">oobd.</region>, <date from="1398" to="1408" confidence="0.0909">vor 1408</date>?)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">mein häcklin klein hett ich ir vor<lb/><oRef norm="empor" type="oVar.lem" rend="automatic" n="85">embor</oRef> zu dienst gewetzet,<lb/>gehetzet, netzet</quote>
+                <note rend="meta"> (mit doppeldeutig sexuellem Bezug).</note>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="461" cert="high">Schöpper</name> <citedRange n="461" facs="115b" rend="export" target="https://digital.staatsbibliothek-berlin.de/werkansicht?PPN=PPN671869167&amp;PHYSID=PHYS_0129&amp;DMDID=">115b</citedRange><region key="westf."/><date from="1550" to="1550" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="880" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=456">880</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporfaren</hi> 1: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="24,41,28" rend="export" target="https://archive.org/details/werkekritischege24luthuoft/page/41">24, 41, 28</citedRange> (<region key="omd."/><date from="1527" to="1527" confidence="1">1527</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">das man bey den einfeltigen worten und verstand bleibe und nicht <oRef norm="empor" type="oVar.lem" rend="automatic" n="91">empor</oRef> fare und hoch speculire.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporfaren</hi> 2: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="28,133,25" rend="export" target="https://archive.org/details/werkekritischege28luthuoft/page/133">28, 133, 25</citedRange> (<region key="omd."/><date from="1528" to="1528" confidence="1">1528</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Es weret noch ein kleine zeit, das sie<hi rendition="rect"> [die Kinder und Diener des Teufels] </hi><oRef norm="empor" type="oVar.lem" rend="automatic" n="91">empor</oRef> faren und so fest sitzen, als kund sie niemand aus dem stul heben.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporfliegen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="3601" cert="high">Bolte</name>, Pauli. Schimpf u. Ernst <citedRange n="3601" facs="1,318,25" rend="export" target="https://archive.org/details/schimpfundernst01pauluoft/page/n357/mode/2up">1, 318, 25</citedRange> (<region key="els.">Straßb.</region> <date from="1522" to="1522" confidence="1">1522</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Da flog die Hostien, das heilig Sacrament entbar.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporgehen</hi> 2: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="319" cert="high">Adomatis</name> u. a., J. Murer. Abs. <citedRange n="319" facs="1709">1709</citedRange> (<region key="halem.">Zürich</region> <date from="1565" to="1565" confidence="1">1565</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Was nun yetz schantlichs gadt entbar<lb/>das kumpt von dir.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporhalten</hi> 2: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="359" cert="high">Luther.</name> Hl. Schrifft. <citedRange n="359" change="facs_expanded" facs="2.Mose 17,11" target="https://www.digitale-sammlungen.de/en/view/bsb11059048?q=%28Heilige+Schrifft+1545%29&amp;page=20,21">2. Mose 17, 11</citedRange> (<region key="osächs.">Wittenb.</region> <date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">die weil Mose seine hende <oRef norm="empor" type="oVar.lem" rend="automatic" n="89">empor</oRef> hielt / siegte Jsrael.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="881" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=457">881</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporhängen</hi> 2: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="51" cert="high">Drescher</name>, Hartlieb. Caes. <citedRange n="51" facs="311,13" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/content/pageview/287316">311, 13</citedRange> (<region key="moobd.">moobd.</region>, <date from="1456" to="1456" confidence="1">1456</date>/<date from="1467" to="1467" confidence="1">67</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">des nachtes hyeng er [Diettreich] sein pett <oRef norm="empor" type="oVar.lem" rend="automatic" n="73">enpar</oRef> an die tillen<hi rendition="rect"> [›Zimmerdecke‹] </hi>vor forcht.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporhelfen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="881" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=457">881</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1616" to="1616" confidence="1">1616</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Wem Gott <oRef norm="empor" type="oVar.lem" rend="automatic" n="89">empor</oRef> hilfft / der kompt <oRef norm="empor" type="oVar.lem" rend="automatic" n="89">empor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporkommen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> <citedRange n="d4" facs="101r" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA101#v=onepage&amp;q&amp;f=false">101r</citedRange> (<region key="halem.">Zürich</region> <date from="1561" to="1561" confidence="1">1561</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef norm="empor" type="oVar.lem" rend="automatic" n="82">Embor</oRef> oder fürhin kommen vnd sich erzeigen.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="359" cert="high">Luther.</name> Hl. Schrifft. <citedRange n="359" change="facs_expanded" facs="Sir.20,11" target="https://www.digitale-sammlungen.de/en/view/bsb11059049?q=%28Biblia%3A+Das+ist%3A+Die+gantze+Heilige+Schrifft%3A+Deudsch.%29&amp;page=824,825">Sir. 20, 11</citedRange><region key="osächs."/><date from="1545" to="1545" confidence="1"/>; </bibl>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="881" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=457">881</citedRange><region key="schwäb."/><date from="1616" to="1616" confidence="1"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporrecken</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="604" cert="high">Peil</name>, Rollenhagen. Froschm. <citedRange n="604" facs="550,1364">550, 1364</citedRange> (<region key="brandenb.">Magdeb.</region> <date from="1608" to="1608" confidence="1">1608</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">[der Hund] Reckte seine Ohren hoch <oRef norm="empor" type="oVar.lem" rend="automatic" n="76">empor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporrichten</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="343" cert="low">Froning</name>, Alsf. Passionssp. <citedRange n="343" facs="5654" rend="export" target="https://babel.hathitrust.org/cgi/pt?id=coo.31924082672787&amp;view=2up&amp;seq=107">5654</citedRange> (<region key="hess.">ohess.</region>, <date from="1501" to="1506" confidence="0.1667">1501ff.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">helffet richten das crucz mit em [Jhesu] entbor.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporrüren</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="604" cert="high">Peil</name>, Rollenhagen. Froschm. <citedRange n="604" facs="476,6677">476, 6677</citedRange> (<region key="brandenb.">Magdeb.</region> <date from="1608" to="1608" confidence="1">1608</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Ruͤrten sie allen dreck <oRef norm="empor" type="oVar.lem" rend="automatic" n="76">Empor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporschwimmen</hi> 2: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="492" cert="high">Henisch</name> <citedRange n="492" facs="881" rend="export" target="https://www.digitale-sammlungen.de/de/view/bsb10495873?page=457">881</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1616" to="1616" confidence="1">1616</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Wann der wein nider sitzt / so schwimmen die wort <oRef norm="empor" type="oVar.lem" rend="automatic" n="89">empor</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporsetzen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="54" cert="high">Haage</name>, Hesel. Arzneib. <citedRange n="54" facs="5r,4">5r, 4</citedRange> (<add>Hs. ˹</add><region key="noobd.">noobd.</region>/<region key="md.">md.</region>, <date from="1480" to="1499" confidence="0.05">E. 15. Jh.</date>˺)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">secz den hafen<hi rendition="rect"> [›Topf‹] </hi>enbor und mach dar umb ain fewͤr.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <cit>
+                <bibl xml:space="preserve"><name n="50" cert="high">Primisser</name>, Suchenwirt <citedRange n="50" facs="30,55" rend="export" target="https://archive.org/details/bub_gb_B5wFAQAAIAAJ/page/n158">30, 55</citedRange><region key="oobd."/><date from="1350" to="1399" confidence="0.02"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emporspringen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="30" cert="high">Fischer</name>, Brun v. Schoneb. <citedRange n="30" facs="9820" rend="export" target="https://commons.wikimedia.org/w/index.php?title=File:BLV_198_Brun_von_Schoenebeck_Das_Hohe_Lied.pdf&amp;page=355">9820</citedRange> (<region key="md.">md.</region><add>, Hs. </add><date from="1395" to="1405" confidence="0.0909">um 1400</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">[der tubel] sprang <oRef norm="empor" type="oVar.lem" rend="automatic" n="80">inpor</oRef> uf und sprach.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">emportreten</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="359" cert="high">Luther.</name> Hl. Schrifft. <citedRange n="359" change="facs_expanded" facs="2.Sam.15,24" target="https://www.digitale-sammlungen.de/en/view/bsb11059048?q=%28Heilige+Schrifft+1545%29&amp;page=20,21">2. Sam. 15, 24</citedRange> (<region key="osächs.">Wittenb.</region> <date from="1545" to="1545" confidence="1">1545</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">AbJathar trat <oRef norm="empor" type="oVar.lem" rend="automatic" n="89">empor</oRef> / bis das alles volck zur Stad aus kam.</quote>
+              </cit>
+            </dictScrap>
+            <!--  Belegstellen  -->
+            <dictScrap rend="bls">
+              <note rend="meta">Zu weiteren Wortbildungen: </note>
+              <cit>
+                <bibl xml:space="preserve"><name n="d24" cert="high">Schwäb. Wb.</name> <citedRange n="d24" facs="2,706" rend="export" target="https://archive.org/details/bub_gb_P0o_AAAAMAAJ_2/page/n362">2, 706</citedRange><region key="schwäb."/><date from="1320" to="1680" confidence="0.0028"/>.</bibl>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+empor, empor-, Adv., überwiegend als verbales Präfix mit reihenbildendem Potential; zu mhd. enbore ›in der Höhe, in die Höhe‹ (Mwb 1, 1604; zur Etymologie s. 2bor, Adv.); Schreibvarianten z. B. embor, enbor, entbor; in der Verbindung mit Vollverben kann teils auch adverbialer Gebrauch angenommen werden. – Die Bildungen mit empor werden hier nur in Auswahl aufgelistet und einem reduzierten Beschreibungsprogramm unterworfen. Bei Voraussetzung (Beleghäufigkeit, Polysemie, semantische Differenz zum heutigen Deutsch) werden Vollartikel angesetzt. 1. ›oben, in der Höhe‹; bestimmt die Lage von jm. / etw. oberhalb eines Bezugspunktes. – Bdv.: hoch, oben (Adv.) 1; vgl. 3auf 17, aufwert 2, boben 1, darob 1. – Wbg. (in Auswahl): emporgehen 1 ›sich über allem bewegen‹, emporhalten 1 ›etw. oben halten, festhalten‹ (dazu phras.: sich emporhalten ›sich aufrecht halten‹), emporhängen 1 ›oben, in der Höhe hängen‹, emporherschen ›die Oberhand haben‹ (a. 1484/1531), emporschwimmen 1 ›sich auf einer Wasseroberfläche schwimmend bewegen‹. Zu empor: Strehlke, Nic. Jerosch. Chron. 22744 (preuß., um 1330/40): [ein ertbibunge] gab sô harten stôz | [...] dem gebuide, | daz kuime sich dî luide, | dî impor binnen [›innerhalb‹] wârn, | mochtin vallis bewarn. Wiessner, Wittenw. Ring 8270 (ohalem., 1400/08): Du pists der panermaister so | Und hast ze schaffen anders nicht | Dann den sturmfan, so man vicht, | Tragen vestecleich hin an | Hoh embor. – Schöpper 115b; Schwäb. Wb. 2, 706 (auch mit Belegen zu Wortbildungen). – Zu emporgehen 1: Luther, WA 18, 387, 30 (1525): Es must alles recht seyn, da war barmhertzickeyt geschwigen und nichts, Recht, Recht, Recht, das gallt und gieng empor. – Zu emporhalten 1: v. Tscharner, Md. Marco Polo 21, 18 (osächs., 2. H. 14. Jh.): [das hus] wirt enpor gehaldin von hulczinen sulin. Klein, Oswald 5, 39 (oobd., 1426?): Ach, jüngelingk, | [...] | [...] halt dich embor | mit gaistlichem gedöne! (Altersklage). – Zu emporhängen 1: Chron. Strassb. 534, 18 (els., A. 15. Jh.): das der selbe schrin hanget [...] einbor one alle stüre. – Zu emporherschen: Schweiz. Id. 2, 1636. – Zu emporschwimmen 1: Fuchs, Murner. 4 Ketzer 3168 (˹wohl Straßb.˺ 1509): Der suppen er do ware nam. | Das griene gifft schwam ob entbor. – Vgl. ferner s. v. andreasabend. 2. ›nach oben; hinauf, in die Höhe‹; bestimmt von einem Bezugspunkt aus die Richtung nach oben; in verschiedene Richtungen ütr.; im Einzelnen: ›zu oberst‹; ›zum Vorschein, an die Oberfläche‹; ›gerüstet‹; ›aufrührig, in Empörung‹; in adverbialer Funktion häufig verstärkend in Verbindung mit hoch gebraucht; zu 3bor 1. – Bdv.: 3auf 20, hoch; vgl. aufhin 1, herauf 1. Ggs.: vgl. herab 1, herunter 1. – Wbg. (in Auswahl): emporfaren 1 ›sich plötzlich erheben, aufspringen, auffahren vor Erregung o. Ä.‹ (dazu bdv.: vgl. auffaren 7); 2 ›zum Himmel auffahren‹ (dazu bdv.: vgl. auffaren 4), emporfliegen ›hoch auffliegen‹, ˹emporgehen 2, emporkommen (dazu bdv.: erzeigen, V., 2, herfürkommen 2)˺ ›nach oben gelangen‹; häufig ütr.: ›an den Tag kommen, offenbar werden; sich zeigen‹, emporhalten 2 ›etw. in die Höhe heben‹ (dazu ggs.: drücken I, 6), emporhängen 2 ›etw. nach oben hängen‹, emporhelfen ›jm. hochhelfen‹, emporrecken ›etw. aufrichten‹; hierzu speziell: ›die Ohren spitzen‹, emporrichten ›etw. aufstellen‹, emporrüren ›etw. nach oben rühren, an die Oberfläche bringen‹, emporschwimmen 2 ›sich nach oben zur Wasseroberfläche bewegen‹; ütr.: ›nach außen dringen‹, emporsetzen ›jn. / etw. auf einen erhöhten Gegenstand setzen, stellen, legen‹, emporspringen ›aufspringen, in die Höhe springen‹, emportreten ›auf eine Anhöhung steigen‹. Zu empor: Hübner, Buch Daniel 4866 (omd., Hs. 14./A. 15. Jh.): Swie sie [keiser, kunge] Got doch hat enpor | Mit achperkeit irhaben. Gille u. a., M. Beheim 99, 490 (nobd., 2. H. 15. Jh.): der Trakol nam das selbig weib | und raiss ir gancz auff iren leib | von der scham pis enpore. Welti, Stadtr. Bern 145, 2 (halem., E. 14. / A. 15. Jh.): waz die liden soͤllent, die in der statt mit kuglen oder mit steinen hoch vnd enbore in gewette werfent. Koppitz, Trojanerkr. 12487 (Hs. ˹noschweiz., 15. Jh.˺): Uff zuktte hoch enbor | Sin schwertt der fürste Hector. Lemmer, Brant. Narrensch. 15, 8 (Basel 1494): Der kunig Nabuchodonosor | Erhuͦb jn hochfart sich entbor. Klein, Oswald 76, 15 (oobd., vor 1408?): mein häcklin klein hett ich ir vor | embor zu dienst gewetzet, | gehetzet, netzet (mit doppeldeutig sexuellem Bezug). – Schöpper 115b; Henisch 880. – Zu emporfaren 1: Luther, WA 24, 41, 28 (1527): das man bey den einfeltigen worten und verstand bleibe und nicht empor fare und hoch speculire. – Zu emporfaren 2: Luther, WA 28, 133, 25 (1528): Es weret noch ein kleine zeit, das sie [die Kinder und Diener des Teufels] empor faren und so fest sitzen, als kund sie niemand aus dem stul heben. – Zu emporfliegen: Bolte, Pauli. Schimpf u. Ernst 1, 318, 25 (Straßb. 1522): Da flog die Hostien, das heilig Sacrament entbar. – Zu emporgehen 2: Adomatis u. a., J. Murer. Abs. 1709 (Zürich 1565): Was nun yetz schantlichs gadt entbar | das kumpt von dir. – Zu emporhalten 2: Luther. Hl. Schrifft. 2. Mose 17, 11 (Wittenb. 1545): die weil Mose seine hende empor hielt / siegte Jsrael. – Henisch 881. – Zu emporhängen 2: Drescher, Hartlieb. Caes. 311, 13 (moobd., 1456/67): des nachtes hyeng er [Diettreich] sein pett enpar an die tillen [›Zimmerdecke‹] vor forcht. – Zu emporhelfen: Henisch 881 (Augsb. 1616): Wem Gott empor hilfft / der kompt empor. – Zu emporkommen: Maaler 101r (Zürich 1561): Embor oder fürhin kommen vnd sich erzeigen. – Luther. Hl. Schrifft. Sir. 20, 11; Henisch 881. – Zu emporrecken: Peil, Rollenhagen. Froschm. 550, 1364 (Magdeb. 1608): [der Hund] Reckte seine Ohren hoch empor. – Zu emporrichten: Froning, Alsf. Passionssp. 5654 (ohess., 1501ff.): helffet richten das crucz mit em [Jhesu] entbor. – Zu emporrüren: Peil, Rollenhagen. Froschm. 476, 6677 (Magdeb. 1608): Ruͤrten sie allen dreck Empor. – Zu emporschwimmen 2: Henisch 881 (Augsb. 1616): Wann der wein nider sitzt / so schwimmen die wort empor. – Zu emporsetzen: Haage, Hesel. Arzneib. 5r, 4 (Hs. ˹noobd./md., E. 15. Jh.˺): secz den hafen [›Topf‹] enbor und mach dar umb ain fewͤr. – Primisser, Suchenwirt 30, 55. – Zu emporspringen: Fischer, Brun v. Schoneb. 9820 (md., Hs. um 1400): [der tubel] sprang inpor uf und sprach. – Zu emportreten: Luther. Hl. Schrifft. 2. Sam. 15, 24 (Wittenb. 1545): AbJathar trat empor / bis das alles volck zur Stad aus kam. – Zu weiteren Wortbildungen: Schwäb. Wb. 2, 706.
+-->
+  <!--Texttest: Konvertiert
+empor, empor-, Adv., überwiegend als verbales Präfix mit reihenbildendem Potential; zu mhd. enbore ›in der Höhe, in die Höhe‹ (Mwb 1, 1604; zur Etymologie s. 2bor, Adv.); Schreibvarianten z. B. embor, enbor, entbor; in der Verbindung mit Vollverben kann teils auch adverbialer Gebrauch angenommen werden. – Die Bildungen mit empor werden hier nur in Auswahl aufgelistet und einem reduzierten Beschreibungsprogramm unterworfen. Bei Voraussetzung (Beleghäufigkeit, Polysemie, semantische Differenz zum heutigen Deutsch) werden Vollartikel angesetzt. 1. ›oben, in der Höhe‹; bestimmt die Lage von jm. / etw. oberhalb eines Bezugspunktes. – Bdv.: hoch, oben (Adv.) 1; vgl. 3auf 17, aufwert 2, boben 1, darob 1. – Wbg.: (in Auswahl): emporgehen 1 ›sich über allem bewegen‹, emporhalten 1 ›etw. oben halten, festhalten‹ (dazu phras.: sich emporhalten ›sich aufrecht halten‹), emporhängen 1 ›oben, in der Höhe hängen‹, emporherschen ›die Oberhand haben‹ (a. 1484/1531), emporschwimmen 1 ›sich auf einer Wasseroberfläche schwimmend bewegen‹. Zu empor: Strehlke, Nic. Jerosch. Chron. 22744 (preuß., um 1330/40) [ein ertbibunge] gab sô harten stôz | [...] dem gebuide, | daz kuime sich dî luide, | dî impor binnen [›innerhalb‹] wârn, | mochtin vallis bewarn. Wiessner, Wittenw. Ring 8270 (ohalem., 1400/08) Du pists der panermaister so | Und hast ze schaffen anders nicht | Dann den sturmfan, so man vicht, | Tragen vestecleich hin an | Hoh embor. – Schöpper 115b; Schwäb. Wb. 2, 706 (auch mit Belegen zu Wortbildungen). Zu emporgehen 1: Luther, WA 18, 387, 30 (1525) Es must alles recht seyn, da war barmhertzickeyt geschwigen und nichts, Recht, Recht, Recht, das gallt und gieng empor. Zu emporhalten 1: v. Tscharner, Md. Marco Polo 21, 18 (osächs., 2. H. 14. Jh.) [das hus] wirt enpor gehaldin von hulczinen sulin. Klein, Oswald 5, 39 (oobd., 1426?) Ach, jüngelingk, | [...] | [...] halt dich embor | mit gaistlichem gedöne! (Altersklage). Zu emporhängen 1: Chron. Strassb. 534, 18 (els., A. 15. Jh.) das der selbe schrin hanget [...] einbor one alle stüre. Zu emporherschen: – Schweiz. Id. 2, 1636. Zu emporschwimmen 1: Fuchs, Murner. 4 Ketzer 3168 (˹wohl Straßb.˺ 1509) Der suppen er do ware nam. | Das griene gifft schwam ob entbor. – Vgl. ferner s. v. andreasabend. 2. ›nach oben; hinauf, in die Höhe‹; bestimmt von einem Bezugspunkt aus die Richtung nach oben; in verschiedene Richtungen ütr.; im Einzelnen: ›zu oberst‹; ›zum Vorschein, an die Oberfläche‹; ›gerüstet‹; ›aufrührig, in Empörung‹; in adverbialer Funktion häufig verstärkend in Verbindung mit hoch gebraucht; zu 3bor 1. – Bdv.: 3auf 20, hoch; vgl. aufhin 1, herauf 1. – Ggs.: vgl. herab 1, herunter 1. – Wbg.: (in Auswahl): emporfaren 1 ›sich plötzlich erheben, aufspringen, auffahren vor Erregung o. Ä.‹ (dazu bdv.: vgl. auffaren 7); 2 ›zum Himmel auffahren‹ (dazu bdv.: vgl. auffaren 4), emporfliegen ›hoch auffliegen‹, ˹emporgehen 2, emporkommen (dazu bdv.: erzeigen, V., 2, herfürkommen 2)˺ ›nach oben gelangen‹; häufig ütr.: ›an den Tag kommen, offenbar werden; sich zeigen‹, emporhalten 2 ›etw. in die Höhe heben‹ (dazu ggs.: drücken I, 6), emporhängen 2 ›etw. nach oben hängen‹, emporhelfen ›jm. hochhelfen‹, emporrecken ›etw. aufrichten‹; hierzu speziell: ›die Ohren spitzen‹, emporrichten ›etw. aufstellen‹, emporrüren ›etw. nach oben rühren, an die Oberfläche bringen‹, emporschwimmen 2 ›sich nach oben zur Wasseroberfläche bewegen‹; ütr.: ›nach außen dringen‹, emporsetzen ›jn. / etw. auf einen erhöhten Gegenstand setzen, stellen, legen‹, emporspringen ›aufspringen, in die Höhe springen‹, emportreten ›auf eine Anhöhung steigen‹. Zu empor: Hübner, Buch Daniel 4866 (omd., Hs. 14./A. 15. Jh.) Swie sie [keiser, kunge] Got doch hat enpor | Mit achperkeit irhaben. Gille u. a., M. Beheim 99, 490 (nobd., 2. H. 15. Jh.) der Trakol nam das selbig weib | und raiss ir gancz auff iren leib | von der scham pis enpore. Welti, Stadtr. Bern 145, 2 (halem., E. 14. / A. 15. Jh.) waz die liden soͤllent, die in der statt mit kuglen oder mit steinen hoch vnd enbore in gewette werfent. Koppitz, Trojanerkr. 12487 (Hs. ˹noschweiz., 15. Jh.˺) Uff zuktte hoch enbor | Sin schwertt der fürste Hector. Lemmer, Brant. Narrensch. 15, 8 (Basel 1494) Der kunig Nabuchodonosor | Erhuͦb jn hochfart sich entbor. Klein, Oswald 76, 15 (oobd., vor 1408?) mein häcklin klein hett ich ir vor | embor zu dienst gewetzet, | gehetzet, netzet (mit doppeldeutig sexuellem Bezug). – Schöpper 115b; Henisch 880. Zu emporfaren 1: Luther, WA 24, 41, 28 (1527) das man bey den einfeltigen worten und verstand bleibe und nicht empor fare und hoch speculire. Zu emporfaren 2: Luther, WA 28, 133, 25 (1528) Es weret noch ein kleine zeit, das sie [die Kinder und Diener des Teufels] empor faren und so fest sitzen, als kund sie niemand aus dem stul heben. Zu emporfliegen: Bolte, Pauli. Schimpf u. Ernst 1, 318, 25 (Straßb. 1522) Da flog die Hostien, das heilig Sacrament entbar. Zu emporgehen 2: Adomatis u. a., J. Murer. Abs. 1709 (Zürich 1565) Was nun yetz schantlichs gadt entbar | das kumpt von dir. Zu emporhalten 2: Luther. Hl. Schrifft. 2. Mose 17, 11 (Wittenb. 1545) die weil Mose seine hende empor hielt / siegte Jsrael. – Henisch 881. Zu emporhängen 2: Drescher, Hartlieb. Caes. 311, 13 (moobd., 1456/67) des nachtes hyeng er [Diettreich] sein pett enpar an die tillen [›Zimmerdecke‹] vor forcht. Zu emporhelfen: Henisch 881 (Augsb. 1616) Wem Gott empor hilfft / der kompt empor. Zu emporkommen: Maaler 101r (Zürich 1561) Embor oder fürhin kommen vnd sich erzeigen. – Luther. Hl. Schrifft. Sir. 20, 11; Henisch 881. Zu emporrecken: Peil, Rollenhagen. Froschm. 550, 1364 (Magdeb. 1608) [der Hund] Reckte seine Ohren hoch empor. Zu emporrichten: Froning, Alsf. Passionssp. 5654 (ohess., 1501ff.) helffet richten das crucz mit em [Jhesu] entbor. Zu emporrüren: Peil, Rollenhagen. Froschm. 476, 6677 (Magdeb. 1608) Ruͤrten sie allen dreck Empor. Zu emporschwimmen 2: Henisch 881 (Augsb. 1616) Wann der wein nider sitzt / so schwimmen die wort empor. Zu emporsetzen: Haage, Hesel. Arzneib. 5r, 4 (Hs. ˹noobd./md., E. 15. Jh.˺) secz den hafen [›Topf‹] enbor und mach dar umb ain fewͤr. – Primisser, Suchenwirt 30, 55. Zu emporspringen: Fischer, Brun v. Schoneb. 9820 (md., Hs. um 1400) [der tubel] sprang inpor uf und sprach. Zu emportreten: Luther. Hl. Schrifft. 2. Sam. 15, 24 (Wittenb. 1545) AbJathar trat empor / bis das alles volck zur Stad aus kam. – Zu weiteren Wortbildungen: Schwäb. Wb. 2, 706.
+-->
+  <!--Interpunktionsloser Text:
+emporemporAdvüberwiegendalsverbalesPräfixmitreihenbildendemPotentialzumhdenbore›inderHöheindieHöhe‹(Mwb11604zurEtymologies2borAdv)SchreibvariantenzBemborenborentborinderVerbindungmitVollverbenkannteilsauchadverbialerGebrauchangenommenwerdenDieBildungenmitemporwerdenhiernurinAuswahlaufgelistetundeinemreduziertenBeschreibungsprogrammunterworfenBeiVoraussetzung(BeleghäufigkeitPolysemiesemantischeDifferenzzumheutigenDeutsch)werdenVollartikelangesetzt1›obeninderHöhe‹bestimmtdieLagevonjm/etwoberhalbeinesBezugspunktesBdvhochoben(Adv)1vgl3auf17aufwert2boben1darob1Wbg(inAuswahl)emporgehen1›sichüberallembewegen‹emporhalten1›etwobenhaltenfesthalten‹(dazuphrassichemporhalten›sichaufrechthalten‹)emporhängen1›obeninderHöhehängen‹emporherschen›dieOberhandhaben‹(a1484/1531)emporschwimmen1›sichaufeinerWasseroberflächeschwimmendbewegen‹ZuemporStrehlkeNicJeroschChron22744(preußum1330/40)[einertbibunge]gabsôhartenstôz|[]demgebuide|dazkuimesichdîluide|dîimporbinnen[›innerhalb‹]wârn|mochtinvallisbewarnWiessnerWittenwRing8270(ohalem1400/08)Dupistsderpanermaisterso|Undhastzeschaffenandersnicht|Danndensturmfansomanvicht|Tragenvestecleichhinan|HohemborSchöpper115bSchwäbWb2706(auchmitBelegenzuWortbildungen)Zuemporgehen1LutherWA1838730(1525)EsmustallesrechtseyndawarbarmhertzickeytgeschwigenundnichtsRechtRechtRechtdasgalltundgiengemporZuemporhalten1vTscharnerMdMarcoPolo2118(osächs2H14Jh)[dashus]wirtenporgehaldinvonhulczinensulinKleinOswald539(oobd1426)Achjüngelingk|[]|[]haltdichembor|mitgaistlichemgedöne(Altersklage)Zuemporhängen1ChronStrassb53418(elsA15Jh)dasderselbeschrinhanget[]einboroneallestüreZuemporherschenSchweizId21636Zuemporschwimmen1FuchsMurner4Ketzer3168(˹wohlStraßb˺1509)Dersuppenerdowarenam|DasgrienegifftschwamobentborVglfernersvandreasabend2›nachobenhinaufindieHöhe‹bestimmtvoneinemBezugspunktausdieRichtungnachobeninverschiedeneRichtungenütrimEinzelnen›zuoberst‹›zumVorscheinandieOberfläche‹›gerüstet‹›aufrühriginEmpörung‹inadverbialerFunktionhäufigverstärkendinVerbindungmithochgebrauchtzu3bor1Bdv3auf20hochvglaufhin1herauf1Ggsvglherab1herunter1Wbg(inAuswahl)emporfaren1›sichplötzlicherhebenaufspringenauffahrenvorErregungoÄ‹(dazubdvvglauffaren7)2›zumHimmelauffahren‹(dazubdvvglauffaren4)emporfliegen›hochauffliegen‹˹emporgehen2emporkommen(dazubdverzeigenV2herfürkommen2)˺›nachobengelangen‹häufigütr›andenTagkommenoffenbarwerdensichzeigen‹emporhalten2›etwindieHöheheben‹(dazuggsdrückenI6)emporhängen2›etwnachobenhängen‹emporhelfen›jmhochhelfen‹emporrecken›etwaufrichten‹hierzuspeziell›dieOhrenspitzen‹emporrichten›etwaufstellen‹emporrüren›etwnachobenrührenandieOberflächebringen‹emporschwimmen2›sichnachobenzurWasseroberflächebewegen‹ütr›nachaußendringen‹emporsetzen›jn/etwaufeinenerhöhtenGegenstandsetzenstellenlegen‹emporspringen›aufspringenindieHöhespringen‹emportreten›aufeineAnhöhungsteigen‹ZuemporHübnerBuchDaniel4866(omdHs14/A15Jh)Swiesie[keiserkunge]Gotdochhatenpor|MitachperkeitirhabenGilleuaMBeheim99490(nobd2H15Jh)derTrakolnamdasselbigweib|undraissirganczauffirenleib|vonderschampisenporeWeltiStadtrBern1452(halemE14/A15Jh)wazdielidensoͤllentdieinderstattmitkuglenodermitsteinenhochvndenboreingewettewerfentKoppitzTrojanerkr12487(Hs˹noschweiz15Jh˺)Uffzukttehochenbor|SinschwerttderfürsteHectorLemmerBrantNarrensch158(Basel1494)DerkunigNabuchodonosor|ErhuͦbjnhochfartsichentborKleinOswald7615(oobdvor1408)meinhäcklinkleinhettichirvor|emborzudienstgewetzet|gehetzetnetzet(mitdoppeldeutigsexuellemBezug)Schöpper115bHenisch880Zuemporfaren1LutherWA244128(1527)dasmanbeydeneinfeltigenwortenundverstandbleibeundnichtemporfareundhochspeculireZuemporfaren2LutherWA2813325(1528)Esweretnocheinkleinezeitdassie[dieKinderundDienerdesTeufels]emporfarenundsofestsitzenalskundsieniemandausdemstulhebenZuemporfliegenBoltePauliSchimpfuErnst131825(Straßb1522)DaflogdieHostiendasheiligSacramententbarZuemporgehen2AdomatisuaJMurerAbs1709(Zürich1565)Wasnunyetzschantlichsgadtentbar|daskumptvondirZuemporhalten2LutherHlSchrifft2Mose1711(Wittenb1545)dieweilMoseseinehendeemporhielt/siegteJsraelHenisch881Zuemporhängen2DrescherHartliebCaes31113(moobd1456/67)desnachteshyenger[Diettreich]seinpettenparandietillen[›Zimmerdecke‹]vorforchtZuemporhelfenHenisch881(Augsb1616)WemGottemporhilfft/derkomptemporZuemporkommenMaaler101r(Zürich1561)EmboroderfürhinkommenvndsicherzeigenLutherHlSchrifftSir2011Henisch881ZuemporreckenPeilRollenhagenFroschm5501364(Magdeb1608)[derHund]ReckteseineOhrenhochemporZuemporrichtenFroningAlsfPassionssp5654(ohess1501ff)helffetrichtendascruczmitem[Jhesu]entborZuemporrürenPeilRollenhagenFroschm4766677(Magdeb1608)RuͤrtensieallendreckEmporZuemporschwimmen2Henisch881(Augsb1616)Wannderweinnidersitzt/soschwimmendiewortemporZuemporsetzenHaageHeselArzneib5r4(Hs˹noobd/mdE15Jh˺)seczdenhafen[›Topf‹]enborundmachdarumbainfewͤrPrimisserSuchenwirt3055ZuemporspringenFischerBrunvSchoneb9820(mdHsum1400)[dertubel]spranginporufundsprachZuemportretenLutherHlSchrifft2Sam1524(Wittenb1545)AbJathartratempor/bisdasallesvolckzurStadauskamZuweiterenWortbildungenSchwäbWb2706
+emporemporAdvüberwiegendalsverbalesPräfixmitreihenbildendemPotentialzumhdenbore›inderHöheindieHöhe‹(Mwb11604zurEtymologies2borAdv)SchreibvariantenzBemborenborentborinderVerbindungmitVollverbenkannteilsauchadverbialerGebrauchangenommenwerdenDieBildungenmitemporwerdenhiernurinAuswahlaufgelistetundeinemreduziertenBeschreibungsprogrammunterworfenBeiVoraussetzung(BeleghäufigkeitPolysemiesemantischeDifferenzzumheutigenDeutsch)werdenVollartikelangesetzt1›obeninderHöhe‹bestimmtdieLagevonjm/etwoberhalbeinesBezugspunktesBdvhochoben(Adv)1vgl3auf17aufwert2boben1darob1Wbg(inAuswahl)emporgehen1›sichüberallembewegen‹emporhalten1›etwobenhaltenfesthalten‹(dazuphrassichemporhalten›sichaufrechthalten‹)emporhängen1›obeninderHöhehängen‹emporherschen›dieOberhandhaben‹(a1484/1531)emporschwimmen1›sichaufeinerWasseroberflächeschwimmendbewegen‹ZuemporStrehlkeNicJeroschChron22744(preußum1330/40)[einertbibunge]gabsôhartenstôz|[]demgebuide|dazkuimesichdîluide|dîimporbinnen[›innerhalb‹]wârn|mochtinvallisbewarnWiessnerWittenwRing8270(ohalem1400/08)Dupistsderpanermaisterso|Undhastzeschaffenandersnicht|Danndensturmfansomanvicht|Tragenvestecleichhinan|HohemborSchöpper115bSchwäbWb2706(auchmitBelegenzuWortbildungen)Zuemporgehen1LutherWA1838730(1525)EsmustallesrechtseyndawarbarmhertzickeytgeschwigenundnichtsRechtRechtRechtdasgalltundgiengemporZuemporhalten1vTscharnerMdMarcoPolo2118(osächs2H14Jh)[dashus]wirtenporgehaldinvonhulczinensulinKleinOswald539(oobd1426)Achjüngelingk|[]|[]haltdichembor|mitgaistlichemgedöne(Altersklage)Zuemporhängen1ChronStrassb53418(elsA15Jh)dasderselbeschrinhanget[]einboroneallestüreZuemporherschenSchweizId21636Zuemporschwimmen1FuchsMurner4Ketzer3168(˹wohlStraßb˺1509)Dersuppenerdowarenam|DasgrienegifftschwamobentborVglfernersvandreasabend2›nachobenhinaufindieHöhe‹bestimmtvoneinemBezugspunktausdieRichtungnachobeninverschiedeneRichtungenütrimEinzelnen›zuoberst‹›zumVorscheinandieOberfläche‹›gerüstet‹›aufrühriginEmpörung‹inadverbialerFunktionhäufigverstärkendinVerbindungmithochgebrauchtzu3bor1Bdv3auf20hochvglaufhin1herauf1Ggsvglherab1herunter1Wbg(inAuswahl)emporfaren1›sichplötzlicherhebenaufspringenauffahrenvorErregungoÄ‹(dazubdvvglauffaren7)2›zumHimmelauffahren‹(dazubdvvglauffaren4)emporfliegen›hochauffliegen‹˹emporgehen2emporkommen(dazubdverzeigenV2herfürkommen2)˺›nachobengelangen‹häufigütr›andenTagkommenoffenbarwerdensichzeigen‹emporhalten2›etwindieHöheheben‹(dazuggsdrückenI6)emporhängen2›etwnachobenhängen‹emporhelfen›jmhochhelfen‹emporrecken›etwaufrichten‹hierzuspeziell›dieOhrenspitzen‹emporrichten›etwaufstellen‹emporrüren›etwnachobenrührenandieOberflächebringen‹emporschwimmen2›sichnachobenzurWasseroberflächebewegen‹ütr›nachaußendringen‹emporsetzen›jn/etwaufeinenerhöhtenGegenstandsetzenstellenlegen‹emporspringen›aufspringenindieHöhespringen‹emportreten›aufeineAnhöhungsteigen‹ZuemporHübnerBuchDaniel4866(omdHs14/A15Jh)Swiesie[keiserkunge]Gotdochhatenpor|MitachperkeitirhabenGilleuaMBeheim99490(nobd2H15Jh)derTrakolnamdasselbigweib|undraissirganczauffirenleib|vonderschampisenporeWeltiStadtrBern1452(halemE14/A15Jh)wazdielidensoͤllentdieinderstattmitkuglenodermitsteinenhochvndenboreingewettewerfentKoppitzTrojanerkr12487(Hs˹noschweiz15Jh˺)Uffzukttehochenbor|SinschwerttderfürsteHectorLemmerBrantNarrensch158(Basel1494)DerkunigNabuchodonosor|ErhuͦbjnhochfartsichentborKleinOswald7615(oobdvor1408)meinhäcklinkleinhettichirvor|emborzudienstgewetzet|gehetzetnetzet(mitdoppeldeutigsexuellemBezug)Schöpper115bHenisch880Zuemporfaren1LutherWA244128(1527)dasmanbeydeneinfeltigenwortenundverstandbleibeundnichtemporfareundhochspeculireZuemporfaren2LutherWA2813325(1528)Esweretnocheinkleinezeitdassie[dieKinderundDienerdesTeufels]emporfarenundsofestsitzenalskundsieniemandausdemstulhebenZuemporfliegenBoltePauliSchimpfuErnst131825(Straßb1522)DaflogdieHostiendasheiligSacramententbarZuemporgehen2AdomatisuaJMurerAbs1709(Zürich1565)Wasnunyetzschantlichsgadtentbar|daskumptvondirZuemporhalten2LutherHlSchrifft2Mose1711(Wittenb1545)dieweilMoseseinehendeemporhielt/siegteJsraelHenisch881Zuemporhängen2DrescherHartliebCaes31113(moobd1456/67)desnachteshyenger[Diettreich]seinpettenparandietillen[›Zimmerdecke‹]vorforchtZuemporhelfenHenisch881(Augsb1616)WemGottemporhilfft/derkomptemporZuemporkommenMaaler101r(Zürich1561)EmboroderfürhinkommenvndsicherzeigenLutherHlSchrifftSir2011Henisch881ZuemporreckenPeilRollenhagenFroschm5501364(Magdeb1608)[derHund]ReckteseineOhrenhochemporZuemporrichtenFroningAlsfPassionssp5654(ohess1501ff)helffetrichtendascruczmitem[Jhesu]entborZuemporrürenPeilRollenhagenFroschm4766677(Magdeb1608)RuͤrtensieallendreckEmporZuemporschwimmen2Henisch881(Augsb1616)Wannderweinnidersitzt/soschwimmendiewortemporZuemporsetzenHaageHeselArzneib5r4(Hs˹noobd/mdE15Jh˺)seczdenhafen[›Topf‹]enborundmachdarumbainfewͤrPrimisserSuchenwirt3055ZuemporspringenFischerBrunvSchoneb9820(mdHsum1400)[dertubel]spranginporufundsprachZuemportretenLutherHlSchrifft2Sam1524(Wittenb1545)AbJathartratempor/bisdasallesvolckzurStadauskamZuweiterenWortbildungenSchwäbWb2706
+-->
+  <!--Original:
+<p2 uuid="65b7ec1d-1570-476b-986e-75b94ca7b42b"><b>empor, empor-,</b> Adv., überwiegend als verbales Präfix mit reihenbildendem Potential; zu mhd. <i>enbore</i> ›in der Höhe, in die Höhe‹ (<sc>Mwb</sc> 1, 1604; zur Etymologie s. <sup>2</sup><i verw="ja">bor</i>, Adv.); Schreibvarianten z. B. <i>embor, enbor, entbor</i> ; in der Verbindung mit Vollverben kann teils auch adverbialer Gebrauch angenommen werden. – Die Bildungen mit <i>empor</i> werden hier nur in Auswahl aufgelistet und einem reduzierten Beschreibungsprogramm unterworfen. Bei Voraussetzung (Beleghäufigkeit, Polysemie, semantische Differenz zum heutigen Deutsch) werden Vollartikel angesetzt.</p2>
+<p2 uuid="31d878dc-2223-476d-8b51-84ffebafe47d">1. ›oben, in der Höhe‹ ; bestimmt die Lage von jm. / etw. oberhalb eines Bezugspunktes. – Bdv.: <i>hoch, oben</i> (Adv.) 1; vgl. <sup>3</sup><i>auf</i> 17, <i>aufwert</i> 2, <i>boben</i> 1, <i>darob</i> 1. – Wbg. (in Auswahl): <i>emporgehen</i> 1 ›sich über allem bewegen‹, <i>emporhalten</i> 1 ›etw. oben halten, festhalten‹ (dazu phras.: <i>sich emporhalten</i> ›sich aufrecht halten‹), <i>emporhängen</i> 1 ›oben, in der Höhe hängen‹, <i>emporherschen</i> ›die Oberhand haben‹ (a. 1484/1531), <i>emporschwimmen</i> 1 ›sich auf einer Wasseroberfläche schwimmend bewegen‹.</p2>
+<p>Zu <i>empor</i> : <sc>Strehlke</sc>, Nic. Jerosch. Chron. 22744 (preuß., um 1330/40): <i>[ein ertbibunge] gab sô harten stôz | [...] dem gebuide, | daz kuime sich dî luide, | dî impor binnen</i> [›innerhalb‹] <i>wârn, | mochtin vallis bewarn</i>. <sc>Wiessner</sc>, Wittenw. Ring 8270 (ohalem., 1400/08): <i>Du pists der panermaister so | Und hast ze schaffen anders nicht | Dann den sturmfan, so man vicht, | Tragen vestecleich hin an | Hoh embor</i>. – <sc>Schöpper</sc> 115b; <sc>Schwäb. Wb</sc>. 2, 706 (auch mit Belegen zu Wortbildungen). – Zu <i>emporgehen</i> 1: <sc>Luther</sc>, WA 18, 387, 30 (1525): <i>Es must alles recht seyn, da war barmhertzickeyt geschwigen und nichts, Recht, Recht, Recht, das gallt und gieng empor</i>. – Zu <i>emporhalten</i> 1: <sc>v. Tscharner</sc>, Md. Marco Polo 21, 18 (osächs., 2. H. 14. Jh.): <i>[das hus] wirt enpor gehaldin von hulczinen sulin</i>. <sc>Klein</sc>, Oswald 5, 39 (oobd., 1426 ?): <i>Ach, jüngelingk, | [...] | [...] halt dich embor | mit gaistlichem gedöne !</i> (Altersklage). – Zu <i>emporhängen</i> 1: <sc>Chron. Strassb</sc>. 534, 18 (els., A. 15. Jh.): <i>das der selbe schrin hanget [...] einbor one alle stüre</i>. – Zu <i>emporherschen</i> : <sc>Schweiz. Id</sc>. 2, 1636. – Zu <i>emporschwimmen</i> 1: <sc>Fuchs</sc>, Murner. 4 Ketzer 3168 ( ˹wohl Straßb.˺ 1509): <i>Der suppen er do ware nam. | Das griene gifft schwam ob entbor</i>. – Vgl. ferner s. v. <i>andreasabend</i>.</p>
+<p2 uuid="0e2b195e-c374-44dc-a724-cacd6eacd3ff">2. ›nach oben; hinauf, in die Höhe‹ ; bestimmt von einem Bezugspunkt aus die Richtung nach oben; in verschiedene Richtungen ütr.; im Einzelnen: ›zu oberst‹ ; ›zum Vorschein, an die Oberfläche‹ ; ›gerüstet‹ ; ›aufrührig, in Empörung‹ ; in adverbialer Funktion häufig verstärkend in Verbindung mit <i>hoch</i> gebraucht; zu <sup>3</sup><i>bor</i> 1. – Bdv.: <sup>3</sup><i>auf</i> 20, <i>hoch</i> ; vgl. <i>aufhin</i> 1, <i>herauf</i> 1. Ggs.: vgl. <i>herab</i> 1, <i>herunter</i> 1. – Wbg. (in Auswahl): <i>emporfaren</i> 1 ›sich plötzlich erheben, aufspringen, auffahren vor Erregung o. Ä.‹ (dazu bdv.: vgl. <i>auffaren</i> 7); 2 ›zum Himmel auffahren‹ (dazu bdv.: vgl. <i>auffaren</i> 4), <i>emporfliegen</i> ›hoch auffliegen‹, ˹<i>emporgehen</i> 2, <i>emporkommen</i> (dazu bdv.: <i>erzeigen</i>, V., 2, <i>herfürkommen</i> 2)˺ ›nach oben gelangen‹ ; häufig ütr.: ›an den Tag kommen, offenbar werden; sich zeigen‹, <i>emporhalten</i> 2 ›etw. in die Höhe heben‹ (dazu ggs.: <i>drücken</i> I, 6), <i>emporhängen</i> 2 ›etw. nach oben hängen‹, <i>emporhelfen</i> ›jm. hochhelfen‹, <i>emporrecken</i> ›etw. aufrichten‹ ; hierzu speziell: ›die Ohren spitzen‹, <i>emporrichten</i> ›etw. aufstellen‹, <i>emporrüren</i> ›etw. nach oben rühren, an die Oberfläche bringen‹, <i>emporschwimmen</i> 2 ›sich nach oben zur Wasseroberfläche bewegen‹ ; ütr.: ›nach außen dringen‹, <i>emporsetzen</i> ›jn. / etw. auf einen erhöhten Gegenstand setzen, stellen, legen‹, <i>emporspringen</i> ›aufspringen, in die Höhe springen‹, <i>emportreten</i> ›auf eine Anhöhung steigen‹.</p2>
+<p>Zu <i>empor</i> : <sc>Hübner</sc>, Buch Daniel 4866 (omd., Hs. 14./A. 15. Jh.): <i>Swie sie [keiser, kunge] Got doch hat enpor | Mit achperkeit irhaben</i>. <sc>Gille</sc> u. a., M. Beheim 99, 490 (nobd., 2. H. 15. Jh.): <i>der Trakol nam das selbig weib | und raiss ir gancz auff iren leib | von der scham pis enpore</i>. <sc>Welti</sc>, Stadtr. Bern 145, 2 (halem., E. 14. / A. 15. Jh.): <i>waz die liden soͤllent, die in der statt mit kuglen oder mit steinen hoch vnd enbore in gewette werfent</i>. <sc>Koppitz</sc>, Trojanerkr. 12487 (Hs. ˹noschweiz., 15. Jh.˺ ): <i>Uff zuktte hoch enbor | Sin schwertt der fürste Hector</i>. <sc>Lemmer</sc>, Brant. Narrensch. 15, 8 (Basel 1494): <i>Der kunig Nabuchodonosor | Erhuͦb jn hochfart sich entbor</i>. <sc>Klein</sc>, Oswald 76, 15 (oobd., vor 1408 ?): <i>mein häcklin klein hett ich ir vor | embor zu dienst gewetzet, | gehetzet, netzet</i> (mit doppeldeutig sexuellem Bezug). – <sc>Schöpper</sc> 115b; <sc>Henisch</sc> 880. – Zu <i>emporfaren</i> 1: <sc>Luther</sc>, WA 24, 41, 28 (1527): <i>das man bey den einfeltigen worten und verstand bleibe und nicht empor fare und hoch speculire</i>. – Zu <i>emporfaren</i> 2: <sc>Luther</sc>, WA 28, 133, 25 (1528): <i>Es weret noch ein kleine zeit, das sie</i> [die Kinder und Diener des Teufels] <i>empor faren und so fest sitzen, als kund sie niemand aus dem stul heben</i>. – Zu <i>emporfliegen</i> : <sc>Bolte</sc>, Pauli. Schimpf u. Ernst 1, 318, 25 (Straßb. 1522): <i>Da flog die Hostien, das heilig Sacrament entbar</i>. – Zu <i>emporgehen</i> 2: <sc>Adomatis</sc> u. a., J. Murer. Abs. 1709 (Zürich 1565): <i>Was nun yetz schantlichs gadt entbar | das kumpt von dir</i>. – Zu <i>emporhalten</i> 2: <sc>Luther</sc>. Hl. Schrifft. 2. Mose 17, 11 (Wittenb. 1545): <i>die weil Mose seine hende empor hielt / siegte Jsrael</i>. – <sc>Henisch</sc> 881. – Zu <i>emporhängen</i> 2: <sc>Drescher</sc>, Hartlieb. Caes. 311, 13 (moobd., 1456/67): <i>des nachtes hyeng er [Diettreich] sein pett enpar an die tillen</i> [›Zimmerdecke‹] <i>vor forcht</i>. – Zu <i>emporhelfen</i> : <sc>Henisch</sc> 881 (Augsb. 1616): <i>Wem Gott empor hilfft / der kompt empor</i>. – Zu <i>emporkommen</i> : <sc>Maaler</sc> 101r (Zürich 1561): <i>Embor oder fürhin kommen vnd sich erzeigen</i>. – <sc>Luther</sc>. Hl. Schrifft. Sir. 20, 11; <sc>Henisch</sc> 881. – Zu <i>emporrecken</i> : <sc>Peil</sc>, Rollenhagen. Froschm. 550, 1364 (Magdeb. 1608): <i>[der Hund] Reckte seine Ohren hoch empor</i>. – Zu <i>emporrichten</i> : <sc>Froning</sc>, Alsf. Passionssp. 5654 (ohess., 1501 ff.): <i>helffet richten das crucz mit em [Jhesu] entbor</i>. – Zu <i>emporrüren</i> : <sc>Peil</sc>, Rollenhagen. Froschm. 476, 6677 (Magdeb. 1608): <i>Ruͤrten sie allen dreck Empor</i>. – Zu <i>emporschwimmen</i> 2: <sc>Henisch</sc> 881 (Augsb. 1616): <i>Wann der wein nider sitzt / so schwimmen die wort empor</i>. – Zu <i>emporsetzen</i> : <sc>Haage</sc>, Hesel. Arzneib. 5r, 4 (Hs. ˹noobd./md., E. 15. Jh.˺ ): <i>secz den hafen</i> [›Topf‹] <i>enbor und mach dar umb ain fewͤr</i>. – <sc>Primisser</sc>, Suchenwirt 30, 55. – Zu <i>emporspringen</i> : <sc>Fischer</sc>, Brun v. Schoneb. 9820 (md., Hs. um 1400): <i>[der tubel] sprang inpor uf und sprach</i>. – Zu <i>emportreten</i> : <sc>Luther</sc>. Hl. Schrifft. 2. Sam. 15, 24 (Wittenb. 1545): <i>AbJathar trat empor / bis das alles volck zur Stad aus kam</i>. – Zu weiteren Wortbildungen: <sc>Schwäb. Wb</sc>. 2, 706.</p>
+
+-->
+
+</TEI>
