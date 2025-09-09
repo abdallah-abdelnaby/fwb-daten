@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          übel-
+        </title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher/>
+        <availability>
+          <licence notBefore="2025-08-01"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="printedSource">
+          <title>Frühneuhochdeutsches Wörterbuch</title>
+          <idno>22a0b650-69da-4fac-83ec-941c293eb503</idno>
+          <biblScope unit="volume">11</biblScope>
+          <biblScope unit="column">1205</biblScope>
+        </bibl>
+        <listBibl type="examples">
+          <bibl>
+            <!-- TODO: hier sollte die Liste der Quellen stehen -->
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <classDecl>
+        <!-- Bedeutung der @type-Attribute in ref bzw. von @subtype in re -->
+        <taxonomy xml:id="ref.type_re.subtype">
+          <category xml:id="cnv">
+            <catDesc>konvertiert: aus dem Konvertierungsprozess</catDesc>
+          </category>
+          <category xml:id="nex">
+            <catDesc>nicht existent: Verweisziel in unbearbeitetem Lemmabereich</catDesc>
+          </category>
+          <category xml:id="non">
+            <catDesc>unbekannt: kein Ziel in der Verweisprüfung gefunden</catDesc>
+          </category>
+          <category xml:id="unc">
+            <catDesc>unsicher: nach Verweisprüfung mehrere Ziele möglich</catDesc>
+          </category>
+          <category xml:id="mat">
+            <catDesc>abgeglichen: durch Verweisprüfung eingetragen</catDesc>
+          </category>
+          <category xml:id="gen">
+            <catDesc>generiert: das Verweisziel ist als Synonym generiert worden</catDesc>
+          </category>
+          <category xml:id="sta">
+            <catDesc>stabil: manuell verifiziert</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in re -->
+        <taxonomy xml:id="re.type">
+          <category xml:id="re.neblem">
+            <catDesc>verbundener Eintrag: Nebenlemma (auch als Ziel eines Verweisartikels)</catDesc>
+          </category>
+          <category xml:id="re.wbg">
+            <catDesc>verbundener Eintrag: Wortbildung als Ziel eines Verweisartikels</catDesc>
+          </category>
+          <category xml:id="re.bdv">
+            <catDesc>verbundener Eintrag: Bedeutungsverwandte zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ggs">
+            <catDesc>verbundener Eintrag: Gegensatz zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.ofe">
+            <catDesc>verbundener Eintrag: Orientierungsfeld zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.phras">
+            <catDesc>verbundener Eintrag: Phrasem zur Wortbildung (o.ä.)</catDesc>
+          </category>
+          <category xml:id="re.synt">
+            <catDesc>verbundener Eintrag: Syntagma zur Wortbildung (o.ä.)</catDesc>
+          </category>
+        </taxonomy>
+        <!-- Bedeutung des @type Attributs in oRef (die Verwendung von "oRef." und "oVar." erfolgt bewusst!) -->
+        <taxonomy xml:id="oRef.type">
+          <category xml:id="oRef.lem">
+            <catDesc>Ellipse des Lemmas in den Kopfdaten eines Artikels</catDesc>
+          </category>
+          <category xml:id="oVar.lem">
+            <catDesc>Originalschreibung des Lemmas (in Zitaten)</catDesc>
+          </category>
+          <category xml:id="oVar.wbg">
+            <catDesc>Originalschreibung einer Wortbildung (in Zitaten)</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      <tagsDecl>
+        <!-- Typografie: verwendet z.B. als <hi rendition="#sc">Text in Kapitälchen</hi> -->
+        <rendition xml:id="rect" scheme="css">font-variant: normal;</rendition>
+        <rendition xml:id="sc" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="b" scheme="css">font-weight: bold;</rendition>
+        <rendition xml:id="it" scheme="css">font-style: italic;</rendition>
+        <rendition xml:id="hoch" scheme="css">vertical-align: super;</rendition>
+        <rendition xml:id="tief" scheme="css">vertical-align: sub;</rendition>
+        <rendition xml:id="wide" scheme="css">letter-spacing: 0.5em;</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <!-- Bedeutung der unterschiedlichen entry Bereiche -->
+          <tagUsage gi="entry">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>bdv</label>
+              <item>Synomyme</item>
+              <label>blb</label>
+              <item>Belegblock</item>
+              <label>ggs</label>
+              <item>Antonyme</item>
+              <label>meta</label>
+              <item>textl. Einschub</item>
+              <label>phras</label>
+              <item>Phraseme</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangaben</item>
+              <label>synt</label>
+              <item>Syntagmen</item>
+              <label>wbg</label>
+              <item>Wortbildungen</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung der unterschiedlichen dictScrap Bereiche -->
+          <tagUsage gi="dictScrap">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>artkopf</label>
+              <item>Artikelkopf</item>
+              <label>bdv</label>
+              <item>Synomym</item>
+              <label>bls</label>
+              <item>Belegstellenangabe</item>
+              <label>cit</label>
+              <item>Quellenzitat</item>
+              <label>ggs</label>
+              <item>Antonym</item>
+              <label>ofe</label>
+              <item>Orientierungsfeld</item>
+              <label>phras</label>
+              <item>Phrasem</item>
+              <label>ra</label>
+              <item>Redensart</item>
+              <label>ref</label>
+              <item>Sachkommentar</item>
+              <label>semcom</label>
+              <item>semantischer Kommentar</item>
+              <label>stw</label>
+              <item>Symptomwertangabe</item>
+              <label>sv</label>
+              <item>sub-voce-Angabe</item>
+              <label>synt</label>
+              <item>Syntagma</item>
+              <label>vw</label>
+              <item>Verweis (bei Verweisstichwörtern)</item>
+              <label>wbg</label>
+              <item>Wortbildung</item>
+              <label>wbv</label>
+              <item>Wortbildungsverweis</item>
+            </list>
+          </tagUsage>
+          <tagUsage gi="citedRange">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>export</label>
+              <item>Ein ggf. vorhandener externer Link darf öffentlich exportiert werden</item>
+            </list>
+          </tagUsage>
+          <!-- Bedeutung unterschiedlicher note Bereiche -->
+          <tagUsage gi="note">
+            <title>Auflösung der @rend-Werte</title>
+            <list>
+              <label>meta</label>
+              <item>Einschub, Einleitung oder ergänzende Texte</item>
+            </list>
+          </tagUsage>
+        </namespace>
+      </tagsDecl>
+      <editorialDecl>
+        <segmentation>
+          <p>
+          Die Aufteilung des Standard-Informationsprogramms des Wörterbuchs erfolgt in Form von <gi>entry</gi> Elementen. 
+          Diese werden i.d.R. untergliedert in Einzelpositionen in <gi>dictScrap</gi>.
+        </p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change status="cnvVersion" n="2.0">TEI/FWB</change>
+      <change status="cnvResult">Text blieb erhalten; XML-Struktur (2.0): ok</change>
+      <change status="cnv" when-iso="2025-08-12">converted from print</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <entry xml:id="übel-.s.8w_9u" sortKey="ubel.übel-.s.8w_9u">
+        <form type="lemma">
+          <orth>übel-</orth>
+        </form>
+        
+        <dictScrap rend="artkopf" xml:space="preserve"> (+ Zweitglied).</dictScrap>
+        
+        <!-- Bedeutung  -->
+        <sense xml:id="übel-.s.8w_9u_s0" level="1">
+          <def xml:space="preserve">hier werden in Auswahl schwach belegte, teils unfeste Wortbildungen (Reihenbildungen; meist Komposita nach dem Muster <hi rendition="it">übel-</hi> + Grundwort, seltener Zusammenrückungen) dokumentiert, und zwar: <hi rendition="it">übel-</hi> + V. oder + Subst. oder + Adj. / Adv.; das Erstglied ist dabei meist als Adj. / Adv. im Sinne von <hi rendition="it">übel</hi> 1; 2 (in adverbialer Funktion), nur vereinzelt als Subst. vorauszusetzen; vielfach ist die Zuordnung nicht sicher entscheidbar; für einige Vorkommen muss Analogie angenommen werden. – Vgl. auch die dichter belegten Bildungen unter einem eigenen Stichwortansatz (in einem Vollartikel).</def>
+          <entry rend="wbg" rendition="list">
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelfar.s.9ref" expand="übelfar.s.9ref·übel-.s.8w_9u_s0">übelfar</re> wohl ›hässlich, ungestaltet‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>, <ref type="nex" target="-far.s.8w_*">-far</ref> (dies zu mhd. <hi rendition="it">var</hi> ›farbig‹; <bibl xml:space="preserve"><name n="d51" cert="high">Lexer</name> <citedRange n="d51" facs="3,20" rend="export" target="http://www.woerterbuchnetz.de/Lexer?bookref=3,20,1">3, 20</citedRange></bibl>).</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelgehörig.s.9ref" expand="übelgehörig.s.9ref·übel-.s.8w_9u_s0">übelgehörig</re> ›taub‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>. – Bdv.: <re type="re.bdv" corresp="übelgehörig.s.9ref"><ref type="mat" target="taub.s.4adj">taub</ref> <ref type="mat" target="taub.s.4adj#taub.s.4adj_s1">1</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelgeschmak.s.9ref" expand="übelgeschmak.s.9ref·übel-.s.8w_9u_s0">übelgeschmak</re> ein auf den üblen Geruch e. P. bezogener, verächtlicher Scherzname; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>, <ref type="mat" target="geschmak.s.4adj">geschmak</ref> (Adj.) <ref type="mat" target="geschmak.s.4adj#geschmak.s.4adj_s1">1</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelgötze.s.9ref" expand="übelgötze.s.9ref·übel-.s.8w_9u_s0">übelgötze</re> Name eines mit schweren Waffen bestückten Schiffes; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>, vgl. <ref type="mat" target="götze.s.0m">götze</ref> <ref type="mat" target="götze.s.0m#götze.s.0m_s1">1</ref>; <ref type="mat" target="götze.s.0m#götze.s.0m_s2">2</ref> (ütr.).</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelhausen.s.9ref" expand="übelhausen.s.9ref·übel-.s.8w_9u_s0">übelhausen</re> ›schlecht wirtschaften‹ (im Beleg subst.); vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>, <ref type="mat" target="hausen.s.3v">hausen</ref> <ref type="mat" target="hausen.s.3v#hausen.s.3v_s6">6</ref>; <ref type="mat" target="hausen.s.3v#hausen.s.3v_s7">7</ref>; <ref type="mat" target="hausen.s.3v#hausen.s.3v_s9">9</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelhören.s.9ref" expand="übelhören.s.9ref·übel-.s.8w_9u_s0">übelhören</re> ›bewusst falsch, selektiv hören‹ (als hörerseitige Entsprechung zu sprecherseitigem <hi rendition="it">lästern</hi> 2 und <hi rendition="it">übelreden</hi>); vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übellautend.s.9ref" expand="übellautend.s.9ref·übel-.s.8w_9u_s0">übellautend</re>, <re type="re.wbg" subtype="mat" copyOf="übellautig.s.9ref" expand="übellautig.s.9ref·übel-.s.8w_9u_s0">übellautig</re> ›so lautend, dass es schwer verstehbar ist‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>, <ref type="mat" target="lauten.s.3v">lauten</ref> <ref type="mat" target="lauten.s.3v#lauten.s.3v_s3">3</ref>. – Ggs. (reziprok / hörerseitig): <re type="re.wbg" subtype="mat" copyOf="übelgehörig.s.9ref" expand="übelgehörig.s.9ref·übel-.s.8w_9u_s0">übelgehörig</re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelmächtig.s.9ref" expand="übelmächtig.s.9ref·übel-.s.8w_9u_s0">übelmächtig</re> ›überaus mächtig‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s3">3</ref>, <ref type="mat" target="mächtig.s.4adj">mächtig</ref> <ref type="mat" target="mächtig.s.4adj#mächtig.s.4adj_s1">1</ref>; <ref type="mat" target="mächtig.s.4adj#mächtig.s.4adj_s2">2</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelmeinung.s.9ref" expand="übelmeinung.s.9ref·übel-.s.8w_9u_s0">übelmeinung</re> ›schlechter Leumund‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>, <hi rendition="hoch">2</hi><ref type="mat" target="meinung.h2.1f">meinung</ref> <ref type="mat" target="meinung.h2.1f#meinung.h2.1f_s1">1</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelriechend.s.9ref" expand="übelriechend.s.9ref·übel-.s.8w_9u_s0">übelriechend</re>, <re type="re.wbg" subtype="mat" copyOf="übelrüchig.s.9ref" expand="übelrüchig.s.9ref·übel-.s.8w_9u_s0">übelrüchig</re> jeweils ˹›stinkend‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>. – Ggs.: <ref type="nex" target="wolrüchig.s.*">wolrüchig</ref>˺.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelsagen.s.9ref" expand="übelsagen.s.9ref·übel-.s.8w_9u_s0">übelsagen</re> ›schmähend über etw. sprechen‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>. – Bdv.: <re type="re.bdv" corresp="übelsagen.s.9ref"><ref type="gen" target="boshaftigen.s.9ref">boshaftigen</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelsager.s.9ref" expand="übelsager.s.9ref·übel-.s.8w_9u_s0">übelsager</re> ›Verleumder‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>; <ref type="mat" target="übel.s.2n">übel</ref> (<hi rendition="it">das</hi>) <ref type="mat" target="übel.s.2n#übel.s.2n_s1">1</ref>; <ref type="mat" target="übel.s.2n#übel.s.2n_s2">2</ref>; <ref type="mat" target="übel.s.2n#übel.s.2n_s3">3</ref>. – Bdv.: <re type="re.bdv" corresp="übelsager.s.9ref"><hi rendition="hoch">1</hi><ref type="mat" target="lästerer.h1.0m">lästerer</ref>, <ref type="mat" target="schelter.s.0m">schelter</ref> <ref type="mat" target="schelter.s.0m#schelter.s.0m_s1">1</ref>, <ref type="mat" target="übelreder.s.9ref">übelreder</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelsagung.s.9ref" expand="übelsagung.s.9ref·übel-.s.8w_9u_s0">übelsagung</re> ›Verleumdung‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>; <ref type="mat" target="übel.s.2n">übel</ref> (<hi rendition="it">das</hi>) <ref type="mat" target="übel.s.2n#übel.s.2n_s1">1</ref>; <ref type="mat" target="übel.s.2n#übel.s.2n_s2">2</ref>; <ref type="mat" target="übel.s.2n#übel.s.2n_s3">3</ref>. – Bdv.: <re type="re.bdv" corresp="übelsagung.s.9ref"><ref type="nex" target="fluch.s.*">fluch</ref>, <ref type="mat" target="scheltwort.s.2n">scheltwort</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelschmak.s.9ref" expand="übelschmak.s.9ref·übel-.s.8w_9u_s0">übelschmak</re> wohl ›übler Geruch‹ sowie ›Speichel‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelschmackend.s.9ref" expand="übelschmackend.s.9ref·übel-.s.8w_9u_s0">übelschmackend</re>, <re type="re.wbg" subtype="mat" copyOf="übelschmeckend.s.9ref" expand="übelschmeckend.s.9ref·übel-.s.8w_9u_s0">übelschmeckend</re>; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelschwenklich.s.9ref" expand="übelschwenklich.s.9ref·übel-.s.8w_9u_s0">übelschwenklich</re> ›zu <hi rendition="it">hochmut, stölze</hi> verleitend, verführend‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelschwerend.s.9ref" expand="übelschwerend.s.9ref·übel-.s.8w_9u_s0">übelschwerend</re> ›meineidig, verworfen‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelsehig.s.9ref" expand="übelsehig.s.9ref·übel-.s.8w_9u_s0">übelsehig</re> ›schielend‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelsprechen.s.9ref" expand="übelsprechen.s.9ref·übel-.s.8w_9u_s0">übelsprechen</re> ›gotteslästerlich reden; jn. schmähen‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>. – Bdv.: <re type="re.bdv" corresp="übelsprechen.s.9ref"><ref type="nex" target="fluchen.s.*">fluchen</ref>, <ref type="mat" target="schmähen.s.3v">schmähen</ref> <ref type="mat" target="schmähen.s.3v#schmähen.s.3v_s1">1</ref>; <ref type="mat" target="schmähen.s.3v#schmähen.s.3v_s2">2</ref>; <ref type="mat" target="schmähen.s.3v#schmähen.s.3v_s4">4</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelstehend.s.9ref" expand="übelstehend.s.9ref·übel-.s.8w_9u_s0">übelstehend</re> ›bösartig, sündhaft‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s4">4</ref>, <ref type="mat" target="stehen.s.3v">stehen</ref> <ref type="mat" target="stehen.s.3v#stehen.s.3v_s2">2</ref>; <ref type="mat" target="stehen.s.3v#stehen.s.3v_s5">5</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelstimmig.s.9ref" expand="übelstimmig.s.9ref·übel-.s.8w_9u_s0">übelstimmig</re> ›misstönend‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>, <ref type="mat" target="stimmen.s.3v">stimmen</ref> <ref type="mat" target="stimmen.s.3v#stimmen.s.3v_s1">1</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelstinkend.s.9ref" expand="übelstinkend.s.9ref·übel-.s.8w_9u_s0">übelstinkend</re>; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s3">3</ref>, <ref type="mat" target="stinken.s.3vu">stinken</ref> <ref type="mat" target="stinken.s.3vu#stinken.s.3vu_s1">1</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelweisung.s.9ref" expand="übelweisung.s.9ref·übel-.s.8w_9u_s0">übelweisung</re> ›Beschimpfung e. P., Lästerrede‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>. – Bdv.: <re type="re.bdv" corresp="übelweisung.s.9ref"><ref type="mat" target="aufhebung.s.1f">aufhebung</ref> <ref type="mat" target="aufhebung.s.1f#aufhebung.s.1f_s2">2</ref>, <ref type="mat" target="schandrede.s.9ref">schandrede</ref>, <ref type="mat" target="schmachrede.s.1f">schmachrede</ref>, <ref type="nex" target="verweisung.s.*">verweisung</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelwillig.s.9ref" expand="übelwillig.s.9ref·übel-.s.8w_9u_s0">übelwillig</re> ›böswillig, selbstbezüglich‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>. – Bdv.: <re type="re.bdv" corresp="übelwillig.s.9ref"><ref type="mat" target="arg.s.4adj">arg</ref> (Adj.) <ref type="mat" target="arg.s.4adj#arg.s.4adj_s4">4</ref>; <ref type="mat" target="arg.s.4adj#arg.s.4adj_s5">5</ref>, <ref type="mat" target="böswillig.s.4adj">böswillig</ref></re>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelwollen.s.9ref" expand="übelwollen.s.9ref·übel-.s.8w_9u_s0">übelwollen</re> ›eine böse Absicht hegen, übelwollen‹; vgl. <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s1">1</ref>; <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>.</dictScrap>
+            <dictScrap rend="wbg"><re type="re.wbg" subtype="mat" copyOf="übelziemend.s.9ref" expand="übelziemend.s.9ref·übel-.s.8w_9u_s0">übelziemend</re> ›umziemlich‹; zu <ref type="mat" target="übel.s.4adj">übel</ref> (Adj.) <ref type="mat" target="übel.s.4adj#übel.s.4adj_s2">2</ref>.</dictScrap>
+          </entry>
+          <!-- Belegblock -->
+          <entry rend="blb" corresp="übel-.s.8w_9u_s0">
+            <dictScrap rend="cit">Die Ordnung der Belege entspricht der Reihenfolge der Nennung der Wortbildungen:
+	  </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelfar</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="67" cert="high">Haltaus</name>, Liederb. Hätzlerin <citedRange n="67" facs="2,67,22" rend="export" target="https://books.google.de/books?id=BJUFAQAAIAAJ&amp;pg=PA259">2, 67, 22</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1471" to="1471" confidence="1">1471</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">sein guͦt friund<lb/>Kamen mit Mair Betzen dar,<lb/>Diethrich der <oRef type="oVar.lem" n="62" rend="jedit" norm="übel-">v̈belfar</oRef>,<lb/>Cuͦnrat der plattenkopf,<lb/>Vnd auch Mair Nasztropff.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelgehörig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="467" cert="high">Dasypodius</name> <citedRange n="467" facs="482v" rend="export" target="https://archive.org/details/Dasypodius-Petrus-Dictionarium-Latinogermanicum/page/n971">482v</citedRange> (<region key="els.">Straßb.</region> <date from="1536" to="1536" confidence="1">1536</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Dauber / <oRef type="oVar.lem" n="57" rend="jedit" norm="übel-">vbelgehoͤriger</oRef>. Surdus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelgeschmak</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="486" cert="high">Wiessner</name>, Wittenw. Ring <citedRange n="486" facs="3622">3622</citedRange> (<region key="halem.">ohalem.</region>, <date from="1400" to="1400" confidence="1">1400</date>/<date from="1408" to="1408" confidence="1">08</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der erste was der Ochsenchroph,<lb/>Der ander haisset Löwenchoph,<lb/>[...]<lb/>Der wierd sei Uotz der <oRef type="oVar.wbg" n="95" rend="jedit" norm="übelgeschmak">Übelgsmak</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelgötze</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="3352" cert="high">Chron. Köln</name> <citedRange n="3352" facs="2,104,24" rend="export" target="https://archive.org/details/diechronikender02birlgoog/page/n121">2, 104, 24</citedRange> (<region key="rib.">rib.</region>, <date from="1415" to="1415" confidence="1">1415</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">dat schif wart genant der <oRef type="oVar.lem" n="54" rend="jedit" norm="übel-">Oivelgotz</oRef>, ind dat schif quam zu Rile.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelhausen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="185" cert="high">Chron. Augsb.</name> <citedRange n="185" facs="7,305,18" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/periodical/pageview/407168">7, 305, 18</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1555" to="1555" confidence="1">1555</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">so mögen sie doch derhalben<hi rendition="rect"> [Bezug auf </hi>schulden<hi rendition="rect">] </hi>kaines <oRef type="oVar.lem" n="85" rend="jedit" norm="übel-">übelhausens</oRef> beschuldigt werden.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelhören</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="619" cert="high">Franck</name>, Decl. <citedRange n="619" facs="343,37">343, 37</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1531" to="1531" confidence="1">1531</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ob er [vnser bruder] etwo ein wollust in seinem <oRef type="oVar.lem" n="87" rend="jedit" norm="übel-">uͤbelreden</oRef> vnnd lestern het entpfangen / das sprich ich / er eben denselben inn <oRef type="oVar.lem" n="86" rend="jedit" norm="übel-">uͤbelhoͤren</oRef> wider verzet vnd verlier / Welcher / dieweyl er hat gesagt was er hat gewoͤlt / ist es nit vnbillich / das er hoͤr was er nit woͤl.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übellautend / übellautig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="185" cert="high">Chron. Augsb.</name> <citedRange n="185" facs="7,118,2" rend="export" target="http://digital.ub.uni-duesseldorf.de/ihd/periodical/pageview/406981">7, 118, 2</citedRange> (<region key="schwäb.">schwäb.</region><add>, zu </add><date from="1548" to="1548" confidence="1">1548</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">zuͤdem ist es neben allem schaden auch ain <oRef type="oVar.lem" n="85" rend="jedit" norm="übel-">übellautend</oRef>, schimpflich ding. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="970" cert="high">Schmitt</name>, Ordo rerum <citedRange n="970" facs="472,10">472, 10</citedRange> (<region key="oobd.">oobd.</region>, <date from="1450" to="1499" confidence="0.02">2. H. 15. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Absurdus [...] <oRef type="oVar.lem" n="60" rend="jedit" norm="übel-">vbellautig</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelmächtig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="b302" cert="high">Baumann-Zwirner</name>, Augsb. Volksb. <citedRange n="b302" facs="1991,472">1991, 472</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1471" to="1481" confidence="0.0909">um 1476</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">des römpte sich seins schalkhaftigen gewalts der <oRef type="oVar.lem" n="85" rend="jedit" norm="übel-">übelmechtig</oRef> pfalzgraf.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelmeinung</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="346" cert="high">Luther</name>, WA <citedRange n="346" facs="7,876,1" rend="export" target="https://archive.org/details/werkekritischege07luthuoft/page/876">7, 876, 1</citedRange> (<region key="omd."/><date from="1520" to="1520" confidence="1">1520</date>/<date from="1521" to="1521" confidence="1">1</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">hiemit befil Eur kay. Maỹt vnd Gnaden ich mich unterteniglich, in demut bittend, sie wellen nit gestaten mich gegen Inen durch meyner abgunstigen <oRef type="oVar.wbg" n="91" rend="jedit" norm="übelmeinung">ubelmeynung</oRef> verunglimpffen und in ungnaden bringenn.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelriechend</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="807" cert="high">Belkin</name> u. a., Rösslin. Kreutterb. <citedRange n="807" facs="114,15">114, 15</citedRange> (<region key="hess.">Frankf.</region> <date from="1535" to="1535" confidence="1">1535</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">die da vil Bleiweiß nützenn / die gewinnen gern zeen wethum / vnd einen <oRef type="oVar.lem" n="83" rend="jedit" norm="übel-">übelriechenden</oRef> mund. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="86" cert="high">Jungbluth</name>, J. v. Saaz. Ackermann <citedRange n="86" facs="24,15">24, 15</citedRange> (<add>Hs. ˹</add><region key="omd.">omd.</region>, <date from="1465" to="1465" confidence="1">1465</date>˺)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ein mensche [...] ist ein besmirter binstock, [...], ein <oRef type="oVar.lem" n="83" rend="jedit" norm="übel-">übelriechender</oRef> harmkrug, ein <oRef type="oVar.lem" n="83" rend="jedit" norm="übel-">übelsmeckender</oRef> eimer.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelrüchig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="467" cert="high">Dasypodius</name> <citedRange n="467" facs="401v" rend="export" target="https://archive.org/details/Dasypodius-Petrus-Dictionarium-Latinogermanicum/page/n809">401v</citedRange> (<region key="els.">Straßb.</region> <date from="1536" to="1536" confidence="1">1536</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.lem" n="60" rend="jedit" norm="übel-">vbelRuͤchig</oRef>. Putidus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelsagen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="111" cert="high">Kurrelmeyer</name>, Dt. Bibel <citedRange n="111" facs="7,398,12" rend="export" target="https://archive.org/details/DieErsteDeutscheBibel7Tobias-Psalmen/page/n401">7, 398, 12</citedRange> (<region key="els.">Straßb.</region> <date from="1466" to="1466" confidence="1">1466</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Nichten woͤlt rúren meinen gesalbten: vnd nit woͤlt <oRef type="oVar.lem" n="61" rend="jedit" norm="übel-">vbelsagen</oRef><hi rendition="rect"> [Var. 1475<hi rendition="hoch">2</hi>–1518: </hi>boßhafftigen<hi rendition="rect">; nd. Bibel um 1478: </hi>maligneren<hi rendition="rect">; <hi rendition="sc">Froschauer</hi> 1531: </hi>fuͤgend [...] nichts leyds zuͦ<hi rendition="rect">; <hi rendition="sc">Eck</hi> 1537, Ps. 104, 5: </hi>übelen<hi rendition="rect">; <hi rendition="sc">Dietenberger</hi> 1534: </hi>handelt [...] nit vbel<hi rendition="rect">; <hi rendition="sc">Luther</hi> 1545, Ps. 105, 15: </hi>thut [...] kein leid<hi rendition="rect">] </hi>in meinen weyssagen.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelsager</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="111" cert="high">Kurrelmeyer</name>, Dt. Bibel <citedRange n="111" facs="2,72,13" rend="export" target="https://archive.org/details/DieErsteDeutscheBibel1905/page/n83">2, 72, 13</citedRange> (<region key="els.">Straßb.</region> <date from="1466" to="1466" confidence="1">1466</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ob der der do ist [...] ein gemein vnkeuscher oder ein arger [...] oder ein <oRef type="oVar.lem" n="61" rend="jedit" norm="übel-">vbelsager</oRef><hi rendition="rect"> [Var. 1475–<hi rendition="hoch">2</hi>1518: </hi>übelroͤder<hi rendition="rect">; nd. Bibel um 1478: </hi>oeuel sprekender<hi rendition="rect">; <hi rendition="sc">Froschauer</hi> 1531: </hi>schaͤlter<hi rendition="rect">; <hi rendition="sc">Dietenberger</hi> 1534 / <hi rendition="sc">Eck</hi> 1537 / <hi rendition="sc">Luther</hi> 1545, 1. Kor. 5, 11: </hi>Lesterer<hi rendition="rect">].</hi></quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelsagung</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="111" cert="high">Kurrelmeyer</name>, Dt. Bibel <citedRange n="111" facs="2,432,15" rend="export" target="https://archive.org/details/DieErsteDeutscheBibel1905/page/n443">2, 432, 15</citedRange> (<region key="els.">Straßb.</region> <date from="1466" to="1466" confidence="1">1466</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">nit widergebt vbel vmb vbel. noch vbel sagen vmb <oRef type="oVar.lem" n="60" rend="jedit" norm="übel-">vbelsagung</oRef><hi rendition="rect"> [nd. Bibel um 1478: </hi>vloke<hi rendition="rect">; <hi rendition="sc">Luther</hi> 1545, 1. Petr. 3, 9: </hi>scheltwort<hi rendition="rect">].</hi></quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelschmak</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d8" cert="high">Voc. Teut.-Lat.</name> <citedRange n="d8" facs="ii vv" target="https://www.digitale-sammlungen.de/de/view/bsb00038907?page=502,503">ii vv</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1482" to="1482" confidence="1">1482</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.lem" n="61" rend="jedit" norm="übel-">Vbelsmack</oRef> vbeler gesmack. oscedo. od’ spaichel.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelschmackend / übelschmeckend</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d8" cert="high">Voc. Teut.-Lat.</name> <citedRange n="d8" facs="ii vr" target="https://www.digitale-sammlungen.de/de/view/bsb00038907?page=508,509">ii vr</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1482" to="1482" confidence="1">1482</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.wbg" n="85" rend="jedit" norm="übelschmeckend">Vbelsmeckende</oRef> stat od’ pruntzstat. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="1008" cert="high">Williams</name> u. a., Els. Leg. Aurea <citedRange n="1008" facs="165,12">165, 12</citedRange> (<region key="els.">els.</region>, <date from="1362" to="1362" confidence="1">1362</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Do ging ein so grosser <oRef type="oVar.lem" n="57" rend="jedit" norm="übel-">ubelsmackender</oRef> roͮch von sime libe daz kein mensche bi ime gewonen moͤhte.</quote>
+              </cit>
+            </dictScrap>
+            <!--  sub voce  -->
+            <dictScrap rend="sv">Vgl. ferner s. v. <ref type="mat" target="übelriechend.s.9ref">übelriechend</ref>.</dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelschwenklich</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> (<region key="halem.">Zürich</region> <date from="1561" to="1561" confidence="1">1561</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Hochmuͦt / Ein <oRef type="oVar.wbg" n="100" rend="jedit" norm="übelschwenklich">übelschwenklich</oRef> froͤud.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelschwerend</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="153" cert="high">Barack</name>, Zim. Chron. <citedRange n="153" facs="4,159,15" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1882-4/0162?sid=19cb8208930a6d753292fbdd64ddf24f">4, 159, 15</citedRange> (<region key="schwäb.">schwäb.</region>, <date from="1540" to="1560" confidence="0.0476">M. 16. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">ein verruechter, <oRef type="oVar.lem" n="83" rend="jedit" norm="übel-">übelschwerender</oRef> mentsch und der sich nie verheiraten, sonder hab ein beisitz, ein ledige türnen, gehapt. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="153" cert="high">Ebd.</name> <citedRange n="153" change="facs_expanded" facs="4,160,23" rend="export" target="http://dl.ub.uni-freiburg.de/diglit/zimmern1882-4/0163?sid=19cb8208930a6d753292fbdd64ddf24f">160, 23</citedRange><date from="1540" to="1560" confidence="0.0476"/><region key="schwäb."/></bibl>
+                <quote xml:space="preserve" source="Objektsprache">[Derselbig] soll ein <oRef type="oVar.lem" n="83" rend="jedit" norm="übel-">übelschwerender</oRef>, ungotzförchtiger mentsch gewest sein.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelsehig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="467" cert="high">Dasypodius</name> <citedRange n="467" facs="419v" rend="export" target="https://archive.org/details/Dasypodius-Petrus-Dictionarium-Latinogermanicum/page/n845">419v</citedRange> (<region key="els.">Straßb.</region> <date from="1536" to="1536" confidence="1">1536</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.lem" n="87" rend="jedit" norm="übel-">übelsehig</oRef>. Luscus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelsprechen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="115a" cert="high">Mayer</name>, Folz. Meisterl. <citedRange n="115a" facs="100,230" rend="export" target="https://archive.org/details/diemeisterliede00folzgoog/page/n407">100, 230</citedRange> (<region key="nobd.">nobd.</region>, <date from="1486" to="1496" confidence="0.0909">v. 1496</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Wer <oRef type="oVar.lem" n="59" rend="jedit" norm="übel-">ubelspricht</oRef> oder flucht dem vater, sol sterb des tods. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="e1" cert="high">Donalies</name>, Augsb. Bibelhs. <citedRange n="e1" facs="7,15">7, 15</citedRange> (<region key="schwäb.">oschwäb.</region>, <date from="1340" to="1350" confidence="0.0909">v. 1350</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">selick seit / ir so ivch die menschen <oRef type="oVar.wbg" n="100" rend="jedit" norm="übelsprechen">übelsprechent</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelstehend</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="19" cert="high">Bihlmeyer</name>, Seuse <citedRange n="19" facs="123,13" rend="export" target="https://archive.org/details/deutscheschrift01seusgoog/page/n310">123, 13</citedRange> (<region key="alem.">alem.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Er sprach: „nein, daz weri ein unvernúnftigú geburschheit und ein <oRef type="oVar.lem" n="58" rend="jedit" norm="übel-">úbelstendú</oRef> freidikeit [...]“. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="41" cert="high">Bömer</name>, Pilgerf. träum. Mönch <citedRange n="41" facs="3156" rend="export" target="https://archive.org/details/DiePilgerfahrtDesTrumendenMnchs/page/n48">3156</citedRange> (<region key="rhfrk.">rhfrk.</region>, <date from="1400" to="1410" confidence="0.0909">um 1405</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">obe ich, als du meynest,<lb/>Hette eyniche <oRef type="oVar.wbg" n="89" rend="jedit" norm="übelstehend">ubelstehnde</oRef> sachen getan<lb/>[...].</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelstimmig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="467" cert="high">Dasypodius</name> <citedRange n="467" facs="431r" rend="export" target="https://archive.org/details/Dasypodius-Petrus-Dictionarium-Latinogermanicum/page/n868">431r</citedRange> (<region key="els.">Straßb.</region> <date from="1536" to="1536" confidence="1">1536</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.lem" n="85" rend="jedit" norm="übel-">übelStim̃ig</oRef>. Absonus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelstinkend</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="15" cert="high">Helm</name>, H. v. Hesler. Apok. <citedRange n="15" facs="7363" rend="export" target="https://archive.org/details/dieapokalypsehe00heslgoog/page/n143">7363</citedRange> (<region key="nrddt.">nrddt.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Swen aber des vordruzet<lb/>Und mir die tur besperret<lb/>Und vor der tur mich erret<lb/>Mit <oRef type="oVar.wbg" n="91" rend="jedit" norm="übelstinkend">ubelstinkenden</oRef> ruchen<lb/>[...]<lb/>Dar mac nicht komen Got in. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="b302" cert="high">Baumann-Zwirner</name>, Augsb. Volksb. <citedRange n="b302" facs="1991,224">1991, 224</citedRange> (<region key="schwäb.">Augsb.</region> <date from="1509" to="1509" confidence="1">1509</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Sy liessen den todten <oRef type="oVar.lem" n="83" rend="jedit" norm="übel-">übelstinckenden</oRef> man biß an den dritten tag also an offner straß ston.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelweisung</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="970" cert="high">Schmitt</name>, Ordo rerum <citedRange n="970" facs="282,20">282, 20</citedRange> (<region key="oobd.">oobd.</region>, <date from="1468" to="1468" confidence="1">1468</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Jmproperium vorwysunge [...] schannt red aufhebung smachred [...] <oRef type="oVar.lem" n="59" rend="jedit" norm="übel-">vbelweisung</oRef>.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelwillig</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="15" cert="high">Helm</name>, H. v. Hesler. Apok. <citedRange n="15" facs="3953" rend="export" target="https://archive.org/details/dieapokalypsehe00heslgoog/page/n93">3953</citedRange> (<region key="nrddt.">nrddt.</region>, <date from="1300" to="1399" confidence="0.01">14. Jh.</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Der <oRef type="oVar.lem" n="60" rend="jedit" norm="übel-">ubelwillic</oRef> arge wicht<lb/>Halb teilet sine tage nicht. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="15" cert="high">Ebd.</name> <citedRange n="15" facs="6815" rend="export" target="https://archive.org/details/dieapokalypsehe00heslgoog/page/n134">6815</citedRange><date from="1300" to="1399" confidence="0.01"/><region key="nrddt."/></bibl>
+                <quote xml:space="preserve" source="Objektsprache">Daz ist ein <oRef type="oVar.lem" n="60" rend="jedit" norm="übel-">ubel willic</oRef> mut<lb/>Daz sie nicht enteiln ir gut<lb/>Durch lon des aller besten. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="15" cert="high">Ebd.</name> <citedRange n="15" facs="13790" rend="export" target="https://archive.org/details/dieapokalypsehe00heslgoog/page/n235">13790</citedRange><date from="1300" to="1399" confidence="0.01"/><region key="nrddt."/></bibl>
+                <quote xml:space="preserve" source="Objektsprache">Da wider veret der tuvel in<lb/>In den <oRef type="oVar.lem" n="58" rend="jedit" norm="übel-">ubel willigen</oRef> sin<lb/>Zu allen iren leiden. </quote>
+              </cit>
+              <cit>
+                <bibl xml:space="preserve"><name n="d8" cert="high">Voc. Teut.-Lat.</name> <citedRange n="d8" facs="ii vr" target="https://www.digitale-sammlungen.de/de/view/bsb00038907?page=508,509">ii vr</citedRange> (<region key="ofrk.">Nürnb.</region> <date from="1482" to="1482" confidence="1">1482</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.lem" n="58" rend="jedit" norm="übel-">Vbelwilliger</oRef> poßwilliger. maliuolus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelwollen</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> <citedRange n="d4" facs="441r" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA441#v=onepage&amp;q&amp;f=false">441r</citedRange> (<region key="halem.">Zürich</region> <date from="1561" to="1561" confidence="1">1561</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache">Einem <oRef type="oVar.lem" n="59" rend="jedit" norm="übel-">Vbel woͤllen</oRef> vnd boͤses gunnen / Eim schaden trachten vnnd bey jm selbs fürnemmen. [...]. <oRef type="oVar.lem" n="58" rend="jedit" norm="übel-">Vbelwoͤllend</oRef>. Maleuolus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+          <entry rend="blb" corresp="tbd">
+            <note rend="meta">Zu <hi rendition="it">übelziemend</hi>: 
+
+      </note>
+            <!--  Quellen  -->
+            <dictScrap rend="cit">
+              <cit>
+                <bibl xml:space="preserve"><name n="d4" cert="high">Maaler</name> <citedRange n="d4" facs="441v" rend="export" target="https://books.google.de/books?id=57Gj3Yh2iTcC&amp;hl=de&amp;pg=PA441-IA1#v=onepage&amp;q&amp;f=false">441v</citedRange> (<region key="halem.">Zürich</region> <date from="1561" to="1561" confidence="1">1561</date>)</bibl>
+                <quote xml:space="preserve" source="Objektsprache"><oRef type="oVar.lem" n="59" rend="jedit" norm="übel-">Vbelzimmend</oRef>. Illiberalis, Indecens, Indecorus.</quote>
+              </cit>
+            </dictScrap>
+          </entry>
+        </sense>
+      </entry>
+    </body>
+  </text>
+  
+  
+  
+  
+
+  <!--Texttest: Original
+übel- (+ Zweitglied). hier werden in Auswahl schwach belegte, teils unfeste Wortbildungen (Reihenbildungen; meist Komposita nach dem Muster übel- + Grundwort, seltener Zusammenrückungen) dokumentiert, und zwar: übel- + V. oder + Subst. oder + Adj. / Adv.; das Erstglied ist dabei meist als Adj. / Adv. im Sinne von übel 1; 2 (in adverbialer Funktion), nur vereinzelt als Subst. vorauszusetzen; vielfach ist die Zuordnung nicht sicher entscheidbar; für einige Vorkommen muss Analogie angenommen werden. – Vgl. auch die dichter belegten Bildungen unter einem eigenen Stichwortansatz (in einem Vollartikel). – Wbg.: übelfar wohl ›hässlich, ungestaltet‹; vgl. übel (Adj.) 1, -far (dies zu mhd. var ›farbig‹; Lexer 3, 20). – übelgehörig ›taub‹; vgl. übel (Adj.) 1; 4. – Bdv.: taub 1. – übelgeschmak ein auf den üblen Geruch e. P. bezogener, verächtlicher Scherzname; vgl. übel (Adj.) 1; 4, geschmak (Adj.) 1. – übelgötze Name eines mit schweren Waffen bestückten Schiffes; zu übel (Adj.) 1, vgl. götze 1; 2 (ütr.). – übelhausen ›schlecht wirtschaften‹ (im Beleg subst.); vgl. übel (Adj.) 1; 2; 4, hausen 6; 7; 9. – übelhören ›bewusst falsch, selektiv hören‹ (als hörerseitige Entsprechung zu sprecherseitigem lästern 2 und übelreden); vgl. übel (Adj.) 1; 4. – übellautend, übellautig ›so lautend, dass es schwer verstehbar ist‹; vgl. übel (Adj.) 1; 2; 4, lauten 3. – Ggs. (reziprok / hörerseitig): übelgehörig. – übelmächtig ›überaus mächtig‹; zu übel (Adj.) 3, mächtig 1; 2. – übelmeinung ›schlechter Leumund‹; vgl. übel (Adj.) 1; 2, 2meinung 1. – übelriechend, übelrüchig jeweils ˹›stinkend‹; zu übel (Adj.) 1. – Ggs.: wolrüchig˺. – übelsagen ›schmähend über etw. sprechen‹; zu übel (Adj.) 2. – Bdv.: boshaftigen. – übelsager ›Verleumder‹; vgl. übel (Adj.) 2; übel (das) 1; 2; 3. – Bdv.: 1lästerer, schelter 1, übelreder. – übelsagung ›Verleumdung‹; zu übel (Adj.) 2; übel (das) 1; 2; 3. – Bdv.: fluch, scheltwort. – übelschmak wohl ›übler Geruch‹ sowie ›Speichel‹; zu übel (Adj.) 2. – übelschmackend, übelschmeckend; zu übel (Adj.) 2. – übelschwenklich ›zu hochmut, stölze verleitend, verführend‹; vgl. übel (Adj.) 1. – übelschwerend ›meineidig, verworfen‹; zu übel (Adj.) 2. – übelsehig ›schielend‹; vgl. übel (Adj.) 1; 4. – übelsprechen ›gotteslästerlich reden; jn. schmähen‹; zu übel (Adj.) 2. – Bdv.: fluchen, schmähen 1; 2; 4. – übelstehend ›bösartig, sündhaft‹; vgl. übel (Adj.) 1; 4, stehen 2; 5. – übelstimmig ›misstönend‹; zu übel (Adj.) 2, stimmen 1. – übelstinkend; zu übel (Adj.) 1; 2; 3, stinken 1. – übelweisung ›Beschimpfung e. P., Lästerrede‹; vgl. übel (Adj.) 2. – Bdv.: aufhebung 2, schandrede, schmachrede, verweisung. – übelwillig ›böswillig, selbstbezüglich‹; vgl. übel (Adj.) 1; 2. – Bdv.: arg (Adj.) 4; 5, böswillig. – übelwollen ›eine böse Absicht hegen, übelwollen‹; vgl. übel (Adj.) 1; 2. – übelziemend ›umziemlich‹; zu übel (Adj.) 2. Die Ordnung der Belege entspricht der Reihenfolge der Nennung der Wortbildungen: – Zu übelfar: Haltaus, Liederb. Hätzlerin 2, 67, 22 (schwäb., 1471): sein guͦt friund | Kamen mit Mair Betzen dar, | Diethrich der v̈belfar, | Cuͦnrat der plattenkopf, | Vnd auch Mair Nasztropff. – Zu übelgehörig: Dasypodius 482v (Straßb. 1536): Dauber / vbelgehoͤriger. Surdus. – Zu übelgeschmak: Wiessner, Wittenw. Ring 3622 (ohalem., 1400/08): Der erste was der Ochsenchroph, | Der ander haisset Löwenchoph, | [...] | Der wierd sei Uotz der Übelgsmak. – Zu übelgötze: Chron. Köln 2, 104, 24 (rib., 1415): dat schif wart genant der Oivelgotz, ind dat schif quam zu Rile. – Zu übelhausen: Chron. Augsb. 7, 305, 18 (schwäb., zu 1555): so mögen sie doch derhalben [Bezug auf schulden] kaines übelhausens beschuldigt werden. – Zu übelhören: Franck, Decl. 343, 37 (Nürnb. 1531): ob er [vnser bruder] etwo ein wollust in seinem uͤbelreden vnnd lestern het entpfangen / das sprich ich / er eben denselben inn uͤbelhoͤren wider verzet vnd verlier / Welcher / dieweyl er hat gesagt was er hat gewoͤlt / ist es nit vnbillich / das er hoͤr was er nit woͤl. – Zu übellautend / übellautig: Chron. Augsb. 7, 118, 2 (schwäb., zu 1548): zuͤdem ist es neben allem schaden auch ain übellautend, schimpflich ding. Schmitt, Ordo rerum 472, 10 (oobd., 2. H. 15. Jh.): Absurdus [...] vbellautig. – Zu übelmächtig: Baumann-Zwirner, Augsb. Volksb. 1991, 472 (Augsb. um 1476): des römpte sich seins schalkhaftigen gewalts der übelmechtig pfalzgraf. – Zu übelmeinung: Luther, WA 7, 876, 1 (1520/1): hiemit befil Eur kay. Maỹt vnd Gnaden ich mich unterteniglich, in demut bittend, sie wellen nit gestaten mich gegen Inen durch meyner abgunstigen ubelmeynung verunglimpffen und in ungnaden bringenn. – Zu übelriechend: Belkin u. a., Rösslin. Kreutterb. 114, 15 (Frankf. 1535): die da vil Bleiweiß nützenn / die gewinnen gern zeen wethum / vnd einen übelriechenden mund. Jungbluth, J. v. Saaz. Ackermann 24, 15 (Hs. ˹omd., 1465˺): ein mensche [...] ist ein besmirter binstock, [...], ein übelriechender harmkrug, ein übelsmeckender eimer. – Zu übelrüchig: Dasypodius 401v (Straßb. 1536): vbelRuͤchig. Putidus. – Zu übelsagen: Kurrelmeyer, Dt. Bibel 7, 398, 12 (Straßb. 1466): Nichten woͤlt rúren meinen gesalbten: vnd nit woͤlt vbelsagen [Var. 14752–1518: boßhafftigen; nd. Bibel um 1478: maligneren; Froschauer 1531: fuͤgend [...] nichts leyds zuͦ; Eck 1537, Ps. 104, 5: übelen; Dietenberger 1534: handelt [...] nit vbel; Luther 1545, Ps. 105, 15: thut [...] kein leid] in meinen weyssagen. – Zu übelsager: Kurrelmeyer, Dt. Bibel 2, 72, 13 (Straßb. 1466): ob der der do ist [...] ein gemein vnkeuscher oder ein arger [...] oder ein vbelsager [Var. 1475–21518: übelroͤder; nd. Bibel um 1478: oeuel sprekender; Froschauer 1531: schaͤlter; Dietenberger 1534 / Eck 1537 / Luther 1545, 1. Kor. 5, 11: Lesterer]. – Zu übelsagung: Kurrelmeyer, Dt. Bibel 2, 432, 15 (Straßb. 1466): nit widergebt vbel vmb vbel. noch vbel sagen vmb vbelsagung [nd. Bibel um 1478: vloke; Luther 1545, 1. Petr. 3, 9: scheltwort]. – Zu übelschmak: Voc. Teut.-Lat. ii vv (Nürnb. 1482): Vbelsmack vbeler gesmack. oscedo. od’ spaichel. – Zu übelschmackend / übelschmeckend: Voc. Teut.-Lat. ii vr (Nürnb. 1482): Vbelsmeckende stat od’ pruntzstat. Williams u. a., Els. Leg. Aurea 165, 12 (els., 1362): Do ging ein so grosser ubelsmackender roͮch von sime libe daz kein mensche bi ime gewonen moͤhte. – Vgl. ferner s. v. übelriechend. – Zu übelschwenklich: Maaler (Zürich 1561): Hochmuͦt / Ein übelschwenklich froͤud. – Zu übelschwerend: Barack, Zim. Chron. 4, 159, 15 (schwäb., M. 16. Jh.): ein verruechter, übelschwerender mentsch und der sich nie verheiraten, sonder hab ein beisitz, ein ledige türnen, gehapt. Ebd. 160, 23: [Derselbig] soll ein übelschwerender, ungotzförchtiger mentsch gewest sein. – Zu übelsehig: Dasypodius 419v (Straßb. 1536): übelsehig. Luscus. – Zu übelsprechen: Mayer, Folz. Meisterl. 100, 230 (nobd., v. 1496): Wer ubelspricht oder flucht dem vater, sol sterb des tods. Donalies, Augsb. Bibelhs. 7, 15 (oschwäb., v. 1350): selick seit / ir so ivch die menschen übelsprechent. – Zu übelstehend: Bihlmeyer, Seuse 123, 13 (alem., 14. Jh.): Er sprach: „nein, daz weri ein unvernúnftigú geburschheit und ein úbelstendú freidikeit [...]“. Bömer, Pilgerf. träum. Mönch 3156 (rhfrk., um 1405): obe ich, als du meynest, | Hette eyniche ubelstehnde sachen getan | [...]. – Zu übelstimmig: Dasypodius 431r (Straßb. 1536): übelStim̃ig. Absonus. – Zu übelstinkend: Helm, H. v. Hesler. Apok. 7363 (nrddt., 14. Jh.): Swen aber des vordruzet | Und mir die tur besperret | Und vor der tur mich erret | Mit ubelstinkenden ruchen | [...] | Dar mac nicht komen Got in. Baumann-Zwirner, Augsb. Volksb. 1991, 224 (Augsb. 1509): Sy liessen den todten übelstinckenden man biß an den dritten tag also an offner straß ston. – Zu übelweisung: Schmitt, Ordo rerum 282, 20 (oobd., 1468): Jmproperium vorwysunge [...] schannt red aufhebung smachred [...] vbelweisung. – Zu übelwillig: Helm, H. v. Hesler. Apok. 3953 (nrddt., 14. Jh.): Der ubelwillic arge wicht | Halb teilet sine tage nicht. Ebd. 6815: Daz ist ein ubel willic mut | Daz sie nicht enteiln ir gut | Durch lon des aller besten. Ebd. 13790: Da wider veret der tuvel in | In den ubel willigen sin | Zu allen iren leiden. Voc. Teut.-Lat. ii vr (Nürnb. 1482): Vbelwilliger poßwilliger. maliuolus. – Zu übelwollen: Maaler 441r (Zürich 1561): Einem Vbel woͤllen vnd boͤses gunnen / Eim schaden trachten vnnd bey jm selbs fürnemmen. [...]. Vbelwoͤllend. Maleuolus. – Zu übelziemend: Maaler 441v (Zürich 1561): Vbelzimmend. Illiberalis, Indecens, Indecorus.
+-->
+  <!--Texttest: Konvertiert
+übel- (+ Zweitglied). hier werden in Auswahl schwach belegte, teils unfeste Wortbildungen (Reihenbildungen; meist Komposita nach dem Muster übel- + Grundwort, seltener Zusammenrückungen) dokumentiert, und zwar: übel- + V. oder + Subst. oder + Adj. / Adv.; das Erstglied ist dabei meist als Adj. / Adv. im Sinne von übel 1; 2 (in adverbialer Funktion), nur vereinzelt als Subst. vorauszusetzen; vielfach ist die Zuordnung nicht sicher entscheidbar; für einige Vorkommen muss Analogie angenommen werden. – Vgl. auch die dichter belegten Bildungen unter einem eigenen Stichwortansatz (in einem Vollartikel). – Wbg.: übelfar wohl ›hässlich, ungestaltet‹; vgl. übel (Adj.) 1, -far (dies zu mhd. var ›farbig‹; Lexer 3, 20). übelgehörig ›taub‹; vgl. übel (Adj.) 1; 4. – Bdv.: taub 1. übelgeschmak ein auf den üblen Geruch e. P. bezogener, verächtlicher Scherzname; vgl. übel (Adj.) 1; 4, geschmak (Adj.) 1. übelgötze Name eines mit schweren Waffen bestückten Schiffes; zu übel (Adj.) 1, vgl. götze 1; 2 (ütr.). übelhausen ›schlecht wirtschaften‹ (im Beleg subst.); vgl. übel (Adj.) 1; 2; 4, hausen 6; 7; 9. übelhören ›bewusst falsch, selektiv hören‹ (als hörerseitige Entsprechung zu sprecherseitigem lästern 2 und übelreden); vgl. übel (Adj.) 1; 4. übellautend, übellautig ›so lautend, dass es schwer verstehbar ist‹; vgl. übel (Adj.) 1; 2; 4, lauten 3. – Ggs. (reziprok / hörerseitig): übelgehörig. übelmächtig ›überaus mächtig‹; zu übel (Adj.) 3, mächtig 1; 2. übelmeinung ›schlechter Leumund‹; vgl. übel (Adj.) 1; 2, 2meinung 1. übelriechend, übelrüchig jeweils ˹›stinkend‹; zu übel (Adj.) 1. – Ggs.: wolrüchig˺. übelsagen ›schmähend über etw. sprechen‹; zu übel (Adj.) 2. – Bdv.: boshaftigen. übelsager ›Verleumder‹; vgl. übel (Adj.) 2; übel (das) 1; 2; 3. – Bdv.: 1lästerer, schelter 1, übelreder. übelsagung ›Verleumdung‹; zu übel (Adj.) 2; übel (das) 1; 2; 3. – Bdv.: fluch, scheltwort. übelschmak wohl ›übler Geruch‹ sowie ›Speichel‹; zu übel (Adj.) 2. übelschmackend, übelschmeckend; zu übel (Adj.) 2. übelschwenklich ›zu hochmut, stölze verleitend, verführend‹; vgl. übel (Adj.) 1. übelschwerend ›meineidig, verworfen‹; zu übel (Adj.) 2. übelsehig ›schielend‹; vgl. übel (Adj.) 1; 4. übelsprechen ›gotteslästerlich reden; jn. schmähen‹; zu übel (Adj.) 2. – Bdv.: fluchen, schmähen 1; 2; 4. übelstehend ›bösartig, sündhaft‹; vgl. übel (Adj.) 1; 4, stehen 2; 5. übelstimmig ›misstönend‹; zu übel (Adj.) 2, stimmen 1. übelstinkend; zu übel (Adj.) 1; 2; 3, stinken 1. übelweisung ›Beschimpfung e. P., Lästerrede‹; vgl. übel (Adj.) 2. – Bdv.: aufhebung 2, schandrede, schmachrede, verweisung. übelwillig ›böswillig, selbstbezüglich‹; vgl. übel (Adj.) 1; 2. – Bdv.: arg (Adj.) 4; 5, böswillig. übelwollen ›eine böse Absicht hegen, übelwollen‹; vgl. übel (Adj.) 1; 2. übelziemend ›umziemlich‹; zu übel (Adj.) 2. Die Ordnung der Belege entspricht der Reihenfolge der Nennung der Wortbildungen: Zu übelfar: Haltaus, Liederb. Hätzlerin 2, 67, 22 (schwäb., 1471) sein guͦt friund | Kamen mit Mair Betzen dar, | Diethrich der v̈belfar, | Cuͦnrat der plattenkopf, | Vnd auch Mair Nasztropff. Zu übelgehörig: Dasypodius 482v (Straßb. 1536) Dauber / vbelgehoͤriger. Surdus. Zu übelgeschmak: Wiessner, Wittenw. Ring 3622 (ohalem., 1400/08) Der erste was der Ochsenchroph, | Der ander haisset Löwenchoph, | [...] | Der wierd sei Uotz der Übelgsmak. Zu übelgötze: Chron. Köln 2, 104, 24 (rib., 1415) dat schif wart genant der Oivelgotz, ind dat schif quam zu Rile. Zu übelhausen: Chron. Augsb. 7, 305, 18 (schwäb., zu 1555) so mögen sie doch derhalben [Bezug auf schulden] kaines übelhausens beschuldigt werden. Zu übelhören: Franck, Decl. 343, 37 (Nürnb. 1531) ob er [vnser bruder] etwo ein wollust in seinem uͤbelreden vnnd lestern het entpfangen / das sprich ich / er eben denselben inn uͤbelhoͤren wider verzet vnd verlier / Welcher / dieweyl er hat gesagt was er hat gewoͤlt / ist es nit vnbillich / das er hoͤr was er nit woͤl. Zu übellautend / übellautig: Chron. Augsb. 7, 118, 2 (schwäb., zu 1548) zuͤdem ist es neben allem schaden auch ain übellautend, schimpflich ding. Schmitt, Ordo rerum 472, 10 (oobd., 2. H. 15. Jh.) Absurdus [...] vbellautig. Zu übelmächtig: Baumann-Zwirner, Augsb. Volksb. 1991, 472 (Augsb. um 1476) des römpte sich seins schalkhaftigen gewalts der übelmechtig pfalzgraf. Zu übelmeinung: Luther, WA 7, 876, 1 (1520/1) hiemit befil Eur kay. Maỹt vnd Gnaden ich mich unterteniglich, in demut bittend, sie wellen nit gestaten mich gegen Inen durch meyner abgunstigen ubelmeynung verunglimpffen und in ungnaden bringenn. Zu übelriechend: Belkin u. a., Rösslin. Kreutterb. 114, 15 (Frankf. 1535) die da vil Bleiweiß nützenn / die gewinnen gern zeen wethum / vnd einen übelriechenden mund. Jungbluth, J. v. Saaz. Ackermann 24, 15 (Hs. ˹omd., 1465˺) ein mensche [...] ist ein besmirter binstock, [...], ein übelriechender harmkrug, ein übelsmeckender eimer. Zu übelrüchig: Dasypodius 401v (Straßb. 1536) vbelRuͤchig. Putidus. Zu übelsagen: Kurrelmeyer, Dt. Bibel 7, 398, 12 (Straßb. 1466) Nichten woͤlt rúren meinen gesalbten: vnd nit woͤlt vbelsagen [Var. 14752–1518: boßhafftigen; nd. Bibel um 1478: maligneren; Froschauer 1531: fuͤgend [...] nichts leyds zuͦ; Eck 1537, Ps. 104, 5: übelen; Dietenberger 1534: handelt [...] nit vbel; Luther 1545, Ps. 105, 15: thut [...] kein leid] in meinen weyssagen. Zu übelsager: Kurrelmeyer, Dt. Bibel 2, 72, 13 (Straßb. 1466) ob der der do ist [...] ein gemein vnkeuscher oder ein arger [...] oder ein vbelsager [Var. 1475–21518: übelroͤder; nd. Bibel um 1478: oeuel sprekender; Froschauer 1531: schaͤlter; Dietenberger 1534 / Eck 1537 / Luther 1545, 1. Kor. 5, 11: Lesterer]. Zu übelsagung: Kurrelmeyer, Dt. Bibel 2, 432, 15 (Straßb. 1466) nit widergebt vbel vmb vbel. noch vbel sagen vmb vbelsagung [nd. Bibel um 1478: vloke; Luther 1545, 1. Petr. 3, 9: scheltwort]. Zu übelschmak: Voc. Teut.-Lat. ii vv (Nürnb. 1482) Vbelsmack vbeler gesmack. oscedo. od’ spaichel. Zu übelschmackend / übelschmeckend: Voc. Teut.-Lat. ii vr (Nürnb. 1482) Vbelsmeckende stat od’ pruntzstat. Williams u. a., Els. Leg. Aurea 165, 12 (els., 1362) Do ging ein so grosser ubelsmackender roͮch von sime libe daz kein mensche bi ime gewonen moͤhte. – Vgl. ferner s. v. übelriechend. Zu übelschwenklich: Maaler (Zürich 1561) Hochmuͦt / Ein übelschwenklich froͤud. Zu übelschwerend: Barack, Zim. Chron. 4, 159, 15 (schwäb., M. 16. Jh.) ein verruechter, übelschwerender mentsch und der sich nie verheiraten, sonder hab ein beisitz, ein ledige türnen, gehapt. Ebd. 160, 23 [Derselbig] soll ein übelschwerender, ungotzförchtiger mentsch gewest sein. Zu übelsehig: Dasypodius 419v (Straßb. 1536) übelsehig. Luscus. Zu übelsprechen: Mayer, Folz. Meisterl. 100, 230 (nobd., v. 1496) Wer ubelspricht oder flucht dem vater, sol sterb des tods. Donalies, Augsb. Bibelhs. 7, 15 (oschwäb., v. 1350) selick seit / ir so ivch die menschen übelsprechent. Zu übelstehend: Bihlmeyer, Seuse 123, 13 (alem., 14. Jh.) Er sprach: „nein, daz weri ein unvernúnftigú geburschheit und ein úbelstendú freidikeit [...]“. Bömer, Pilgerf. träum. Mönch 3156 (rhfrk., um 1405) obe ich, als du meynest, | Hette eyniche ubelstehnde sachen getan | [...]. Zu übelstimmig: Dasypodius 431r (Straßb. 1536) übelStim̃ig. Absonus. Zu übelstinkend: Helm, H. v. Hesler. Apok. 7363 (nrddt., 14. Jh.) Swen aber des vordruzet | Und mir die tur besperret | Und vor der tur mich erret | Mit ubelstinkenden ruchen | [...] | Dar mac nicht komen Got in. Baumann-Zwirner, Augsb. Volksb. 1991, 224 (Augsb. 1509) Sy liessen den todten übelstinckenden man biß an den dritten tag also an offner straß ston. Zu übelweisung: Schmitt, Ordo rerum 282, 20 (oobd., 1468) Jmproperium vorwysunge [...] schannt red aufhebung smachred [...] vbelweisung. Zu übelwillig: Helm, H. v. Hesler. Apok. 3953 (nrddt., 14. Jh.) Der ubelwillic arge wicht | Halb teilet sine tage nicht. Ebd. 6815 Daz ist ein ubel willic mut | Daz sie nicht enteiln ir gut | Durch lon des aller besten. Ebd. 13790 Da wider veret der tuvel in | In den ubel willigen sin | Zu allen iren leiden. Voc. Teut.-Lat. ii vr (Nürnb. 1482) Vbelwilliger poßwilliger. maliuolus. Zu übelwollen: Maaler 441r (Zürich 1561) Einem Vbel woͤllen vnd boͤses gunnen / Eim schaden trachten vnnd bey jm selbs fürnemmen. [...]. Vbelwoͤllend. Maleuolus. Zu übelziemend: Maaler 441v (Zürich 1561) Vbelzimmend. Illiberalis, Indecens, Indecorus.
+-->
+  <!--Interpunktionsloser Text:
+übel(+Zweitglied)hierwerdeninAuswahlschwachbelegteteilsunfesteWortbildungen(ReihenbildungenmeistKompositanachdemMusterübel+GrundwortseltenerZusammenrückungen)dokumentiertundzwarübel+Voder+Substoder+Adj/AdvdasErstgliedistdabeimeistalsAdj/AdvimSinnevonübel12(inadverbialerFunktion)nurvereinzeltalsSubstvorauszusetzenvielfachistdieZuordnungnichtsicherentscheidbarfüreinigeVorkommenmussAnalogieangenommenwerdenVglauchdiedichterbelegtenBildungenuntereinemeigenenStichwortansatz(ineinemVollartikel)Wbgübelfarwohl›hässlichungestaltet‹vglübel(Adj)1far(dieszumhdvar›farbig‹Lexer320)übelgehörig›taub‹vglübel(Adj)14Bdvtaub1übelgeschmakeinaufdenüblenGeruchePbezogenerverächtlicherScherznamevglübel(Adj)14geschmak(Adj)1übelgötzeNameeinesmitschwerenWaffenbestücktenSchiffeszuübel(Adj)1vglgötze12(ütr)übelhausen›schlechtwirtschaften‹(imBelegsubst)vglübel(Adj)124hausen679übelhören›bewusstfalschselektivhören‹(alshörerseitigeEntsprechungzusprecherseitigemlästern2undübelreden)vglübel(Adj)14übellautendübellautig›solautenddassesschwerverstehbarist‹vglübel(Adj)124lauten3Ggs(reziprok/hörerseitig)übelgehörigübelmächtig›überausmächtig‹zuübel(Adj)3mächtig12übelmeinung›schlechterLeumund‹vglübel(Adj)122meinung1übelriechendübelrüchigjeweils˹›stinkend‹zuübel(Adj)1Ggswolrüchig˺übelsagen›schmähendüberetwsprechen‹zuübel(Adj)2Bdvboshaftigenübelsager›Verleumder‹vglübel(Adj)2übel(das)123Bdv1lästererschelter1übelrederübelsagung›Verleumdung‹zuübel(Adj)2übel(das)123Bdvfluchscheltwortübelschmakwohl›üblerGeruch‹sowie›Speichel‹zuübel(Adj)2übelschmackendübelschmeckendzuübel(Adj)2übelschwenklich›zuhochmutstölzeverleitendverführend‹vglübel(Adj)1übelschwerend›meineidigverworfen‹zuübel(Adj)2übelsehig›schielend‹vglübel(Adj)14übelsprechen›gotteslästerlichredenjnschmähen‹zuübel(Adj)2Bdvfluchenschmähen124übelstehend›bösartigsündhaft‹vglübel(Adj)14stehen25übelstimmig›misstönend‹zuübel(Adj)2stimmen1übelstinkendzuübel(Adj)123stinken1übelweisung›BeschimpfungePLästerrede‹vglübel(Adj)2Bdvaufhebung2schandredeschmachredeverweisungübelwillig›böswilligselbstbezüglich‹vglübel(Adj)12Bdvarg(Adj)45böswilligübelwollen›eineböseAbsichthegenübelwollen‹vglübel(Adj)12übelziemend›umziemlich‹zuübel(Adj)2DieOrdnungderBelegeentsprichtderReihenfolgederNennungderWortbildungenZuübelfarHaltausLiederbHätzlerin26722(schwäb1471)seinguͦtfriund|KamenmitMairBetzendar|Diethrichderv̈belfar|Cuͦnratderplattenkopf|VndauchMairNasztropffZuübelgehörigDasypodius482v(Straßb1536)Dauber/vbelgehoͤrigerSurdusZuübelgeschmakWiessnerWittenwRing3622(ohalem1400/08)DererstewasderOchsenchroph|DeranderhaissetLöwenchoph|[]|DerwierdseiUotzderÜbelgsmakZuübelgötzeChronKöln210424(rib1415)datschifwartgenantderOivelgotzinddatschifquamzuRileZuübelhausenChronAugsb730518(schwäbzu1555)somögensiedochderhalben[Bezugaufschulden]kainesübelhausensbeschuldigtwerdenZuübelhörenFranckDecl34337(Nürnb1531)ober[vnserbruder]etwoeinwollustinseinemuͤbelredenvnndlesternhetentpfangen/dassprichich/erebendenselbeninnuͤbelhoͤrenwiderverzetvndverlier/Welcher/dieweylerhatgesagtwaserhatgewoͤlt/istesnitvnbillich/daserhoͤrwasernitwoͤlZuübellautend/übellautigChronAugsb71182(schwäbzu1548)zuͤdemistesnebenallemschadenauchainübellautendschimpflichdingSchmittOrdorerum47210(oobd2H15Jh)Absurdus[]vbellautigZuübelmächtigBaumannZwirnerAugsbVolksb1991472(Augsbum1476)desrömptesichseinsschalkhaftigengewaltsderübelmechtigpfalzgrafZuübelmeinungLutherWA78761(1520/1)hiemitbefilEurkayMaỹtvndGnadenichmichunterteniglichindemutbittendsiewellennitgestatenmichgegenInendurchmeynerabgunstigenubelmeynungverunglimpffenundinungnadenbringennZuübelriechendBelkinuaRösslinKreutterb11415(Frankf1535)diedavilBleiweißnützenn/diegewinnengernzeenwethum/vndeinenübelriechendenmundJungbluthJvSaazAckermann2415(Hs˹omd1465˺)einmensche[]isteinbesmirterbinstock[]einübelriechenderharmkrugeinübelsmeckendereimerZuübelrüchigDasypodius401v(Straßb1536)vbelRuͤchigPutidusZuübelsagenKurrelmeyerDtBibel739812(Straßb1466)Nichtenwoͤltrúrenmeinengesalbtenvndnitwoͤltvbelsagen[Var147521518boßhafftigenndBibelum1478malignerenFroschauer1531fuͤgend[]nichtsleydszuͦEck1537Ps1045übelenDietenberger1534handelt[]nitvbelLuther1545Ps10515thut[]keinleid]inmeinenweyssagenZuübelsagerKurrelmeyerDtBibel27213(Straßb1466)obderderdoist[]eingemeinvnkeuscherodereinarger[]odereinvbelsager[Var147521518übelroͤderndBibelum1478oeuelsprekenderFroschauer1531schaͤlterDietenberger1534/Eck1537/Luther15451Kor511Lesterer]ZuübelsagungKurrelmeyerDtBibel243215(Straßb1466)nitwidergebtvbelvmbvbelnochvbelsagenvmbvbelsagung[ndBibelum1478vlokeLuther15451Petr39scheltwort]ZuübelschmakVocTeutLatiivv(Nürnb1482)Vbelsmackvbelergesmackoscedood’spaichelZuübelschmackend/übelschmeckendVocTeutLatiivr(Nürnb1482)Vbelsmeckendestatod’pruntzstatWilliamsuaElsLegAurea16512(els1362)DogingeinsogrosserubelsmackenderroͮchvonsimelibedazkeinmenschebiimegewonenmoͤhteVglfernersvübelriechendZuübelschwenklichMaaler(Zürich1561)Hochmuͦt/EinübelschwenklichfroͤudZuübelschwerendBarackZimChron415915(schwäbM16Jh)einverruechterübelschwerendermentschunddersichnieverheiratensonderhabeinbeisitzeinledigetürnengehaptEbd16023[Derselbig]solleinübelschwerenderungotzförchtigermentschgewestseinZuübelsehigDasypodius419v(Straßb1536)übelsehigLuscusZuübelsprechenMayerFolzMeisterl100230(nobdv1496)WerubelsprichtoderfluchtdemvatersolsterbdestodsDonaliesAugsbBibelhs715(oschwäbv1350)selickseit/irsoivchdiemenschenübelsprechentZuübelstehendBihlmeyerSeuse12313(alem14Jh)Ersprach„neindazwerieinunvernúnftigúgeburschheitundeinúbelstendúfreidikeit[]“BömerPilgerfträumMönch3156(rhfrkum1405)obeichalsdumeynest|Hetteeynicheubelstehndesachengetan|[]ZuübelstimmigDasypodius431r(Straßb1536)übelStim̃igAbsonusZuübelstinkendHelmHvHeslerApok7363(nrddt14Jh)Swenaberdesvordruzet|Undmirdieturbesperret|Undvorderturmicherret|Mitubelstinkendenruchen|[]|DarmacnichtkomenGotinBaumannZwirnerAugsbVolksb1991224(Augsb1509)SyliessendentodtenübelstinckendenmanbißandendrittentagalsoanoffnerstraßstonZuübelweisungSchmittOrdorerum28220(oobd1468)Jmproperiumvorwysunge[]schanntredaufhebungsmachred[]vbelweisungZuübelwilligHelmHvHeslerApok3953(nrddt14Jh)Derubelwillicargewicht|HalbteiletsinetagenichtEbd6815Dazisteinubelwillicmut|Dazsienichtenteilnirgut|DurchlondesallerbestenEbd13790Dawiderveretdertuvelin|Indenubelwilligensin|ZuallenirenleidenVocTeutLatiivr(Nürnb1482)VbelwilligerpoßwilligermaliuolusZuübelwollenMaaler441r(Zürich1561)EinemVbelwoͤllenvndboͤsesgunnen/Eimschadentrachtenvnndbeyjmselbsfürnemmen[]VbelwoͤllendMaleuolusZuübelziemendMaaler441v(Zürich1561)VbelzimmendIlliberalisIndecensIndecorus
+übel(+Zweitglied)hierwerdeninAuswahlschwachbelegteteilsunfesteWortbildungen(ReihenbildungenmeistKompositanachdemMusterübel+GrundwortseltenerZusammenrückungen)dokumentiertundzwarübel+Voder+Substoder+Adj/AdvdasErstgliedistdabeimeistalsAdj/AdvimSinnevonübel12(inadverbialerFunktion)nurvereinzeltalsSubstvorauszusetzenvielfachistdieZuordnungnichtsicherentscheidbarfüreinigeVorkommenmussAnalogieangenommenwerdenVglauchdiedichterbelegtenBildungenuntereinemeigenenStichwortansatz(ineinemVollartikel)Wbgübelfarwohl›hässlichungestaltet‹vglübel(Adj)1far(dieszumhdvar›farbig‹Lexer320)übelgehörig›taub‹vglübel(Adj)14Bdvtaub1übelgeschmakeinaufdenüblenGeruchePbezogenerverächtlicherScherznamevglübel(Adj)14geschmak(Adj)1übelgötzeNameeinesmitschwerenWaffenbestücktenSchiffeszuübel(Adj)1vglgötze12(ütr)übelhausen›schlechtwirtschaften‹(imBelegsubst)vglübel(Adj)124hausen679übelhören›bewusstfalschselektivhören‹(alshörerseitigeEntsprechungzusprecherseitigemlästern2undübelreden)vglübel(Adj)14übellautendübellautig›solautenddassesschwerverstehbarist‹vglübel(Adj)124lauten3Ggs(reziprok/hörerseitig)übelgehörigübelmächtig›überausmächtig‹zuübel(Adj)3mächtig12übelmeinung›schlechterLeumund‹vglübel(Adj)122meinung1übelriechendübelrüchigjeweils˹›stinkend‹zuübel(Adj)1Ggswolrüchig˺übelsagen›schmähendüberetwsprechen‹zuübel(Adj)2Bdvboshaftigenübelsager›Verleumder‹vglübel(Adj)2übel(das)123Bdv1lästererschelter1übelrederübelsagung›Verleumdung‹zuübel(Adj)2übel(das)123Bdvfluchscheltwortübelschmakwohl›üblerGeruch‹sowie›Speichel‹zuübel(Adj)2übelschmackendübelschmeckendzuübel(Adj)2übelschwenklich›zuhochmutstölzeverleitendverführend‹vglübel(Adj)1übelschwerend›meineidigverworfen‹zuübel(Adj)2übelsehig›schielend‹vglübel(Adj)14übelsprechen›gotteslästerlichredenjnschmähen‹zuübel(Adj)2Bdvfluchenschmähen124übelstehend›bösartigsündhaft‹vglübel(Adj)14stehen25übelstimmig›misstönend‹zuübel(Adj)2stimmen1übelstinkendzuübel(Adj)123stinken1übelweisung›BeschimpfungePLästerrede‹vglübel(Adj)2Bdvaufhebung2schandredeschmachredeverweisungübelwillig›böswilligselbstbezüglich‹vglübel(Adj)12Bdvarg(Adj)45böswilligübelwollen›eineböseAbsichthegenübelwollen‹vglübel(Adj)12übelziemend›umziemlich‹zuübel(Adj)2DieOrdnungderBelegeentsprichtderReihenfolgederNennungderWortbildungenZuübelfarHaltausLiederbHätzlerin26722(schwäb1471)seinguͦtfriund|KamenmitMairBetzendar|Diethrichderv̈belfar|Cuͦnratderplattenkopf|VndauchMairNasztropffZuübelgehörigDasypodius482v(Straßb1536)Dauber/vbelgehoͤrigerSurdusZuübelgeschmakWiessnerWittenwRing3622(ohalem1400/08)DererstewasderOchsenchroph|DeranderhaissetLöwenchoph|[]|DerwierdseiUotzderÜbelgsmakZuübelgötzeChronKöln210424(rib1415)datschifwartgenantderOivelgotzinddatschifquamzuRileZuübelhausenChronAugsb730518(schwäbzu1555)somögensiedochderhalben[Bezugaufschulden]kainesübelhausensbeschuldigtwerdenZuübelhörenFranckDecl34337(Nürnb1531)ober[vnserbruder]etwoeinwollustinseinemuͤbelredenvnndlesternhetentpfangen/dassprichich/erebendenselbeninnuͤbelhoͤrenwiderverzetvndverlier/Welcher/dieweylerhatgesagtwaserhatgewoͤlt/istesnitvnbillich/daserhoͤrwasernitwoͤlZuübellautend/übellautigChronAugsb71182(schwäbzu1548)zuͤdemistesnebenallemschadenauchainübellautendschimpflichdingSchmittOrdorerum47210(oobd2H15Jh)Absurdus[]vbellautigZuübelmächtigBaumannZwirnerAugsbVolksb1991472(Augsbum1476)desrömptesichseinsschalkhaftigengewaltsderübelmechtigpfalzgrafZuübelmeinungLutherWA78761(1520/1)hiemitbefilEurkayMaỹtvndGnadenichmichunterteniglichindemutbittendsiewellennitgestatenmichgegenInendurchmeynerabgunstigenubelmeynungverunglimpffenundinungnadenbringennZuübelriechendBelkinuaRösslinKreutterb11415(Frankf1535)diedavilBleiweißnützenn/diegewinnengernzeenwethum/vndeinenübelriechendenmundJungbluthJvSaazAckermann2415(Hs˹omd1465˺)einmensche[]isteinbesmirterbinstock[]einübelriechenderharmkrugeinübelsmeckendereimerZuübelrüchigDasypodius401v(Straßb1536)vbelRuͤchigPutidusZuübelsagenKurrelmeyerDtBibel739812(Straßb1466)Nichtenwoͤltrúrenmeinengesalbtenvndnitwoͤltvbelsagen[Var147521518boßhafftigenndBibelum1478malignerenFroschauer1531fuͤgend[]nichtsleydszuͦEck1537Ps1045übelenDietenberger1534handelt[]nitvbelLuther1545Ps10515thut[]keinleid]inmeinenweyssagenZuübelsagerKurrelmeyerDtBibel27213(Straßb1466)obderderdoist[]eingemeinvnkeuscherodereinarger[]odereinvbelsager[Var147521518übelroͤderndBibelum1478oeuelsprekenderFroschauer1531schaͤlterDietenberger1534/Eck1537/Luther15451Kor511Lesterer]ZuübelsagungKurrelmeyerDtBibel243215(Straßb1466)nitwidergebtvbelvmbvbelnochvbelsagenvmbvbelsagung[ndBibelum1478vlokeLuther15451Petr39scheltwort]ZuübelschmakVocTeutLatiivv(Nürnb1482)Vbelsmackvbelergesmackoscedood’spaichelZuübelschmackend/übelschmeckendVocTeutLatiivr(Nürnb1482)Vbelsmeckendestatod’pruntzstatWilliamsuaElsLegAurea16512(els1362)DogingeinsogrosserubelsmackenderroͮchvonsimelibedazkeinmenschebiimegewonenmoͤhteVglfernersvübelriechendZuübelschwenklichMaaler(Zürich1561)Hochmuͦt/EinübelschwenklichfroͤudZuübelschwerendBarackZimChron415915(schwäbM16Jh)einverruechterübelschwerendermentschunddersichnieverheiratensonderhabeinbeisitzeinledigetürnengehaptEbd16023[Derselbig]solleinübelschwerenderungotzförchtigermentschgewestseinZuübelsehigDasypodius419v(Straßb1536)übelsehigLuscusZuübelsprechenMayerFolzMeisterl100230(nobdv1496)WerubelsprichtoderfluchtdemvatersolsterbdestodsDonaliesAugsbBibelhs715(oschwäbv1350)selickseit/irsoivchdiemenschenübelsprechentZuübelstehendBihlmeyerSeuse12313(alem14Jh)Ersprach„neindazwerieinunvernúnftigúgeburschheitundeinúbelstendúfreidikeit[]“BömerPilgerfträumMönch3156(rhfrkum1405)obeichalsdumeynest|Hetteeynicheubelstehndesachengetan|[]ZuübelstimmigDasypodius431r(Straßb1536)übelStim̃igAbsonusZuübelstinkendHelmHvHeslerApok7363(nrddt14Jh)Swenaberdesvordruzet|Undmirdieturbesperret|Undvorderturmicherret|Mitubelstinkendenruchen|[]|DarmacnichtkomenGotinBaumannZwirnerAugsbVolksb1991224(Augsb1509)SyliessendentodtenübelstinckendenmanbißandendrittentagalsoanoffnerstraßstonZuübelweisungSchmittOrdorerum28220(oobd1468)Jmproperiumvorwysunge[]schanntredaufhebungsmachred[]vbelweisungZuübelwilligHelmHvHeslerApok3953(nrddt14Jh)Derubelwillicargewicht|HalbteiletsinetagenichtEbd6815Dazisteinubelwillicmut|Dazsienichtenteilnirgut|DurchlondesallerbestenEbd13790Dawiderveretdertuvelin|Indenubelwilligensin|ZuallenirenleidenVocTeutLatiivr(Nürnb1482)VbelwilligerpoßwilligermaliuolusZuübelwollenMaaler441r(Zürich1561)EinemVbelwoͤllenvndboͤsesgunnen/Eimschadentrachtenvnndbeyjmselbsfürnemmen[]VbelwoͤllendMaleuolusZuübelziemendMaaler441v(Zürich1561)VbelzimmendIlliberalisIndecensIndecorus
+-->
+  <!--Original:
+<p2 uuid="22a0b650-69da-4fac-83ec-941c293eb503"><b>übel-</b> (+ Zweitglied).</p2>
+<p2 uuid="c3f5b082-946f-4aa5-8acf-2204fca9098a">hier werden in Auswahl schwach belegte, teils unfeste Wortbildungen (Reihenbildungen; meist Komposita nach dem Muster <i>übel-</i> + Grundwort, seltener Zusammenrückungen) dokumentiert, und zwar: <i>übel-</i> + V. oder + Subst. oder + Adj. / Adv.; das Erstglied ist dabei meist als Adj. / Adv. im Sinne von <i>übel</i> 1; 2 (in adverbialer Funktion), nur vereinzelt als Subst. vorauszusetzen; vielfach ist die Zuordnung nicht sicher entscheidbar; für einige Vorkommen muss Analogie angenommen werden. – Vgl. auch die dichter belegten Bildungen unter einem eigenen Stichwortansatz (in einem Vollartikel). – Wbg.: <i>übelfar</i> wohl ›hässlich, ungestaltet‹ ; vgl. <i>übel</i> (Adj.) 1, <i>-far</i> (dies zu mhd. <i>var</i> ›farbig‹ ; <sc>Lexer</sc> 3, 20). – <i>übelgehörig</i> ›taub‹ ; vgl. <i>übel</i> (Adj.) 1; 4. – Bdv.: <i>taub</i> 1. – <i>übelgeschmak</i> ein auf den üblen Geruch e. P. bezogener, verächtlicher Scherzname; vgl. <i>übel</i> (Adj.) 1; 4, <i>geschmak</i> (Adj.) 1. – <i>übelgötze</i> Name eines mit schweren Waffen bestückten Schiffes; zu <i>übel</i> (Adj.) 1, vgl. <i>götze</i> 1; 2 (ütr.). – <i>übelhausen</i> ›schlecht wirtschaften‹ (im Beleg subst.); vgl. <i>übel</i> (Adj.) 1; 2; 4, <i>hausen</i> 6; 7; 9. – <i>übelhören</i> ›bewusst falsch, selektiv hören‹ (als hörerseitige Entsprechung zu sprecherseitigem <i>lästern</i> 2 und <i>übelreden</i>); vgl. <i>übel</i> (Adj.) 1; 4. – <i>übellautend, übellautig</i> ›so lautend, dass es schwer verstehbar ist‹ ; vgl. <i>übel</i> (Adj.) 1; 2; 4, <i>lauten</i> 3. – Ggs. (reziprok / hörerseitig): <i>übelgehörig</i>. – <i>übelmächtig</i> ›überaus mächtig‹ ; zu <i>übel</i> (Adj.) 3, <i>mächtig</i> 1; 2. – <i>übelmeinung</i> ›schlechter Leumund‹ ; vgl. <i>übel</i> (Adj.) 1; 2, <sup>2</sup><i>meinung</i> 1. – <i>übelriechend, übelrüchig</i> jeweils ˹›stinkend‹ ; zu <i>übel</i> (Adj.) 1. – Ggs.: <i>wolrüchig</i>˺. – <i>übelsagen</i> ›schmähend über etw. sprechen‹ ; zu <i>übel</i> (Adj.) 2. – Bdv.: <i>boshaftigen</i>. – <i>übelsager</i> ›Verleumder‹ ; vgl. <i>übel</i> (Adj.) 2; <i>übel</i> (<i>das</i>) 1; 2; 3. – Bdv.: <sup>1</sup><i>lästerer, schelter</i> 1, <i>übelreder</i>. – <i>übelsagung</i> ›Verleumdung‹ ; zu <i>übel</i> (Adj.) 2; <i>übel</i> (<i>das</i>) 1; 2; 3. – Bdv.: <i>fluch, scheltwort</i>. – <i>übelschmak</i> wohl ›übler Geruch‹ sowie ›Speichel‹ ; zu <i>übel</i> (Adj.) 2. – <i>übelschmackend, übelschmeckend</i> ; zu <i>übel</i> (Adj.) 2. – <i>übelschwenklich</i> ›zu <i>hochmut, stölze</i> verleitend, verführend‹ ; vgl. <i>übel</i> (Adj.) 1. – <i>übelschwerend</i> ›meineidig, verworfen‹ ; zu <i>übel</i> (Adj.) 2. – <i>übelsehig</i> ›schielend‹ ; vgl. <i>übel</i> (Adj.) 1; 4. – <i>übelsprechen</i> ›gotteslästerlich reden; jn. schmähen‹ ; zu <i>übel</i> (Adj.) 2. – Bdv.: <i>fluchen, schmähen</i> 1; 2; 4. – <i>übelstehend</i> ›bösartig, sündhaft‹ ; vgl. <i>übel</i> (Adj.) 1; 4, <i>stehen</i> 2; 5. – <i>übelstimmig</i> ›misstönend‹ ; zu <i>übel</i> (Adj.) 2, <i>stimmen</i> 1. – <i>übelstinkend</i> ; zu <i>übel</i> (Adj.) 1; 2; 3, <i>stinken</i> 1. – <i>übelweisung</i> ›Beschimpfung e. P., Lästerrede‹ ; vgl. <i>übel</i> (Adj.) 2. – Bdv.: <i>aufhebung</i> 2, <i>schandrede, schmachrede, verweisung</i>. – <i>übelwillig</i> ›böswillig, selbstbezüglich‹ ; vgl. <i>übel</i> (Adj.) 1; 2. – Bdv.: <i>arg</i> (Adj.) 4; 5, <i>böswillig</i>. – <i>übelwollen</i> ›eine böse Absicht hegen, übelwollen‹ ; vgl. <i>übel</i> (Adj.) 1; 2. – <i>übelziemend</i> ›umziemlich‹ ; zu <i>übel</i> (Adj.) 2.</p2>
+<p>Die Ordnung der Belege entspricht der Reihenfolge der Nennung der Wortbildungen: – Zu <i>übelfar</i> : <sc>Haltaus</sc>, Liederb. Hätzlerin 2, 67, 22 (schwäb., 1471): <i>sein guͦt friund | Kamen mit Mair Betzen dar, | Diethrich der <ol>v̈belfar</ol>, | Cuͦnrat der plattenkopf, | Vnd auch Mair Nasztropff</i>. – Zu <i>übelgehörig</i> : <sc>Dasypodius</sc> 482v (Straßb. 1536): <i>Dauber / <ol>vbelgehoͤriger</ol>. Surdus</i>. – Zu <i>übelgeschmak</i> : <sc>Wiessner</sc>, Wittenw. Ring 3622 (ohalem., 1400/08): <i>Der erste was der Ochsenchroph, | Der ander haisset Löwenchoph, | [...] | Der wierd sei Uotz der <ow>Übelgsmak</ow></i>. – Zu <i>übelgötze</i> : <sc>Chron. Köln</sc> 2, 104, 24 (rib., 1415): <i>dat schif wart genant der <ol>Oivelgotz</ol>, ind dat schif quam zu Rile</i>. – Zu <i>übelhausen</i> : <sc>Chron. Augsb</sc>. 7, 305, 18 (schwäb., zu 1555): <i>so mögen sie doch derhalben</i> [Bezug auf <i>schulden</i>] <i>kaines <ol>übelhausens</ol> beschuldigt werden</i>. – Zu <i>übelhören</i> : <sc>Franck</sc>, Decl. 343, 37 (Nürnb. 1531): <i>ob er [vnser bruder] etwo ein wollust in seinem <ol>uͤbelreden</ol> vnnd lestern het entpfangen / das sprich ich / er eben denselben inn <ol>uͤbelhoͤren</ol> wider verzet vnd verlier / Welcher / dieweyl er hat gesagt was er hat gewoͤlt / ist es nit vnbillich / das er hoͤr was er nit woͤl</i>. – Zu <i>übellautend / übellautig</i> : <sc>Chron. Augsb</sc>. 7, 118, 2 (schwäb., zu 1548): <i>zuͤdem ist es neben allem schaden auch ain <ol>übellautend</ol>, schimpflich ding</i>. <sc>Schmitt</sc>, Ordo rerum 472, 10 (oobd., 2. H. 15. Jh.): <i>Absurdus [...] <ol>vbellautig</ol></i>. – Zu <i>übelmächtig</i> : <sc>Baumann-Zwirner</sc>, Augsb. Volksb. 1991, 472 (Augsb. um 1476): <i>des römpte sich seins schalkhaftigen gewalts der <ol>übelmechtig</ol> pfalzgraf</i>. – Zu <i>übelmeinung</i> : <sc>Luther</sc>, WA 7, 876, 1 (1520/1): <i>hiemit befil Eur kay. Maỹt vnd Gnaden ich mich unterteniglich, in demut bittend, sie wellen nit gestaten mich gegen Inen durch meyner abgunstigen <ow>ubelmeynung</ow> verunglimpffen und in ungnaden bringenn</i>. – Zu <i>übelriechend</i> : <sc>Belkin</sc> u. a., Rösslin. Kreutterb. 114, 15 (Frankf. 1535): <i>die da vil Bleiweiß nützenn / die gewinnen gern zeen wethum / vnd einen <ol>übelriechenden</ol> mund</i>. <sc>Jungbluth</sc>, J. v. Saaz. Ackermann 24, 15 (Hs. ˹omd., 1465˺): <i>ein mensche [...] ist ein besmirter binstock, [...], ein <ol>übelriechender</ol> harmkrug, ein <ol>übelsmeckender</ol> eimer</i>. – Zu <i>übelrüchig</i> : <sc>Dasypodius</sc> 401v (Straßb. 1536): <i><ol>vbelRuͤchig</ol>. Putidus</i>. – Zu <i>übelsagen</i> : <sc>Kurrelmeyer</sc>, Dt. Bibel 7, 398, 12 (Straßb. 1466): <i>Nichten woͤlt rúren meinen gesalbten: vnd nit woͤlt <ol>vbelsagen</ol></i> [Var. 1475<sup>2</sup>–1518: <i>boßhafftigen</i> ; nd. Bibel um 1478: <i>maligneren</i> ; <sc>Froschauer</sc> 1531: <i>fuͤgend [...] nichts leyds zuͦ</i> ; <sc>Eck</sc> 1537, Ps. 104, 5: <i>übelen</i> ; <sc>Dietenberger</sc> 1534: <i>handelt [...] nit vbel</i> ; <sc>Luther</sc> 1545, Ps. 105, 15: <i>thut [...] kein leid</i>] <i>in meinen weyssagen</i>. – Zu <i>übelsager</i> : <sc>Kurrelmeyer</sc>, Dt. Bibel 2, 72, 13 (Straßb. 1466): <i>ob der der do ist [...] ein gemein vnkeuscher oder ein arger [...] oder ein <ol>vbelsager</ol></i> [Var. 1475–<sup>2</sup>1518: <i>übelroͤder</i> ; nd. Bibel um 1478: <i>oeuel sprekender</i> ; <sc>Froschauer</sc> 1531: <i>schaͤlter</i> ; <sc>Dietenberger</sc> 1534 / <sc>Eck</sc> 1537 / <sc>Luther</sc> 1545, 1. Kor. 5, 11: <i>Lesterer</i>]. – Zu <i>übelsagung</i> : <sc>Kurrelmeyer</sc>, Dt. Bibel 2, 432, 15 (Straßb. 1466): <i>nit widergebt vbel vmb vbel. noch vbel sagen vmb <ol>vbelsagung</ol></i> [nd. Bibel um 1478: <i>vloke</i> ; <sc>Luther</sc> 1545, 1. Petr. 3, 9: <i>scheltwort</i>]. – Zu <i>übelschmak</i> : <sc>Voc. Teut.-Lat</sc>. ii vv (Nürnb. 1482): <i><ol>Vbelsmack</ol> vbeler gesmack. oscedo. od’ spaichel</i>. – Zu <i>übelschmackend / übelschmeckend</i> : <sc>Voc. Teut.-Lat</sc>. ii vr (Nürnb. 1482): <i><ow>Vbelsmeckende</ow> stat od’ pruntzstat</i>. <sc>Williams</sc> u. a., Els. Leg. Aurea 165, 12 (els., 1362): <i>Do ging ein so grosser <ol>ubelsmackender</ol> roͮch von sime libe daz kein mensche bi ime gewonen moͤhte</i>. – Vgl. ferner s. v. <i>übelriechend</i>. – Zu <i>übelschwenklich</i> : <sc>Maaler</sc> (Zürich 1561): <i>Hochmuͦt / Ein <ow>übelschwenklich</ow> froͤud</i>. – Zu <i>übelschwerend</i> : <sc>Barack</sc>, Zim. Chron. 4, 159, 15 (schwäb., M. 16. Jh.): <i>ein verruechter, <ol>übelschwerender</ol> mentsch und der sich nie verheiraten, sonder hab ein beisitz, ein ledige türnen, gehapt</i>. <sc>Ebd</sc>. 160, 23: <i>[Derselbig] soll ein <ol>übelschwerender</ol>, ungotzförchtiger mentsch gewest sein</i>. – Zu <i>übelsehig</i> : <sc>Dasypodius</sc> 419v (Straßb. 1536): <i><ol>übelsehig</ol>. Luscus</i>. – Zu <i>übelsprechen</i> : <sc>Mayer</sc>, Folz. Meisterl. 100, 230 (nobd., v. 1496): <i>Wer <ol>ubelspricht</ol> oder flucht dem vater, sol sterb des tods</i>. <sc>Donalies</sc>, Augsb. Bibelhs. 7, 15 (oschwäb., v. 1350): <i>selick seit / ir so ivch die menschen <ow>übelsprechent</ow></i>. – Zu <i>übelstehend</i> : <sc>Bihlmeyer</sc>, Seuse 123, 13 (alem., 14. Jh.): <i>Er sprach: „nein, daz weri ein unvernúnftigú geburschheit und ein <ol>úbelstendú</ol> freidikeit [...]“</i>. <sc>Bömer</sc>, Pilgerf. träum. Mönch 3156 (rhfrk., um 1405): <i>obe ich, als du meynest, | Hette eyniche <ow>ubelstehnde</ow> sachen getan | [...]</i>. – Zu <i>übelstimmig</i> : <sc>Dasypodius</sc> 431r (Straßb. 1536): <i><ol>übelStim̃ig</ol>. Absonus</i>. – Zu <i>übelstinkend</i> : <sc>Helm</sc>, H. v. Hesler. Apok. 7363 (nrddt., 14. Jh.): <i>Swen aber des vordruzet | Und mir die tur besperret | Und vor der tur mich erret | Mit <ow>ubelstinkenden</ow> ruchen | [...] | Dar mac nicht komen Got in</i>. <sc>Baumann-Zwirner</sc>, Augsb. Volksb. 1991, 224 (Augsb. 1509): <i>Sy liessen den todten <ol>übelstinckenden</ol> man biß an den dritten tag also an offner straß ston</i>. – Zu <i>übelweisung</i> : <sc>Schmitt</sc>, Ordo rerum 282, 20 (oobd., 1468): <i>Jmproperium vorwysunge [...] schannt red aufhebung smachred [...] <ol>vbelweisung</ol></i>. – Zu <i>übelwillig</i> : <sc>Helm</sc>, H. v. Hesler. Apok. 3953 (nrddt., 14. Jh.): <i>Der <ol>ubelwillic</ol> arge wicht | Halb teilet sine tage nicht</i>. <sc>Ebd</sc>. 6815: <i>Daz ist ein <ol>ubel willic</ol> mut | Daz sie nicht enteiln ir gut | Durch lon des aller besten</i>. <sc>Ebd</sc>. 13790: <i>Da wider veret der tuvel in | In den <ol>ubel willigen</ol> sin | Zu allen iren leiden</i>. <sc>Voc. Teut.-Lat</sc>. ii vr (Nürnb. 1482): <i><ol>Vbelwilliger</ol> poßwilliger. maliuolus</i>. – Zu <i>übelwollen</i> : <sc>Maaler</sc> 441r (Zürich 1561): <i>Einem <ol>Vbel woͤllen</ol> vnd boͤses gunnen / Eim schaden trachten vnnd bey jm selbs fürnemmen. [...]. <ol>Vbelwoͤllend</ol>. Maleuolus</i>. – Zu <i>übelziemend</i> : <sc>Maaler</sc> 441v (Zürich 1561): <i><ol>Vbelzimmend</ol>. Illiberalis, Indecens, Indecorus</i>.</p>
+
+-->
+
+</TEI>
